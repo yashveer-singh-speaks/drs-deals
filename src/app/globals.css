@@ -2154,8 +2154,8 @@ html, body {
     box-sizing: border-box;
 }
 
-/* Ensure Media Elements Never Exceed Viewport */
-video, iframe, canvas {
+/* Ensure Images Never Exceed Viewport */
+img:not(.brand-logo-img):not(.collage-img), video, iframe, canvas {
     max-width: 100% !important;
     height: auto !important;
 }
@@ -2232,60 +2232,73 @@ img:not(.brand-logo-img) {
     .hero {
         flex-direction: column !important;
         padding-top: 100px !important;
-        padding-bottom: 40px !important;
-        gap: 32px !important;
+        padding-bottom: 0px !important;
     }
     .hero-content {
         max-width: 100% !important;
         text-align: center !important;
+        padding: 0 16px !important;
     }
     .hero-title {
-        font-size: 2.25rem !important;
-        line-height: 1.2 !important;
+        font-size: 2.5rem !important;
+        line-height: 1.1 !important;
+        margin-bottom: 16px !important;
     }
     .hero-desc {
-        font-size: 1rem !important;
+        font-size: 1.125rem !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        margin-bottom: 32px !important;
     }
     .hero-actions {
         justify-content: center !important;
-        flex-wrap: wrap !important;
+        margin-bottom: 40px !important;
     }
     .hero-trust-grid {
         justify-content: center !important;
         gap: 16px !important;
+        margin-bottom: 32px !important;
     }
     .hero-visual {
         width: 100% !important;
         max-width: 100% !important;
-        margin-top: 16px !important;
+        min-height: 60vh !important;
+    }
+    .hero-badge {
+        /* Keep absolute positioning on mobile to overlay on images */
+        position: absolute !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        width: 85% !important;
+        max-width: 320px !important;
+        padding: 32px !important;
+        z-index: 10 !important;
+        background-color: var(--color-ivory) !important;
+        border: 1px solid var(--color-stone) !important;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1) !important;
     }
     .hero-collage {
-        width: 100% !important;
-        height: auto !important;
-        display: grid !important;
-        grid-template-columns: 1fr 1fr !important;
-        gap: 12px !important;
+        height: 60vh !important;
+        padding: 0 !important;
+        gap: 0 !important;
     }
     .hero-collage .img-1 {
         grid-column: 1 / -1 !important;
-        width: 100% !important;
-        height: 220px !important;
-        object-fit: cover !important;
-        border-radius: var(--radius-md, 8px) !important;
+        grid-row: 1 !important;
+        height: 100% !important;
+        border-bottom: 5px solid var(--color-ivory) !important;
     }
-    .hero-collage .img-2, .hero-collage .img-3 {
-        position: static !important;
-        width: 100% !important;
-        height: 140px !important;
-        object-fit: cover !important;
-        border-radius: var(--radius-md, 8px) !important;
+    .hero-collage .img-2 {
+        grid-column: 1 !important;
+        grid-row: 2 !important;
+        height: 100% !important;
+        border-right: 5px solid var(--color-ivory) !important;
     }
-    .hero-badge {
-        position: static !important;
-        transform: none !important;
-        margin-top: 16px !important;
-        width: 100% !important;
-        text-align: center !important;
+    .hero-collage .img-3 {
+        grid-column: 2 !important;
+        grid-row: 2 !important;
+        height: 100% !important;
     }
 }
 
