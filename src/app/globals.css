@@ -2155,9 +2155,33 @@ html, body {
 }
 
 /* Ensure Images Never Exceed Viewport */
-img:not(.brand-logo-img):not(.collage-img), video, iframe, canvas {
+img:not(.brand-logo-img):not(.collage-img):not(.footer-logo-img), video, iframe, canvas {
     max-width: 100% !important;
     height: auto !important;
+}
+
+/* Footer Logo Responsiveness */
+.footer-logo-img {
+    height: 48px !important;
+    width: auto !important;
+    max-width: 200px !important;
+    object-fit: contain !important;
+    display: block !important;
+    flex-shrink: 0 !important;
+}
+
+@media (max-width: 1024px) {
+    .footer-logo-img {
+        height: 40px !important;
+        max-width: 160px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-logo-img {
+        height: 36px !important;
+        max-width: 140px !important;
+    }
 }
 img:not(.brand-logo-img) {
     max-width: 100%;

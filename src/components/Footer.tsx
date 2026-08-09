@@ -7,7 +7,7 @@ export default function Footer() {
                 <div className="footer-grid-layout footer-3d-perspective">
                     <div className="footer-brand footer-3d-item">
                         <Link href="/" style={{ textDecoration: 'none', display: 'inline-block', marginBottom: '24px' }}>
-                            <img src="/logo.png" alt="DRS Deals Logo" width={150} height={42} style={{ height: '40px', width: 'auto', display: 'block' }} />
+                            <img src="/logo.png" alt="DRS Deals Logo" width={200} height={48} className="footer-logo-img" />
                         </Link>
                         <p className="text-body-small" style={{ color: 'rgba(255,255,255,0.7)', marginBottom: '32px', maxWidth: '320px', lineHeight: 1.6, fontSize: '0.95rem' }}>
                             Curating India's finest premium experiences. Discover, book, and enjoy exclusive access to luxury resorts, fine dining, and unforgettable entertainment.
