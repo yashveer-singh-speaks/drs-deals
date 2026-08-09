@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Deals on Leisure, Dining, Wellness, and Stays | DRS Deals</title>
+    <meta name="description" content="DRS Deals curates real offers on water parks, resorts, hotels, restaurants, spas, salons, and entertainment experiences. Discover curated experiences at exclusive prices.">
+    <meta name="keywords" content="leisure deals, experience deals, travel deals, dining deals, hotel deals, resort deals, spa deals, discounted experiences, curated experiences">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Premium Deals on Leisure, Dining, Wellness, and Stays | DRS Deals">
+    <meta property="og:description" content="Discover curated experiences at exclusive prices. Save on resorts, water parks, dining, and wellness across India.">
+    <meta property="og:type" content="website">
+    
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "DRS Deals",
+      "url": "https://www.drsdeals.in",
+      "logo": "https://www.drsdeals.in/images/logo.png",
+      "description": "Premium promotional marketplace in India offering discounted vouchers for leisure, travel, dining, and entertainment.",
+      "foundingYear": "2003",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "New Delhi",
+        "addressCountry": "IN"
+      }
+    }
+    </script>
+</head>
+<body>
+    <!-- MOBILE DRAWER -->
+    <div class="mobile-drawer" aria-hidden="true">
+        <div class="drawer-header">
+            <div class="logo">
+                <span class="logo-main">DRS<span class="logo-star">✦</span></span>
+                <span class="logo-sub">Deals</span>
+            </div>
+            <button class="close-drawer" aria-label="Close Menu">✕</button>
+        </div>
+        <div class="drawer-body">
+            <ul class="drawer-nav">
+                <li>
+                    <a href="#" class="drawer-nav-link">Experiences <span>▼</span></a>
+                    <ul class="drawer-dropdown">
+                        <li><a href="/experiences/hotels">Hotels</a></li>
+                        <li><a href="/experiences/resorts">Resorts</a></li>
+                        <li><a href="/experiences/dining">Dining</a></li>
+                        <li><a href="/experiences/spa">Spa</a></li>
+                        <li><a href="/experiences/water-parks">Water Parks</a></li>
+                        <li><a href="/experiences/luxury">Luxury</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" class="drawer-nav-link">Destinations <span>▼</span></a>
+                    <ul class="drawer-dropdown">
+                        <li><a href="/destinations/delhi">Delhi NCR</a></li>
+                        <li><a href="/destinations/punjab">Punjab</a></li>
+                        <li><a href="/destinations/jaipur">Jaipur</a></li>
+                        <li><a href="/destinations/ahmedabad">Ahmedabad</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" class="drawer-nav-link">Collections <span>▼</span></a>
+                    <ul class="drawer-dropdown">
+                        <li><a href="/collections/weekend-escapes">Weekend Escapes</a></li>
+                        <li><a href="/collections/couples">Couples</a></li>
+                        <li><a href="/collections/family-fun">Family Fun</a></li>
+                    </ul>
+                </li>
+                <li><a href="/guides" class="drawer-nav-link">Guides</a></li>
+                <li><a href="/partners" class="drawer-nav-link">Partners</a></li>
+                <li><a href="/about" class="drawer-nav-link">About</a></li>
+            </ul>
+            <a href="/search" class="btn btn-outline" style="width: 100%; margin-bottom: 16px;">Search</a>
+            <a href="/explore" class="btn btn-primary" style="width: 100%;">Explore Deals</a>
+        </div>
+    </div>
+
+    <!-- HEADER -->
+    <header class="site-header">
+        <div class="container header-container">
+            <a href="/" class="logo" aria-label="DRS Deals Home">
+                <span class="logo-main">DRS<span class="logo-star">✦</span></span>
+                <span class="logo-sub">Deals</span>
+            </a>
+
+            <nav class="desktop-nav" aria-label="Primary Navigation">
+                <div class="nav-item">
+                    <a href="/experiences" class="nav-link">Experiences <span style="font-size: 0.6rem;">▼</span></a>
+                    <div class="mega-menu">
+                        <div>
+                            <h4 style="margin-bottom: 16px; font-family: var(--font-sans); font-size: 0.8rem; text-transform: uppercase;">Categories</h4>
+                            <ul style="list-style: none;">
+                                <li><a href="/experiences/hotels" class="dropdown-link">Hotels & Stays</a></li>
+                                <li><a href="/experiences/resorts" class="dropdown-link">Luxury Resorts</a></li>
+                                <li><a href="/experiences/dining" class="dropdown-link">Dining & Restaurants</a></li>
+                                <li><a href="/experiences/spa" class="dropdown-link">Spa & Wellness</a></li>
+                                <li><a href="/experiences/water-parks" class="dropdown-link">Water Parks</a></li>
+                                <li><a href="/experiences/entertainment" class="dropdown-link">Entertainment</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <img src="https://images.unsplash.com/photo-1542314831-c6a4d14d8376?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Luxury Hotel Room" style="border-radius: var(--radius-sm); margin-bottom: 16px;">
+                            <a href="/experiences/luxury" class="btn btn-outline" style="width: 100%; font-size: 0.75rem; padding: 10px;">View Luxury Experiences</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-item">
+                    <a href="/destinations" class="nav-link">Destinations <span style="font-size: 0.6rem;">▼</span></a>
+                    <div class="dropdown-menu">
+                        <a href="/destinations/delhi" class="dropdown-link">North India</a>
+                        <a href="/destinations/mumbai" class="dropdown-link">West India</a>
+                        <a href="/destinations/bangalore" class="dropdown-link">South India</a>
+                        <a href="/destinations/kolkata" class="dropdown-link">East India</a>
+                        <a href="/destinations" class="dropdown-link" style="border-top: 1px solid var(--color-stone); font-weight: 500;">View All Cities</a>
+                    </div>
+                </div>
+                <div class="nav-item">
+                    <a href="/collections" class="nav-link">Collections <span style="font-size: 0.6rem;">▼</span></a>
+                    <div class="dropdown-menu">
+                        <a href="/collections/weekend-escapes" class="dropdown-link">Weekend Escapes</a>
+                        <a href="/collections/couples" class="dropdown-link">Romantic Getaways</a>
+                        <a href="/collections/family-fun" class="dropdown-link">Family Fun</a>
+                        <a href="/collections/luxury-dining" class="dropdown-link">Luxury Dining</a>
+                    </div>
+                </div>
+                <div class="nav-item"><a href="/guides" class="nav-link">Guides</a></div>
+                <div class="nav-item"><a href="/partners" class="nav-link">Partners <span style="font-size: 0.6rem;">▼</span></a></div>
+                <div class="nav-item"><a href="/about" class="nav-link">About <span style="font-size: 0.6rem;">▼</span></a></div>
+            </nav>
+
+            <div class="header-actions">
+                <button class="search-trigger" aria-label="Search">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                    <span>Search</span>
+                </button>
+                <a href="/login" class="login-link">Login</a>
+                <a href="/explore" class="btn btn-primary btn-explore">Explore Deals</a>
+                
+                <button class="menu-toggle" aria-label="Open mobile menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- HERO SECTION -->
+        <section class="hero">
+            <div class="hero-content">
+                <div class="hero-eyebrow">Curated. Trusted. Unforgettable.</div>
+                <h1 class="hero-title">
+                    More Experiences. <br>
+                    More Memories. <br>
+                    <span class="text-gold">For Less.</span>
+                </h1>
+                <p class="hero-desc text-body-large">
+                    Exclusive offers on leisure, dining, travel & more. From premium getaways to everyday escapes, discover experiences that inspire.
+                </p>
+                <div class="hero-actions">
+                    <a href="/explore" class="btn btn-primary">
+                        Explore Offers 
+                        <svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                    <a href="/how-it-works" class="link-arrow">
+                        How It Works
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+
+                <div class="hero-trust-grid">
+                    <div class="trust-item">
+                        <svg class="trust-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21.5 12H16c-.7 2-2 3-4 3s-3.3-1-4-3H2.5"/><path d="M5.5 5.1L2 12v6c0 1.1.9 2 2 2h16a2 2 0 002-2v-6l-3.5-6.9A2 2 0 0016.7 4H7.3a2 2 0 00-1.8 1.1z"/></svg>
+                        <span class="trust-label">Exclusive<br>Offers</span>
+                    </div>
+                    <div class="trust-item">
+                        <svg class="trust-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+                        <span class="trust-label">Trusted<br>Partners</span>
+                    </div>
+                    <div class="trust-item">
+                        <svg class="trust-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <span class="trust-label">Memorable<br>Experiences</span>
+                    </div>
+                    <div class="trust-item">
+                        <svg class="trust-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+                        <span class="trust-label">Lasting<br>Value</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="hero-collage">
+                    <img src="https://images.unsplash.com/photo-1510798831971-661eb04b3739?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Luxury Resort Pool overlooking mountains" class="collage-img img-1">
+                    <img src="https://images.unsplash.com/photo-1622329302685-c5e31ecba059?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="People having fun on a roller coaster" class="collage-img img-2">
+                    <img src="https://images.unsplash.com/photo-1414235077428-338988691f68?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Fine dining restaurant table setup" class="collage-img img-3">
+                </div>
+                
+                <div class="hero-badge">
+                    <span class="logo-main">DRS<span class="logo-star">✦</span></span>
+                    <p class="hero-badge-text">Curating India's<br>Finest Experiences<br>At Exclusive Prices.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FEATURED EXPERIENCES -->
+        <section class="section-padding bg-ivory">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Featured Experiences</h2>
+                    <a href="/experiences" class="link-arrow">View All Deals <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                </div>
+                
+                <div class="deal-grid">
+                    <!-- Card 1 -->
+                    <div class="deal-card">
+                        <div class="deal-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?auto=format&fit=crop&w=800&q=80" alt="Premium Resort">
+                            <div class="deal-badge">30% OFF</div>
+                        </div>
+                        <div class="deal-content">
+                            <div class="deal-meta">
+                                <span class="deal-location">Jaipur</span>
+                                <span class="deal-rating">★ 4.8</span>
+                            </div>
+                            <h3 class="deal-title">Luxury Palace Resort Stay</h3>
+                            <div class="deal-partner">Taj Hotels</div>
+                            <div class="deal-price-row">
+                                <div class="price-original">₹15,000</div>
+                                <div class="price-deal">₹10,500</div>
+                            </div>
+                            <a href="#" class="btn btn-outline" style="width: 100%; margin-top: 16px;">View Details</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Card 2 -->
+                    <div class="deal-card">
+                        <div class="deal-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=800&q=80" alt="Spa and Wellness">
+                            <div class="deal-badge">40% OFF</div>
+                        </div>
+                        <div class="deal-content">
+                            <div class="deal-meta">
+                                <span class="deal-location">New Delhi</span>
+                                <span class="deal-rating">★ 4.9</span>
+                            </div>
+                            <h3 class="deal-title">Couples Ayurvedic Spa Retreat</h3>
+                            <div class="deal-partner">Kama Wellness</div>
+                            <div class="deal-price-row">
+                                <div class="price-original">₹8,000</div>
+                                <div class="price-deal">₹4,800</div>
+                            </div>
+                            <a href="#" class="btn btn-outline" style="width: 100%; margin-top: 16px;">View Details</a>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="deal-card">
+                        <div class="deal-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=800&q=80" alt="Fine Dining">
+                            <div class="deal-badge">25% OFF</div>
+                        </div>
+                        <div class="deal-content">
+                            <div class="deal-meta">
+                                <span class="deal-location">Gurgaon</span>
+                                <span class="deal-rating">★ 4.7</span>
+                            </div>
+                            <h3 class="deal-title">5-Course Chef's Tasting Menu</h3>
+                            <div class="deal-partner">The Leela Ambience</div>
+                            <div class="deal-price-row">
+                                <div class="price-original">₹6,000</div>
+                                <div class="price-deal">₹4,500</div>
+                            </div>
+                            <a href="#" class="btn btn-outline" style="width: 100%; margin-top: 16px;">View Details</a>
+                        </div>
+                    </div>
+
+                    <!-- Card 4 -->
+                    <div class="deal-card">
+                        <div class="deal-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1582559938555-6b586036814c?auto=format&fit=crop&w=800&q=80" alt="Water Park">
+                            <div class="deal-badge">50% OFF</div>
+                        </div>
+                        <div class="deal-content">
+                            <div class="deal-meta">
+                                <span class="deal-location">Noida</span>
+                                <span class="deal-rating">★ 4.6</span>
+                            </div>
+                            <h3 class="deal-title">Family Water Park Day Pass</h3>
+                            <div class="deal-partner">Worlds of Wonder</div>
+                            <div class="deal-price-row">
+                                <div class="price-original">₹1,500</div>
+                                <div class="price-deal">₹750</div>
+                            </div>
+                            <a href="#" class="btn btn-outline" style="width: 100%; margin-top: 16px;">View Details</a>
+                        </div>
+                    </div>
+
+                    <!-- Card 5 -->
+                    <div class="deal-card">
+                        <div class="deal-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1506012787146-f92b2d7d6d96?auto=format&fit=crop&w=800&q=80" alt="Boutique Hotel">
+                            <div class="deal-badge">35% OFF</div>
+                        </div>
+                        <div class="deal-content">
+                            <div class="deal-meta">
+                                <span class="deal-location">Udaipur</span>
+                                <span class="deal-rating">★ 4.9</span>
+                            </div>
+                            <h3 class="deal-title">Lakeview Heritage Suite</h3>
+                            <div class="deal-partner">The Oberoi Udaivilas</div>
+                            <div class="deal-price-row">
+                                <div class="price-original">₹25,000</div>
+                                <div class="price-deal">₹16,250</div>
+                            </div>
+                            <a href="#" class="btn btn-outline" style="width: 100%; margin-top: 16px;">View Details</a>
+                        </div>
+                    </div>
+
+                    <!-- Card 6 -->
+                    <div class="deal-card">
+                        <div class="deal-img-wrapper">
+                            <img src="https://images.unsplash.com/photo-1533552755457-5b45a0abb299?auto=format&fit=crop&w=800&q=80" alt="Adventure Park">
+                            <div class="deal-badge">20% OFF</div>
+                        </div>
+                        <div class="deal-content">
+                            <div class="deal-meta">
+                                <span class="deal-location">Pune</span>
+                                <span class="deal-rating">★ 4.5</span>
+                            </div>
+                            <h3 class="deal-title">Weekend Adventure Pass</h3>
+                            <div class="deal-partner">Della Adventure Park</div>
+                            <div class="deal-price-row">
+                                <div class="price-original">₹2,500</div>
+                                <div class="price-deal">₹2,000</div>
+                            </div>
+                            <a href="#" class="btn btn-outline" style="width: 100%; margin-top: 16px;">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TRUSTED BY -->
+        <section class="section-padding bg-white">
+            <div class="container text-center">
+                <h3 class="text-eyebrow" style="margin-bottom: 24px;">Trusted by 1000+ Premium Partners</h3>
+                <div class="partner-logos">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Taj_Hotels_logo.svg" alt="Taj Hotels" class="partner-logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/ec/Oberoi_Hotels_%26_Resorts_logo.svg" alt="Oberoi Hotels" class="partner-logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/Radisson_Hotels_logo.svg" alt="Radisson" class="partner-logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c5/Marriott_International_Logo.svg" alt="Marriott" class="partner-logo">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Hyatt_logo.svg" alt="Hyatt" class="partner-logo">
+                </div>
+            </div>
+        </section>
+
+        <!-- WHY DRS DEALS EXISTS -->
+        <section class="section-padding bg-ivory">
+            <div class="container">
+                <div class="story-grid">
+                    <div class="story-content">
+                        <h2 class="section-title" style="margin-bottom: 24px;">Why DRS Deals Exists</h2>
+                        <p class="text-body-large" style="margin-bottom: 24px;">
+                            Since 2003, we have believed that premium experiences should be accessible. Our mission is to bridge the gap between world-class hospitality venues and individuals seeking unforgettable moments without the premium price tag.
+                        </p>
+                        <p class="text-body-small text-charcoal-light" style="margin-bottom: 32px;">
+                            We don't just list discounts. We negotiate direct partnerships with India's finest resorts, restaurants, and entertainment destinations. This ensures our customers get verified, substantial savings, while our partners welcome new, qualified visitors to their venues.
+                        </p>
+                        <a href="/about" class="btn btn-outline">Read Our Story</a>
+                    </div>
+                    <div class="story-visual">
+                        <img src="https://images.unsplash.com/photo-1542314831-c6a4d14d8376?auto=format&fit=crop&w=1200&q=80" alt="Family enjoying a premium vacation" class="rounded-lg shadow-soft">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- HOW DRS DEALS WORKS -->
+        <section class="section-padding bg-white">
+            <div class="container">
+                <div class="section-header text-center justify-center">
+                    <h2 class="section-title" style="margin-bottom: 8px;">How It Works</h2>
+                    <p class="text-body-large">Four simple steps to your next great experience.</p>
+                </div>
+                
+                <div class="steps-grid">
+                    <div class="step-card">
+                        <div class="step-icon">1</div>
+                        <h3 class="step-title">Browse</h3>
+                        <p class="step-desc">Explore curated offers across leisure, dining, and stays.</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-icon">2</div>
+                        <h3 class="step-title">Purchase</h3>
+                        <p class="step-desc">Securely buy your exclusive discount voucher.</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-icon">3</div>
+                        <h3 class="step-title">Book</h3>
+                        <p class="step-desc">Contact the partner venue to confirm your visit date.</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-icon">4</div>
+                        <h3 class="step-title">Enjoy</h3>
+                        <p class="step-desc">Redeem your voucher and enjoy the premium experience.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TRUST GRID -->
+        <section class="section-padding bg-ivory">
+            <div class="container text-center">
+                <h2 class="section-title" style="margin-bottom: 48px;">Why Customers Trust Us</h2>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <svg class="feature-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                        <h4 class="feature-title">Verified Partners</h4>
+                        <p class="feature-desc text-body-small">Every venue is personally vetted by our team.</p>
+                    </div>
+                    <div class="feature-item">
+                        <svg class="feature-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                        <h4 class="feature-title">Secure Payments</h4>
+                        <p class="feature-desc text-body-small">100% safe and encrypted transactions.</p>
+                    </div>
+                    <div class="feature-item">
+                        <svg class="feature-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                        <h4 class="feature-title">Transparent Pricing</h4>
+                        <p class="feature-desc text-body-small">No hidden charges or unexpected fees.</p>
+                    </div>
+                    <div class="feature-item">
+                        <svg class="feature-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                        <h4 class="feature-title">Customer Support</h4>
+                        <p class="feature-desc text-body-small">Dedicated assistance for a seamless experience.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CUSTOMER STORIES -->
+        <section class="section-padding bg-white">
+            <div class="container">
+                <div class="section-header text-center justify-center">
+                    <h2 class="section-title">Real Stories</h2>
+                </div>
+                
+                <div class="stories-grid">
+                    <div class="story-card">
+                        <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=600&q=80" alt="Customer portrait" class="story-img">
+                        <div class="story-text">
+                            <p class="story-quote">"The discount we got for our family weekend at the water park was incredible. Booking was seamless, and the venue treated us like VIPs."</p>
+                            <div class="story-author">
+                                <strong>Priya Sharma</strong><br>
+                                <span class="text-charcoal-light">Saved ₹4,500 at Worlds of Wonder</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="story-card">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80" alt="Customer portrait" class="story-img">
+                        <div class="story-text">
+                            <p class="story-quote">"I booked a luxury spa retreat for my wife's birthday. The 40% saving allowed us to upgrade our dining experience too. Highly recommended."</p>
+                            <div class="story-author">
+                                <strong>Rahul Verma</strong><br>
+                                <span class="text-charcoal-light">Saved ₹8,000 at The Leela Spa</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PARTNER SPOTLIGHT -->
+        <section class="section-padding bg-ivory">
+            <div class="container">
+                <h3 class="text-eyebrow" style="margin-bottom: 24px; text-align: center;">Partner Spotlight of the Month</h3>
+                <div class="spotlight-card rounded-lg shadow-soft">
+                    <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1600&q=80" alt="The Oberoi Udaivilas" class="spotlight-img">
+                    <div class="spotlight-content bg-white">
+                        <h2 class="section-title" style="margin-bottom: 16px;">The Oberoi Udaivilas</h2>
+                        <p class="text-body-large" style="margin-bottom: 24px;">Experience the majesty of Rajasthan.</p>
+                        <p class="text-body-small text-charcoal-light" style="margin-bottom: 32px;">
+                            Located on the banks of Lake Pichola, this legendary resort offers unparalleled luxury and heritage. We selected The Oberoi Udaivilas this month to highlight our exclusive 35% savings package on weekend heritage suites.
+                        </p>
+                        <div style="display: flex; gap: 16px;">
+                            <a href="#" class="btn btn-primary">View Exclusive Offer</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CATEGORIES -->
+        <section class="section-padding bg-white">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Explore by Category</h2>
+                </div>
+                
+                <div class="category-grid">
+                    <a href="/experiences/resorts" class="category-card">
+                        <img src="https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&w=800&q=80" alt="Resorts">
+                        <div class="category-overlay">
+                            <h3 class="category-title">Resorts</h3>
+                        </div>
+                    </a>
+                    <a href="/experiences/dining" class="category-card">
+                        <img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=800&q=80" alt="Dining">
+                        <div class="category-overlay">
+                            <h3 class="category-title">Dining</h3>
+                        </div>
+                    </a>
+                    <a href="/experiences/spa" class="category-card">
+                        <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80" alt="Spa & Wellness">
+                        <div class="category-overlay">
+                            <h3 class="category-title">Spa & Wellness</h3>
+                        </div>
+                    </a>
+                    <h2 class="section-title">Cities We Serve</h2>
+                    <a href="/destinations" class="link-arrow">View All Cities <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                </div>
+                
+                <div class="cities-grid">
+                    <a href="/destinations/delhi" class="city-card">
+                        <img src="https://images.unsplash.com/photo-1587474260584-136574528ed5?auto=format&fit=crop&w=800&q=80" alt="Delhi NCR">
+                        <div class="city-name">Delhi NCR</div>
+                    </a>
+                    <a href="/destinations/jaipur" class="city-card">
+                        <img src="https://images.unsplash.com/photo-1477587458883-47145ed94245?auto=format&fit=crop&w=800&q=80" alt="Jaipur">
+                        <div class="city-name">Jaipur</div>
+                    </a>
+                    <a href="/destinations/punjab" class="city-card">
+                        <img src="https://images.unsplash.com/photo-1623910398686-2244bbd99c4d?auto=format&fit=crop&w=800&q=80" alt="Punjab">
+                        <div class="city-name">Punjab</div>
+                    </a>
+                    <a href="/destinations/ahmedabad" class="city-card">
+                        <img src="https://images.unsplash.com/photo-1588613437146-2715456209c1?auto=format&fit=crop&w=800&q=80" alt="Ahmedabad">
+                        <div class="city-name">Ahmedabad</div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- POPULAR SEARCHES & FEATURED COLLECTIONS -->
+        <section class="section-padding bg-white">
+            <div class="container">
+                <div class="split-grid">
+                    <!-- Popular Searches -->
+                    <div>
+                        <h3 class="section-title" style="font-size: 1.75rem; margin-bottom: 24px;">Popular Searches</h3>
+                        <ul class="link-list">
+                            <li><a href="/search?q=water-parks-near-delhi">Water parks near Delhi</a></li>
+                            <li><a href="/search?q=weekend-resorts">Weekend resorts</a></li>
+                            <li><a href="/search?q=luxury-spas">Luxury spas</a></li>
+                            <li><a href="/search?q=romantic-dinner">Romantic dinner</a></li>
+                            <li><a href="/search?q=farmhouse-packages">Farmhouse packages</a></li>
+                            <li><a href="/search?q=theme-parks">Theme parks</a></li>
+                            <li><a href="/search?q=corporate-outings">Corporate outings</a></li>
+                        </ul>
+                    </div>
+                    
+                    <!-- Featured Collections -->
+                    <div>
+                        <h3 class="section-title" style="font-size: 1.75rem; margin-bottom: 24px;">Featured Collections</h3>
+                        <div class="collection-list">
+                            <a href="/collections/weekend-escapes" class="collection-item">
+                                <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=150&q=80" alt="Weekend Escapes">
+                                <span>Weekend Escapes</span>
+                            </a>
+                            <a href="/collections/couples" class="collection-item">
+                                <img src="https://images.unsplash.com/photo-1474557157379-8aa74a6ef541?auto=format&fit=crop&w=150&q=80" alt="Romantic Getaways">
+                                <span>Romantic Getaways</span>
+                            </a>
+                            <a href="/collections/family-fun" class="collection-item">
+                                <img src="https://images.unsplash.com/photo-1542314831-c6a4d14d8376?auto=format&fit=crop&w=150&q=80" alt="Family Fun">
+                                <span>Family Fun</span>
+                            </a>
+                            <a href="/collections/luxury-dining" class="collection-item">
+                                <img src="https://images.unsplash.com/photo-1414235077428-338988691f68?auto=format&fit=crop&w=150&q=80" alt="Luxury Dining">
+                                <span>Luxury Dining</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SAVINGS CALCULATOR -->
+        <section class="section-padding bg-ivory">
+            <div class="container">
+                <div class="calculator-wrapper rounded-lg shadow-soft">
+                    <div class="calc-content">
+                        <h2 class="section-title" style="margin-bottom: 16px;">See Your Savings</h2>
+                        <p class="text-body-large" style="margin-bottom: 32px;">Adjust the slider to see how much you could save on your next premium experience.</p>
+                        
+                        <div class="calc-slider-wrapper">
+                            <label for="priceSlider" class="text-eyebrow">Experience Value</label>
+                            <input type="range" id="priceSlider" min="2000" max="50000" step="500" value="15000" class="calc-slider">
+                        </div>
+                        
+                        <div class="calc-results">
+                            <div class="calc-result-item">
+                                <span class="calc-label">Original Price</span>
+                                <span class="calc-value original" id="calcOriginal">₹15,000</span>
+                            </div>
+                            <div class="calc-result-item highlight">
+                                <span class="calc-label text-gold">DRS Deal Price</span>
+                                <span class="calc-value deal text-gold" id="calcDeal">₹9,750</span>
+                            </div>
+                            <div class="calc-result-item">
+                                <span class="calc-label">You Save</span>
+                                <span class="calc-value save" id="calcSave">₹5,250</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BUSINESS PARTNER SECTION -->
+        <section class="section-padding bg-charcoal text-white text-center">
+            <div class="container">
+                <div style="max-width: 600px; margin: 0 auto;">
+                    <h2 class="section-title text-white" style="margin-bottom: 24px;">Grow Your Business With Us</h2>
+                    <p class="text-body-large" style="margin-bottom: 32px; color: var(--color-stone);">
+                        Join our network of premium partners. Fill empty inventory, reach a verified high-intent audience, and increase your revenue with zero upfront costs.
+                    </p>
+                    <a href="/partners" class="btn btn-primary">Become a Partner</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- COMPANY NUMBERS -->
+        <section class="section-padding bg-ivory">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-number">2M+</div>
+                        <div class="stat-label">Happy Customers</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">1000+</div>
+                        <div class="stat-label">Premium Partners</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Cities Served</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">₹1B+</div>
+                        <div class="stat-label">Customer Savings</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EDITORIAL BUYING GUIDES -->
+        <section class="section-padding bg-white">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">The Curated Guide</h2>
+                    <a href="/guides" class="link-arrow">View All Guides <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                </div>
+                
+                <div class="guides-grid">
+                    <a href="/guides/top-10-resorts" class="guide-card">
+                        <img src="https://images.unsplash.com/photo-1542314831-c6a4d14d8376?auto=format&fit=crop&w=800&q=80" alt="Resort Guide" class="guide-img">
+                        <div class="guide-content">
+                            <span class="guide-category">Resorts</span>
+                            <h3 class="guide-title">Top 10 Weekend Escapes Near Delhi NCR</h3>
+                            <span class="guide-read-time">5 min read</span>
+                        </div>
+                    </a>
+                    <a href="/guides/fine-dining" class="guide-card">
+                        <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=800&q=80" alt="Dining Guide" class="guide-img">
+                        <div class="guide-content">
+                            <span class="guide-category">Dining</span>
+                            <h3 class="guide-title">The Ultimate Guide to Fine Dining in Mumbai</h3>
+                            <span class="guide-read-time">4 min read</span>
+                        </div>
+                    </a>
+                    <a href="/guides/family-parks" class="guide-card">
+                        <img src="https://images.unsplash.com/photo-1582559938555-6b586036814c?auto=format&fit=crop&w=800&q=80" alt="Theme Parks" class="guide-img">
+                        <div class="guide-content">
+                            <span class="guide-category">Family</span>
+                            <h3 class="guide-title">Best Water Parks for a Family Day Out</h3>
+                            <span class="guide-read-time">6 min read</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- NEWSLETTER / APP PROMO -->
+        <section class="section-padding bg-ivory">
+            <div class="container">
+                <div class="promo-box bg-white rounded-lg shadow-soft">
+                    <div class="promo-content">
+                        <h2 class="section-title" style="margin-bottom: 16px;">Never Miss a Deal</h2>
+                        <p class="text-body-large" style="margin-bottom: 32px;">Subscribe to our newsletter for exclusive weekly offers, or download our app for instant notifications.</p>
+                        
+                        <form class="newsletter-form">
+                            <input type="email" placeholder="Enter your email address" required class="newsletter-input">
+                            <button type="submit" class="btn btn-primary">Subscribe</button>
+                        </form>
+                        
+                        <div class="app-links" style="margin-top: 32px; display: flex; gap: 16px;">
+                            <a href="#" class="app-btn"><img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="App Store" style="height: 40px;"></a>
+                            <a href="#" class="app-btn"><img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play" style="height: 40px;"></a>
+                        </div>
+                    </div>
+                    <div class="promo-image">
+                        <img src="https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&w=600&q=80" alt="Mobile App Preview" style="border-radius: var(--radius-md);">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+
+    <nav class="bottom-mobile-nav">
+        <a href="/" class="mobile-nav-item active">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+            <span>Home</span>
+        </a>
+        <a href="/search" class="mobile-nav-item">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <span>Search</span>
+        </a>
+        <a href="/categories" class="mobile-nav-item">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+            <span>Explore</span>
+        </a>
+        <a href="/account" class="mobile-nav-item">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+            <span>Account</span>
+        </a>
+    </nav>
+    
+    <script src="js/main.js"></script>
+</body>
+</html>

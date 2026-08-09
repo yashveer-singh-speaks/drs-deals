@@ -1,0 +1,165 @@
+/* --- UI/UX REFINEMENTS --- */
+
+/* Header Glassmorphism & Hover States */
+.site-header.scrolled {
+    background-color: rgba(253, 251, 247, 0.85) !important;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(28, 28, 28, 0.05);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+}
+
+.desktop-nav .nav-link {
+    position: relative;
+    padding-bottom: 4px;
+}
+
+.desktop-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: var(--color-champagne-gold);
+    transform-origin: bottom right;
+    transition: transform 0.3s cubic-bezier(0.86, 0, 0.07, 1);
+}
+
+.desktop-nav .nav-item:hover .nav-link::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+/* Mega Menu Animations */
+.mega-menu {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px) translateX(-50%);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+}
+
+.nav-item.has-dropdown:hover .mega-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) translateX(-50%);
+}
+
+.mega-menu-column a {
+    transition: color 0.2s ease, transform 0.2s ease;
+    display: inline-block;
+}
+.mega-menu-column a:hover {
+    color: var(--color-champagne-gold);
+    transform: translateX(4px);
+}
+
+/* Mobile Drawer Enhancements */
+.drawer-overlay {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(28, 28, 28, 0.5);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.drawer-overlay.open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.mobile-drawer {
+    z-index: 1000;
+}
+
+.drawer-dropdown {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.3s ease;
+}
+
+.drawer-dropdown.open {
+    grid-template-rows: 1fr;
+}
+
+.drawer-dropdown-inner {
+    overflow: hidden;
+}
+
+.drawer-dropdown a {
+    display: block;
+    padding: 12px 16px 12px 32px;
+    color: var(--color-stone);
+    border-left: 2px solid transparent;
+    transition: all 0.2s ease;
+    text-decoration: none;
+}
+
+.drawer-dropdown a:hover {
+    color: var(--color-charcoal);
+    border-left-color: var(--color-champagne-gold);
+    background: rgba(212, 175, 55, 0.05);
+}
+
+/* Bottom Mobile Nav Adjustments */
+.bottom-mobile-nav {
+    padding-bottom: env(safe-area-inset-bottom, 16px);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.mobile-nav-item {
+    position: relative;
+    transition: color 0.2s ease;
+}
+
+.mobile-nav-item.active {
+    color: var(--color-champagne-gold);
+}
+
+.mobile-nav-item.active::before {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: var(--color-champagne-gold);
+}
+
+/* Footer Premium Tweaks */
+.footer-links li a {
+    display: inline-block;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.footer-links li a:hover {
+    color: var(--color-champagne-gold);
+    transform: translateX(4px);
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.2);
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    border-color: var(--color-champagne-gold);
+    color: var(--color-champagne-gold);
+    transform: translateY(-2px);
+}
