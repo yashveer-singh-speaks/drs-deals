@@ -10,7 +10,7 @@ export default function Footer() {
                     gap: '48px', 
                     marginBottom: '64px' 
                 }}>
-                    <div className="footer-brand" style={{ gridColumn: '1 / -1', '@media (minWidth: 768px)': { gridColumn: 'span 2' } }}>
+                    <div className="footer-brand">
                         <Link href="/" style={{ textDecoration: 'none', display: 'inline-block', marginBottom: '24px' }}>
                             <span className="logo-brand" style={{ fontFamily: 'var(--font-serif)', fontSize: '2rem', fontWeight: 600, color: 'var(--color-ivory)', letterSpacing: '-0.02em' }}>
                                 DRS<span style={{ color: 'var(--color-champagne-gold)' }}>✦</span>
