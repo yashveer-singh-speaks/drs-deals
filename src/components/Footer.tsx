@@ -67,7 +67,7 @@ export default function Footer() {
                     
                     {/* The Golden Credit Line */}
                     <div className="golden-credit-wrapper">
-                        Built by <Link href="/yashveer-singh" className="golden-credit-link">Yashveer Singh</Link> under <Link href="/yashveer-labs" className="golden-credit-link">Yashveer Labs</Link>
+                        Website Built by <Link href="/yashveer-singh" className="golden-credit-link">Yashveer Singh</Link> under <Link href="/yashveer-labs" className="golden-credit-link">Yashveer Labs</Link>
                     </div>
                 </div>
             </div>
