@@ -74,7 +74,7 @@ export default function Header() {
                                     </div>
                                 </div>
                                 <div className="mega-menu-featured">
-                                    <img src="https://images.unsplash.com/photo-1542314831-c6a4d142104d?auto=format&fit=crop&w=600&q=80" alt="Luxury Resort Tent" className="mega-menu-featured-img" />
+                                    <img src="/images/webp/Header Mega Menu.webp" alt="Luxury Resort Tent" className="mega-menu-featured-img" width={280} height={200} loading="lazy" />
                                     <div className="mega-menu-featured-content">
                                         <h5>The Ultimate Escape</h5>
                                         <p>Discover our curated luxury stays.</p>

@@ -1,4 +1,3 @@
-
 'use client';
 import Link from 'next/link';
 import { useState } from 'react';
@@ -20,7 +19,7 @@ export default function Home() {
                     <span className="text-gold">For Less.</span>
                 </h1>
                 <p className="hero-desc text-body-large">
-                    Exclusive offers on leisure, dining, travel & more. From premium getaways to everyday escapes, discover experiences that inspire.
+                    Exclusive offers on leisure, dining, travel &amp; more. From premium getaways to everyday escapes, discover experiences that inspire.
                 </p>
                 <div className="hero-actions">
                     <Link href="/explore" className="btn btn-primary">
@@ -55,9 +54,31 @@ export default function Home() {
 
             <div className="hero-visual">
                 <div className="hero-collage">
-                    <img src="https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=800&q=80" alt="Luxury Resort Pool overlooking mountains" className="collage-img img-1" />
-                    <img src="https://images.unsplash.com/photo-1513889961551-628c1e5e2ee9?auto=format&fit=crop&w=400&q=80" alt="Amusement park and roller coaster at sunset" className="collage-img img-2" />
-                    <img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=400&q=80" alt="Fine dining restaurant table setup" className="collage-img img-3" />
+                    <img 
+                        src="/images/webp/Hero Section (Collage Primary Image).webp" 
+                        alt="Luxury Resort Pool overlooking mountains" 
+                        className="collage-img img-1" 
+                        width={480} 
+                        height={360} 
+                        loading="eager"
+                        fetchPriority="high"
+                    />
+                    <img 
+                        src="/images/webp/Hero Section (Collage Overlay Image Top-Right).webp" 
+                        alt="Amusement park roller coaster at sunset" 
+                        className="collage-img img-2" 
+                        width={240} 
+                        height={180} 
+                        loading="eager"
+                    />
+                    <img 
+                        src="/images/webp/Hero Section (Collage Overlay Image Bottom-Right).webp" 
+                        alt="Fine dining restaurant table setup" 
+                        className="collage-img img-3" 
+                        width={240} 
+                        height={180} 
+                        loading="eager"
+                    />
                 </div>
                 
                 <div className="hero-badge">
@@ -79,7 +100,13 @@ export default function Home() {
                     {/* Card 1 */}
                     <div className="deal-card">
                         <div className="deal-img-wrapper">
-                            <img src="https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?auto=format&fit=crop&w=800&q=80" alt="Premium Resort" />
+                            <img 
+                                src="/images/webp/Featured Experiences Section (Card 1).webp" 
+                                alt="Luxury Palace Resort Stay in Rajasthan" 
+                                width={380} 
+                                height={240} 
+                                loading="lazy" 
+                            />
                             <div className="deal-badge">30% OFF</div>
                         </div>
                         <div className="deal-content">
@@ -100,7 +127,13 @@ export default function Home() {
                     {/* Card 2 */}
                     <div className="deal-card">
                         <div className="deal-img-wrapper">
-                            <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=800&q=80" alt="Spa and Wellness" />
+                            <img 
+                                src="/images/webp/Featured Experiences Section (Card 2).webp" 
+                                alt="Couples Ayurvedic Spa Retreat" 
+                                width={380} 
+                                height={240} 
+                                loading="lazy" 
+                            />
                             <div className="deal-badge">40% OFF</div>
                         </div>
                         <div className="deal-content">
@@ -121,7 +154,13 @@ export default function Home() {
                     {/* Card 3 */}
                     <div className="deal-card">
                         <div className="deal-img-wrapper">
-                            <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=800&q=80" alt="Fine Dining" />
+                            <img 
+                                src="/images/webp/Featured Experiences Section (Card 3).webp" 
+                                alt="5-Course Chef's Tasting Menu" 
+                                width={380} 
+                                height={240} 
+                                loading="lazy" 
+                            />
                             <div className="deal-badge">25% OFF</div>
                         </div>
                         <div className="deal-content">
@@ -142,7 +181,13 @@ export default function Home() {
                     {/* Card 4 */}
                     <div className="deal-card">
                         <div className="deal-img-wrapper">
-                            <img src="https://images.unsplash.com/photo-1582559938555-6b586036814c?auto=format&fit=crop&w=800&q=80" alt="Water Park" />
+                            <img 
+                                src="/images/webp/Featured Experiences Section (Card 4).webp" 
+                                alt="Family Water Park Day Pass" 
+                                width={380} 
+                                height={240} 
+                                loading="lazy" 
+                            />
                             <div className="deal-badge">50% OFF</div>
                         </div>
                         <div className="deal-content">
@@ -163,7 +208,13 @@ export default function Home() {
                     {/* Card 5 */}
                     <div className="deal-card">
                         <div className="deal-img-wrapper">
-                            <img src="https://images.unsplash.com/photo-1506012787146-f92b2d7d6d96?auto=format&fit=crop&w=800&q=80" alt="Boutique Hotel" />
+                            <img 
+                                src="/images/webp/Featured Experiences Section (Card 5).webp" 
+                                alt="Lakeview Heritage Suite" 
+                                width={380} 
+                                height={240} 
+                                loading="lazy" 
+                            />
                             <div className="deal-badge">35% OFF</div>
                         </div>
                         <div className="deal-content">
@@ -184,7 +235,13 @@ export default function Home() {
                     {/* Card 6 */}
                     <div className="deal-card">
                         <div className="deal-img-wrapper">
-                            <img src="https://images.unsplash.com/photo-1533552755457-5b45a0abb299?auto=format&fit=crop&w=800&q=80" alt="Adventure Park" />
+                            <img 
+                                src="/images/webp/Featured Experiences Section (Card 6).webp" 
+                                alt="Weekend Adventure Pass" 
+                                width={380} 
+                                height={240} 
+                                loading="lazy" 
+                            />
                             <div className="deal-badge">20% OFF</div>
                         </div>
                         <div className="deal-content">
@@ -210,11 +267,11 @@ export default function Home() {
             <div className="container text-center">
                 <h3 className="text-eyebrow" style={{ marginBottom: '24px' }}>Trusted by 1000+ Premium Partners</h3>
                 <div className="partner-logos">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Taj_Hotels_logo.svg" alt="Taj Hotels" className="partner-logo" />
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/ec/Oberoi_Hotels_%26_Resorts_logo.svg" alt="Oberoi Hotels" className="partner-logo" />
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/Radisson_Hotels_logo.svg" alt="Radisson" className="partner-logo" />
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c5/Marriott_International_Logo.svg" alt="Marriott" className="partner-logo" />
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Hyatt_logo.svg" alt="Hyatt" className="partner-logo" />
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Taj_Hotels_logo.svg" alt="Taj Hotels" className="partner-logo" width={120} height={40} loading="lazy" />
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/ec/Oberoi_Hotels_%26_Resorts_logo.svg" alt="Oberoi Hotels" className="partner-logo" width={120} height={40} loading="lazy" />
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/Radisson_Hotels_logo.svg" alt="Radisson" className="partner-logo" width={120} height={40} loading="lazy" />
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c5/Marriott_International_Logo.svg" alt="Marriott" className="partner-logo" width={120} height={40} loading="lazy" />
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Hyatt_logo.svg" alt="Hyatt" className="partner-logo" width={120} height={40} loading="lazy" />
                 </div>
             </div>
         </section>
@@ -234,7 +291,14 @@ export default function Home() {
                         <Link href="/about" className="btn btn-outline">Read Our Story</Link>
                     </div>
                     <div className="story-visual">
-                        <img src="https://images.unsplash.com/photo-1542314831-c6a4d14d8376?auto=format&fit=crop&w=1200&q=80" alt="Family enjoying a premium vacation" className="rounded-lg shadow-soft" />
+                        <img 
+                            src="/images/webp/Why DRS Deals Exists Section.webp" 
+                            alt="Family enjoying a premium vacation" 
+                            className="rounded-lg shadow-soft" 
+                            width={560} 
+                            height={400} 
+                            loading="lazy" 
+                        />
                     </div>
                 </div>
             </div>
@@ -311,7 +375,14 @@ export default function Home() {
                 
                 <div className="stories-grid">
                     <div className="story-card">
-                        <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=600&q=80" alt="Customer portrait" className="story-img" />
+                        <img 
+                            src="/images/webp/Customer Stories Section (Story 1 Portrait).webp" 
+                            alt="Priya Sharma portrait" 
+                            className="story-img" 
+                            width={80} 
+                            height={80} 
+                            loading="lazy" 
+                        />
                         <div className="story-text">
                             <p className="story-quote">"The discount we got for our family weekend at the water park was incredible. Booking was seamless, and the venue treated us like VIPs."</p>
                             <div className="story-author">
@@ -321,7 +392,14 @@ export default function Home() {
                         </div>
                     </div>
                     <div className="story-card">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80" alt="Customer portrait" className="story-img" />
+                        <img 
+                            src="/images/webp/Customer Stories Section (Story 2 Portrait).webp" 
+                            alt="Rahul Verma portrait" 
+                            className="story-img" 
+                            width={80} 
+                            height={80} 
+                            loading="lazy" 
+                        />
                         <div className="story-text">
                             <p className="story-quote">"I booked a luxury spa retreat for my wife's birthday. The 40% saving allowed us to upgrade our dining experience too. Highly recommended."</p>
                             <div className="story-author">
@@ -339,7 +417,14 @@ export default function Home() {
             <div className="container">
                 <h3 className="text-eyebrow" style={{ marginBottom: '24px', textAlign: 'center' }}>Partner Spotlight of the Month</h3>
                 <div className="spotlight-card rounded-lg shadow-soft">
-                    <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1600&q=80" alt="The Oberoi Udaivilas" className="spotlight-img" />
+                    <img 
+                        src="/images/webp/Partner Spotlight of the Month Section.webp" 
+                        alt="The Oberoi Udaivilas" 
+                        className="spotlight-img" 
+                        width={1140} 
+                        height={450} 
+                        loading="lazy" 
+                    />
                     <div className="spotlight-content bg-white">
                         <h2 className="section-title" style={{ marginBottom: '16px' }}>The Oberoi Udaivilas</h2>
                         <p className="text-body-large" style={{ marginBottom: '24px' }}>Experience the majesty of Rajasthan.</p>
@@ -363,21 +448,39 @@ export default function Home() {
                 
                 <div className="category-grid">
                     <Link href="/experiences/resorts" className="category-card">
-                        <img src="https://images.unsplash.com/photo-1499793983690-e29da59ef1c2?auto=format&fit=crop&w=800&q=80" alt="Resorts" />
+                        <img 
+                            src="/images/webp/Explore by Category Section (Resorts Category Tile).webp" 
+                            alt="Resorts" 
+                            width={360} 
+                            height={240} 
+                            loading="lazy" 
+                        />
                         <div className="category-overlay">
                             <h3 className="category-title">Resorts</h3>
                         </div>
                     </Link>
                     <Link href="/experiences/dining" className="category-card">
-                        <img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=800&q=80" alt="Dining" />
+                        <img 
+                            src="/images/webp/Explore by Category Section (Dining Category Tile).webp" 
+                            alt="Dining" 
+                            width={360} 
+                            height={240} 
+                            loading="lazy" 
+                        />
                         <div className="category-overlay">
                             <h3 className="category-title">Dining</h3>
                         </div>
                     </Link>
                     <Link href="/experiences/spa" className="category-card">
-                        <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80" alt="Spa & Wellness" />
+                        <img 
+                            src="/images/webp/Explore by Category Section (Spa Category Tile).webp" 
+                            alt="Spa & Wellness" 
+                            width={360} 
+                            height={240} 
+                            loading="lazy" 
+                        />
                         <div className="category-overlay">
-                            <h3 className="category-title">Spa & Wellness</h3>
+                            <h3 className="category-title">Spa &amp; Wellness</h3>
                         </div>
                     </Link>
                     <h2 className="section-title">Cities We Serve</h2>
@@ -386,19 +489,43 @@ export default function Home() {
                 
                 <div className="cities-grid">
                     <Link href="/destinations/delhi" className="city-card">
-                        <img src="https://images.unsplash.com/photo-1587474260584-136574528ed5?auto=format&fit=crop&w=800&q=80" alt="Delhi NCR" />
+                        <img 
+                            src="/images/webp/Cities We Serve Section (Delhi NCR Tile).webp" 
+                            alt="Delhi NCR" 
+                            width={260} 
+                            height={180} 
+                            loading="lazy" 
+                        />
                         <div className="city-name">Delhi NCR</div>
                     </Link>
                     <Link href="/destinations/jaipur" className="city-card">
-                        <img src="https://images.unsplash.com/photo-1477587458883-47145ed94245?auto=format&fit=crop&w=800&q=80" alt="Jaipur" />
+                        <img 
+                            src="/images/webp/Cities We Serve Section (Jaipur Tile).webp" 
+                            alt="Jaipur" 
+                            width={260} 
+                            height={180} 
+                            loading="lazy" 
+                        />
                         <div className="city-name">Jaipur</div>
                     </Link>
                     <Link href="/destinations/punjab" className="city-card">
-                        <img src="https://images.unsplash.com/photo-1623910398686-2244bbd99c4d?auto=format&fit=crop&w=800&q=80" alt="Punjab" />
+                        <img 
+                            src="/images/webp/Cities We Serve Section (Punjab Tile).webp" 
+                            alt="Punjab" 
+                            width={260} 
+                            height={180} 
+                            loading="lazy" 
+                        />
                         <div className="city-name">Punjab</div>
                     </Link>
                     <Link href="/destinations/ahmedabad" className="city-card">
-                        <img src="https://images.unsplash.com/photo-1588613437146-2715456209c1?auto=format&fit=crop&w=800&q=80" alt="Ahmedabad" />
+                        <img 
+                            src="/images/webp/Cities We Serve Section (Ahmedabad Tile).webp" 
+                            alt="Ahmedabad" 
+                            width={260} 
+                            height={180} 
+                            loading="lazy" 
+                        />
                         <div className="city-name">Ahmedabad</div>
                     </Link>
                 </div>
@@ -428,19 +555,43 @@ export default function Home() {
                         <h3 className="section-title" style={{ fontSize: '1.75rem', marginBottom: '24px' }}>Featured Collections</h3>
                         <div className="collection-list">
                             <Link href="/collections/weekend-escapes" className="collection-item">
-                                <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=150&q=80" alt="Weekend Escapes" />
+                                <img 
+                                    src="/images/webp/Featured Collections Section (Weekend Escapes Thumbnail).webp" 
+                                    alt="Weekend Escapes" 
+                                    width={80} 
+                                    height={80} 
+                                    loading="lazy" 
+                                />
                                 <span>Weekend Escapes</span>
                             </Link>
                             <Link href="/collections/couples" className="collection-item">
-                                <img src="https://images.unsplash.com/photo-1474557157379-8aa74a6ef541?auto=format&fit=crop&w=150&q=80" alt="Romantic Getaways" />
+                                <img 
+                                    src="/images/webp/Featured Collections Section (Romantic Getaways Thumbnail).webp" 
+                                    alt="Romantic Getaways" 
+                                    width={80} 
+                                    height={80} 
+                                    loading="lazy" 
+                                />
                                 <span>Romantic Getaways</span>
                             </Link>
                             <Link href="/collections/family-fun" className="collection-item">
-                                <img src="https://images.unsplash.com/photo-1542314831-c6a4d14d8376?auto=format&fit=crop&w=150&q=80" alt="Family Fun" />
+                                <img 
+                                    src="/images/webp/Featured Collections Section (Family Fun Thumbnail).webp" 
+                                    alt="Family Fun" 
+                                    width={80} 
+                                    height={80} 
+                                    loading="lazy" 
+                                />
                                 <span>Family Fun</span>
                             </Link>
                             <Link href="/collections/luxury-dining" className="collection-item">
-                                <img src="https://images.unsplash.com/photo-1414235077428-338988691f68?auto=format&fit=crop&w=150&q=80" alt="Luxury Dining" />
+                                <img 
+                                    src="/images/webp/Featured Collections Section (Luxury Dining Thumbnail).webp" 
+                                    alt="Luxury Dining" 
+                                    width={80} 
+                                    height={80} 
+                                    loading="lazy" 
+                                />
                                 <span>Luxury Dining</span>
                             </Link>
                         </div>
@@ -528,7 +679,14 @@ export default function Home() {
                 
                 <div className="guides-grid">
                     <Link href="/guides/top-10-resorts" className="guide-card">
-                        <img src="https://images.unsplash.com/photo-1542314831-c6a4d14d8376?auto=format&fit=crop&w=800&q=80" alt="Resort Guide" className="guide-img" />
+                        <img 
+                            src="/images/webp/The Curated Guide Section (Guide 1 Thumbnail).webp" 
+                            alt="Top 10 Weekend Escapes Near Delhi NCR" 
+                            className="guide-img" 
+                            width={360} 
+                            height={220} 
+                            loading="lazy" 
+                        />
                         <div className="guide-content">
                             <span className="guide-category">Resorts</span>
                             <h3 className="guide-title">Top 10 Weekend Escapes Near Delhi NCR</h3>
@@ -536,7 +694,14 @@ export default function Home() {
                         </div>
                     </Link>
                     <Link href="/guides/fine-dining" className="guide-card">
-                        <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=800&q=80" alt="Dining Guide" className="guide-img" />
+                        <img 
+                            src="/images/webp/The Curated Guide Section (Guide 2 Thumbnail).webp" 
+                            alt="The Ultimate Guide to Fine Dining in Mumbai" 
+                            className="guide-img" 
+                            width={360} 
+                            height={220} 
+                            loading="lazy" 
+                        />
                         <div className="guide-content">
                             <span className="guide-category">Dining</span>
                             <h3 className="guide-title">The Ultimate Guide to Fine Dining in Mumbai</h3>
@@ -544,7 +709,14 @@ export default function Home() {
                         </div>
                     </Link>
                     <Link href="/guides/family-parks" className="guide-card">
-                        <img src="https://images.unsplash.com/photo-1582559938555-6b586036814c?auto=format&fit=crop&w=800&q=80" alt="Theme Parks" className="guide-img" />
+                        <img 
+                            src="/images/webp/The Curated Guide Section (Guide 3 Thumbnail).webp" 
+                            alt="Best Water Parks for a Family Day Out" 
+                            className="guide-img" 
+                            width={360} 
+                            height={220} 
+                            loading="lazy" 
+                        />
                         <div className="guide-content">
                             <span className="guide-category">Family</span>
                             <h3 className="guide-title">Best Water Parks for a Family Day Out</h3>
@@ -569,12 +741,19 @@ export default function Home() {
                         </form>
                         
                         <div className="app-links" style={{ marginTop: '32px', display: 'flex', gap: '16px' }}>
-                            <Link href="#" className="app-btn"><img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="App Store" style={{ height: '40px' }} /></Link>
-                            <Link href="#" className="app-btn"><img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play" style={{ height: '40px' }} /></Link>
+                            <Link href="#" className="app-btn"><img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="App Store" style={{ height: '40px' }} width={120} height={40} loading="lazy" /></Link>
+                            <Link href="#" className="app-btn"><img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play" style={{ height: '40px' }} width={120} height={40} loading="lazy" /></Link>
                         </div>
                     </div>
                     <div className="promo-image">
-                        <img src="https://images.unsplash.com/photo-1512428559087-560fa5ceab42?auto=format&fit=crop&w=600&q=80" alt="Mobile App Preview" style={{ borderRadius: 'var(--radius-md)' }} />
+                        <img 
+                            src="/images/webp/Newsletter - App Promo Section.webp" 
+                            alt="DRS Deals Mobile App Preview" 
+                            style={{ borderRadius: 'var(--radius-md)' }} 
+                            width={440} 
+                            height={360} 
+                            loading="lazy" 
+                        />
                     </div>
                 </div>
             </div>
