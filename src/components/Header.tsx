@@ -29,8 +29,8 @@ export default function Header() {
         <header className={`premium-header ${isScrolled ? 'scrolled' : ''}`}>
             <div className="premium-header-container">
                 {/* Left: Logo */}
-                <Link href="/" className="premium-logo">
-                    DRS<span>✦</span>
+                <Link href="/" className="premium-logo-wrapper">
+                    <img src="/logo.png" alt="DRS Deals Logo" width={140} height={40} className="brand-logo-img" style={{ height: '36px', width: 'auto', display: 'block' }} />
                 </Link>
 
                 {/* Center: Navigation */}
@@ -108,7 +108,9 @@ export default function Header() {
             {/* Mobile Drawer */}
             <div className={`premium-mobile-drawer ${drawerOpen ? 'open' : ''}`} aria-hidden={!drawerOpen}>
                 <div className="drawer-header">
-                    <span className="premium-logo">DRS<span>✦</span></span>
+                    <Link href="/" className="premium-logo-wrapper" onClick={toggleDrawer}>
+                        <img src="/logo.png" alt="DRS Deals Logo" width={120} height={35} className="brand-logo-img" style={{ height: '32px', width: 'auto', display: 'block' }} />
+                    </Link>
                     <button className="close-drawer" aria-label="Close menu" onClick={toggleDrawer}>
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                             <line x1="18" y1="6" x2="6" y2="18"></line>

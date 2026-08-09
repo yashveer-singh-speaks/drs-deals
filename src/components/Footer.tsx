@@ -7,9 +7,7 @@ export default function Footer() {
                 <div className="footer-grid-layout footer-3d-perspective">
                     <div className="footer-brand footer-3d-item">
                         <Link href="/" style={{ textDecoration: 'none', display: 'inline-block', marginBottom: '24px' }}>
-                            <span className="logo-brand" style={{ fontFamily: 'var(--font-serif)', fontSize: '2rem', fontWeight: 600, color: 'var(--color-ivory)', letterSpacing: '-0.02em' }}>
-                                DRS<span style={{ color: 'var(--color-champagne-gold)' }}>✦</span>
-                            </span>
+                            <img src="/logo.png" alt="DRS Deals Logo" width={150} height={42} style={{ height: '40px', width: 'auto', display: 'block' }} />
                         </Link>
                         <p className="text-body-small" style={{ color: 'rgba(255,255,255,0.7)', marginBottom: '32px', maxWidth: '320px', lineHeight: 1.6, fontSize: '0.95rem' }}>
                             Curating India's finest premium experiences. Discover, book, and enjoy exclusive access to luxury resorts, fine dining, and unforgettable entertainment.
@@ -67,9 +65,9 @@ export default function Footer() {
                         </div>
                     </div>
                     
-                    {/* The Mysterious Credit Line */}
-                    <div className="mysterious-credit-wrapper">
-                        Built by <Link href="/yashveer-singh" className="mysterious-credit-link">Yashveer Singh</Link> under <Link href="/yashveer-labs" className="mysterious-credit-link">Yashveer Labs</Link>
+                    {/* The Golden Credit Line */}
+                    <div className="golden-credit-wrapper">
+                        Built by <Link href="/yashveer-singh" className="golden-credit-link">Yashveer Singh</Link> under <Link href="/yashveer-labs" className="golden-credit-link">Yashveer Labs</Link>
                     </div>
                 </div>
             </div>

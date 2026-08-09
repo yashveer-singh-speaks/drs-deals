@@ -2141,3 +2141,164 @@ h1, h2, h3, h4, h5, h6 {
         display: block;
     }
 }
+/* --- BULLETPROOF MOBILE RESPONSIVENESS & PERFORMANCE FIXES --- */
+
+/* Eliminate Horizontal Page Overflow */
+html, body {
+    overflow-x: hidden !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* Ensure Images Never Exceed Viewport */
+img, video, iframe, canvas {
+    max-width: 100% !important;
+    height: auto !important;
+}
+
+/* Responsive Containers */
+.container {
+    width: 100%;
+    max-width: var(--container-width, 1440px);
+    margin: 0 auto;
+    padding-left: 32px;
+    padding-right: 32px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+    }
+}
+
+/* Hero Section Mobile Responsiveness */
+@media (max-width: 1024px) {
+    .hero {
+        flex-direction: column !important;
+        padding-top: 100px !important;
+        padding-bottom: 40px !important;
+        gap: 32px !important;
+    }
+    .hero-content {
+        max-width: 100% !important;
+        text-align: center !important;
+    }
+    .hero-title {
+        font-size: 2.25rem !important;
+        line-height: 1.2 !important;
+    }
+    .hero-desc {
+        font-size: 1rem !important;
+    }
+    .hero-actions {
+        justify-content: center !important;
+        flex-wrap: wrap !important;
+    }
+    .hero-trust-grid {
+        justify-content: center !important;
+        gap: 16px !important;
+    }
+    .hero-visual {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin-top: 16px !important;
+    }
+    .hero-collage {
+        width: 100% !important;
+        height: auto !important;
+        display: grid !important;
+        grid-template-columns: 1fr 1fr !important;
+        gap: 12px !important;
+    }
+    .hero-collage .img-1 {
+        grid-column: 1 / -1 !important;
+        width: 100% !important;
+        height: 220px !important;
+        object-fit: cover !important;
+        border-radius: var(--radius-md, 8px) !important;
+    }
+    .hero-collage .img-2, .hero-collage .img-3 {
+        position: static !important;
+        width: 100% !important;
+        height: 140px !important;
+        object-fit: cover !important;
+        border-radius: var(--radius-md, 8px) !important;
+    }
+    .hero-badge {
+        position: static !important;
+        transform: none !important;
+        margin-top: 16px !important;
+        width: 100% !important;
+        text-align: center !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 1.85rem !important;
+    }
+}
+
+/* Grids Mobile Responsiveness */
+@media (max-width: 768px) {
+    .deal-grid, .cities-grid, .guides-grid, .features-grid, .stories-grid, .split-grid {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+    }
+    .category-grid {
+        grid-template-columns: 1fr !important;
+    }
+    .story-grid {
+        grid-template-columns: 1fr !important;
+    }
+    .spotlight-card, .promo-box {
+        flex-direction: column !important;
+    }
+    .spotlight-img, .promo-image img {
+        width: 100% !important;
+        max-height: 240px !important;
+        object-fit: cover !important;
+    }
+    .stats-grid {
+        grid-template-columns: 1fr 1fr !important;
+        gap: 16px !important;
+    }
+}
+
+/* --- THE GOLDEN CREDIT LINE STYLING --- */
+.golden-credit-wrapper {
+    text-align: center;
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.95rem;
+    font-weight: 400;
+    letter-spacing: 0.03em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.golden-credit-link {
+    color: var(--color-champagne-gold, #BC9044) !important;
+    font-weight: 600 !important;
+    text-decoration: none !important;
+    display: inline-block;
+    position: relative;
+    transition: all 0.3s ease;
+    text-shadow: 0 0 10px rgba(188, 144, 68, 0.3);
+}
+
+.golden-credit-link:hover {
+    color: var(--color-champagne-gold-hover, #A67D35) !important;
+    text-shadow: 0 0 18px rgba(188, 144, 68, 0.6);
+    transform: translateY(-1px);
+}
