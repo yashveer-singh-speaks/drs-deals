@@ -1543,3 +1543,216 @@ h1, h2, h3, h4, h5, h6 {
 
 .footer-brand { grid-column: 1 / -1; }
 @media (min-width: 768px) { .footer-brand { grid-column: span 2; } }
+/* --- ADVANCED 3D FOOTER REFINEMENTS --- */
+
+/* Immersive Dark Background with Noise */
+.bg-3d-dark {
+    background: radial-gradient(circle at top center, #181511 0%, #080705 60%, #030303 100%);
+    position: relative;
+    padding-top: 100px;
+    padding-bottom: 40px;
+    border-top: 1px solid rgba(255,255,255,0.02);
+    overflow: hidden;
+}
+
+/* Subtle CSS noise texture pseudo-element */
+.bg-3d-dark::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    opacity: 0.05;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+}
+
+.site-footer .container {
+    position: relative;
+    z-index: 1;
+}
+
+/* 3D Perspective Container */
+.footer-3d-perspective {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 48px;
+    margin-bottom: 80px;
+    perspective: 1200px;
+}
+
+.footer-3d-item {
+    transform-style: preserve-3d;
+}
+
+.footer-brand {
+    grid-column: 1 / -1;
+}
+@media (min-width: 768px) {
+    .footer-brand {
+        grid-column: span 2;
+    }
+}
+
+/* Social Coins 3D Hover */
+.social-links-3d {
+    display: flex;
+    gap: 16px;
+    perspective: 800px;
+}
+
+.social-3d-coin {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.05);
+    color: rgba(255,255,255,0.6);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform-style: preserve-3d;
+}
+
+.social-3d-coin:hover {
+    color: var(--color-champagne-gold);
+    border-color: rgba(188, 144, 68, 0.4);
+    background: rgba(188, 144, 68, 0.05);
+    transform: translateY(-4px) translateZ(10px) rotateY(15deg);
+    box-shadow: 
+        -5px 10px 20px rgba(0,0,0,0.5), 
+        0 0 15px rgba(188, 144, 68, 0.2) inset,
+        0 0 20px rgba(188, 144, 68, 0.1);
+}
+
+/* 3D Footer Links */
+.footer-heading-3d {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 24px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    transform: translateZ(5px);
+}
+
+.footer-list-3d {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    transform-style: preserve-3d;
+}
+
+.footer-list-3d li a {
+    display: inline-block;
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+}
+
+.footer-list-3d li a:hover {
+    color: var(--color-champagne-gold);
+    transform: translateX(6px) translateZ(8px);
+    text-shadow: 0 4px 12px rgba(188, 144, 68, 0.3);
+}
+
+/* Footer Bottom Layout */
+.footer-bottom-3d {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    padding-top: 40px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+    position: relative;
+}
+
+/* Secure Payments */
+.payment-methods-3d {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 16px;
+    background: rgba(255,255,255,0.02);
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.04);
+    transition: all 0.3s ease;
+}
+
+.payment-methods-3d:hover {
+    background: rgba(255,255,255,0.04);
+    transform: translateY(-1px);
+}
+
+.payment-methods-3d span {
+    color: rgba(255,255,255,0.7);
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+}
+
+.lock-icon-3d {
+    color: var(--color-champagne-gold);
+    filter: drop-shadow(0 0 4px rgba(188, 144, 68, 0.3));
+}
+
+/* --- THE MYSTERIOUS CREDIT LINE --- */
+.mysterious-credit-wrapper {
+    text-align: center;
+    margin-top: 16px;
+    padding-top: 32px;
+    border-top: 1px solid rgba(255,255,255,0.03);
+    color: rgba(255,255,255,0.15); /* Very dark, almost hidden initial state */
+    font-size: 0.9rem;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    perspective: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+}
+
+.mysterious-credit-link {
+    position: relative;
+    text-decoration: none;
+    font-weight: 500;
+    display: inline-block;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    transform-style: preserve-3d;
+    
+    /* The Shimmer Effect */
+    background: linear-gradient(
+        120deg, 
+        rgba(255,255,255,0.15) 0%, 
+        rgba(255,255,255,0.15) 40%, 
+        rgba(188, 144, 68, 0.4) 50%, 
+        rgba(255,255,255,0.15) 60%, 
+        rgba(255,255,255,0.15) 100%
+    );
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: mysterious-shimmer 8s infinite linear;
+}
+
+@keyframes mysterious-shimmer {
+    0% { background-position: 100% 0; }
+    10% { background-position: -50% 0; }
+    100% { background-position: -50% 0; } /* Long pause between shimmers */
+}
+
+/* The Rewarding Hover */
+.mysterious-credit-link:hover {
+    animation: none;
+    background: none;
+    -webkit-text-fill-color: var(--color-champagne-gold);
+    color: var(--color-champagne-gold);
+    transform: translateZ(20px) scale(1.05);
+    text-shadow: 
+        0 8px 24px rgba(188, 144, 68, 0.4),
+        0 0 10px rgba(188, 144, 68, 0.2);
+}
