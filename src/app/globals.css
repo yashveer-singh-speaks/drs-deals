@@ -2154,10 +2154,61 @@ html, body {
     box-sizing: border-box;
 }
 
-/* Ensure Images Never Exceed Viewport */
-img, video, iframe, canvas {
+/* Ensure Media Elements Never Exceed Viewport */
+video, iframe, canvas {
     max-width: 100% !important;
     height: auto !important;
+}
+img:not(.brand-logo-img) {
+    max-width: 100%;
+}
+
+/* Strict Logo Sizing Across All Breakpoints */
+.premium-logo-wrapper {
+    display: flex !important;
+    align-items: center !important;
+    height: 100% !important;
+    max-height: 44px !important;
+    text-decoration: none !important;
+}
+
+.brand-logo-img {
+    height: 36px !important;
+    max-height: 36px !important;
+    width: auto !important;
+    max-width: 150px !important;
+    object-fit: contain !important;
+    display: block !important;
+    flex-shrink: 0 !important;
+}
+
+@media (max-width: 1024px) {
+    .premium-header-container {
+        height: 70px !important;
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+    }
+    .brand-logo-img {
+        height: 30px !important;
+        max-height: 30px !important;
+        max-width: 120px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .premium-header-container {
+        height: 64px !important;
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+    }
+    .brand-logo-img {
+        height: 26px !important;
+        max-height: 26px !important;
+        max-width: 100px !important;
+    }
+    .hero {
+        padding-top: 90px !important;
+    }
 }
 
 /* Responsive Containers */
