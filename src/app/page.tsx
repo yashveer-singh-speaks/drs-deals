@@ -55,9 +55,9 @@ export default function Home() {
 
             <div className="hero-visual">
                 <div className="hero-collage">
-                    <img src="https://images.unsplash.com/photo-1510798831971-661eb04b3739?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Luxury Resort Pool overlooking mountains" className="collage-img img-1" />
-                    <img src="https://images.unsplash.com/photo-1575203091586-611ffa505bfc?auto=format&fit=crop&w=400&q=80" alt="Amusement park and roller coaster at sunset" className="collage-img img-2" />
-                    <img src="https://images.unsplash.com/photo-1414235077428-338988691f68?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Fine dining restaurant table setup" className="collage-img img-3" />
+                    <img src="https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=800&q=80" alt="Luxury Resort Pool overlooking mountains" className="collage-img img-1" />
+                    <img src="https://images.unsplash.com/photo-1513889961551-628c1e5e2ee9?auto=format&fit=crop&w=400&q=80" alt="Amusement park and roller coaster at sunset" className="collage-img img-2" />
+                    <img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=400&q=80" alt="Fine dining restaurant table setup" className="collage-img img-3" />
                 </div>
                 
                 <div className="hero-badge">
