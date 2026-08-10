@@ -85,6 +85,7 @@ export default function Header() {
                     </div>
 
                     <Link href="/deals" className={`premium-nav-link ${pathname === '/deals' ? 'active' : ''}`}>Deals</Link>
+                    <Link href="/blog" className={`premium-nav-link ${pathname && pathname.includes('/blog') ? 'active' : ''}`}>Blog</Link>
                     <Link href="/partners" className={`premium-nav-link ${pathname === '/partners' ? 'active' : ''}`}>Partner With Us</Link>
                     <Link href="/about" className={`premium-nav-link ${pathname === '/about' ? 'active' : ''}`}>About</Link>
                 </nav>
@@ -143,6 +144,7 @@ export default function Header() {
                         </div>
 
                         <Link href="/deals" className="drawer-link" onClick={toggleDrawer}>Deals</Link>
+                        <Link href="/blog" className="drawer-link" onClick={toggleDrawer}>Blog</Link>
                         <Link href="/partners" className="drawer-link" onClick={toggleDrawer}>Partner With Us</Link>
                         <Link href="/about" className="drawer-link" onClick={toggleDrawer}>About</Link>
                     </nav>
