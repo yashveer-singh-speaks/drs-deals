@@ -4,7 +4,7 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
     title: 'Yashveer Labs | Digital Studio & Engineering Agency',
-    description: 'Yashveer Labs is the specialized studio behind the complete website rebuild, SEO, AEO, GEO, E-E-A-T, and multi-channel content strategy for DRS Deals.',
+    description: 'Yashveer Labs is the specialized studio behind the complete website rebuild, engineering, multi-channel growth, and content strategy for DRS Deals.',
 };
 
 export default function YashveerLabsPage() {

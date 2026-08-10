@@ -13,10 +13,10 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
     const { slug } = await params;
     const post = BLOG_POSTS.find((p) => p.slug === slug);
-    if (!post) return { title: 'Post Not Found | DRS Deals' };
+    if (!post) return { title: 'Article Not Found | DRS Deals' };
 
     return {
-        title: `${post.title} | DRS Deals Blog`,
+        title: `${post.title} | DRS Deals Journal`,
         description: post.excerpt,
     };
 }
@@ -36,7 +36,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                 <div style={{ fontSize: '0.85rem', color: 'var(--color-charcoal-light)', marginBottom: '24px' }}>
                     <Link href="/" style={{ color: 'inherit', textDecoration: 'none' }}>Home</Link>
                     <span style={{ margin: '0 8px' }}>/</span>
-                    <Link href="/blog" style={{ color: 'inherit', textDecoration: 'none' }}>Blog</Link>
+                    <Link href="/blog" style={{ color: 'inherit', textDecoration: 'none' }}>Journal</Link>
                     <span style={{ margin: '0 8px' }}>/</span>
                     <span style={{ color: 'var(--color-champagne-gold)', fontWeight: 500 }}>{post.category}</span>
                 </div>
@@ -45,7 +45,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                 <div className="bg-white shadow-soft" style={{ borderRadius: '16px', padding: '40px', border: '1px solid var(--color-stone)', marginBottom: '40px' }}>
                     <div style={{ display: 'flex', gap: '12px', alignItems: 'center', marginBottom: '20px' }}>
                         <span style={{ fontSize: '0.8rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--color-champagne-gold)', background: 'rgba(188, 144, 68, 0.08)', padding: '4px 12px', borderRadius: '4px' }}>
-                            {post.category} Pillar
+                            {post.category}
                         </span>
                         <span style={{ fontSize: '0.85rem', color: 'var(--color-charcoal-light)' }}>• {post.readTime}</span>
                         <span style={{ fontSize: '0.85rem', color: 'var(--color-charcoal-light)' }}>• {post.publishedDate}</span>
@@ -59,7 +59,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                         "{post.excerpt}"
                     </p>
 
-                    {/* E-E-A-T Author Badge */}
+                    {/* Author Badge */}
                     <div style={{ display: 'flex', alignItems: 'center', gap: '16px', padding: '16px', background: 'var(--color-ivory)', borderRadius: '8px', border: '1px solid var(--color-stone)' }}>
                         <div style={{ width: '44px', height: '44px', borderRadius: '50%', background: 'var(--color-champagne-gold)', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold', fontSize: '1.1rem' }}>
                             DRS
@@ -69,7 +69,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                                 Written by {post.author}
                             </div>
                             <div style={{ fontSize: '0.8rem', color: 'var(--color-charcoal-light)' }}>
-                                Verified Hospitality Expertise &amp; Quality Guidelines Standard
+                                Verified Hospitality Expertise Standard
                             </div>
                         </div>
                     </div>
@@ -86,7 +86,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                     </h2>
 
                     <p className="text-body-large text-charcoal-light" style={{ maxWidth: '600px', margin: '0 auto 32px auto', lineHeight: 1.7 }}>
-                        This article (<strong>{post.slug}</strong>) is fully registered in our E-E-A-T search index. The editorial team is currently formatting the full 800-1,000 word body content for optimal readability and search discovery.
+                        This article is fully registered in our editorial index. The team is currently formatting the full body content for optimal reading.
                     </p>
 
                     <div style={{ display: 'flex', gap: '16px', justifyContent: 'center' }}>

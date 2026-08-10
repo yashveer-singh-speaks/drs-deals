@@ -70,7 +70,7 @@ export default function AboutPage() {
                         Digital Transformation &amp; Architecture
                     </h3>
                     <p style={{ maxWidth: '640px', margin: '0 auto 32px auto', color: 'var(--color-stone)', lineHeight: 1.6 }}>
-                        The complete website rebuild, SEO, AEO, GEO, E-E-A-T framework, and multi-channel expansion of DRS Deals was architected by <strong>Yashveer Singh</strong> under <strong>Yashveer Labs</strong>.
+                        The complete website rebuild, search optimization, regional expansion, and multi-channel content architecture of DRS Deals was architected by <strong style={{ color: 'var(--color-charcoal)' }}>Yashveer Singh</strong> under <strong style={{ color: 'var(--color-charcoal)' }}>Yashveer Labs</strong>.
                     </p>
                     <div style={{ display: 'flex', gap: '16px', justifyContent: 'center' }}>
                         <Link href="/yashveer-singh" className="btn btn-primary">Meet The Architect</Link>

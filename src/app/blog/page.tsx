@@ -1,14 +1,22 @@
 'use client';
 
 import React, { useState } from 'react';
-import { BLOG_POSTS, BlogPost } from '@/data/blogs';
+import { BLOG_POSTS } from '@/data/blogs';
 import BlogCard from '@/components/BlogCard';
 
 export default function BlogIndexPage() {
     const [selectedCategory, setSelectedCategory] = useState<string>('All');
     const [searchQuery, setSearchQuery] = useState<string>('');
 
-    const categories = ['All', 'SEO', 'GEO', 'AEO', 'Natural Search', 'Keywords', 'Brand'];
+    const categories = [
+        'All',
+        'Resorts & Stays',
+        'Fine Dining',
+        'Spa & Wellness',
+        'Water Parks & Family',
+        'Weekend Escapes',
+        'Destinations & Travel',
+    ];
 
     const filteredPosts = BLOG_POSTS.filter((post) => {
         const matchesCat = selectedCategory === 'All' || post.category === selectedCategory;
@@ -22,12 +30,12 @@ export default function BlogIndexPage() {
             <div className="container">
                 {/* Hero Header */}
                 <div style={{ maxWidth: '800px', margin: '0 auto 48px auto', textAlign: 'center' }}>
-                    <div className="hero-eyebrow" style={{ justifyContent: 'center', marginBottom: '16px' }}>Editorial Insights &amp; Industry Guides</div>
+                    <div className="hero-eyebrow" style={{ justifyContent: 'center', marginBottom: '16px' }}>Editorial Journal &amp; Guides</div>
                     <h1 className="hero-title" style={{ fontSize: '3rem', marginBottom: '20px' }}>
-                        The DRS Deals Knowledge Base
+                        The DRS Deals Editorial Journal
                     </h1>
                     <p className="text-body-large text-charcoal-light" style={{ fontSize: '1.15rem' }}>
-                        Explore 198 curated articles across search optimization, regional destinations, AI search readiness, and hospitality deals.
+                        Explore 198 curated articles covering luxury resorts, gourmet fine dining, spa retreats, water parks, and regional weekend getaways.
                     </p>
                 </div>
 
@@ -36,7 +44,7 @@ export default function BlogIndexPage() {
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
                         <input
                             type="text"
-                            placeholder="Search among 198 articles..."
+                            placeholder="Search articles, resorts, dining, or destinations..."
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
                             style={{
@@ -78,7 +86,7 @@ export default function BlogIndexPage() {
                 {/* Results Stats */}
                 <div style={{ marginBottom: '24px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                     <span style={{ fontSize: '0.9rem', color: 'var(--color-charcoal-light)' }}>
-                        Showing <strong>{filteredPosts.length}</strong> of <strong>198</strong> published posts
+                        Showing <strong>{filteredPosts.length}</strong> of <strong>198</strong> published articles
                     </span>
                 </div>
 
@@ -91,7 +99,7 @@ export default function BlogIndexPage() {
 
                 {filteredPosts.length > 36 && (
                     <div className="text-center" style={{ marginTop: '48px' }}>
-                        <p className="text-body-small text-charcoal-light">Showing top 36 entries. Refine search or filter by category to view specific posts.</p>
+                        <p className="text-body-small text-charcoal-light">Showing top 36 articles. Search or select a category tab above to view more entries.</p>
                     </div>
                 )}
             </div>

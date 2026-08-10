@@ -44,7 +44,7 @@ export default function PartnersPage() {
                             </div>
                             <div style={{ padding: '24px', background: 'var(--color-ivory)', borderRadius: '12px', border: '1px solid var(--color-stone)' }}>
                                 <h3 style={{ fontSize: '1.2rem', fontFamily: 'var(--font-serif)', color: 'var(--color-charcoal)', marginBottom: '8px' }}>Multi-Channel Exposure</h3>
-                                <p style={{ fontSize: '0.9rem' }}>Featured across web search (SEO), AI search (AEO), regional hubs (GEO), Instagram, and editorial guides.</p>
+                                <p style={{ fontSize: '0.9rem' }}>Featured across organic search, AI discovery, regional hubs, Instagram, and editorial guides.</p>
                             </div>
                         </div>
                     </div>

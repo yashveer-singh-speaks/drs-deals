@@ -94,7 +94,7 @@ export default function YashveerSinghPage() {
                     <div style={{ marginBottom: '40px', paddingBottom: '24px', borderBottom: '1px solid var(--color-stone)' }}>
                         <h2 className="section-title" style={{ fontSize: '2rem', marginBottom: '12px' }}>Full-Spectrum Digital Services Executed</h2>
                         <p className="text-body-large text-charcoal-light">
-                            All of the following core strategic growth, platform engineering, SEO, AEO, GEO, and multi-channel acquisition services for <strong>DRS Deals</strong> were executed by <strong>Yashveer Singh</strong> under <strong>Yashveer Labs</strong>:
+                            All of the following 16 strategic services, engineering systems, and multi-channel growth capabilities for <strong>DRS Deals</strong> were executed by <strong>Yashveer Singh</strong> under <strong>Yashveer Labs</strong>:
                         </p>
                     </div>
 
