@@ -1,6 +1,7 @@
 'use client';
 import Link from 'next/link';
 import { useState } from 'react';
+import NewsletterForm from '@/components/NewsletterForm';
 
 export default function Home() {
     const [amount, setAmount] = useState(10000);
@@ -102,25 +103,25 @@ export default function Home() {
                         <div className="deal-img-wrapper">
                             <img 
                                 src="/images/webp/Featured Experiences Section (Card 1).webp" 
-                                alt="Luxury Palace Resort Stay in Rajasthan" 
+                                alt="Wyndham Garden Sonipat Murthal Five Star Membership" 
                                 width={380} 
                                 height={240} 
                                 loading="lazy" 
                             />
-                            <div className="deal-badge">30% OFF</div>
+                            <div className="deal-badge">5-STAR VIP</div>
                         </div>
                         <div className="deal-content">
                             <div className="deal-meta">
-                                <span className="deal-location">Jaipur</span>
-                                <span className="deal-rating">★ 4.8</span>
+                                <span className="deal-location">Sonipat Murthal</span>
+                                <span className="deal-rating">★ 4.9</span>
                             </div>
-                            <h3 className="deal-title">Luxury Palace Resort Stay</h3>
-                            <div className="deal-partner">Taj Hotels</div>
+                            <h3 className="deal-title">Wyndham Garden Hotel Membership</h3>
+                            <div className="deal-partner">Wyndham Garden</div>
                             <div className="deal-price-row">
-                                <div className="price-original">₹15,000</div>
-                                <div className="price-deal">₹10,500</div>
+                                <div className="price-original">Value ₹45k</div>
+                                <div className="price-deal">Exclusive Rates</div>
                             </div>
-                            <Link href="#" className="btn btn-outline" style={{ width: '100%', marginTop: '16px' }}>View Details</Link>
+                            <Link href="/deals/wyndham-garden-sonipat-murthal" className="btn btn-outline" style={{ width: '100%', marginTop: '16px' }}>View Details</Link>
                         </div>
                     </div>
                     
@@ -129,25 +130,25 @@ export default function Home() {
                         <div className="deal-img-wrapper">
                             <img 
                                 src="/images/webp/Featured Experiences Section (Card 2).webp" 
-                                alt="Couples Ayurvedic Spa Retreat" 
+                                alt="Hotel SK Premium Membership Ghaziabad" 
                                 width={380} 
                                 height={240} 
                                 loading="lazy" 
                             />
-                            <div className="deal-badge">40% OFF</div>
+                            <div className="deal-badge">COMPLIMENTARY NIGHT</div>
                         </div>
                         <div className="deal-content">
                             <div className="deal-meta">
-                                <span className="deal-location">New Delhi</span>
-                                <span className="deal-rating">★ 4.9</span>
+                                <span className="deal-location">Ghaziabad</span>
+                                <span className="deal-rating">★ 4.8</span>
                             </div>
-                            <h3 className="deal-title">Couples Ayurvedic Spa Retreat</h3>
-                            <div className="deal-partner">Kama Wellness</div>
+                            <h3 className="deal-title">Hotel SK Premium Membership</h3>
+                            <div className="deal-partner">Hotel SK Premium</div>
                             <div className="deal-price-row">
-                                <div className="price-original">₹8,000</div>
-                                <div className="price-deal">₹4,800</div>
+                                <div className="price-original">₹40,000</div>
+                                <div className="price-deal">₹5,000</div>
                             </div>
-                            <Link href="#" className="btn btn-outline" style={{ width: '100%', marginTop: '16px' }}>View Details</Link>
+                            <Link href="/deals/hotel-sk-premium-ghaziabad" className="btn btn-outline" style={{ width: '100%', marginTop: '16px' }}>View Details</Link>
                         </div>
                     </div>
 
@@ -156,25 +157,25 @@ export default function Home() {
                         <div className="deal-img-wrapper">
                             <img 
                                 src="/images/webp/Featured Experiences Section (Card 3).webp" 
-                                alt="5-Course Chef's Tasting Menu" 
+                                alt="Oren Kasauli Membership Card" 
                                 width={380} 
                                 height={240} 
                                 loading="lazy" 
                             />
-                            <div className="deal-badge">25% OFF</div>
+                            <div className="deal-badge">2 NIGHTS FREE</div>
                         </div>
                         <div className="deal-content">
                             <div className="deal-meta">
-                                <span className="deal-location">Gurgaon</span>
-                                <span className="deal-rating">★ 4.7</span>
+                                <span className="deal-location">Kasauli</span>
+                                <span className="deal-rating">★ 4.9</span>
                             </div>
-                            <h3 className="deal-title">5-Course Chef's Tasting Menu</h3>
-                            <div className="deal-partner">The Leela Ambience</div>
+                            <h3 className="deal-title">Oren Kasauli Membership Card</h3>
+                            <div className="deal-partner">Oren Kasauli</div>
                             <div className="deal-price-row">
-                                <div className="price-original">₹6,000</div>
-                                <div className="price-deal">₹4,500</div>
+                                <div className="price-original">₹50,000</div>
+                                <div className="price-deal">₹10,000</div>
                             </div>
-                            <Link href="#" className="btn btn-outline" style={{ width: '100%', marginTop: '16px' }}>View Details</Link>
+                            <Link href="/deals/oren-kasauli-membership" className="btn btn-outline" style={{ width: '100%', marginTop: '16px' }}>View Details</Link>
                         </div>
                     </div>
 
@@ -183,25 +184,25 @@ export default function Home() {
                         <div className="deal-img-wrapper">
                             <img 
                                 src="/images/webp/Featured Experiences Section (Card 4).webp" 
-                                alt="Family Water Park Day Pass" 
+                                alt="Atma Yog Luxury Manor Manali" 
                                 width={380} 
                                 height={240} 
                                 loading="lazy" 
                             />
-                            <div className="deal-badge">50% OFF</div>
+                            <div className="deal-badge">3 NIGHTS FREE</div>
                         </div>
                         <div className="deal-content">
                             <div className="deal-meta">
-                                <span className="deal-location">Noida</span>
-                                <span className="deal-rating">★ 4.6</span>
+                                <span className="deal-location">Manali</span>
+                                <span className="deal-rating">★ 4.8</span>
                             </div>
-                            <h3 className="deal-title">Family Water Park Day Pass</h3>
-                            <div className="deal-partner">Worlds of Wonder</div>
+                            <h3 className="deal-title">Atma Yog Luxury Manor</h3>
+                            <div className="deal-partner">Atma Yog Manor</div>
                             <div className="deal-price-row">
-                                <div className="price-original">₹1,500</div>
-                                <div className="price-deal">₹750</div>
+                                <div className="price-original">₹50,000</div>
+                                <div className="price-deal">₹8,999</div>
                             </div>
-                            <Link href="#" className="btn btn-outline" style={{ width: '100%', marginTop: '16px' }}>View Details</Link>
+                            <Link href="/deals/atmayog-luxury-manor-manali" className="btn btn-outline" style={{ width: '100%', marginTop: '16px' }}>View Details</Link>
                         </div>
                     </div>
 
@@ -210,25 +211,25 @@ export default function Home() {
                         <div className="deal-img-wrapper">
                             <img 
                                 src="/images/webp/Featured Experiences Section (Card 5).webp" 
-                                alt="Lakeview Heritage Suite" 
+                                alt="The White Flower Resorts Mussoorie & Corbett" 
                                 width={380} 
                                 height={240} 
                                 loading="lazy" 
                             />
-                            <div className="deal-badge">35% OFF</div>
+                            <div className="deal-badge">2 DESTINATIONS</div>
                         </div>
                         <div className="deal-content">
                             <div className="deal-meta">
-                                <span className="deal-location">Udaipur</span>
+                                <span className="deal-location">Mussoorie &amp; Corbett</span>
                                 <span className="deal-rating">★ 4.9</span>
                             </div>
-                            <h3 className="deal-title">Lakeview Heritage Suite</h3>
-                            <div className="deal-partner">The Oberoi Udaivilas</div>
+                            <h3 className="deal-title">The White Flower Resorts</h3>
+                            <div className="deal-partner">The White Flower</div>
                             <div className="deal-price-row">
-                                <div className="price-original">₹25,000</div>
-                                <div className="price-deal">₹16,250</div>
+                                <div className="price-original">₹50,000</div>
+                                <div className="price-deal">₹7,999</div>
                             </div>
-                            <Link href="#" className="btn btn-outline" style={{ width: '100%', marginTop: '16px' }}>View Details</Link>
+                            <Link href="/deals/white-flower-resorts-mussoorie-corbett" className="btn btn-outline" style={{ width: '100%', marginTop: '16px' }}>View Details</Link>
                         </div>
                     </div>
 
@@ -237,25 +238,25 @@ export default function Home() {
                         <div className="deal-img-wrapper">
                             <img 
                                 src="/images/webp/Featured Experiences Section (Card 6).webp" 
-                                alt="Weekend Adventure Pass" 
+                                alt="Rangmanch Farms Day Outing" 
                                 width={380} 
                                 height={240} 
                                 loading="lazy" 
                             />
-                            <div className="deal-badge">20% OFF</div>
+                            <div className="deal-badge">80+ ACTIVITIES</div>
                         </div>
                         <div className="deal-content">
                             <div className="deal-meta">
-                                <span className="deal-location">Pune</span>
-                                <span className="deal-rating">★ 4.5</span>
+                                <span className="deal-location">Gurgaon</span>
+                                <span className="deal-rating">★ 4.7</span>
                             </div>
-                            <h3 className="deal-title">Weekend Adventure Pass</h3>
-                            <div className="deal-partner">Della Adventure Park</div>
+                            <h3 className="deal-title">Rangmanch Farms Day Outing</h3>
+                            <div className="deal-partner">Rangmanch Farms</div>
                             <div className="deal-price-row">
-                                <div className="price-original">₹2,500</div>
-                                <div className="price-deal">₹2,000</div>
+                                <div className="price-original">₹1,500</div>
+                                <div className="price-deal">&lt; ₹1,500</div>
                             </div>
-                            <Link href="#" className="btn btn-outline" style={{ width: '100%', marginTop: '16px' }}>View Details</Link>
+                            <Link href="/deals/rangmanch-farms-gurgaon" className="btn btn-outline" style={{ width: '100%', marginTop: '16px' }}>View Details</Link>
                         </div>
                     </div>
                 </div>
@@ -267,11 +268,11 @@ export default function Home() {
             <div className="container text-center">
                 <h3 className="text-eyebrow" style={{ marginBottom: '24px' }}>Trusted by 1000+ Premium Partners</h3>
                 <div className="partner-logos">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Taj_Hotels_logo.svg" alt="Taj Hotels" className="partner-logo" width={120} height={40} loading="lazy" />
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/ec/Oberoi_Hotels_%26_Resorts_logo.svg" alt="Oberoi Hotels" className="partner-logo" width={120} height={40} loading="lazy" />
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/Radisson_Hotels_logo.svg" alt="Radisson" className="partner-logo" width={120} height={40} loading="lazy" />
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c5/Marriott_International_Logo.svg" alt="Marriott" className="partner-logo" width={120} height={40} loading="lazy" />
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Hyatt_logo.svg" alt="Hyatt" className="partner-logo" width={120} height={40} loading="lazy" />
+                    <img src="/images/logos/taj.svg" alt="Taj Hotels" className="partner-logo" width={120} height={40} loading="lazy" />
+                    <img src="/images/logos/oberoi.svg" alt="Oberoi Hotels" className="partner-logo" width={120} height={40} loading="lazy" />
+                    <img src="/images/logos/radisson.svg" alt="Radisson" className="partner-logo" width={120} height={40} loading="lazy" />
+                    <img src="/images/logos/marriott.svg" alt="Marriott" className="partner-logo" width={120} height={40} loading="lazy" />
+                    <img src="/images/logos/hyatt.svg" alt="Hyatt" className="partner-logo" width={120} height={40} loading="lazy" />
                 </div>
             </div>
         </section>
@@ -432,7 +433,7 @@ export default function Home() {
                             Located on the banks of Lake Pichola, this legendary resort offers unparalleled luxury and heritage. We selected The Oberoi Udaivilas this month to highlight our exclusive 35% savings package on weekend heritage suites.
                         </p>
                         <div style={{ display: 'flex', gap: '16px' }}>
-                            <Link href="#" className="btn btn-primary">View Exclusive Offer</Link>
+                            <Link href="/deals/wyndham-garden-sonipat-murthal" className="btn btn-primary">View Exclusive Offer</Link>
                         </div>
                     </div>
                 </div>
@@ -703,63 +704,75 @@ export default function Home() {
                             loading="lazy" 
                         />
                         <div className="guide-content">
-                            <span className="guide-category">Dining</span>
-                            <h3 className="guide-title">The Ultimate Guide to Fine Dining in Mumbai</h3>
-                            <span className="guide-read-time">4 min read</span>
+                    <div className="guide-card">
+                        <div className="guide-visual">
+                            <img 
+                                src="/images/webp/The Curated Guide Section (Guide 1 Thumbnail).webp" 
+                                alt="Resort guide" 
+                                width={320} 
+                                height={200} 
+                                loading="lazy" 
+                            />
                         </div>
-                    </Link>
-                    <Link href="/guides/family-parks" className="guide-card">
-                        <img 
-                            src="/images/webp/The Curated Guide Section (Guide 3 Thumbnail).webp" 
-                            alt="Best Water Parks for a Family Day Out" 
-                            className="guide-img" 
-                            width={360} 
-                            height={220} 
-                            loading="lazy" 
-                        />
                         <div className="guide-content">
-                            <span className="guide-category">Family</span>
-                            <h3 className="guide-title">Best Water Parks for a Family Day Out</h3>
-                            <span className="guide-read-time">6 min read</span>
+                            <h3 className="guide-title">Top 10 Resorts Near Delhi NCR for a Quick Escape</h3>
+                            <p className="guide-desc text-body-small text-charcoal-light">Our editors rank the finest weekend resort properties within a 4-hour drive.</p>
+                            <Link href="/guides/top-10-resorts" className="btn btn-outline" style={{ marginTop: '16px', width: '100%' }}>Read Guide</Link>
                         </div>
-                    </Link>
+                    </div>
+                    <div className="guide-card">
+                        <div className="guide-visual">
+                            <img 
+                                src="/images/webp/The Curated Guide Section (Guide 2 Thumbnail).webp" 
+                                alt="Fine dining guide" 
+                                width={320} 
+                                height={200} 
+                                loading="lazy" 
+                            />
+                        </div>
+                        <div className="guide-content">
+                            <h3 className="guide-title">The Fine Dining Etiquette &amp; Value Maximiser</h3>
+                            <p className="guide-desc text-body-small text-charcoal-light">How to make the most of 5-star hotel dining passes and chef tasting menus.</p>
+                            <Link href="/guides/fine-dining" className="btn btn-outline" style={{ marginTop: '16px', width: '100%' }}>Read Guide</Link>
+                        </div>
+                    </div>
+                    <div className="guide-card">
+                        <div className="guide-visual">
+                            <img 
+                                src="/images/webp/The Curated Guide Section (Guide 3 Thumbnail).webp" 
+                                alt="Water park guide" 
+                                width={320} 
+                                height={200} 
+                                loading="lazy" 
+                            />
+                        </div>
+                        <div className="guide-content">
+                            <h3 className="guide-title">Water Parks vs Theme Parks: Ultimate Family Outing</h3>
+                            <p className="guide-desc text-body-small text-charcoal-light">Everything you need to know before booking your family weekend pass.</p>
+                            <Link href="/guides/family-parks" className="btn btn-outline" style={{ marginTop: '16px', width: '100%' }}>Read Guide</Link>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        {/* NEWSLETTER / APP PROMO */}
-        <section className="section-padding bg-ivory">
+        {/* NEWSLETTER */}
+        <section className="section-padding bg-white">
             <div className="container">
-                <div className="promo-box bg-white rounded-lg shadow-soft">
-                    <div className="promo-content">
-                        <h2 className="section-title" style={{ marginBottom: '16px' }}>Never Miss a Deal</h2>
-                        <p className="text-body-large" style={{ marginBottom: '32px' }}>Subscribe to our newsletter for exclusive weekly offers, or download our app for instant notifications.</p>
-                        
-                        <form className="newsletter-form">
-                            <input type="email" placeholder="Enter your email address" required className="newsletter-input" />
-                            <button type="submit" className="btn btn-primary">Subscribe</button>
-                        </form>
-                        
-                        <div className="app-links" style={{ marginTop: '32px', display: 'flex', gap: '16px' }}>
-                            <Link href="#" className="app-btn"><img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="App Store" style={{ height: '40px' }} width={120} height={40} loading="lazy" /></Link>
-                            <Link href="#" className="app-btn"><img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play" style={{ height: '40px' }} width={120} height={40} loading="lazy" /></Link>
+                <div className="newsletter-card rounded-lg bg-ivory">
+                    <div className="newsletter-content">
+                        <h2 className="section-title" style={{ marginBottom: '12px' }}>Join the Privileged Circle</h2>
+                        <p className="text-body-large text-charcoal-light" style={{ marginBottom: '24px' }}>Get weekly access to unreleased deal drops, venue previews, and private member passes.</p>
+                        <NewsletterForm />
+                        <div className="app-promo" style={{ marginTop: '32px' }}>
+                            <span className="text-body-small text-charcoal-light" style={{ display: 'block', marginBottom: '12px' }}>Experience DRS Deals on Mobile</span>
+                            <div className="app-buttons">
+                                <Link href="/explore" className="app-btn"><img src="/images/logos/app-store.svg" alt="App Store" style={{ height: '40px' }} width={120} height={40} loading="lazy" /></Link>
+                                <Link href="/explore" className="app-btn"><img src="/images/logos/google-play.svg" alt="Google Play" style={{ height: '40px' }} width={120} height={40} loading="lazy" /></Link>
+                            </div>
                         </div>
                     </div>
-                    <div className="promo-image">
+                    <div className="newsletter-visual">
                         <img 
                             src="/images/webp/Newsletter - App Promo Section.webp" 
-                            alt="DRS Deals Mobile App Preview" 
-                            style={{ borderRadius: 'var(--radius-md)' }} 
-                            width={440} 
-                            height={360} 
-                            loading="lazy" 
-                        />
-                    </div>
-                </div>
-            </div>
-        </section>
-
-    </main>
-        </>
-    );
 }
