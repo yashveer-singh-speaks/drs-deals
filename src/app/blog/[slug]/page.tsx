@@ -240,7 +240,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                         </h2>
                         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '24px' }}>
                             {relatedPosts.map((rel) => (
-                                <div key={rel.id} className="bg-white shadow-soft" style={{ borderRadius: '14px', padding: '24px', border: '1px solid var(--color-stone)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
+                                <div key={rel.slug} className="bg-white shadow-soft" style={{ borderRadius: '14px', padding: '24px', border: '1px solid var(--color-stone)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
                                     <div>
                                         <div style={{ fontSize: '0.75rem', fontWeight: 600, color: 'var(--color-champagne-gold)', textTransform: 'uppercase', marginBottom: '6px' }}>
                                             {rel.category}
