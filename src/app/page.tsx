@@ -670,40 +670,13 @@ export default function Home() {
             </div>
         </section>
 
-        {/* EDITORIAL BUYING GUIDES */}
-        <section className="section-padding bg-white">
+        {/* GUIDES */}
+        <section className="section-padding bg-ivory">
             <div className="container">
-                <div className="section-header">
+                <div className="section-header text-center justify-center">
                     <h2 className="section-title">The Curated Guide</h2>
-                    <Link href="/guides" className="link-arrow">View All Guides <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></Link>
                 </div>
-                
                 <div className="guides-grid">
-                    <Link href="/guides/top-10-resorts" className="guide-card">
-                        <img 
-                            src="/images/webp/The Curated Guide Section (Guide 1 Thumbnail).webp" 
-                            alt="Top 10 Weekend Escapes Near Delhi NCR" 
-                            className="guide-img" 
-                            width={360} 
-                            height={220} 
-                            loading="lazy" 
-                        />
-                        <div className="guide-content">
-                            <span className="guide-category">Resorts</span>
-                            <h3 className="guide-title">Top 10 Weekend Escapes Near Delhi NCR</h3>
-                            <span className="guide-read-time">5 min read</span>
-                        </div>
-                    </Link>
-                    <Link href="/guides/fine-dining" className="guide-card">
-                        <img 
-                            src="/images/webp/The Curated Guide Section (Guide 2 Thumbnail).webp" 
-                            alt="The Ultimate Guide to Fine Dining in Mumbai" 
-                            className="guide-img" 
-                            width={360} 
-                            height={220} 
-                            loading="lazy" 
-                        />
-                        <div className="guide-content">
                     <div className="guide-card">
                         <div className="guide-visual">
                             <img 
@@ -775,4 +748,17 @@ export default function Home() {
                     <div className="newsletter-visual">
                         <img 
                             src="/images/webp/Newsletter - App Promo Section.webp" 
+                            alt="Mobile app preview" 
+                            className="rounded-lg shadow-soft" 
+                            width={450} 
+                            height={320} 
+                            loading="lazy" 
+                        />
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+        </>
+    );
 }
