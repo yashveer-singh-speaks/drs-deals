@@ -5,6 +5,8 @@ import { BLOG_POSTS, BlogPost } from '@/data/blogs';
 import { getAllDeals } from '@/data/deals';
 import type { Metadata } from 'next';
 
+import { siteConfig } from '@/config/site';
+
 export async function generateStaticParams() {
     return BLOG_POSTS.map((post) => ({
         slug: post.slug,
@@ -21,16 +23,30 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
         description: post.excerpt,
         keywords: [post.category, 'DRS Deals', 'Hospitality Guide', 'Travel Privileges', 'Luxury Stays'],
         alternates: {
-            canonical: `https://www.drsdeals.in/blog/${post.slug}`,
+            canonical: `${siteConfig.url}/blog/${post.slug}`,
         },
         openGraph: {
             title: `${post.title} | DRS Deals Journal`,
             description: post.excerpt,
-            url: `https://www.drsdeals.in/blog/${post.slug}`,
-            siteName: 'DRS Deals',
+            url: `${siteConfig.url}/blog/${post.slug}`,
+            siteName: siteConfig.name,
             type: 'article',
             publishedTime: post.publishedDate,
             authors: [post.author],
+            images: [
+                {
+                    url: siteConfig.socialImage,
+                    width: 1200,
+                    height: 630,
+                    alt: post.title,
+                },
+            ],
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title: `${post.title} | DRS Deals`,
+            description: post.excerpt,
+            images: [siteConfig.socialImage],
         },
     };
 }

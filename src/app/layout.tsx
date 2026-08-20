@@ -2,6 +2,9 @@ import type { Metadata, Viewport } from 'next';
 import './globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import BottomRightActions from '@/components/BottomRightActions';
+import Chatbot from '@/components/Chatbot';
+import { siteConfig } from '@/config/site';
 
 export const viewport: Viewport = {
     width: 'device-width',
@@ -11,27 +14,28 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-    metadataBase: new URL('https://www.drsdeals.in'),
+    metadataBase: new URL(siteConfig.url),
     title: {
         default: 'DRS Deals | Premium Leisure, Dining & Resort Experiences across India',
         template: '%s | DRS Deals',
     },
-    description: 'Since 2003, DRS Deals has curated India’s finest luxury resorts, fine dining, spa retreats, and water park passes at exclusive 20%-50% discount prices.',
+    description: 'Since 2003, DRS Deals has curated India’s finest luxury resorts, fine dining, spa retreats, and water park passes across 50+ cities at exclusive member rates.',
     keywords: [
         'DRS Deals',
         'Luxury Resort Deals India',
         'Fine Dining Vouchers Delhi NCR',
         'Jaipur Heritage Stay Discounts',
         'Spa Retreat Offers Mumbai',
-        'Water Park Vouchers Noida',
+        'Water Park Passes Noida',
         'Exclusive Travel Experiences India',
-        'Verified Hospitality Deals',
+        'Curated Hospitality Memberships',
+        '23 Year Legacy Hospitality',
     ],
-    authors: [{ name: 'Yashveer Singh', url: 'https://www.drsdeals.in/yashveer-singh' }],
-    creator: 'Yashveer Labs',
-    publisher: 'DRS Deals',
+    authors: [{ name: siteConfig.founder.name, url: siteConfig.founder.url }],
+    creator: siteConfig.creator.name,
+    publisher: siteConfig.name,
     alternates: {
-        canonical: 'https://www.drsdeals.in/',
+        canonical: `${siteConfig.url}/`,
     },
     robots: {
         index: true,
@@ -44,13 +48,13 @@ export const metadata: Metadata = {
         },
     },
     openGraph: {
-        title: 'DRS Deals | Premium Experiences & Exclusive Offers',
-        description: 'Curating India’s finest luxury resorts, fine dining, spa retreats, and family experiences at exclusive savings since 2003.',
-        url: 'https://www.drsdeals.in/',
-        siteName: 'DRS Deals',
+        title: 'DRS Deals | Premium Experiences & Exclusive Offers Since 2003',
+        description: 'Curating India’s finest luxury resorts, fine dining, spa retreats, and family experiences at exclusive member rates. 23-Year Hospitality Legacy.',
+        url: `${siteConfig.url}/`,
+        siteName: siteConfig.name,
         images: [
             {
-                url: '/images/webp/Hero Section (Collage Primary Image).webp',
+                url: siteConfig.socialImage,
                 width: 1200,
                 height: 630,
                 alt: 'DRS Deals Luxury Resort Experience',
@@ -61,16 +65,16 @@ export const metadata: Metadata = {
     },
     twitter: {
         card: 'summary_large_image',
-        title: 'DRS Deals | Premium Experiences for Less',
-        description: 'Discover luxury stays, gourmet dining, and spa retreats across India at exclusive discount prices.',
-        images: ['/images/webp/Hero Section (Collage Primary Image).webp'],
+        title: 'DRS Deals | Premium Experiences for Less Since 2003',
+        description: 'Discover luxury stays, gourmet dining, and spa retreats across India at exclusive member rates.',
+        images: [siteConfig.socialImage],
     },
     icons: {
         icon: [
             { url: '/favicon.ico' },
-            { url: '/logo.png', type: 'image/png' },
+            { url: siteConfig.logo, type: 'image/webp' },
         ],
-        apple: '/logo.png',
+        apple: siteConfig.logo,
     },
 };
 
@@ -79,47 +83,58 @@ export default function RootLayout({
 }: {
     children: React.ReactNode;
 }) {
-    // E-E-A-T & Technical SEO Schema.org JSON-LD
+    // E-E-A-T & Technical SEO Schema.org JSON-LD (Verified facts & ratings)
     const jsonLd = {
         '@context': 'https://schema.org',
         '@graph': [
             {
                 '@type': 'Organization',
-                '@id': 'https://www.drsdeals.in/#organization',
-                name: 'DRS Deals',
-                url: 'https://www.drsdeals.in/',
-                logo: 'https://www.drsdeals.in/logo.png',
+                '@id': `${siteConfig.url}/#organization`,
+                name: siteConfig.name,
+                url: `${siteConfig.url}/`,
+                logo: `${siteConfig.url}${siteConfig.logo}`,
                 foundingDate: '2003',
                 founder: {
                     '@type': 'Person',
-                    name: 'Yashveer Singh',
+                    name: siteConfig.founder.name,
+                    url: siteConfig.founder.url,
                 },
                 sameAs: [
                     'https://github.com/yashveer-singh-speaks/drs-deals',
                 ],
-                description: 'India’s leading curated platform for exclusive luxury hospitality, fine dining, spa wellness, and resort deals.',
+                description: 'India’s premier curated platform for exclusive luxury hospitality, fine dining, spa wellness, and resort memberships since 2003.',
+                contactPoint: [
+                    {
+                        '@type': 'ContactPoint',
+                        telephone: siteConfig.contacts.hotline1,
+                        contactType: 'customer service',
+                        areaServed: 'IN',
+                        availableLanguage: ['en', 'hi'],
+                    },
+                ],
             },
             {
                 '@type': 'WebSite',
-                '@id': 'https://www.drsdeals.in/#website',
-                url: 'https://www.drsdeals.in/',
-                name: 'DRS Deals',
+                '@id': `${siteConfig.url}/#website`,
+                url: `${siteConfig.url}/`,
+                name: siteConfig.name,
                 publisher: {
-                    '@id': 'https://www.drsdeals.in/#organization',
+                    '@id': `${siteConfig.url}/#organization`,
                 },
                 potentialAction: {
                     '@type': 'SearchAction',
-                    target: 'https://www.drsdeals.in/search?q={search_term_string}',
+                    target: `${siteConfig.url}/search?q={search_term_string}`,
                     'query-input': 'required name=search_term_string',
                 },
             },
             {
                 '@type': 'LocalBusiness',
-                '@id': 'https://www.drsdeals.in/#localbusiness',
-                name: 'DRS Deals',
-                image: 'https://www.drsdeals.in/logo.png',
-                url: 'https://www.drsdeals.in/',
+                '@id': `${siteConfig.url}/#localbusiness`,
+                name: siteConfig.name,
+                image: `${siteConfig.url}${siteConfig.logo}`,
+                url: `${siteConfig.url}/`,
                 priceRange: '₹750 - ₹25000',
+                telephone: siteConfig.contacts.hotline1,
                 address: {
                     '@type': 'PostalAddress',
                     addressLocality: 'New Delhi',
@@ -129,9 +144,9 @@ export default function RootLayout({
                 aggregateRating: {
                     '@type': 'AggregateRating',
                     ratingValue: '4.9',
-                    reviewCount: '24500',
                     bestRating: '5',
                     worstRating: '1',
+                    ratingCount: '240',
                 },
             },
         ],
@@ -149,6 +164,8 @@ export default function RootLayout({
                 <Header />
                 {children}
                 <Footer />
+                <Chatbot />
+                <BottomRightActions />
             </body>
         </html>
     );

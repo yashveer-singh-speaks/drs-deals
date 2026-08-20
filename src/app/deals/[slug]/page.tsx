@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { getDealBySlug, getAllDeals, Deal } from '@/data/deals';
+import { siteConfig } from '@/config/site';
 
 interface Props {
     params: Promise<{ slug: string }>;
@@ -26,17 +27,31 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
     return {
         title: `${deal.title} | DRS Deals Exclusive Membership`,
-        description: `${deal.propertyName} in ${deal.location}. ${deal.tagline}. Exclusive price: ${deal.price}. Verified DRS Deals partner offer.`,
-        keywords: [deal.propertyName, deal.location, deal.categoryLabel, 'DRS Deals', 'Membership Offers'],
+        description: `${deal.propertyName} in ${deal.location}. ${deal.tagline}. Exclusive member rate: ${deal.price}. Direct concierge reservation assistance.`,
+        keywords: [deal.propertyName, deal.location, deal.categoryLabel, 'DRS Deals', 'Hospitality Membership Offers'],
         alternates: {
-            canonical: `https://www.drsdeals.in/deals/${deal.slug}`,
+            canonical: `${siteConfig.url}/deals/${deal.slug}`,
         },
         openGraph: {
             title: `${deal.title} | DRS Deals`,
             description: `${deal.propertyName} in ${deal.location}. Exclusive pricing, stays, dining, and leisure benefits.`,
-            url: `https://www.drsdeals.in/deals/${deal.slug}`,
-            siteName: 'DRS Deals',
+            url: `${siteConfig.url}/deals/${deal.slug}`,
+            siteName: siteConfig.name,
+            images: [
+                {
+                    url: siteConfig.socialImage,
+                    width: 1200,
+                    height: 630,
+                    alt: deal.propertyName,
+                },
+            ],
             type: 'website',
+        },
+        twitter: {
+            card: 'summary_large_image',
+            title: `${deal.title} | DRS Deals`,
+            description: `${deal.propertyName} in ${deal.location}. Exclusive member rates and verified dining & stay inclusions.`,
+            images: [siteConfig.socialImage],
         },
     };
 }
@@ -51,8 +66,9 @@ export default async function DealDetailPage({ params }: Props) {
 
     const allDeals = getAllDeals();
     const relatedDeals = allDeals.filter(d => d.slug !== deal.slug).slice(0, 3);
+    const whatsappInquiryUrl = siteConfig.getWhatsAppUrl(`Hello DRS Deals Concierge, I would like to enquire about ${deal.propertyName} (${deal.title}).`);
 
-    // Schema.org JSON-LD
+    // Schema.org JSON-LD (Strictly factual)
     const jsonLd = {
         '@context': 'https://schema.org',
         '@graph': [
@@ -63,19 +79,19 @@ export default async function DealDetailPage({ params }: Props) {
                         '@type': 'ListItem',
                         'position': 1,
                         'name': 'Home',
-                        'item': 'https://www.drsdeals.in/',
+                        'item': `${siteConfig.url}/`,
                     },
                     {
                         '@type': 'ListItem',
                         'position': 2,
                         'name': 'Deals',
-                        'item': 'https://www.drsdeals.in/deals',
+                        'item': `${siteConfig.url}/deals`,
                     },
                     {
                         '@type': 'ListItem',
                         'position': 3,
                         'name': deal.propertyName,
-                        'item': `https://www.drsdeals.in/deals/${deal.slug}`,
+                        'item': `${siteConfig.url}/deals/${deal.slug}`,
                     },
                 ],
             },
@@ -89,10 +105,10 @@ export default async function DealDetailPage({ params }: Props) {
                     'priceCurrency': 'INR',
                     'price': deal.price.replace(/[^0-9]/g, '') || '0',
                     'availability': 'https://schema.org/InStock',
-                    'url': `https://www.drsdeals.in/deals/${deal.slug}`,
+                    'url': `${siteConfig.url}/deals/${deal.slug}`,
                     'seller': {
                         '@type': 'Organization',
-                        'name': 'DRS Deals',
+                        'name': siteConfig.name,
                     },
                 },
             },
@@ -102,8 +118,9 @@ export default async function DealDetailPage({ params }: Props) {
                 'address': {
                     '@type': 'PostalAddress',
                     'addressLocality': deal.location,
+                    'addressRegion': deal.stateRegion,
+                    'addressCountry': 'IN',
                 },
-                'telephone': deal.bookingInfo.phones.join(', '),
             },
         ],
     };
@@ -117,50 +134,46 @@ export default async function DealDetailPage({ params }: Props) {
 
             <div className="container">
                 {/* Breadcrumbs */}
-                <nav aria-label="Breadcrumb" style={{ marginBottom: '24px', fontSize: '0.9rem', color: 'var(--color-charcoal-light)' }}>
+                <nav aria-label="Breadcrumb" style={{ marginBottom: '32px', fontSize: '0.9rem', color: 'var(--color-charcoal-light)' }}>
                     <Link href="/" style={{ color: 'var(--color-charcoal-light)', textDecoration: 'none' }}>Home</Link>
                     <span style={{ margin: '0 8px' }}>/</span>
                     <Link href="/deals" style={{ color: 'var(--color-charcoal-light)', textDecoration: 'none' }}>Deals</Link>
                     <span style={{ margin: '0 8px' }}>/</span>
-                    <span style={{ color: 'var(--color-charcoal)', fontWeight: 600 }}>{deal.propertyName}</span>
+                    <span style={{ color: 'var(--color-champagne-gold)', fontWeight: 600 }}>{deal.propertyName}</span>
                 </nav>
 
-                {/* Main Offer Hero Grid */}
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '48px', marginBottom: '64px', alignItems: 'start' }}>
-                    {/* Left: Image Placeholder Skeletons Gallery */}
+                {/* Deal Hero Section */}
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '48px', alignItems: 'flex-start', marginBottom: '64px' }}>
+                    {/* Left: Visual Gallery */}
                     <div>
-                        {/* Main Featured Skeleton */}
-                        <div className="skeleton-box" style={{ width: '100%', height: '360px', borderRadius: '16px', marginBottom: '16px', border: '1px solid var(--color-stone)', display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: '24px', position: 'relative', overflow: 'hidden' }}>
-                            <div style={{ background: 'rgba(0,0,0,0.6)', backdropFilter: 'blur(8px)', padding: '12px 16px', borderRadius: '8px', color: '#fff', fontSize: '0.85rem', fontWeight: 500, width: 'fit-content' }}>
-                                📷 Main Property Gallery Placeholder
-                            </div>
+                        <div className="skeleton-box" style={{ width: '100%', height: '380px', borderRadius: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1rem', color: 'var(--color-charcoal-light)', border: '1px solid var(--color-stone)', marginBottom: '16px', background: 'var(--color-stone-light)' }}>
+                            📷 {deal.propertyName} — Featured Image
                         </div>
-
-                        {/* Thumbnail Grid Skeletons */}
                         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '12px' }}>
-                            {Array.from({ length: Math.min(deal.imageSkeletonCount - 1, 4) }).map((_, i) => (
-                                <div key={i} className="skeleton-box" style={{ height: '90px', borderRadius: '10px', border: '1px solid var(--color-stone)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.75rem', color: 'var(--color-charcoal-light)' }}>
-                                    Slot #{i + 2}
+                            {Array.from({ length: deal.imageSkeletonCount || 4 }).slice(0, 4).map((_, i) => (
+                                <div key={i} className="skeleton-box" style={{ height: '80px', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.75rem', color: 'var(--color-charcoal-light)', border: '1px solid var(--color-stone)' }}>
+                                    Gallery {i + 1}
                                 </div>
                             ))}
                         </div>
                     </div>
 
-                    {/* Right: Key Summary Card */}
-                    <div className="bg-white shadow-soft" style={{ borderRadius: '16px', padding: '36px', border: '1px solid var(--color-stone)' }}>
-                        <div style={{ fontSize: '0.85rem', fontWeight: 600, color: 'var(--color-champagne-gold)', textTransform: 'uppercase', letterSpacing: '0.15em', marginBottom: '8px' }}>
+                    {/* Right: Key Details Card */}
+                    <div className="bg-white shadow-soft" style={{ borderRadius: '16px', padding: '40px', border: '1px solid var(--color-stone)' }}>
+                        <div style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--color-champagne-gold)', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '8px' }}>
                             {deal.categoryLabel}
                         </div>
                         <h1 style={{ fontSize: '2.25rem', fontFamily: 'var(--font-serif)', color: 'var(--color-charcoal)', marginBottom: '12px', lineHeight: 1.2 }}>
-                            {deal.propertyName}
+                            {deal.title}
                         </h1>
-                        <p style={{ fontSize: '1.05rem', color: 'var(--color-charcoal-light)', lineHeight: 1.6, marginBottom: '24px' }}>
-                            📍 {deal.location}
+                        <p style={{ fontSize: '1.05rem', color: 'var(--color-charcoal-light)', marginBottom: '20px', lineHeight: 1.5 }}>
+                            📍 {deal.location} &bull; {deal.stateRegion}
                         </p>
 
-                        <div style={{ padding: '20px', background: 'var(--color-ivory)', borderRadius: '12px', border: '1px solid var(--color-stone)', marginBottom: '28px' }}>
-                            <div style={{ fontSize: '0.85rem', color: 'var(--color-charcoal-light)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '4px' }}>
-                                Membership Rate / Pricing
+                        {/* Pricing & Value Pill */}
+                        <div style={{ background: 'var(--color-ivory)', borderRadius: '12px', padding: '20px', border: '1px solid var(--color-stone)', marginBottom: '28px' }}>
+                            <div style={{ fontSize: '0.8rem', color: 'var(--color-charcoal-light)', textTransform: 'uppercase', marginBottom: '4px' }}>
+                                Member Pricing / Rate
                             </div>
                             <div style={{ display: 'flex', alignItems: 'baseline', gap: '12px' }}>
                                 <span style={{ fontSize: '2rem', fontWeight: 700, color: 'var(--color-charcoal)', fontFamily: 'var(--font-serif)' }}>
@@ -184,10 +197,10 @@ export default async function DealDetailPage({ params }: Props) {
                             )}
                         </div>
 
-                        {/* Booking & Partner Direct Contact Box */}
+                        {/* Booking & Concierge Direct Contact Box */}
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                             <div style={{ fontSize: '0.9rem', color: 'var(--color-charcoal-light)' }}>
-                                <strong>Direct Booking &amp; Reservation Desk:</strong>
+                                <strong>Direct Concierge &amp; Reservation Assistance:</strong>
                             </div>
                             <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
                                 {deal.bookingInfo.phones.map((phone, idx) => (
@@ -200,9 +213,18 @@ export default async function DealDetailPage({ params }: Props) {
                                         📞 Call {phone}
                                     </a>
                                 ))}
+                                <a
+                                    href={whatsappInquiryUrl}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="btn btn-outline"
+                                    style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', fontSize: '0.95rem' }}
+                                >
+                                    💬 Enquire on WhatsApp
+                                </a>
                             </div>
                             <p style={{ fontSize: '0.85rem', color: 'var(--color-charcoal-light)', margin: 0, fontStyle: 'italic' }}>
-                                Mention <strong>DRS Deals</strong> for instant member verification &amp; priority privileges.
+                                DRS Deals coordinates directly with property management for verified member privileges.
                             </p>
                         </div>
                     </div>
@@ -238,92 +260,45 @@ export default async function DealDetailPage({ params }: Props) {
                 {/* Membership Inclusions & Benefits */}
                 <div className="bg-white shadow-soft" style={{ borderRadius: '16px', padding: '48px', border: '1px solid var(--color-stone)', marginBottom: '48px' }}>
                     <h2 className="section-title" style={{ fontSize: '2rem', marginBottom: '24px' }}>
-                        Included Membership Benefits &amp; Inclusions
+                        What is Included in This Membership
                     </h2>
 
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '24px', marginBottom: '32px' }}>
-                        {deal.inclusions.map((inc, i) => (
-                            <div key={i} style={{ padding: '24px', background: 'var(--color-ivory)', borderRadius: '12px', border: '1px solid var(--color-stone)' }}>
-                                <div style={{ fontSize: '0.8rem', fontWeight: 600, color: 'var(--color-champagne-gold)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '6px' }}>
-                                    Inclusion #{i + 1}
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px', marginBottom: '32px' }}>
+                        {deal.inclusions.map((inc, index) => (
+                            <div key={index} style={{ padding: '20px', background: 'var(--color-ivory)', borderRadius: '12px', border: '1px solid var(--color-stone)' }}>
+                                <div style={{ fontWeight: 700, color: 'var(--color-charcoal)', fontSize: '1.05rem', marginBottom: '6px' }}>
+                                    ✨ {inc.title}
                                 </div>
-                                <h3 style={{ fontSize: '1.2rem', fontFamily: 'var(--font-serif)', color: 'var(--color-charcoal)', marginBottom: '8px' }}>
-                                    {inc.title}
-                                </h3>
                                 {inc.description && (
-                                    <p style={{ fontSize: '0.95rem', color: 'var(--color-charcoal-light)', lineHeight: 1.6, margin: 0 }}>
+                                    <div style={{ fontSize: '0.9rem', color: 'var(--color-charcoal-light)', lineHeight: 1.5 }}>
                                         {inc.description}
-                                    </p>
+                                    </div>
                                 )}
                             </div>
                         ))}
                     </div>
 
-                    {/* Additional Sub-sections (Vouchers, BOGO, Special Stays) */}
-                    {deal.sections && deal.sections.length > 0 && (
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: '28px', paddingTop: '28px', borderTop: '1px solid var(--color-stone)' }}>
-                            {deal.sections.map((sec, i) => (
-                                <div key={i} style={{ padding: '24px', background: 'var(--color-ivory)', borderRadius: '12px', border: '1px solid var(--color-stone)' }}>
-                                    <h3 style={{ fontSize: '1.25rem', fontFamily: 'var(--font-serif)', color: 'var(--color-charcoal)', marginBottom: '16px' }}>
-                                        {sec.heading}
-                                    </h3>
-                                    <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                                        {sec.items.map((item, idx) => (
-                                            <li key={idx} style={{ display: 'flex', gap: '10px', fontSize: '0.95rem', color: 'var(--color-charcoal-light)' }}>
-                                                <span style={{ color: 'var(--color-champagne-gold)' }}>✦</span> {item}
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </div>
-                            ))}
-                        </div>
-                    )}
-
-                    {/* Kids Pricing & Timings */}
-                    {(deal.kidsPricing || deal.timings) && (
-                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '24px', marginTop: '32px', paddingTop: '28px', borderTop: '1px solid var(--color-stone)' }}>
-                            {deal.timings && (
-                                <div style={{ padding: '20px', background: 'var(--color-ivory)', borderRadius: '12px', border: '1px solid var(--color-stone)' }}>
-                                    <h4 style={{ fontSize: '1.1rem', fontFamily: 'var(--font-serif)', color: 'var(--color-charcoal)', marginBottom: '8px' }}>
-                                        ⏰ Operating Timings
-                                    </h4>
-                                    <p style={{ fontSize: '0.95rem', color: 'var(--color-charcoal-light)', margin: 0 }}>
-                                        {deal.timings}
-                                    </p>
-                                </div>
-                            )}
-                            {deal.kidsPricing && (
-                                <div style={{ padding: '20px', background: 'var(--color-ivory)', borderRadius: '12px', border: '1px solid var(--color-stone)' }}>
-                                    <h4 style={{ fontSize: '1.1rem', fontFamily: 'var(--font-serif)', color: 'var(--color-charcoal)', marginBottom: '8px' }}>
-                                        🧒 Kids &amp; Height Pricing Policy
-                                    </h4>
-                                    <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '6px' }}>
-                                        {deal.kidsPricing.map((k, idx) => (
-                                            <li key={idx} style={{ fontSize: '0.9rem', color: 'var(--color-charcoal-light)' }}>
-                                                • {k}
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </div>
-                            )}
+                    {deal.timings && (
+                        <div style={{ padding: '16px 20px', background: 'var(--color-ivory)', borderRadius: '8px', border: '1px solid var(--color-stone)', marginBottom: '24px' }}>
+                            <strong>⏰ Operational Timings:</strong> {deal.timings}
                         </div>
                     )}
                 </div>
 
-                {/* Conditions & How to Redemption */}
+                {/* Conditions & How to Redeem */}
                 <div className="bg-white shadow-soft" style={{ borderRadius: '16px', padding: '48px', border: '1px solid var(--color-stone)', marginBottom: '48px' }}>
                     <h2 className="section-title" style={{ fontSize: '2rem', marginBottom: '20px' }}>
-                        Important Terms, Conditions &amp; How to Redeem
+                        Terms, Conditions &amp; How to Reserve
                     </h2>
 
                     <div style={{ marginBottom: '32px' }}>
                         <h3 style={{ fontSize: '1.2rem', fontFamily: 'var(--font-serif)', color: 'var(--color-charcoal)', marginBottom: '12px' }}>
-                            Membership Conditions &amp; Rules
+                            Membership Conditions &amp; Guidelines
                         </h3>
                         <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '10px' }}>
                             {deal.conditionsAndTerms.map((term, i) => (
                                 <li key={i} style={{ display: 'flex', gap: '10px', fontSize: '0.95rem', color: 'var(--color-charcoal-light)' }}>
-                                    <span style={{ color: '#e74c3c' }}>•</span> {term}
+                                    <span style={{ color: 'var(--color-champagne-gold)' }}>•</span> {term}
                                 </li>
                             ))}
                         </ul>
@@ -331,13 +306,13 @@ export default async function DealDetailPage({ params }: Props) {
 
                     <div style={{ padding: '24px', background: 'var(--color-ivory)', borderRadius: '12px', border: '1px solid var(--color-stone)' }}>
                         <h3 style={{ fontSize: '1.2rem', fontFamily: 'var(--font-serif)', color: 'var(--color-charcoal)', marginBottom: '8px' }}>
-                            How to Reserve &amp; Redeem Your Vouchers
+                            How to Reserve
                         </h3>
                         <ol style={{ paddingLeft: '20px', margin: 0, color: 'var(--color-charcoal-light)', lineHeight: 1.7, fontSize: '0.95rem' }}>
-                            <li>Contact the DRS Deals booking hotline at <strong>9811120892</strong> or <strong>9811360808</strong>.</li>
-                            <li>State your desired date, property (<strong>{deal.propertyName}</strong>), and voucher type.</li>
-                            <li>Your reservation code will be issued and verified directly with the hotel/venue reception.</li>
-                            <li>Present your physical card or digital voucher code upon arrival at the venue desk.</li>
+                            <li>Contact the DRS Deals concierge desk at <strong>{deal.bookingInfo.phones.join(' / ')}</strong>.</li>
+                            <li>State your desired date, property (<strong>{deal.propertyName}</strong>), and package preference.</li>
+                            <li>Our team confirms availability and coordinates directly with property reception.</li>
+                            <li>Arrive at the property and enjoy verified member hospitality.</li>
                         </ol>
                     </div>
                 </div>

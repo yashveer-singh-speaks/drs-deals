@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { siteConfig } from '@/config/site';
 
 export default function Header() {
     const [isScrolled, setIsScrolled] = useState(false);
@@ -29,12 +30,19 @@ export default function Header() {
         <header className={`premium-header ${isScrolled ? 'scrolled' : ''}`}>
             <div className="premium-header-container">
                 {/* Left: Logo */}
-                <Link href="/" className="premium-logo-wrapper">
-                    <img src="/logo.png" alt="DRS Deals Logo" width={140} height={40} className="brand-logo-img" style={{ height: '36px', width: 'auto', display: 'block' }} />
+                <Link href="/" className="premium-logo-wrapper" aria-label="DRS Deals Homepage">
+                    <img
+                        src={siteConfig.logo}
+                        alt="DRS Deals Logo"
+                        width={160}
+                        height={44}
+                        className="brand-logo-img"
+                        style={{ height: '40px', width: 'auto', display: 'block', objectFit: 'contain' }}
+                    />
                 </Link>
 
                 {/* Center: Navigation */}
-                <nav className="premium-desktop-nav">
+                <nav className="premium-desktop-nav" aria-label="Main Navigation">
                     <Link href="/" className={`premium-nav-link ${pathname === '/' ? 'active' : ''}`}>Home</Link>
                     
                     <div 
@@ -74,7 +82,7 @@ export default function Header() {
                                     </div>
                                 </div>
                                 <div className="mega-menu-featured">
-                                    <img src="/images/webp/Header Mega Menu.webp" alt="Luxury Resort Tent" className="mega-menu-featured-img" width={280} height={200} loading="lazy" />
+                                    <img src="/images/webp/Header Mega Menu.webp" alt="Curated Luxury Stay" className="mega-menu-featured-img" width={280} height={200} loading="lazy" />
                                     <div className="mega-menu-featured-content">
                                         <h5>The Ultimate Escape</h5>
                                         <p>Discover our curated luxury stays.</p>
@@ -88,11 +96,12 @@ export default function Header() {
                     <Link href="/blog" className={`premium-nav-link ${pathname && pathname.includes('/blog') ? 'active' : ''}`}>Blog</Link>
                     <Link href="/partners" className={`premium-nav-link ${pathname === '/partners' ? 'active' : ''}`}>Partner With Us</Link>
                     <Link href="/about" className={`premium-nav-link ${pathname === '/about' ? 'active' : ''}`}>About</Link>
+                    <Link href="/search" className={`premium-nav-link ${pathname === '/search' ? 'active' : ''}`}>Search</Link>
                 </nav>
 
                 {/* Right: CTA */}
                 <div className="premium-header-actions">
-                    <Link href="/explore" className="premium-btn-cta">Explore Deals</Link>
+                    <Link href="/explore" className="premium-btn-cta">Explore Offers</Link>
                     <button className="premium-mobile-toggle" aria-label="Toggle menu" onClick={toggleDrawer} aria-expanded={drawerOpen}>
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                             <line x1="3" y1="12" x2="21" y2="12"></line>
@@ -109,8 +118,15 @@ export default function Header() {
             {/* Mobile Drawer */}
             <div className={`premium-mobile-drawer ${drawerOpen ? 'open' : ''}`} aria-hidden={!drawerOpen}>
                 <div className="drawer-header">
-                    <Link href="/" className="premium-logo-wrapper" onClick={toggleDrawer}>
-                        <img src="/logo.png" alt="DRS Deals Logo" width={120} height={35} className="brand-logo-img" style={{ height: '32px', width: 'auto', display: 'block' }} />
+                    <Link href="/" className="premium-logo-wrapper" onClick={toggleDrawer} aria-label="DRS Deals Homepage">
+                        <img
+                            src={siteConfig.logo}
+                            alt="DRS Deals Logo"
+                            width={140}
+                            height={38}
+                            className="brand-logo-img"
+                            style={{ height: '34px', width: 'auto', display: 'block', objectFit: 'contain' }}
+                        />
                     </Link>
                     <button className="close-drawer" aria-label="Close menu" onClick={toggleDrawer}>
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -120,7 +136,7 @@ export default function Header() {
                     </button>
                 </div>
                 <div className="drawer-body">
-                    <nav className="premium-drawer-nav">
+                    <nav className="premium-drawer-nav" aria-label="Mobile Navigation">
                         <Link href="/" className="drawer-link" onClick={toggleDrawer}>Home</Link>
                         
                         <div className="drawer-accordion-group">
@@ -144,13 +160,15 @@ export default function Header() {
                         </div>
 
                         <Link href="/deals" className="drawer-link" onClick={toggleDrawer}>Deals</Link>
+                        <Link href="/search" className="drawer-link" onClick={toggleDrawer}>Search Deals</Link>
                         <Link href="/blog" className="drawer-link" onClick={toggleDrawer}>Blog</Link>
                         <Link href="/partners" className="drawer-link" onClick={toggleDrawer}>Partner With Us</Link>
                         <Link href="/about" className="drawer-link" onClick={toggleDrawer}>About</Link>
+                        <Link href="/contact" className="drawer-link" onClick={toggleDrawer}>Contact Concierge</Link>
                     </nav>
                 </div>
                 <div className="drawer-footer">
-                    <Link href="/explore" className="premium-btn-cta full-width" onClick={toggleDrawer}>Explore Deals</Link>
+                    <Link href="/explore" className="premium-btn-cta full-width" onClick={toggleDrawer}>Explore Offers</Link>
                 </div>
             </div>
         </header>

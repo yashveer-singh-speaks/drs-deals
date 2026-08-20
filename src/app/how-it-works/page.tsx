@@ -1,10 +1,14 @@
 import React from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { siteConfig } from '@/config/site';
 
 export const metadata: Metadata = {
-    title: 'How It Works | DRS Deals Simple 4-Step Process',
-    description: 'Discover how DRS Deals makes discovering, purchasing, and redeeming luxury resort, dining, and water park vouchers effortless.',
+    title: 'How It Works | DRS Deals Concierge Experience Process',
+    description: 'Discover how DRS Deals connects guests with luxury resorts, fine dining, and leisure privileges through personalized concierge coordination.',
+    alternates: {
+        canonical: 'https://www.drsdeals.in/how-it-works',
+    },
 };
 
 export default function HowItWorksPage() {
@@ -12,22 +16,22 @@ export default function HowItWorksPage() {
         {
             num: '1',
             title: 'Browse & Discover',
-            desc: 'Explore curated resort packages, fine dining passes, spa retreats, and water parks by city or category.',
+            desc: 'Explore curated resort packages, fine dining memberships, spa retreats, and water park passes by destination or experience category.',
         },
         {
             num: '2',
-            title: 'Purchase Instantly',
-            desc: 'Buy your exclusive discount voucher securely online. Your digital voucher is delivered instantly to your email/SMS.',
+            title: 'Enquire & Consult',
+            desc: `Connect directly with our hospitality concierge desk by phone (${siteConfig.contacts.hotline1}), email, or WhatsApp to discuss dates and package inclusions.`,
         },
         {
             num: '3',
-            title: 'Book Your Date',
-            desc: 'Contact the partner venue directly to confirm your preferred reservation date, quoting your voucher ID.',
+            title: 'Reserve With Property',
+            desc: 'Our concierge verifies member availability and confirms your reservation or membership directly with property management.',
         },
         {
             num: '4',
-            title: 'Show & Enjoy',
-            desc: 'Present your digital voucher at venue check-in and enjoy uncompromised luxury privileges at 20%-50% savings.',
+            title: 'Arrive & Enjoy',
+            desc: 'Arrive at the venue, present your verified member confirmation at reception, and enjoy your uncompromised luxury experience.',
         },
     ];
 
@@ -35,12 +39,12 @@ export default function HowItWorksPage() {
         <main className="section-padding bg-ivory" style={{ paddingTop: '140px' }}>
             <div className="container">
                 <div style={{ maxWidth: '800px', margin: '0 auto 64px auto', textAlign: 'center' }}>
-                    <div className="hero-eyebrow" style={{ justifyContent: 'center', marginBottom: '16px' }}>Simple &amp; Transparent</div>
+                    <div className="hero-eyebrow" style={{ justifyContent: 'center', marginBottom: '16px' }}>SIMPLE &amp; PERSONALIZED</div>
                     <h1 className="hero-title" style={{ fontSize: '3.25rem', marginBottom: '24px' }}>
                         How DRS Deals Works
                     </h1>
                     <p className="text-body-large text-charcoal-light" style={{ fontSize: '1.2rem', lineHeight: 1.7 }}>
-                        Four simple steps connecting you with India's finest luxury hospitality venues.
+                        Four simple concierge-guided steps connecting you with India's premier luxury hospitality properties.
                     </p>
                 </div>
 
@@ -62,8 +66,11 @@ export default function HowItWorksPage() {
 
                 <div className="text-center bg-charcoal text-white" style={{ borderRadius: '16px', padding: '48px' }}>
                     <h2 className="section-title text-white" style={{ marginBottom: '16px' }}>Ready For Your Next Escape?</h2>
-                    <p style={{ color: 'var(--color-stone)', marginBottom: '32px' }}>Explore active resort, dining, and entertainment vouchers now.</p>
-                    <Link href="/explore" className="btn btn-primary">Explore Offers</Link>
+                    <p style={{ color: 'var(--color-stone)', marginBottom: '32px' }}>Explore active resort stays, dining packages, and leisure memberships now.</p>
+                    <div style={{ display: 'flex', gap: '16px', justifyContent: 'center', flexWrap: 'wrap' }}>
+                        <Link href="/deals" className="btn btn-primary">Explore Memberships</Link>
+                        <Link href="/contact" className="btn btn-outline" style={{ color: '#fff', borderColor: 'rgba(255,255,255,0.3)' }}>Contact Concierge</Link>
+                    </div>
                 </div>
             </div>
         </main>

@@ -4,7 +4,10 @@ import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
     title: 'Destinations & Regional Experience Hubs | DRS Deals',
-    description: 'Explore verified luxury resort stays, fine dining vouchers, and entertainment deals across Delhi NCR, Jaipur, Mumbai, Punjab, and Gujarat.',
+    description: 'Explore 240+ verified luxury resort stays, fine dining vouchers, and entertainment deals across 50+ cities including Delhi NCR, Jaipur, and Mumbai since 2003.',
+    alternates: {
+        canonical: 'https://www.drsdeals.in/destinations',
+    },
 };
 
 export default function DestinationsPage() {
@@ -13,22 +16,22 @@ export default function DestinationsPage() {
             name: 'Delhi NCR',
             slug: 'delhi',
             img: '/images/webp/Cities We Serve Section (Delhi NCR Tile).webp',
-            count: '240+ Verified Offers',
-            desc: 'Luxury daycation resorts, five-star dining vouchers, and premier water parks across Delhi, Gurgaon, Noida & Faridabad.',
+            tag: '240+ Curated Offers',
+            desc: 'Luxury 5-star hotel memberships, fine dining chef tables, and premier leisure passes across Delhi, Gurgaon, Noida, and Sonipat Murthal.',
         },
         {
             name: 'Jaipur & Rajasthan',
             slug: 'jaipur',
             img: '/images/webp/Cities We Serve Section (Jaipur Tile).webp',
-            count: '180+ Palace Stays',
-            desc: 'Heritage palace retreats, desert glamping experiences, and authentic royal Rajasthani dining packages.',
+            tag: 'Heritage Stays & Palaces',
+            desc: 'Heritage palace retreats, luxury glamping experiences, and authentic royal dining packages across Rajasthan.',
         },
         {
-            name: 'Mumbai & Konkan',
+            name: 'Mumbai & Maharashtra',
             slug: 'mumbai',
             img: '/images/webp/Cities We Serve Section (Ahmedabad Tile).webp',
-            count: '190+ Coastal Escapes',
-            desc: 'Seafront luxury suites, gourmet fine dining passes, and relaxing spa wellness vouchers.',
+            tag: 'Coastal & Urban Escapes',
+            desc: 'Luxury urban suites, gourmet fine dining passes, and relaxing spa wellness retreats.',
         },
     ];
 
@@ -37,12 +40,12 @@ export default function DestinationsPage() {
             <div className="container">
                 {/* Hero Header */}
                 <div style={{ maxWidth: '800px', margin: '0 auto 64px auto', textAlign: 'center' }}>
-                    <div className="hero-eyebrow" style={{ justifyContent: 'center', marginBottom: '16px' }}>Curated Regional Hubs</div>
+                    <div className="hero-eyebrow" style={{ justifyContent: 'center', marginBottom: '16px' }}>Curated Since 2003 &bull; 50+ Cities</div>
                     <h1 className="hero-title" style={{ fontSize: '3.25rem', marginBottom: '24px' }}>
-                        Explore All Destinations
+                        Explore Regional Experience Hubs
                     </h1>
                     <p className="text-body-large text-charcoal-light" style={{ fontSize: '1.2rem', lineHeight: 1.7 }}>
-                        Since 2003, DRS Deals has partnered with premier hospitality venues across India's most vibrant metropolitan regions and heritage tourist hubs.
+                        Since 2003, DRS Deals has partnered with over 1,000 premier hospitality venues across India's most vibrant metropolitan regions and tourist destinations.
                     </p>
                 </div>
 
@@ -52,8 +55,8 @@ export default function DestinationsPage() {
                         <div key={dest.slug} className="shadow-soft" style={{ background: '#fff', borderRadius: '16px', overflow: 'hidden', border: '1px solid var(--color-stone)' }}>
                             <div style={{ height: '240px', overflow: 'hidden', position: 'relative' }}>
                                 <img src={dest.img} alt={dest.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                                <div style={{ position: 'absolute', top: '16px', right: '16px', background: 'rgba(8, 7, 5, 0.75)', color: 'var(--color-champagne-gold)', padding: '6px 12px', borderRadius: '20px', fontSize: '0.8rem', fontWeight: 600, backdropFilter: 'blur(4px)' }}>
-                                    {dest.count}
+                                <div style={{ position: 'absolute', top: '16px', right: '16px', background: 'rgba(8, 7, 5, 0.85)', color: 'var(--color-champagne-gold)', padding: '6px 14px', borderRadius: '20px', fontSize: '0.75rem', fontWeight: 600, backdropFilter: 'blur(4px)', border: '1px solid rgba(188, 144, 68, 0.3)' }}>
+                                    {dest.tag}
                                 </div>
                             </div>
                             <div style={{ padding: '32px' }}>
@@ -64,22 +67,22 @@ export default function DestinationsPage() {
                                     {dest.desc}
                                 </p>
                                 <Link href={`/destinations/${dest.slug}`} className="btn btn-outline" style={{ width: '100%', textAlign: 'center' }}>
-                                    Explore {dest.name} Deals
+                                    Explore {dest.name} Experiences
                                 </Link>
                             </div>
                         </div>
                     ))}
                 </div>
 
-                {/* Editorial Content Section (1500+ words target) */}
+                {/* Editorial Content Section */}
                 <div className="bg-white shadow-soft" style={{ borderRadius: '16px', padding: '48px', border: '1px solid var(--color-stone)' }}>
-                    <h2 className="section-title" style={{ fontSize: '2rem', marginBottom: '24px' }}>How We Select Regional Venue Partners</h2>
+                    <h2 className="section-title" style={{ fontSize: '2rem', marginBottom: '24px' }}>23 Years of Direct Venue Alignment</h2>
                     <div style={{ color: 'var(--color-charcoal-light)', lineHeight: 1.8, display: 'flex', flexDirection: 'column', gap: '20px' }}>
                         <p>
-                            Every destination listed on DRS Deals represents a meticulously audited ecosystem of hospitality providers. We do not aggregate random listing feeds or unverified online vouchers. Instead, our regional acquisition team visits properties in person across Delhi NCR, Rajasthan, Maharashtra, and North India to inspect facility standards, hygiene certifications, staff responsiveness, and guest review consistency.
+                            Every destination listed on DRS Deals represents an audited ecosystem of hospitality providers built over two decades. We do not aggregate random listing feeds or unverified online vouchers.
                         </p>
                         <p>
-                            Whether you are searching for a quiet heritage haveli stay near Jaipur, a high-octane family water park day pass in Greater Noida, or a Michelin-inspired chef's tasting menu in South Mumbai, DRS Deals guarantees direct venue alignment. Our pricing contract models ensure that partners benefit from filled weekday inventory while our members enjoy uncompromised VIP privileges.
+                            Whether you are searching for a quiet heritage haveli stay near Jaipur, a 5-star hotel membership in Sonipat Murthal, or a fine dining experience in South Mumbai, our concierge coordinates directly with property management to ensure uncompromised VIP member privileges.
                         </p>
                     </div>
                 </div>

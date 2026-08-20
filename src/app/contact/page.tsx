@@ -1,10 +1,14 @@
 import React from 'react';
 import type { Metadata } from 'next';
 import ContactForm from '@/components/ContactForm';
+import { siteConfig } from '@/config/site';
 
 export const metadata: Metadata = {
-    title: 'Contact Us & Concierge Desk | DRS Deals',
-    description: 'Get in touch with DRS Deals customer concierge or venue support team.',
+    title: 'Contact Concierge Desk | DRS Deals',
+    description: 'Connect directly with the DRS Deals hospitality concierge team for resort memberships, bookings, and customer assistance.',
+    alternates: {
+        canonical: `${siteConfig.url}/contact`,
+    },
 };
 
 export default function ContactPage() {
@@ -19,25 +23,34 @@ export default function ContactPage() {
                         Contact Concierge Support
                     </h1>
                     <p className="text-body-large text-charcoal-light">
-                        Have a question about a voucher, membership, or booking? Our concierge team is at your service.
+                        Have a question about an experience, membership package, or booking? Our concierge team is at your service.
                     </p>
                 </div>
 
-                {/* Direct Phone & Contact Cards */}
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '20px', marginBottom: '40px' }}>
+                {/* Direct Contact Cards */}
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '20px', marginBottom: '32px' }}>
                     <div className="bg-white shadow-soft" style={{ padding: '24px', borderRadius: '12px', border: '1px solid var(--color-stone)', textAlign: 'center' }}>
-                        <div style={{ fontSize: '1.25rem', marginBottom: '8px' }}>📞 Booking Hotline 1</div>
-                        <a href="tel:+919811120892" style={{ fontSize: '1.2rem', fontWeight: 700, color: 'var(--color-champagne-gold)', textDecoration: 'none' }}>
-                            +91 98111 20892
+                        <div style={{ fontSize: '1.25rem', marginBottom: '8px' }}>📞 Concierge Desk 1</div>
+                        <a href={`tel:${siteConfig.contacts.hotline1Raw}`} style={{ fontSize: '1.15rem', fontWeight: 700, color: 'var(--color-champagne-gold)', textDecoration: 'none' }}>
+                            {siteConfig.contacts.hotline1}
                         </a>
-                        <div style={{ fontSize: '0.85rem', color: 'var(--color-charcoal-light)', marginTop: '4px' }}>Instant Member Assistance</div>
+                        <div style={{ fontSize: '0.85rem', color: 'var(--color-charcoal-light)', marginTop: '4px' }}>Member Inquiries</div>
                     </div>
+
                     <div className="bg-white shadow-soft" style={{ padding: '24px', borderRadius: '12px', border: '1px solid var(--color-stone)', textAlign: 'center' }}>
-                        <div style={{ fontSize: '1.25rem', marginBottom: '8px' }}>📞 Booking Hotline 2</div>
-                        <a href="tel:+919811360808" style={{ fontSize: '1.2rem', fontWeight: 700, color: 'var(--color-champagne-gold)', textDecoration: 'none' }}>
-                            +91 98113 60808
+                        <div style={{ fontSize: '1.25rem', marginBottom: '8px' }}>📞 Concierge Desk 2</div>
+                        <a href={`tel:${siteConfig.contacts.hotline2Raw}`} style={{ fontSize: '1.15rem', fontWeight: 700, color: 'var(--color-champagne-gold)', textDecoration: 'none' }}>
+                            {siteConfig.contacts.hotline2}
                         </a>
-                        <div style={{ fontSize: '0.85rem', color: 'var(--color-charcoal-light)', marginTop: '4px' }}>Priority Hotel Reservations</div>
+                        <div style={{ fontSize: '0.85rem', color: 'var(--color-charcoal-light)', marginTop: '4px' }}>Hotel Reservations</div>
+                    </div>
+
+                    <div className="bg-white shadow-soft" style={{ padding: '24px', borderRadius: '12px', border: '1px solid var(--color-stone)', textAlign: 'center' }}>
+                        <div style={{ fontSize: '1.25rem', marginBottom: '8px' }}>✉️ Official Email</div>
+                        <a href={`mailto:${siteConfig.contacts.conciergeEmail}`} style={{ fontSize: '1.05rem', fontWeight: 700, color: 'var(--color-charcoal)', textDecoration: 'none' }}>
+                            {siteConfig.contacts.conciergeEmail}
+                        </a>
+                        <div style={{ fontSize: '0.85rem', color: 'var(--color-charcoal-light)', marginTop: '4px' }}>Written Enquiries</div>
                     </div>
                 </div>
 

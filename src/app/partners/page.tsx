@@ -3,8 +3,11 @@ import type { Metadata } from 'next';
 import PartnerForm from '@/components/PartnerForm';
 
 export const metadata: Metadata = {
-    title: 'Partner With Us | DRS Deals B2B Venue Growth Network',
-    description: 'Fill unbooked weekday rooms, welcome high-intent guests, and expand your hospitality revenue with zero upfront fees.',
+    title: 'Partner With Us | DRS Deals 1,000+ Venue Growth Network',
+    description: 'Join 1,000+ premium resorts, fine dining establishments, and entertainment destinations across 50+ cities trusted by over 2 million guests since 2003.',
+    alternates: {
+        canonical: 'https://www.drsdeals.in/partners',
+    },
 };
 
 export default function PartnersPage() {
@@ -17,36 +20,36 @@ export default function PartnersPage() {
                         B2B VENUE PARTNERSHIPS
                     </div>
                     <h1 className="hero-title" style={{ fontSize: '3.25rem', marginBottom: '24px' }}>
-                        Grow Your Venue Revenue With Zero Upfront Cost
+                        Feature Your Property on DRS Deals
                     </h1>
                     <p className="text-body-large text-charcoal-light" style={{ fontSize: '1.2rem', lineHeight: 1.7 }}>
-                        Join 1,000+ premium resorts, fine dining establishments, and entertainment destinations across India trusted by over 2 million guests since 2003.
+                        Join 1,000+ premium resorts, fine dining establishments, and entertainment destinations across 50+ cities trusted by over 2 million guests since 2003.
                     </p>
                 </div>
 
                 {/* Content Section */}
                 <div className="bg-white shadow-soft" style={{ borderRadius: '16px', padding: '48px', border: '1px solid var(--color-stone)', marginBottom: '64px' }}>
-                    <h2 className="section-title" style={{ fontSize: '2rem', marginBottom: '24px' }}>Why India's Finest Hospitality Brands Choose DRS Deals</h2>
+                    <h2 className="section-title" style={{ fontSize: '2rem', marginBottom: '24px' }}>A Curated Approach to Venue Promotion</h2>
                     <div style={{ color: 'var(--color-charcoal-light)', lineHeight: 1.8, display: 'flex', flexDirection: 'column', gap: '24px' }}>
                         <p>
-                            In the modern hospitality landscape, unbooked resort rooms, empty restaurant tables during off-peak hours, and under-utilized weekday amusement park capacity represent permanent lost revenue. Traditional discount platforms degrade brand prestige by cluttering feeds with cheap coupons and bargain-hunting crowds.
+                            In today's hospitality landscape, maintaining brand prestige while reaching high-spending guests is essential. DRS Deals operates as a private, curated experiences platform with personalized concierge coordination rather than an open coupon directory.
                         </p>
                         <p>
-                            DRS Deals takes an entirely different approach. As a private, curated experiences network, we protect your brand positioning while introducing verified, high-spending guests to your property. Our members do not just redeem vouchers; they spend on add-on amenities, spa upgrades, premium dining, and return as loyal full-price patrons.
+                            We present your venue with bespoke editorial features and clear membership privileges that encourage higher on-property spending across dining, spa upgrades, and extended stays.
                         </p>
                         
                         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '24px', margin: '24px 0' }}>
                             <div style={{ padding: '24px', background: 'var(--color-ivory)', borderRadius: '12px', border: '1px solid var(--color-stone)' }}>
-                                <h3 style={{ fontSize: '1.2rem', fontFamily: 'var(--font-serif)', color: 'var(--color-charcoal)', marginBottom: '8px' }}>Zero Risk Partnership</h3>
-                                <p style={{ fontSize: '0.9rem', margin: 0 }}>No setup fees, monthly subscriptions, or hidden charges. We only earn when we drive verified revenue to your venue.</p>
-                            </div>
-                            <div style={{ padding: '24px', background: 'var(--color-ivory)', borderRadius: '12px', border: '1px solid var(--color-stone)' }}>
                                 <h3 style={{ fontSize: '1.2rem', fontFamily: 'var(--font-serif)', color: 'var(--color-charcoal)', marginBottom: '8px' }}>Brand Protection</h3>
-                                <p style={{ fontSize: '0.9rem', margin: 0 }}>Controlled voucher volume, blackout dates management, and sleek presentation that reflects luxury standards.</p>
+                                <p style={{ fontSize: '0.9rem', margin: 0 }}>Controlled membership terms, custom blackout dates, and refined editorial presentation matching 5-star standards.</p>
                             </div>
                             <div style={{ padding: '24px', background: 'var(--color-ivory)', borderRadius: '12px', border: '1px solid var(--color-stone)' }}>
-                                <h3 style={{ fontSize: '1.2rem', fontFamily: 'var(--font-serif)', color: 'var(--color-charcoal)', marginBottom: '8px' }}>Multi-Channel Exposure</h3>
-                                <p style={{ fontSize: '0.9rem', margin: 0 }}>Featured across organic search, AI discovery, regional hubs, Instagram, and editorial guides.</p>
+                                <h3 style={{ fontSize: '1.2rem', fontFamily: 'var(--font-serif)', color: 'var(--color-charcoal)', marginBottom: '8px' }}>Direct Concierge Coordination</h3>
+                                <p style={{ fontSize: '0.9rem', margin: 0 }}>Our concierge desk coordinates reservation inquiries directly with your front desk team for seamless guest check-in.</p>
+                            </div>
+                            <div style={{ padding: '24px', background: 'var(--color-ivory)', borderRadius: '12px', border: '1px solid var(--color-stone)' }}>
+                                <h3 style={{ fontSize: '1.2rem', fontFamily: 'var(--font-serif)', color: 'var(--color-charcoal)', marginBottom: '8px' }}>National Reach</h3>
+                                <p style={{ fontSize: '0.9rem', margin: 0 }}>Exposure to 2M+ members across Delhi NCR, Jaipur, Mumbai, Himachal Pradesh, Uttarakhand, and 50+ cities.</p>
                             </div>
                         </div>
                     </div>
