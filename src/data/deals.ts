@@ -48,6 +48,13 @@ export interface Deal {
 export const DEALS_DATA: Deal[] = [
     {
         id: 'wyndham-garden-sonipat',
+        featuredImage: '/images/deals/wyndham-garden-sonipat-murthal/featured.webp',
+        galleryImages: [
+            '/images/deals/wyndham-garden-sonipat-murthal/gallery-1.webp',
+            '/images/deals/wyndham-garden-sonipat-murthal/gallery-2.webp',
+            '/images/deals/wyndham-garden-sonipat-murthal/gallery-3.webp',
+            '/images/deals/wyndham-garden-sonipat-murthal/gallery-4.webp'
+        ],
         slug: 'wyndham-garden-sonipat-murthal',
         title: 'Wyndham Garden Sonipat Murthal Five Star Hotel Membership',
         propertyName: 'Wyndham Garden Sonipat Murthal',
@@ -61,13 +68,7 @@ export const DEALS_DATA: Deal[] = [
         estimatedValue: '₹45,000+',
         isFeatured: true,
         featuredOrder: 1,
-        featuredImage: '/images/deals/wyndham-garden-sonipat-murthal/featured.jpg',
-        galleryImages: [
-            '/images/deals/wyndham-garden-sonipat-murthal/gallery-1.jpg',
-            '/images/deals/wyndham-garden-sonipat-murthal/gallery-2.jpg',
-            '/images/deals/wyndham-garden-sonipat-murthal/gallery-3.jpg',
-            '/images/deals/wyndham-garden-sonipat-murthal/gallery-4.jpg',
-        ],
+        
         overview: [
             'Discover a more rewarding way to enjoy premium stays, dining and leisure experiences at Wyndham Garden Sonipat Murthal. This five star hotel membership is designed for guests who want to enjoy multiple hospitality benefits throughout the year, from comfortable overnight stays and dining experiences to refreshments and swimming pool access.',
             'The membership brings together a selection of benefits that can be enjoyed across different visits, making it suitable for individuals, couples and families looking to make their hotel experiences more valuable and memorable.'
@@ -101,6 +102,13 @@ export const DEALS_DATA: Deal[] = [
     },
     {
         id: 'hotel-sk-premium',
+        featuredImage: '/images/deals/hotel-sk-premium-ghaziabad/featured.webp',
+        galleryImages: [
+            '/images/deals/hotel-sk-premium-ghaziabad/gallery-1.webp',
+            '/images/deals/hotel-sk-premium-ghaziabad/gallery-2.webp',
+            '/images/deals/hotel-sk-premium-ghaziabad/gallery-3.webp',
+            '/images/deals/hotel-sk-premium-ghaziabad/gallery-4.webp'
+        ],
         slug: 'hotel-sk-premium-ghaziabad',
         title: 'Hotel SK Premium Membership',
         propertyName: 'Hotel SK Premium',
@@ -169,6 +177,13 @@ export const DEALS_DATA: Deal[] = [
     },
     {
         id: 'oren-kasauli',
+        featuredImage: '/images/deals/oren-kasauli-membership/featured.webp',
+        galleryImages: [
+            '/images/deals/oren-kasauli-membership/gallery-1.webp',
+            '/images/deals/oren-kasauli-membership/gallery-2.webp',
+            '/images/deals/oren-kasauli-membership/gallery-3.webp',
+            '/images/deals/oren-kasauli-membership/gallery-4.webp'
+        ],
         slug: 'oren-kasauli-membership',
         title: 'Oren Kasauli Membership Card',
         propertyName: 'Oren Kasauli',
@@ -241,6 +256,13 @@ export const DEALS_DATA: Deal[] = [
     },
     {
         id: 'atmayog-luxury-manor',
+        featuredImage: '/images/deals/atmayog-luxury-manor-manali/featured.webp',
+        galleryImages: [
+            '/images/deals/atmayog-luxury-manor-manali/gallery-1.webp',
+            '/images/deals/atmayog-luxury-manor-manali/gallery-2.webp',
+            '/images/deals/atmayog-luxury-manor-manali/gallery-3.webp',
+            '/images/deals/atmayog-luxury-manor-manali/gallery-4.webp'
+        ],
         slug: 'atmayog-luxury-manor-manali',
         title: 'Atma Yog Luxury Manor Membership',
         propertyName: 'Atma Yog Luxury Manor',
@@ -281,6 +303,13 @@ export const DEALS_DATA: Deal[] = [
     },
     {
         id: 'white-flower-resorts',
+        featuredImage: '/images/deals/white-flower-resorts-mussoorie-corbett/featured.webp',
+        galleryImages: [
+            '/images/deals/white-flower-resorts-mussoorie-corbett/gallery-1.webp',
+            '/images/deals/white-flower-resorts-mussoorie-corbett/gallery-2.webp',
+            '/images/deals/white-flower-resorts-mussoorie-corbett/gallery-3.webp',
+            '/images/deals/white-flower-resorts-mussoorie-corbett/gallery-4.webp'
+        ],
         slug: 'white-flower-resorts-mussoorie-corbett',
         title: 'The White Flower Resorts Membership',
         propertyName: 'The White Flower Resorts',
@@ -342,6 +371,13 @@ export const DEALS_DATA: Deal[] = [
     },
     {
         id: 'rangmanch-farms',
+        featuredImage: '/images/deals/rangmanch-farms-gurgaon/featured.webp',
+        galleryImages: [
+            '/images/deals/rangmanch-farms-gurgaon/gallery-1.webp',
+            '/images/deals/rangmanch-farms-gurgaon/gallery-2.webp',
+            '/images/deals/rangmanch-farms-gurgaon/gallery-3.webp',
+            '/images/deals/rangmanch-farms-gurgaon/gallery-4.webp'
+        ],
         slug: 'rangmanch-farms-gurgaon',
         title: 'Rangmanch Farms Day Outing Package',
         propertyName: 'Rangmanch Farms',
@@ -376,6 +412,13 @@ export const DEALS_DATA: Deal[] = [
     },
     {
         id: 'mera-gaon-mera-desh',
+        featuredImage: '/images/deals/mera-gaon-mera-desh-murthal/featured.webp',
+        galleryImages: [
+            '/images/deals/mera-gaon-mera-desh-murthal/gallery-1.webp',
+            '/images/deals/mera-gaon-mera-desh-murthal/gallery-2.webp',
+            '/images/deals/mera-gaon-mera-desh-murthal/gallery-3.webp',
+            '/images/deals/mera-gaon-mera-desh-murthal/gallery-4.webp'
+        ],
         slug: 'mera-gaon-mera-desh-murthal',
         title: 'Mera Gaon Mera Desh Murthal Day Pass',
         propertyName: 'Mera Gaon Mera Desh',
@@ -416,6 +459,13 @@ export const DEALS_DATA: Deal[] = [
     },
     {
         id: 'madhavgarh-farms',
+        featuredImage: '/images/deals/madhavgarh-farms-gurgaon/featured.webp',
+        galleryImages: [
+            '/images/deals/madhavgarh-farms-gurgaon/gallery-1.webp',
+            '/images/deals/madhavgarh-farms-gurgaon/gallery-2.webp',
+            '/images/deals/madhavgarh-farms-gurgaon/gallery-3.webp',
+            '/images/deals/madhavgarh-farms-gurgaon/gallery-4.webp'
+        ],
         slug: 'madhavgarh-farms-gurgaon',
         title: 'Madhavgarh Farms Day Outing Ticket',
         propertyName: 'Madhavgarh Farms',
@@ -455,6 +505,13 @@ export const DEALS_DATA: Deal[] = [
     },
     {
         id: 'mojoland-murthal',
+        featuredImage: '/images/deals/mojoland-multi-theme-park-murthal/featured.webp',
+        galleryImages: [
+            '/images/deals/mojoland-multi-theme-park-murthal/gallery-1.webp',
+            '/images/deals/mojoland-multi-theme-park-murthal/gallery-2.webp',
+            '/images/deals/mojoland-multi-theme-park-murthal/gallery-3.webp',
+            '/images/deals/mojoland-multi-theme-park-murthal/gallery-4.webp'
+        ],
         slug: 'mojoland-multi-theme-park-murthal',
         title: 'Mojoland Multi Theme Park Combo Pass',
         propertyName: 'Mojoland Multi Theme Park',

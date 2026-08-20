@@ -223,9 +223,15 @@ export default function SearchClient() {
                                 {matchedDeals.map((deal) => (
                                     <div key={deal.id} className="bg-white shadow-soft" style={{ borderRadius: '16px', padding: '28px', border: '1px solid var(--color-stone)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
                                         <div>
-                                            <div className="skeleton-box" style={{ height: '160px', borderRadius: '12px', marginBottom: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.85rem', color: 'var(--color-charcoal-light)', border: '1px solid var(--color-stone)' }}>
-                                                📷 {deal.propertyName}
-                                            </div>
+                                            {deal.featuredImage ? (
+                                                <div style={{ height: '160px', borderRadius: '12px', overflow: 'hidden', marginBottom: '16px', border: '1px solid var(--color-stone)' }}>
+                                                    <img src={deal.featuredImage} alt={deal.propertyName} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                                                </div>
+                                            ) : (
+                                                <div className="skeleton-box" style={{ height: '160px', borderRadius: '12px', marginBottom: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.85rem', color: 'var(--color-charcoal-light)', border: '1px solid var(--color-stone)' }}>
+                                                    📷 {deal.propertyName}
+                                                </div>
+                                            )}
                                             <div style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--color-champagne-gold)', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '6px' }}>
                                                 {deal.categoryLabel}
                                             </div>
