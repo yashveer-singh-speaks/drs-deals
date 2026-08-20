@@ -3,6 +3,7 @@ import Link from 'next/link';
 import type { Metadata } from 'next';
 import SavingsCalculator from '@/components/SavingsCalculator';
 import NewsletterForm from '@/components/NewsletterForm';
+import CubeSteps from '@/components/CubeSteps';
 import { siteConfig } from '@/config/site';
 
 export const metadata: Metadata = {
@@ -399,28 +400,7 @@ export default function Home() {
                         <p className="text-body-large">A seamless 4-step concierge journey to your next luxury escape.</p>
                     </div>
                     
-                    <div className="steps-grid">
-                        <div className="step-card">
-                            <div className="step-icon">1</div>
-                            <h3 className="step-title">Browse</h3>
-                            <p className="step-desc">Explore 240+ curated offers across luxury resorts, fine dining, and leisure destinations.</p>
-                        </div>
-                        <div className="step-card">
-                            <div className="step-icon">2</div>
-                            <h3 className="step-title">Enquire</h3>
-                            <p className="step-desc">Speak to our concierge team directly by phone (+91 98111 20892), email, or WhatsApp.</p>
-                        </div>
-                        <div className="step-card">
-                            <div className="step-icon">3</div>
-                            <h3 className="step-title">Reserve</h3>
-                            <p className="step-desc">Our concierge coordinates your membership or booking directly with property management.</p>
-                        </div>
-                        <div className="step-card">
-                            <div className="step-icon">4</div>
-                            <h3 className="step-title">Experience</h3>
-                            <p className="step-desc">Arrive at the property and enjoy verified 5-star hospitality privileges at negotiated member rates.</p>
-                        </div>
-                    </div>
+                    <CubeSteps />
                 </div>
             </section>
 
