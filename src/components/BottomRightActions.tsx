@@ -17,17 +17,13 @@ export default function BottomRightActions() {
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
-                gap: '0px',
+                gap: '12px',
             }}
         >
-            {/* Go To Top is positioned slightly above and overlapping WhatsApp */}
-            <div style={{ marginBottom: '-10px', zIndex: 2, pointerEvents: 'auto' }}>
-                <ScrollToTop />
-            </div>
+            {/* Smaller Go To Top sits clearly above WhatsApp with a visible gap */}
+            <ScrollToTop />
             {/* WhatsApp Circular Button */}
-            <div style={{ zIndex: 1, pointerEvents: 'auto' }}>
-                <WhatsAppConcierge />
-            </div>
+            <WhatsAppConcierge />
         </aside>
     );
 }
