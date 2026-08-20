@@ -21,47 +21,17 @@ export default function Home() {
         <main>
             {/* HERO SECTION */}
             <section className="hero">
-                <div className="hero-content">
+                {/* 1. Header (Eyebrow & Main Title) */}
+                <div className="hero-header">
                     <div className="hero-eyebrow">Curated Since 2003 &bull; 23-Year Legacy</div>
                     <h1 className="hero-title">
                         More Experiences. <br />
                         More Memories. <br />
                         <span className="text-gold">For Less.</span>
                     </h1>
-                    <p className="hero-desc text-body-large">
-                        Exclusive member privileges on luxury resort stays, gourmet dining, spa retreats &amp; family leisure across 50+ cities in India.
-                    </p>
-                    <div className="hero-actions">
-                        <Link href="/explore" className="btn btn-primary">
-                            Explore 240+ Offers 
-                            <svg className="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                        </Link>
-                        <Link href="/how-it-works" className="link-arrow">
-                            How It Works
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                        </Link>
-                    </div>
-
-                    <div className="hero-trust-grid">
-                        <div className="trust-item">
-                            <svg className="trust-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M21.5 12H16c-.7 2-2 3-4 3s-3.3-1-4-3H2.5"/><path d="M5.5 5.1L2 12v6c0 1.1.9 2 2 2h16a2 2 0 002-2v-6l-3.5-6.9A2 2 0 0016.7 4H7.3a2 2 0 00-1.8 1.1z"/></svg>
-                            <span className="trust-label">240+<br />Curated Offers</span>
-                        </div>
-                        <div className="trust-item">
-                            <svg className="trust-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
-                            <span className="trust-label">1,000+<br />Partners</span>
-                        </div>
-                        <div className="trust-item">
-                            <svg className="trust-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                            <span className="trust-label">4.9 ★<br />Member Rating</span>
-                        </div>
-                        <div className="trust-item">
-                            <svg className="trust-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
-                            <span className="trust-label">Direct<br />Concierge</span>
-                        </div>
-                    </div>
                 </div>
 
+                {/* 2. Visual Collage (3 Images with DRS✦ badge) */}
                 <div className="hero-visual">
                     <div className="hero-collage">
                         <img 
@@ -93,6 +63,42 @@ export default function Home() {
                     <div className="hero-badge">
                         <span className="logo-main">DRS<span className="logo-star">✦</span></span>
                         <p className="hero-badge-text">23-Year Legacy<br />2M+ Happy Guests<br />₹1B+ Savings</p>
+                    </div>
+                </div>
+
+                {/* 3. Description, Actions & Trust Metrics */}
+                <div className="hero-footer-content">
+                    <p className="hero-desc text-body-large">
+                        Exclusive member privileges on luxury resort stays, gourmet dining, spa retreats &amp; family leisure across 50+ cities in India.
+                    </p>
+                    <div className="hero-actions">
+                        <Link href="/explore" className="btn btn-primary">
+                            Explore 240+ Offers 
+                            <svg className="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </Link>
+                        <Link href="/how-it-works" className="link-arrow">
+                            How It Works
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </Link>
+                    </div>
+
+                    <div className="hero-trust-grid">
+                        <div className="trust-item">
+                            <svg className="trust-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M21.5 12H16c-.7 2-2 3-4 3s-3.3-1-4-3H2.5"/><path d="M5.5 5.1L2 12v6c0 1.1.9 2 2 2h16a2 2 0 002-2v-6l-3.5-6.9A2 2 0 0016.7 4H7.3a2 2 0 00-1.8 1.1z"/></svg>
+                            <span className="trust-label">240+<br />Curated Offers</span>
+                        </div>
+                        <div className="trust-item">
+                            <svg className="trust-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
+                            <span className="trust-label">1,000+<br />Partners</span>
+                        </div>
+                        <div className="trust-item">
+                            <svg className="trust-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            <span className="trust-label">4.9 ★<br />Member Rating</span>
+                        </div>
+                        <div className="trust-item">
+                            <svg className="trust-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+                            <span className="trust-label">Direct<br />Concierge</span>
+                        </div>
                     </div>
                 </div>
             </section>
