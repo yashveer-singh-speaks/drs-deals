@@ -92,30 +92,32 @@ export default function Chatbot() {
 
     return (
         <aside aria-label="DRS Deals Concierge Assistant" style={{ position: 'fixed', bottom: '24px', left: '24px', zIndex: 995 }}>
-            {/* Toggle Button on Bottom-Left */}
+            {/* Small Square Toggle Button with Comfortably Rounded Corners on Bottom-Left */}
             {!isOpen && (
                 <button
                     onClick={() => setIsOpen(true)}
-                    aria-label="Open DRS Deals Concierge Assistant"
+                    aria-label="Open DRS Deals Chatbot"
                     aria-expanded={isOpen}
                     style={{
-                        display: 'flex',
+                        display: 'inline-flex',
                         alignItems: 'center',
-                        gap: '10px',
+                        justifyContent: 'center',
+                        gap: '6px',
+                        height: '44px',
+                        padding: '0 16px',
+                        borderRadius: '12px',
                         background: '#080705',
                         color: 'var(--color-champagne-gold)',
-                        padding: '11px 20px',
-                        borderRadius: '30px',
-                        border: '1px solid rgba(188, 144, 68, 0.5)',
-                        boxShadow: '0 6px 22px rgba(0, 0, 0, 0.35)',
+                        border: '1px solid rgba(188, 144, 68, 0.4)',
+                        boxShadow: '0 6px 20px rgba(0, 0, 0, 0.3)',
                         cursor: 'pointer',
                         fontWeight: 600,
                         fontSize: '0.88rem',
-                        transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
+                        transition: 'all 0.25s cubic-bezier(0.16, 1, 0.3, 1)',
+                        lineHeight: 1,
                     }}
                 >
-                    <span style={{ fontSize: '1rem', color: 'var(--color-champagne-gold)' }}>✦</span>
-                    <span>DRS Concierge</span>
+                    <span>Chat ✨</span>
                 </button>
             )}
 

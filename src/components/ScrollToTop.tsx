@@ -7,7 +7,7 @@ export default function ScrollToTop() {
 
     useEffect(() => {
         const toggleVisibility = () => {
-            if (window.scrollY > 320) {
+            if (window.scrollY > 300) {
                 setIsVisible(true);
             } else {
                 setIsVisible(false);
@@ -33,23 +33,24 @@ export default function ScrollToTop() {
             aria-label="Scroll to top of page"
             className="scroll-to-top-btn"
             style={{
-                width: '42px',
-                height: '42px',
+                width: '36px',
+                height: '36px',
                 borderRadius: '50%',
                 background: '#080705',
                 color: 'var(--color-champagne-gold)',
-                border: '1px solid rgba(188, 144, 68, 0.4)',
-                boxShadow: '0 4px 16px rgba(0, 0, 0, 0.3)',
+                border: '1px solid rgba(188, 144, 68, 0.5)',
+                boxShadow: '0 4px 12px rgba(0, 0, 0, 0.35)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 cursor: 'pointer',
-                transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
+                fontSize: '1.1rem',
+                fontWeight: 'bold',
+                lineHeight: 1,
+                transition: 'all 0.25s cubic-bezier(0.16, 1, 0.3, 1)',
             }}
         >
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <polyline points="18 15 12 9 6 15"></polyline>
-            </svg>
+            ↑
         </button>
     );
 }
