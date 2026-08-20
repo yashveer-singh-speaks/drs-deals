@@ -554,8 +554,15 @@ h1, h2, h3, h4, h5, h6 {
   flex-direction: column;
   align-items: center;
   width: 100%;
-  padding-top: 100px;
+  padding-top: 16px;
   padding-bottom: 48px;
+}
+
+@media (max-width: 1023px) {
+  .hero {
+    padding-top: 72px !important;
+    min-height: auto !important;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -2409,9 +2416,6 @@ img:not(.brand-logo-img) {
         height: 26px !important;
         max-height: 26px !important;
         max-width: 100px !important;
-    }
-    .hero {
-        padding-top: 90px !important;
     }
 }
 
