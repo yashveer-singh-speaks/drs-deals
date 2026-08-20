@@ -39,7 +39,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
             siteName: siteConfig.name,
             images: [
                 {
-                    url: siteConfig.socialImage,
+                    url: deal.featuredImage ? `${siteConfig.url}${deal.featuredImage}` : siteConfig.socialImage,
                     width: 1200,
                     height: 630,
                     alt: deal.propertyName,
@@ -51,7 +51,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
             card: 'summary_large_image',
             title: `${deal.title} | DRS Deals`,
             description: `${deal.propertyName} in ${deal.location}. Exclusive member rates and verified dining & stay inclusions.`,
-            images: [siteConfig.socialImage],
+            images: [deal.featuredImage ? `${siteConfig.url}${deal.featuredImage}` : siteConfig.socialImage],
         },
     };
 }
@@ -146,15 +146,44 @@ export default async function DealDetailPage({ params }: Props) {
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '48px', alignItems: 'flex-start', marginBottom: '64px' }}>
                     {/* Left: Visual Gallery */}
                     <div>
-                        <div className="skeleton-box" style={{ width: '100%', height: '380px', borderRadius: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1rem', color: 'var(--color-charcoal-light)', border: '1px solid var(--color-stone)', marginBottom: '16px', background: 'var(--color-stone-light)' }}>
-                            📷 {deal.propertyName} — Featured Image
-                        </div>
+                        {deal.featuredImage ? (
+                            <img
+                                src={deal.featuredImage}
+                                alt={deal.title}
+                                style={{
+                                    width: '100%',
+                                    height: '380px',
+                                    objectFit: 'cover',
+                                    borderRadius: '16px',
+                                    border: '1px solid var(--color-stone)',
+                                    marginBottom: '16px',
+                                    boxShadow: '0 8px 24px rgba(0, 0, 0, 0.08)',
+                                }}
+                            />
+                        ) : (
+                            <div className="skeleton-box" style={{ width: '100%', height: '380px', borderRadius: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1rem', color: 'var(--color-charcoal-light)', border: '1px solid var(--color-stone)', marginBottom: '16px', background: 'var(--color-stone-light)' }}>
+                                📷 {deal.propertyName} — Featured Image
+                            </div>
+                        )}
+
                         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '12px' }}>
-                            {Array.from({ length: deal.imageSkeletonCount || 4 }).slice(0, 4).map((_, i) => (
-                                <div key={i} className="skeleton-box" style={{ height: '80px', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.75rem', color: 'var(--color-charcoal-light)', border: '1px solid var(--color-stone)' }}>
-                                    Gallery {i + 1}
-                                </div>
-                            ))}
+                            {deal.galleryImages && deal.galleryImages.length > 0 ? (
+                                deal.galleryImages.slice(0, 4).map((imgUrl, i) => (
+                                    <div key={i} style={{ height: '80px', borderRadius: '8px', overflow: 'hidden', border: '1px solid var(--color-stone)' }}>
+                                        <img
+                                            src={imgUrl}
+                                            alt={`${deal.propertyName} Gallery ${i + 1}`}
+                                            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                                        />
+                                    </div>
+                                ))
+                            ) : (
+                                Array.from({ length: deal.imageSkeletonCount || 4 }).slice(0, 4).map((_, i) => (
+                                    <div key={i} className="skeleton-box" style={{ height: '80px', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.75rem', color: 'var(--color-charcoal-light)', border: '1px solid var(--color-stone)' }}>
+                                        Gallery {i + 1}
+                                    </div>
+                                ))
+                            )}
                         </div>
                     </div>
 

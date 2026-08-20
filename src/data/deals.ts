@@ -41,6 +41,8 @@ export interface Deal {
     kidsPricing?: string[];
     timings?: string;
     imageSkeletonCount: number;
+    featuredImage?: string;
+    galleryImages?: string[];
 }
 
 export const DEALS_DATA: Deal[] = [
@@ -59,6 +61,13 @@ export const DEALS_DATA: Deal[] = [
         estimatedValue: '₹45,000+',
         isFeatured: true,
         featuredOrder: 1,
+        featuredImage: '/images/deals/wyndham-garden-sonipat-murthal/featured.jpg',
+        galleryImages: [
+            '/images/deals/wyndham-garden-sonipat-murthal/gallery-1.jpg',
+            '/images/deals/wyndham-garden-sonipat-murthal/gallery-2.jpg',
+            '/images/deals/wyndham-garden-sonipat-murthal/gallery-3.jpg',
+            '/images/deals/wyndham-garden-sonipat-murthal/gallery-4.jpg',
+        ],
         overview: [
             'Discover a more rewarding way to enjoy premium stays, dining and leisure experiences at Wyndham Garden Sonipat Murthal. This five star hotel membership is designed for guests who want to enjoy multiple hospitality benefits throughout the year, from comfortable overnight stays and dining experiences to refreshments and swimming pool access.',
             'The membership brings together a selection of benefits that can be enjoyed across different visits, making it suitable for individuals, couples and families looking to make their hotel experiences more valuable and memorable.'

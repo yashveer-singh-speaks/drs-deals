@@ -48,10 +48,16 @@ export default function DealsPage() {
                         {featuredDeals.map((deal) => (
                             <div key={deal.id} className="bg-white shadow-soft" style={{ borderRadius: '16px', padding: '28px', border: '1px solid var(--color-stone)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
                                 <div>
-                                    {/* Image Skeleton Box */}
-                                    <div className="skeleton-box" style={{ height: '200px', borderRadius: '12px', marginBottom: '20px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.85rem', color: 'var(--color-charcoal-light)', border: '1px solid var(--color-stone)' }}>
-                                        📷 {deal.propertyName} Image Placeholder
-                                    </div>
+                                    {/* Image Box */}
+                                    {deal.featuredImage ? (
+                                        <div style={{ height: '200px', borderRadius: '12px', overflow: 'hidden', marginBottom: '20px', border: '1px solid var(--color-stone)' }}>
+                                            <img src={deal.featuredImage} alt={deal.propertyName} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                                        </div>
+                                    ) : (
+                                        <div className="skeleton-box" style={{ height: '200px', borderRadius: '12px', marginBottom: '20px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.85rem', color: 'var(--color-charcoal-light)', border: '1px solid var(--color-stone)' }}>
+                                            📷 {deal.propertyName} Image Placeholder
+                                        </div>
+                                    )}
 
                                     <div style={{ fontSize: '0.8rem', fontWeight: 700, color: 'var(--color-champagne-gold)', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '6px' }}>
                                         {deal.categoryLabel}
@@ -99,9 +105,15 @@ export default function DealsPage() {
                         {allDeals.map((deal) => (
                             <div key={deal.id} className="bg-white shadow-soft" style={{ borderRadius: '14px', padding: '24px', border: '1px solid var(--color-stone)', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
                                 <div>
-                                    <div className="skeleton-box" style={{ height: '160px', borderRadius: '10px', marginBottom: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.8rem', color: 'var(--color-charcoal-light)', border: '1px solid var(--color-stone)' }}>
-                                        📷 {deal.propertyName} Placeholder
-                                    </div>
+                                    {deal.featuredImage ? (
+                                        <div style={{ height: '160px', borderRadius: '10px', overflow: 'hidden', marginBottom: '16px', border: '1px solid var(--color-stone)' }}>
+                                            <img src={deal.featuredImage} alt={deal.propertyName} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                                        </div>
+                                    ) : (
+                                        <div className="skeleton-box" style={{ height: '160px', borderRadius: '10px', marginBottom: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.8rem', color: 'var(--color-charcoal-light)', border: '1px solid var(--color-stone)' }}>
+                                            📷 {deal.propertyName} Placeholder
+                                        </div>
+                                    )}
 
                                     <div style={{ fontSize: '0.75rem', fontWeight: 700, color: 'var(--color-champagne-gold)', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '4px' }}>
                                         {deal.categoryLabel}
