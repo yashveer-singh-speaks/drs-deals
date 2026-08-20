@@ -4,6 +4,7 @@ import type { Metadata } from 'next';
 import SavingsCalculator from '@/components/SavingsCalculator';
 import NewsletterForm from '@/components/NewsletterForm';
 import CubeSteps from '@/components/CubeSteps';
+import HoneycombFeatures from '@/components/HoneycombFeatures';
 import { siteConfig } from '@/config/site';
 
 export const metadata: Metadata = {
@@ -408,28 +409,7 @@ export default function Home() {
             <section className="section-padding bg-ivory">
                 <div className="container text-center">
                     <h2 className="section-title" style={{ marginBottom: '48px' }}>Why Guests Choose DRS Deals</h2>
-                    <div className="features-grid">
-                        <div className="feature-item">
-                            <svg className="feature-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
-                            <h4 className="feature-title">Vetted 5-Star Properties</h4>
-                            <p className="feature-desc text-body-small">Over 1,000+ premier venues reviewed for quality, amenities, and hospitality standards.</p>
-                        </div>
-                        <div className="feature-item">
-                            <svg className="feature-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
-                            <h4 className="feature-title">Direct Verification</h4>
-                            <p className="feature-desc text-body-small">Personalized booking coordination with property front desks across 50+ cities.</p>
-                        </div>
-                        <div className="feature-item">
-                            <svg className="feature-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
-                            <h4 className="feature-title">₹1B+ Value Delivered</h4>
-                            <p className="feature-desc text-body-small">All membership inclusions and terms are clearly itemized in advance with zero hidden costs.</p>
-                        </div>
-                        <div className="feature-item">
-                            <svg className="feature-icon" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
-                            <h4 className="feature-title">Dedicated Concierge</h4>
-                            <p className="feature-desc text-body-small">Direct phone (+91 98111 20892) and WhatsApp support for inquiries and reservations.</p>
-                        </div>
-                    </div>
+                    <HoneycombFeatures />
                 </div>
             </section>
 
