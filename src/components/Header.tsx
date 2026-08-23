@@ -27,95 +27,196 @@ export default function Header() {
     };
 
     return (
-        <header className={`premium-header ${isScrolled ? 'scrolled' : ''}`}>
-            <div className="premium-header-container">
-                {/* Left: Logo */}
-                <Link href="/" className="premium-logo-wrapper" aria-label="DRS Deals Homepage">
-                    <img
-                        src={siteConfig.logo}
-                        alt="DRS Deals Logo"
-                        width={160}
-                        height={44}
-                        className="brand-logo-img"
-                        style={{ height: '40px', width: 'auto', display: 'block', objectFit: 'contain' }}
-                    />
-                </Link>
+        <header className={`lux-header ${isScrolled ? 'scrolled' : ''}`}>
 
-                {/* Center: Navigation */}
-                <nav className="premium-desktop-nav" aria-label="Main Navigation">
-                    <Link href="/" className={`premium-nav-link ${pathname === '/' ? 'active' : ''}`}>Home</Link>
-                    
-                    <div 
-                        className="premium-nav-item-dropdown"
-                        onMouseEnter={() => setOpenDropdown('experiences')}
-                        onMouseLeave={() => setOpenDropdown(null)}
-                    >
-                        <button className={`premium-nav-link ${pathname && pathname.includes('/experiences') ? 'active' : ''}`} aria-haspopup="true" aria-expanded={openDropdown === 'experiences'}>
-                            Experiences <svg className={`premium-dropdown-arrow ${openDropdown === 'experiences' ? 'open' : ''}`} width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
-                        </button>
-                        
-                        {/* Mega Menu Overlay */}
-                        <div className={`premium-mega-menu ${openDropdown === 'experiences' ? 'open' : ''}`}>
-                            <div className="premium-mega-menu-inner">
-                                <div className="mega-menu-grid">
-                                    <div className="mega-menu-list-col">
-                                        <h4 className="mega-menu-title">Destinations</h4>
-                                        <Link href="/destinations/delhi">Delhi NCR</Link>
-                                        <Link href="/destinations/jaipur">Jaipur</Link>
-                                        <Link href="/destinations/mumbai">Mumbai</Link>
-                                        <Link href="/destinations" className="mega-menu-link-all">View All Locations <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></Link>
+            {/* ── Floating Ivory Panel ── */}
+            <div className="lux-panel">
+
+                {/* Top champagne gold accent line */}
+                <div className="lux-panel-topline" aria-hidden="true" />
+
+                {/* Three-zone inner grid: logo | divider | nav | cta */}
+                <div className="lux-panel-inner">
+
+                    {/* ── ZONE 1: Logo ── */}
+                    <Link href="/" className="lux-logo-zone" aria-label="DRS Deals – Homepage">
+                        <img
+                            src={siteConfig.logo}
+                            alt="DRS Deals Logo"
+                            className="lux-logo-img"
+                        />
+                    </Link>
+
+                    {/* ── Thin vertical gold divider ── */}
+                    <div className="lux-divider" aria-hidden="true" />
+
+                    {/* ── ZONE 2: Desktop Navigation ── */}
+                    <nav className="lux-desktop-nav" aria-label="Main Navigation">
+
+                        <Link
+                            href="/"
+                            className={`lux-nav-link ${pathname === '/' ? 'active' : ''}`}
+                        >
+                            Home
+                        </Link>
+
+                        {/* Experiences with mega menu */}
+                        <div
+                            className="lux-nav-dropdown-wrap"
+                            onMouseEnter={() => setOpenDropdown('experiences')}
+                            onMouseLeave={() => setOpenDropdown(null)}
+                        >
+                            <button
+                                className={`lux-nav-link ${pathname && pathname.includes('/experiences') ? 'active' : ''}`}
+                                aria-haspopup="true"
+                                aria-expanded={openDropdown === 'experiences'}
+                            >
+                                Experiences
+                                {/* Refined champagne gold chevron */}
+                                <svg
+                                    className={`lux-chevron ${openDropdown === 'experiences' ? 'open' : ''}`}
+                                    width="11"
+                                    height="11"
+                                    viewBox="0 0 12 12"
+                                    fill="none"
+                                    stroke="#BC9044"
+                                    strokeWidth="1.5"
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    aria-hidden="true"
+                                >
+                                    <polyline points="2 4.5 6 8.5 10 4.5" />
+                                </svg>
+                            </button>
+
+                            {/* Mega Menu — structure unchanged */}
+                            <div className={`premium-mega-menu ${openDropdown === 'experiences' ? 'open' : ''}`}>
+                                <div className="premium-mega-menu-inner">
+                                    <div className="mega-menu-grid">
+                                        <div className="mega-menu-list-col">
+                                            <h4 className="mega-menu-title">Destinations</h4>
+                                            <Link href="/destinations/delhi">Delhi NCR</Link>
+                                            <Link href="/destinations/jaipur">Jaipur</Link>
+                                            <Link href="/destinations/mumbai">Mumbai</Link>
+                                            <Link href="/destinations" className="mega-menu-link-all">
+                                                View All Locations{' '}
+                                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                                    <path d="M5 12h14M12 5l7 7-7 7" />
+                                                </svg>
+                                            </Link>
+                                        </div>
+                                        <div className="mega-menu-list-col">
+                                            <h4 className="mega-menu-title">Experiences</h4>
+                                            <Link href="/experiences/resorts">Resorts &amp; Hotels</Link>
+                                            <Link href="/experiences/water-parks">Water Parks</Link>
+                                            <Link href="/experiences/farmhouses">Farmhouses</Link>
+                                            <Link href="/experiences/dining">Fine Dining</Link>
+                                            <Link href="/experiences/spa">Spa &amp; Wellness</Link>
+                                        </div>
+                                        <div className="mega-menu-list-col">
+                                            <h4 className="mega-menu-title">Collections</h4>
+                                            <Link href="/collections/couples">Romantic Getaways</Link>
+                                            <Link href="/collections/family">Family Outings</Link>
+                                            <Link href="/collections/weekend">Weekend Escapes</Link>
+                                            <Link href="/collections/corporate">Corporate Experiences</Link>
+                                        </div>
                                     </div>
-                                    <div className="mega-menu-list-col">
-                                        <h4 className="mega-menu-title">Experiences</h4>
-                                        <Link href="/experiences/resorts">Resorts &amp; Hotels</Link>
-                                        <Link href="/experiences/water-parks">Water Parks</Link>
-                                        <Link href="/experiences/farmhouses">Farmhouses</Link>
-                                        <Link href="/experiences/dining">Fine Dining</Link>
-                                        <Link href="/experiences/spa">Spa &amp; Wellness</Link>
-                                    </div>
-                                    <div className="mega-menu-list-col">
-                                        <h4 className="mega-menu-title">Collections</h4>
-                                        <Link href="/collections/couples">Romantic Getaways</Link>
-                                        <Link href="/collections/family">Family Outings</Link>
-                                        <Link href="/collections/weekend">Weekend Escapes</Link>
-                                        <Link href="/collections/corporate">Corporate Experiences</Link>
-                                    </div>
-                                </div>
-                                <div className="mega-menu-featured">
-                                    <img src="/images/webp/Header Mega Menu.webp" alt="Curated Luxury Stay" className="mega-menu-featured-img" width={280} height={200} loading="lazy" />
-                                    <div className="mega-menu-featured-content">
-                                        <h5>The Ultimate Escape</h5>
-                                        <p>Discover our curated luxury stays.</p>
+                                    <div className="mega-menu-featured">
+                                        <img
+                                            src="/images/webp/Header Mega Menu.webp"
+                                            alt="Curated Luxury Stay"
+                                            className="mega-menu-featured-img"
+                                            width={280}
+                                            height={200}
+                                            loading="lazy"
+                                        />
+                                        <div className="mega-menu-featured-content">
+                                            <h5>The Ultimate Escape</h5>
+                                            <p>Discover our curated luxury stays.</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+
+                        <Link href="/deals" className={`lux-nav-link ${pathname === '/deals' ? 'active' : ''}`}>
+                            Deals
+                        </Link>
+                        <Link href="/blog" className={`lux-nav-link ${pathname && pathname.includes('/blog') ? 'active' : ''}`}>
+                            Blog
+                        </Link>
+                        <Link href="/partners" className={`lux-nav-link ${pathname === '/partners' ? 'active' : ''}`}>
+                            Partner With Us
+                        </Link>
+                        <Link href="/about" className={`lux-nav-link ${pathname === '/about' ? 'active' : ''}`}>
+                            About
+                        </Link>
+
+                        {/* Search: label + outlined magnifying glass */}
+                        <Link
+                            href="/search"
+                            className={`lux-nav-link lux-search-link ${pathname === '/search' ? 'active' : ''}`}
+                            aria-label="Search DRS Deals"
+                        >
+                            <span>Search</span>
+                            <svg
+                                className="lux-search-icon"
+                                width="19"
+                                height="19"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                strokeWidth="1.6"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                aria-hidden="true"
+                            >
+                                <circle cx="11" cy="11" r="8" />
+                                <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                            </svg>
+                        </Link>
+                    </nav>
+
+                    {/* ── ZONE 3: CTA + Mobile Toggle ── */}
+                    <div className="lux-actions">
+
+                        {/* Explore Offers — deep charcoal with gold text & sparkle */}
+                        <Link href="/explore" className="lux-cta-btn">
+                            {/* Four-point sparkle SVG */}
+                            <svg
+                                className="lux-sparkle"
+                                width="14"
+                                height="14"
+                                viewBox="0 0 16 16"
+                                fill="#BC9044"
+                                aria-hidden="true"
+                            >
+                                <path d="M8 0 C8.6 3.8 10.1 5.9 12.2 7.4 C14.3 8 16 8 16 8 C16 8 12.2 8.6 10.1 10.1 C8.6 12.2 8 16 8 16 C7.4 12.2 5.9 10.1 3.8 8.6 C1.7 7.4 0 8 0 8 C0 8 3.8 7.4 5.9 5.9 C7.4 3.8 8 0 8 0Z" />
+                            </svg>
+                            Explore Offers
+                        </Link>
+
+                        {/* Mobile hamburger (unchanged) */}
+                        <button
+                            className="premium-mobile-toggle"
+                            aria-label="Toggle menu"
+                            onClick={toggleDrawer}
+                            aria-expanded={drawerOpen}
+                        >
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                                <line x1="3" y1="12" x2="21" y2="12"></line>
+                                <line x1="3" y1="6" x2="21" y2="6"></line>
+                                <line x1="3" y1="18" x2="21" y2="18"></line>
+                            </svg>
+                        </button>
                     </div>
-
-                    <Link href="/deals" className={`premium-nav-link ${pathname === '/deals' ? 'active' : ''}`}>Deals</Link>
-                    <Link href="/blog" className={`premium-nav-link ${pathname && pathname.includes('/blog') ? 'active' : ''}`}>Blog</Link>
-                    <Link href="/partners" className={`premium-nav-link ${pathname === '/partners' ? 'active' : ''}`}>Partner With Us</Link>
-                    <Link href="/about" className={`premium-nav-link ${pathname === '/about' ? 'active' : ''}`}>About</Link>
-                    <Link href="/search" className={`premium-nav-link ${pathname === '/search' ? 'active' : ''}`}>Search</Link>
-                </nav>
-
-                {/* Right: CTA */}
-                <div className="premium-header-actions">
-                    <Link href="/explore" className="premium-btn-cta">Explore Offers</Link>
-                    <button className="premium-mobile-toggle" aria-label="Toggle menu" onClick={toggleDrawer} aria-expanded={drawerOpen}>
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                            <line x1="3" y1="12" x2="21" y2="12"></line>
-                            <line x1="3" y1="6" x2="21" y2="6"></line>
-                            <line x1="3" y1="18" x2="21" y2="18"></line>
-                        </svg>
-                    </button>
                 </div>
             </div>
 
-            {/* Mobile Drawer Overlay */}
+            {/* ── Mobile Drawer Overlay (untouched) ── */}
             <div className={`premium-drawer-overlay ${drawerOpen ? 'open' : ''}`} onClick={toggleDrawer} aria-hidden="true"></div>
 
-            {/* Mobile Drawer */}
+            {/* ── Mobile Drawer (untouched) ── */}
             <div className={`premium-mobile-drawer ${drawerOpen ? 'open' : ''}`} aria-hidden={!drawerOpen}>
                 <div className="drawer-header">
                     <Link href="/" className="premium-logo-wrapper" onClick={toggleDrawer} aria-label="DRS Deals Homepage">
@@ -138,14 +239,25 @@ export default function Header() {
                 <div className="drawer-body">
                     <nav className="premium-drawer-nav" aria-label="Mobile Navigation">
                         <Link href="/" className="drawer-link" onClick={toggleDrawer}>Home</Link>
-                        
+
                         <div className="drawer-accordion-group">
-                            <button 
-                                className="drawer-link drawer-accordion-toggle" 
+                            <button
+                                className="drawer-link drawer-accordion-toggle"
                                 onClick={() => toggleDropdown('mobile-experiences')}
                                 aria-expanded={openDropdown === 'mobile-experiences'}
                             >
-                                Experiences <svg className={`accordion-arrow ${openDropdown === 'mobile-experiences' ? 'open' : ''}`} width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="6 9 12 15 18 9"></polyline></svg>
+                                Experiences
+                                <svg
+                                    className={`accordion-arrow ${openDropdown === 'mobile-experiences' ? 'open' : ''}`}
+                                    width="16"
+                                    height="16"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    strokeWidth="2"
+                                >
+                                    <polyline points="6 9 12 15 18 9"></polyline>
+                                </svg>
                             </button>
                             <div className={`drawer-accordion-content ${openDropdown === 'mobile-experiences' ? 'open' : ''}`}>
                                 <div className="drawer-accordion-inner">
@@ -171,6 +283,7 @@ export default function Header() {
                     <Link href="/explore" className="premium-btn-cta full-width" onClick={toggleDrawer}>Explore Offers</Link>
                 </div>
             </div>
+
         </header>
     );
 }
