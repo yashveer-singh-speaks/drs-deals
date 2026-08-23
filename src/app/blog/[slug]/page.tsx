@@ -35,10 +35,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
             authors: [post.author],
             images: [
                 {
-                    url: siteConfig.socialImage,
+                    url: `${siteConfig.url}${post.image}`,
                     width: 1200,
                     height: 630,
-                    alt: post.title,
+                    alt: post.imageAlt,
                 },
             ],
         },
@@ -46,7 +46,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
             card: 'summary_large_image',
             title: `${post.title} | DRS Deals`,
             description: post.excerpt,
-            images: [siteConfig.socialImage],
+            images: [`${siteConfig.url}${post.image}`],
         },
     };
 }
@@ -161,9 +161,15 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                     </div>
                 </div>
 
-                {/* Hero Image Skeleton */}
-                <div className="skeleton-box" style={{ width: '100%', height: '380px', borderRadius: '16px', marginBottom: '40px', border: '1px solid var(--color-stone)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--color-charcoal-light)', fontSize: '0.9rem' }}>
-                    📷 Editorial Header Photo Skeleton — {post.title}
+                {/* Hero Editorial Header Image */}
+                <div style={{ width: '100%', height: '420px', borderRadius: '16px', marginBottom: '40px', overflow: 'hidden', border: '1px solid var(--color-stone)', boxShadow: '0 8px 30px rgba(0,0,0,0.06)' }}>
+                    <img 
+                        src={post.image} 
+                        alt={post.imageAlt}
+                        width={1200}
+                        height={630}
+                        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                    />
                 </div>
 
                 {/* Article Body Content */}

@@ -40,7 +40,7 @@ export async function POST(request: Request) {
 
         // In a production environment with DB/CRM/Resend configured, dispatch here:
         // await db.inquiries.create({ data: sanitizedData });
-        // await resend.emails.send({ to: 'concierge@drsdeals.in', ... });
+        // await resend.emails.send({ to: 'drsdeals.in@gmail.com', ... });
         console.log('[DRS Deals Contact Submission]', sanitizedData);
 
         return NextResponse.json(

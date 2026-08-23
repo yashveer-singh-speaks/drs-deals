@@ -52,7 +52,7 @@ export async function POST(request: Request) {
     } catch (err) {
         console.error('[DRS Deals Partner Error]', err);
         return NextResponse.json(
-            { success: false, error: 'Internal server error while processing your application. Please try again or contact partnerships@drsdeals.in directly.' },
+            { success: false, error: 'Internal server error while processing your application. Please try again or contact drsdeals.in@gmail.com directly.' },
             { status: 500 }
         );
     }

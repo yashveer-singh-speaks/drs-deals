@@ -5,8 +5,19 @@ import { BlogPost } from '@/data/blogs';
 export default function BlogCard({ post }: { post: BlogPost }) {
     return (
         <div className="blog-card shadow-soft" style={{ background: '#fff', borderRadius: '12px', overflow: 'hidden', border: '1px solid var(--color-stone)', display: 'flex', flexDirection: 'column', height: '100%' }}>
-            <div style={{ padding: '28px', display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '16px' }}>
+            <Link href={`/blog/${post.slug}`} style={{ textDecoration: 'none', display: 'block', overflow: 'hidden', height: '200px' }}>
+                <img 
+                    src={post.image} 
+                    alt={post.imageAlt}
+                    width={400}
+                    height={225}
+                    loading="lazy"
+                    style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.4s ease' }}
+                    className="hover-zoom"
+                />
+            </Link>
+            <div style={{ padding: '24px', display: 'flex', flexDirection: 'column', flexGrow: 1 }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '14px' }}>
                     <span style={{ fontSize: '0.75rem', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', color: 'var(--color-champagne-gold)', background: 'rgba(188, 144, 68, 0.08)', padding: '4px 10px', borderRadius: '4px' }}>
                         {post.category}
                     </span>
@@ -15,18 +26,18 @@ export default function BlogCard({ post }: { post: BlogPost }) {
                     </span>
                 </div>
                 
-                <h3 style={{ fontSize: '1.25rem', fontFamily: 'var(--font-serif)', color: 'var(--color-charcoal)', lineHeight: 1.4, marginBottom: '12px' }}>
+                <h3 style={{ fontSize: '1.2rem', fontFamily: 'var(--font-serif)', color: 'var(--color-charcoal)', lineHeight: 1.4, marginBottom: '12px' }}>
                     <Link href={`/blog/${post.slug}`} style={{ textDecoration: 'none', color: 'inherit' }}>
                         {post.title}
                     </Link>
                 </h3>
                 
-                <p style={{ fontSize: '0.9rem', color: 'var(--color-charcoal-light)', lineHeight: 1.6, marginBottom: '24px', flexGrow: 1 }}>
+                <p style={{ fontSize: '0.875rem', color: 'var(--color-charcoal-light)', lineHeight: 1.6, marginBottom: '20px', flexGrow: 1 }}>
                     {post.excerpt}
                 </p>
                 
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: '16px', borderTop: '1px solid var(--color-stone)', marginTop: 'auto' }}>
-                    <span style={{ fontSize: '0.8rem', fontWeight: 500, color: 'var(--color-charcoal)' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: '14px', borderTop: '1px solid var(--color-stone)', marginTop: 'auto' }}>
+                    <span style={{ fontSize: '0.78rem', fontWeight: 500, color: 'var(--color-charcoal)' }}>
                         ✦ {post.author}
                     </span>
                     <Link href={`/blog/${post.slug}`} className="link-arrow" style={{ fontSize: '0.8rem' }}>

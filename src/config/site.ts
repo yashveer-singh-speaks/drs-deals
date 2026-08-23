@@ -9,8 +9,8 @@ export const siteConfig = {
     
     // Centralized Contact Configuration
     contacts: {
-        conciergeEmail: 'concierge@drsdeals.in',
-        partnerEmail: 'partnerships@drsdeals.in',
+        conciergeEmail: 'drsdeals.in@gmail.com',
+        partnerEmail: 'drsdeals.in@gmail.com',
         hotline1: '+91 98111 20892',
         hotline2: '+91 98113 60808',
         hotline1Raw: '+919811120892',

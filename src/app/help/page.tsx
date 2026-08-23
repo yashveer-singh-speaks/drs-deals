@@ -31,7 +31,7 @@ export default function HelpPage() {
         },
         {
             q: 'How can hotels and resorts partner with DRS Deals?',
-            a: 'Hospitality properties can submit their details through our /partners page or email partnerships@drsdeals.in to discuss featured placement and curated member promotions.',
+            a: `Hospitality properties can submit their details through our /partners page or email ${siteConfig.contacts.partnerEmail} to discuss featured placement and curated member promotions.`,
         },
         {
             q: 'How do I reach the concierge team for urgent inquiries?',

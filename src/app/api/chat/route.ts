@@ -98,10 +98,16 @@ ${contextKnowledge}
             reply = 'The White Flower Resorts membership is ₹7,999 and gives dual-destination access across Mussoorie & Jim Corbett with 2 complimentary night stays and dining privileges. Call +91 98111 20892 for details.';
         } else if (q.includes('rangmanch') || q.includes('gurgaon farm') || q.includes('sultanpur')) {
             reply = 'Rangmanch Farms Gurgaon offers a full-day adventure outing (₹1,499/adult, ₹799/child) with 80+ activities (zipline, swimming pool, tractor rides) and unlimited multi-meal buffet. Call +91 98111 20892 to book.';
+        } else if (q.includes('mera gaon') || q.includes('mera desh')) {
+            reply = 'Mera Gaon Mera Desh Murthal Day Pass is priced at ₹800 (listed park rate ₹1,400) and includes unlimited village meals, 60+ cultural activities, and full water park access. Call +91 98111 20892 to book.';
+        } else if (q.includes('madhavgarh') || q.includes('tikli')) {
+            reply = 'Madhavgarh Farms Gurgaon Day Outing Ticket is priced at ₹749 (listed rate ₹1,499) for the morning slot (9 AM to 5 PM) with unlimited rural food and 50+ activities. Advance booking required via +91 98111 20892.';
+        } else if (q.includes('mojoland')) {
+            reply = 'Mojoland Multi Theme Park Murthal Combo Pass is priced at ₹700 for ANY TWO PARKS (Water, Adventure, Amusement, or Snow Park). Call +91 98111 20892 to book.';
         } else if (q.includes('how it works') || q.includes('how to book') || q.includes('how do i buy') || q.includes('payment')) {
             reply = 'DRS Deals operates as a personalized concierge desk: 1) Explore our curated hotel memberships. 2) Call +91 98111 20892 or WhatsApp us. 3) Our concierge verifies dates and confirms your membership directly with property management. No online checkout required.';
         } else if (q.includes('partner') || q.includes('hotel partner') || q.includes('list property')) {
-            reply = '5-star hotels, luxury resorts, water parks, and fine dining venues can partner with DRS Deals with zero upfront listing fees. Email partnerships@drsdeals.in or submit your property on /partners.';
+            reply = '5-star hotels, luxury resorts, water parks, and fine dining venues can partner with DRS Deals with zero upfront listing fees. Email drsdeals.in@gmail.com or submit your property on /partners.';
         } else if (q.includes('heritage') || q.includes('years') || q.includes('since') || q.includes('about')) {
             reply = 'Since 2003, DRS Deals has a 23-Year Legacy curating India’s finest hospitality experiences across 50+ cities, serving over 2M+ happy customers with ₹1B+ savings delivered.';
         } else {
