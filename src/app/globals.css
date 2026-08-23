@@ -3259,3 +3259,18 @@ img:not(.brand-logo-img) {
     text-shadow: 0 0 18px rgba(188, 144, 68, 0.6);
     transform: translateY(-1px);
 }
+
+.btn-hover-gold {
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.btn-hover-gold:hover:not(:disabled) {
+    background-color: var(--color-champagne-gold) !important;
+    color: #fff !important;
+    box-shadow: 0 4px 12px rgba(188, 144, 68, 0.25);
+    transform: translateY(-1px);
+}
+
+.btn-hover-gold:active:not(:disabled) {
+    transform: translateY(0);
+}
