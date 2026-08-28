@@ -26,7 +26,7 @@ export default function Home() {
                 {/* DESKTOP HERO (Laptops, Desktops & Large Screens >= 1024px) */}
                 <div className="hero-desktop-wrapper">
                     <div className="hero-content">
-                        <div className="hero-eyebrow">Curated Since 2003 &bull; 23-Year Legacy</div>
+                        <div className="hero-eyebrow">PREMIUM LEISURE &amp; DINING PRIVILEGES</div>
                         <h1 className="hero-title">
                             More Experiences. <br />
                             More Memories. <br />
@@ -96,7 +96,7 @@ export default function Home() {
                         
                         <div className="hero-badge">
                             <span className="logo-main">DRS<span className="logo-star">✦</span></span>
-                            <p className="hero-badge-text">23-Year Legacy<br />2M+ Happy Guests<br />₹1B+ Savings</p>
+                            <p className="hero-badge-text">Exclusive Memberships<br />2M+ Happy Guests<br />₹1B+ Savings</p>
                         </div>
                     </div>
                 </div>
@@ -105,7 +105,7 @@ export default function Home() {
                 <div className="hero-mobile-wrapper">
                     {/* 1. Header (Eyebrow & Main Title) */}
                     <div className="hero-header">
-                        <div className="hero-eyebrow">Curated Since 2003 &bull; 23-Year Legacy</div>
+                        <div className="hero-eyebrow">PREMIUM LEISURE &amp; DINING PRIVILEGES</div>
                         <h1 className="hero-title">
                             More Experiences. <br />
                             More Memories. <br />
@@ -144,7 +144,7 @@ export default function Home() {
                         
                         <div className="hero-badge">
                             <span className="logo-main">DRS<span className="logo-star">✦</span></span>
-                            <p className="hero-badge-text">23-Year Legacy<br />2M+ Happy Guests<br />₹1B+ Savings</p>
+                            <p className="hero-badge-text">Exclusive Memberships<br />2M+ Happy Guests<br />₹1B+ Savings</p>
                         </div>
                     </div>
 
@@ -364,6 +364,18 @@ export default function Home() {
                 </div>
             </section>
 
+            {/* HOW DRS DEALS WORKS */}
+            <section className="section-padding bg-white">
+                <div className="container">
+                    <div className="section-header text-center justify-center">
+                        <h2 className="section-title" style={{ marginBottom: '8px' }}>How It Works</h2>
+                        <p className="text-body-large">A seamless 4-step concierge journey to your next luxury escape.</p>
+                    </div>
+                    
+                    <CubeSteps />
+                </div>
+            </section>
+
             {/* WHY DRS DEALS EXISTS */}
             <section className="section-padding bg-ivory">
                 <div className="container">
@@ -393,20 +405,8 @@ export default function Home() {
                 </div>
             </section>
 
-            {/* HOW DRS DEALS WORKS */}
-            <section className="section-padding bg-white">
-                <div className="container">
-                    <div className="section-header text-center justify-center">
-                        <h2 className="section-title" style={{ marginBottom: '8px' }}>How It Works</h2>
-                        <p className="text-body-large">A seamless 4-step concierge journey to your next luxury escape.</p>
-                    </div>
-                    
-                    <CubeSteps />
-                </div>
-            </section>
-
             {/* TRUST GRID */}
-            <section className="section-padding bg-ivory">
+            <section className="section-padding bg-white">
                 <div className="container text-center">
                     <h2 className="section-title" style={{ marginBottom: '48px' }}>Why Guests Choose DRS Deals</h2>
                     <HoneycombFeatures />
@@ -414,26 +414,27 @@ export default function Home() {
             </section>
 
             {/* PARTNER SPOTLIGHT */}
-            <section className="section-padding bg-white">
+            <section className="section-padding bg-ivory">
                 <div className="container">
                     <h3 className="text-eyebrow" style={{ marginBottom: '24px', textAlign: 'center' }}>Featured Destination Spotlight</h3>
                     <div className="spotlight-card rounded-lg shadow-soft">
                         <img 
-                            src="/images/webp/Partner Spotlight of the Month Section.webp" 
-                            alt="The Oberoi Udaivilas Rajasthan" 
+                            src="/images/webp/Featured Experiences Section (Card 1).webp" 
+                            alt="Wyndham Garden Sonipat Murthal" 
                             className="spotlight-img" 
                             width={1140} 
                             height={450} 
-                            loading="lazy" 
+                            loading="lazy"
+                            style={{ objectPosition: 'center 60%' }}
                         />
                         <div className="spotlight-content bg-white">
-                            <h2 className="section-title" style={{ marginBottom: '16px' }}>Rajasthan Heritage Stays</h2>
-                            <p className="text-body-large" style={{ marginBottom: '24px' }}>Experience the majesty of luxury palace retreats.</p>
+                            <h2 className="section-title" style={{ marginBottom: '16px' }}>Wyndham Garden Sonipat Murthal</h2>
+                            <p className="text-body-large" style={{ marginBottom: '24px' }}>Five Star Hotel & Resort</p>
                             <p className="text-body-small text-charcoal-light" style={{ marginBottom: '32px', lineHeight: 1.7 }}>
-                                Discover curated weekend heritage stays and luxury resort memberships across Jaipur, Udaipur, and Rajasthan featuring private dining and royal architecture.
+                                Enjoy exclusive member rates and privileges for luxury stays, gourmet dining, and leisure escapes at Wyndham Garden Sonipat Murthal, Haryana.
                             </p>
                             <div style={{ display: 'flex', gap: '16px' }}>
-                                <Link href="/destinations/jaipur" className="btn btn-primary">Explore Jaipur Stays</Link>
+                                <Link href="/deals/wyndham-garden-sonipat-murthal" className="btn btn-primary">View Details & Booking</Link>
                             </div>
                         </div>
                     </div>
@@ -606,14 +607,14 @@ export default function Home() {
             <SavingsCalculator />
 
             {/* BUSINESS PARTNER SECTION */}
-            <section className="section-padding bg-charcoal text-white text-center">
+            <section className="section-padding bg-ivory text-charcoal text-center">
                 <div className="container">
                     <div style={{ maxWidth: '640px', margin: '0 auto' }}>
                         <div className="hero-eyebrow" style={{ justifyContent: 'center', marginBottom: '12px', color: 'var(--color-champagne-gold)' }}>
                             VENUE PARTNERSHIPS
                         </div>
-                        <h2 className="section-title text-white" style={{ marginBottom: '20px' }}>Join 1,000+ Premium Venue Partners</h2>
-                        <p className="text-body-large" style={{ marginBottom: '32px', color: 'var(--color-stone)', lineHeight: 1.7 }}>
+                        <h2 className="section-title text-charcoal" style={{ marginBottom: '20px' }}>Join 1,000+ Premium Venue Partners</h2>
+                        <p className="text-body-large text-charcoal-light" style={{ marginBottom: '32px', lineHeight: 1.7 }}>
                             Partner with DRS Deals to feature your resort, fine dining venue, or leisure property before an audience of over 2 million discerning guests.
                         </p>
                         <Link href="/partners" className="btn btn-primary">Discuss a Partnership</Link>
@@ -622,32 +623,38 @@ export default function Home() {
             </section>
 
             {/* VERIFIED STATS GRID */}
-            <section className="section-padding bg-ivory">
+            <section className="section-padding bg-white">
                 <div className="container">
-                    <div className="stats-grid">
-                        <div className="stat-item">
+                    <div className="stats-cards-grid">
+                        <div className="stat-card">
                             <div className="stat-number">23 Years</div>
-                            <div className="stat-label">Hospitality Legacy (Since 2003)</div>
+                            <div className="stat-label">Hospitality Legacy</div>
+                            <div className="stat-desc">Curating luxury experiences since 2003.</div>
                         </div>
-                        <div className="stat-item">
+                        <div className="stat-card">
                             <div className="stat-number">2M+</div>
-                            <div className="stat-label">Happy Guests &amp; Members</div>
+                            <div className="stat-label">Happy Guests</div>
+                            <div className="stat-desc">Members enjoying premium privileges.</div>
                         </div>
-                        <div className="stat-item">
+                        <div className="stat-card">
                             <div className="stat-number">1,000+</div>
-                            <div className="stat-label">Premium Hotel &amp; Venue Partners</div>
+                            <div className="stat-label">Venue Partners</div>
+                            <div className="stat-desc">Top-tier hotels, resorts &amp; dining.</div>
                         </div>
-                        <div className="stat-item">
+                        <div className="stat-card">
                             <div className="stat-number">50+</div>
-                            <div className="stat-label">Cities &amp; Regional Hubs</div>
+                            <div className="stat-label">Cities Covered</div>
+                            <div className="stat-desc">Extensive network across India.</div>
                         </div>
-                        <div className="stat-item">
+                        <div className="stat-card">
                             <div className="stat-number">₹1B+</div>
-                            <div className="stat-label">Member Value Delivered</div>
+                            <div className="stat-label">Value Delivered</div>
+                            <div className="stat-desc">Exclusive savings for our members.</div>
                         </div>
-                        <div className="stat-item">
+                        <div className="stat-card">
                             <div className="stat-number">4.9 ★</div>
-                            <div className="stat-label">Verified Member Rating</div>
+                            <div className="stat-label">Member Rating</div>
+                            <div className="stat-desc">Consistently top-rated service.</div>
                         </div>
                     </div>
                 </div>

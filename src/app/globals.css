@@ -950,6 +950,8 @@ h1, h2, h3, h4, h5, h6 {
 
 /* --- SECTION STYLES --- */
 .bg-ivory { background-color: var(--color-ivory); }
+.bg-charcoal { background-color: var(--color-charcoal); }
+.text-white { color: var(--color-warm-white); }
 .bg-white { background-color: var(--color-warm-white); }
 .text-charcoal-light { color: var(--color-charcoal-light); }
 .rounded-lg { border-radius: var(--radius-lg); }
@@ -2209,28 +2211,79 @@ h1, h2, h3, h4, h5, h6 {
 .calc-value { font-size: 1.5rem; font-weight: 600; }
 .calc-value.original { text-decoration: line-through; }
 
-/* STATS GRID */
-.stats-grid {
+/* STATS GRID REFINED */
+.stats-cards-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--spacing-32);
+  grid-template-columns: 1fr;
+  gap: var(--spacing-24);
+}
+@media (min-width: 640px) {
+  .stats-cards-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1024px) {
+  .stats-cards-grid { grid-template-columns: repeat(3, 1fr); gap: var(--spacing-32); }
+}
+
+.stat-card {
+  background-color: var(--color-warm-white);
+  border: 1px solid var(--color-stone);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-32) var(--spacing-24);
   text-align: center;
+  box-shadow: var(--shadow-soft);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
 }
-@media (min-width: 768px) {
-  .stats-grid { grid-template-columns: repeat(4, 1fr); }
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-champagne-gold) 0%, #d4af37 100%);
+  opacity: 0;
+  transition: opacity var(--transition-normal);
 }
+
+.stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+}
+
+.stat-card:hover::before {
+  opacity: 1;
+}
+
 .stat-number {
   font-family: var(--font-serif);
-  font-size: 2.5rem;
+  font-size: 2.75rem;
   color: var(--color-champagne-gold);
   margin-bottom: var(--spacing-8);
+  font-weight: 500;
+  line-height: 1.1;
 }
+
 .stat-label {
   font-family: var(--font-sans);
   font-size: 0.875rem;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.1em;
+  color: var(--color-charcoal);
+  margin-bottom: var(--spacing-8);
+}
+
+.stat-desc {
+  font-size: 0.875rem;
   color: var(--color-charcoal-light);
+  line-height: 1.5;
 }
 
 /* GUIDES GRID */
@@ -3395,3 +3448,7 @@ h1, h2, h3, h4, h5, h6 {
 .btn-hover-gold:active:not(:disabled) {
     transform: translateY(0);
 }
+
+/* --- UTILITY OVERRIDES --- */
+.text-white { color: var(--color-warm-white) !important; }
+.text-charcoal { color: var(--color-charcoal) !important; }
