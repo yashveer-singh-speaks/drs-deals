@@ -67,76 +67,97 @@ export default function Home() {
                     </div>
 
                     <div className="hero-visual">
-                        <svg className="hero-svg-collage" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
+                        <svg className="hero-svg-collage" viewBox="0 0 820 780" preserveAspectRatio="xMidYMid meet">
                             <defs>
-                                <filter id="d-shadow" x="-10%" y="-10%" width="120%" height="120%">
-                                    <feDropShadow dx="0" dy="15" stdDeviation="15" floodColor="#1a1710" floodOpacity="0.2" />
+                                {/* 1. Top-Right Resort Mask (Dominant hospitality image) */}
+                                <clipPath id="d-clip-resort">
+                                    <path d="M 560 0 L 820 0 L 820 340 L 680 430 L 420 220 C 480 160, 520 70, 560 0 Z" />
+                                </clipPath>
+
+                                {/* 2. Center Dining Arch Mask */}
+                                <clipPath id="d-clip-dining">
+                                    <path d="M 20 400 C 10 300, 220 180, 420 220 L 680 430 L 480 630 C 320 600, 120 540, 20 400 Z" />
+                                </clipPath>
+
+                                {/* 3. Lower-Left Spa Arch Mask */}
+                                <clipPath id="d-clip-spa">
+                                    <path d="M 160 780 C 80 650, 10 520, 20 400 C 120 540, 320 600, 480 630 L 420 780 Z" />
+                                </clipPath>
+
+                                {/* 4. Lower-Right Water Park Mask */}
+                                <clipPath id="d-clip-water">
+                                    <path d="M 680 430 L 820 340 L 820 780 L 420 780 L 480 630 Z" />
+                                </clipPath>
+
+                                {/* Soft Editorial Shadow for Card Only */}
+                                <filter id="d-card-shadow" x="-20%" y="-20%" width="140%" height="140%">
+                                    <feDropShadow dx="0" dy="8" stdDeviation="12" floodColor="#1C1A18" floodOpacity="0.12" />
                                 </filter>
-                                <clipPath id="d-resort">
-                                    <path d="M 1440 0 L 850 0 C 700 200, 600 400, 800 600 C 1050 800, 1250 300, 1440 400 Z" />
-                                </clipPath>
-                                <clipPath id="d-dining">
-                                    <path d="M 700 700 C 950 850, 1200 450, 1440 550 L 1440 850 C 1200 950, 1000 850, 850 900 C 750 950, 600 850, 700 700 Z" />
-                                </clipPath>
-                                <clipPath id="d-spa">
-                                    <path d="M 150 900 C 150 650, 450 600, 600 900 Z" />
-                                </clipPath>
-                                <clipPath id="d-water">
-                                    <path d="M 1150 900 C 1150 750, 1350 750, 1440 900 Z" />
-                                </clipPath>
-                                <clipPath id="d-offers">
-                                    <path d="M 850 500 C 1000 400, 1100 650, 950 750 C 800 850, 700 600, 850 500 Z" />
-                                </clipPath>
                             </defs>
+
+                            {/* SECTOR 1: Top-Right Resort */}
+                            <g clipPath="url(#d-clip-resort)">
+                                <image href="/images/webp/hero_collage_1.jpg" x="360" y="-30" width="480" height="500" preserveAspectRatio="xMidYMid slice" />
+                            </g>
+
+                            {/* SECTOR 2: Center Dining */}
+                            <g clipPath="url(#d-clip-dining)">
+                                <image href="/images/webp/hero_collage_2.jpg" x="0" y="160" width="700" height="500" preserveAspectRatio="xMidYMid slice" />
+                            </g>
+
+                            {/* SECTOR 3: Lower-Left Spa */}
+                            <g clipPath="url(#d-clip-spa)">
+                                <image href="/images/webp/hero_collage_3.jpg" x="0" y="380" width="500" height="420" preserveAspectRatio="xMidYMid slice" />
+                            </g>
+
+                            {/* SECTOR 4: Lower-Right Water Park */}
+                            <g clipPath="url(#d-clip-water)">
+                                <image href="/images/webp/hero_collage_4.jpg" x="380" y="320" width="460" height="480" preserveAspectRatio="xMidYMid slice" />
+                            </g>
+
+                            {/* REFINED 1.5PX CHAMPAGNE GOLD INTERLOCKING SEAMS */}
+                            {/* Outer Grand Sweeping Silhouette Arc */}
+                            <path d="M 560 0 C 520 70, 480 160, 420 220 C 220 180, 10 300, 20 400 C 10 520, 80 650, 160 780" fill="none" stroke="var(--color-champagne-gold)" strokeWidth="1.5" opacity="0.85" />
                             
-                            {/* Spa (Bottom Left Arch) */}
-                            <g filter="url(#d-shadow)">
-                                <g clipPath="url(#d-spa)">
-                                    <image href="/images/webp/hero_collage_3.jpg" x="0" y="500" width="800" height="400" preserveAspectRatio="xMidYMid slice" />
-                                </g>
-                                <path d="M 150 900 C 150 650, 450 600, 600 900" fill="none" stroke="var(--color-champagne-gold)" strokeWidth="3" />
-                            </g>
+                            {/* Dining Arch Boundary */}
+                            <path d="M 20 400 C 10 300, 220 180, 420 220" fill="none" stroke="var(--color-champagne-gold)" strokeWidth="1.5" opacity="0.85" />
 
-                            {/* Water Park (Bottom Right) */}
-                            <g filter="url(#d-shadow)">
-                                <g clipPath="url(#d-water)">
-                                    <image href="/images/webp/hero_collage_4.jpg" x="1000" y="700" width="440" height="200" preserveAspectRatio="xMidYMid slice" />
-                                </g>
-                                <path d="M 1150 900 C 1150 750, 1350 750, 1440 900" fill="none" stroke="var(--color-champagne-gold)" strokeWidth="3" />
-                            </g>
+                            {/* Dining to Resort Diagonal Seam */}
+                            <path d="M 420 220 L 680 430" fill="none" stroke="var(--color-champagne-gold)" strokeWidth="1.5" opacity="0.85" />
 
-                            {/* Dining (Middle Right) */}
-                            <g filter="url(#d-shadow)">
-                                <g clipPath="url(#d-dining)">
-                                    <image href="/images/webp/hero_collage_2.jpg" x="600" y="400" width="840" height="500" preserveAspectRatio="xMidYMid slice" />
-                                </g>
-                                <path d="M 700 700 C 950 850, 1200 450, 1440 550" fill="none" stroke="var(--color-champagne-gold)" strokeWidth="3" />
-                                <path d="M 1440 850 C 1200 950, 1000 850, 850 900 C 750 950, 600 850, 700 700" fill="none" stroke="var(--color-champagne-gold)" strokeWidth="3" />
-                            </g>
+                            {/* Spa to Dining Arch Seam */}
+                            <path d="M 20 400 C 120 540, 320 600, 480 630" fill="none" stroke="var(--color-champagne-gold)" strokeWidth="1.5" opacity="0.85" />
 
-                            {/* Resort (Top Right, Dominant) */}
-                            <g filter="url(#d-shadow)">
-                                <g clipPath="url(#d-resort)">
-                                    <image href="/images/webp/hero_collage_1.jpg" x="500" y="-100" width="940" height="900" preserveAspectRatio="xMidYMid slice" />
-                                </g>
-                                <path d="M 850 0 C 700 200, 600 400, 800 600 C 1050 800, 1250 300, 1440 400" fill="none" stroke="var(--color-champagne-gold)" strokeWidth="3" />
-                            </g>
+                            {/* Water Park to Dining / Spa Diagonal Seam */}
+                            <path d="M 680 430 L 480 630 L 420 780" fill="none" stroke="var(--color-champagne-gold)" strokeWidth="1.5" opacity="0.85" />
 
-                            {/* Curated Offers Card (Center Leaf) */}
-                            <g filter="url(#d-shadow)">
-                                <g clipPath="url(#d-offers)">
-                                    <rect x="650" y="400" width="500" height="450" fill="var(--color-ivory)" />
-                                    <foreignObject x="710" y="490" width="280" height="200">
-                                        <div style={{ textAlign: 'center', fontFamily: 'var(--font-sans)', color: 'var(--color-charcoal)', padding: '20px' }}>
-                                            <div style={{ width: '40px', height: '40px', border: '1px solid var(--color-champagne-gold)', borderRadius: '50%', margin: '0 auto 12px auto', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--color-champagne-gold)' }}>
-                                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21.44 11.05l-9.19 9.19a2 2 0 01-2.83 0l-5.66-5.66a2 2 0 010-2.83l9.19-9.19a2 2 0 011.41-.59H19a2 2 0 012 2v4.59a2 2 0 01-.56 1.41z"></path><circle cx="15.5" cy="8.5" r="1.5"></circle></svg>
-                                            </div>
-                                            <div style={{ fontSize: '0.9rem', fontWeight: '600', letterSpacing: '0.1em', marginBottom: '8px', color: 'var(--color-charcoal)' }}>CURATED OFFERS</div>
-                                            <div style={{ fontSize: '0.8rem', lineHeight: '1.6', color: 'var(--color-charcoal-light)', maxWidth: '240px', margin: '0 auto' }}>Handpicked deals from trusted partners.</div>
+                            {/* CENTERPIECE: ROTATED DIAMOND "CURATED OFFERS" CARD */}
+                            <g transform="translate(550, 490)" filter="url(#d-card-shadow)">
+                                {/* Rotated 45-degree square with warm ivory fill and gold border */}
+                                <g transform="rotate(45)">
+                                    <rect x="-105" y="-105" width="210" height="210" rx="12" fill="var(--color-ivory)" stroke="var(--color-champagne-gold)" strokeWidth="1.5" />
+                                </g>
+
+                                {/* Upright horizontal text & icon content */}
+                                <foreignObject x="-95" y="-95" width="190" height="190">
+                                    <div style={{ height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center', boxSizing: 'border-box', padding: '8px', fontFamily: 'var(--font-sans)' }}>
+                                        {/* Icon */}
+                                        <div style={{ width: '36px', height: '36px', borderRadius: '50%', border: '1px solid var(--color-champagne-gold)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--color-champagne-gold)', marginBottom: '10px', background: 'rgba(197, 168, 128, 0.08)' }}>
+                                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75">
+                                                <path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"></path>
+                                                <circle cx="7" cy="7" r="1.5" fill="currentColor"></circle>
+                                            </svg>
                                         </div>
-                                    </foreignObject>
-                                </g>
-                                <path d="M 850 500 C 1000 400, 1100 650, 950 750 C 800 850, 700 600, 850 500 Z" fill="none" stroke="var(--color-champagne-gold)" strokeWidth="3" opacity="0.9" />
+                                        {/* Title */}
+                                        <div style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.14em', color: 'var(--color-charcoal)', marginBottom: '6px', textTransform: 'uppercase' }}>
+                                            CURATED OFFERS
+                                        </div>
+                                        {/* Subtitle */}
+                                        <div style={{ fontSize: '10.5px', lineHeight: '1.45', color: 'var(--color-charcoal-light)', maxWidth: '155px' }}>
+                                            Handpicked deals from trusted partners across leisure &amp; hospitality.
+                                        </div>
+                                    </div>
+                                </foreignObject>
                             </g>
                         </svg>
                     </div>
@@ -153,80 +174,12 @@ export default function Home() {
                         </h1>
                     </div>
 
-                    {/* 2. Visual Collage (Custom Sculptural SVG) */}
-                    <div className="hero-visual" style={{ minHeight: "550px", width: "100%", position: "relative" }}>
-                        <svg className="hero-svg-collage" viewBox="0 0 800 800" preserveAspectRatio="xMidYMid slice" style={{ width: '100%', height: '100%', position: 'absolute', top: 0, left: 0 }}>
-                            <defs>
-                                <filter id="m-shadow" x="-10%" y="-10%" width="120%" height="120%">
-                                    <feDropShadow dx="0" dy="15" stdDeviation="15" floodColor="#1a1710" floodOpacity="0.2" />
-                                </filter>
-                                <clipPath id="m-resort">
-                                    <path d="M 800 0 L 200 0 C 100 150, 300 300, 500 200 C 700 100, 750 300, 800 400 Z" />
-                                </clipPath>
-                                <clipPath id="m-dining">
-                                    <path d="M 0 350 C 200 450, 500 200, 800 450 L 800 700 C 600 750, 400 550, 0 650 Z" />
-                                </clipPath>
-                                <clipPath id="m-spa">
-                                    <path d="M 0 800 L 0 700 C 200 650, 400 750, 400 800 Z" />
-                                </clipPath>
-                                <clipPath id="m-water">
-                                    <path d="M 800 800 L 800 750 C 600 700, 500 800, 500 800 Z" />
-                                </clipPath>
-                                <clipPath id="m-offers">
-                                    <path d="M 400 400 C 550 350, 600 550, 450 600 C 300 650, 250 450, 400 400 Z" />
-                                </clipPath>
-                            </defs>
-                            
-                            <g filter="url(#m-shadow)">
-                                <g clipPath="url(#m-spa)">
-                                    <image href="/images/webp/hero_collage_3.jpg" x="0" y="600" width="400" height="200" preserveAspectRatio="xMidYMid slice" />
-                                </g>
-                                <path d="M 0 700 C 200 650, 400 750, 400 800" fill="none" stroke="var(--color-champagne-gold)" strokeWidth="3" />
-                            </g>
-                            
-                            <g filter="url(#m-shadow)">
-                                <g clipPath="url(#m-water)">
-                                    <image href="/images/webp/hero_collage_4.jpg" x="500" y="650" width="300" height="150" preserveAspectRatio="xMidYMid slice" />
-                                </g>
-                                <path d="M 800 750 C 600 700, 500 800, 500 800" fill="none" stroke="var(--color-champagne-gold)" strokeWidth="3" />
-                            </g>
-
-                            <g filter="url(#m-shadow)">
-                                <g clipPath="url(#m-dining)">
-                                    <image href="/images/webp/hero_collage_2.jpg" x="0" y="200" width="800" height="500" preserveAspectRatio="xMidYMid slice" />
-                                </g>
-                                <path d="M 0 350 C 200 450, 500 200, 800 450" fill="none" stroke="var(--color-champagne-gold)" strokeWidth="3" />
-                                <path d="M 800 700 C 600 750, 400 550, 0 650" fill="none" stroke="var(--color-champagne-gold)" strokeWidth="3" />
-                            </g>
-
-                            <g filter="url(#m-shadow)">
-                                <g clipPath="url(#m-resort)">
-                                    <image href="/images/webp/hero_collage_1.jpg" x="0" y="0" width="800" height="400" preserveAspectRatio="xMidYMid slice" />
-                                </g>
-                                <path d="M 200 0 C 100 150, 300 300, 500 200 C 700 100, 750 300, 800 400" fill="none" stroke="var(--color-champagne-gold)" strokeWidth="3" />
-                            </g>
-
-                            <g filter="url(#m-shadow)">
-                                <g clipPath="url(#m-offers)">
-                                    <rect x="250" y="350" width="350" height="300" fill="var(--color-ivory)" />
-                                    <foreignObject x="270" y="420" width="260" height="150">
-                                        <div style={{ textAlign: 'center', fontFamily: 'var(--font-sans)', color: 'var(--color-charcoal)', padding: '10px' }}>
-                                            <div style={{ fontSize: '0.9rem', fontWeight: '600', letterSpacing: '0.1em', marginBottom: '4px', color: 'var(--color-charcoal)' }}>CURATED OFFERS</div>
-                                            <div style={{ fontSize: '0.75rem', lineHeight: '1.4', color: 'var(--color-charcoal-light)', maxWidth: '200px', margin: '0 auto' }}>Handpicked deals from trusted partners.</div>
-                                        </div>
-                                    </foreignObject>
-                                </g>
-                                <path d="M 400 400 C 550 350, 600 550, 450 600 C 300 650, 250 450, 400 400 Z" fill="none" stroke="var(--color-champagne-gold)" strokeWidth="3" opacity="0.9" />
-                            </g>
-                        </svg>
-                    </div>
-
-                    {/* 3. Narrative & Actions */}
-                    <div className="hero-narrative">
-                        <p className="hero-desc text-body-large">
+                    {/* 2. Narrative & Actions (Directly below Title, matching mobile reference) */}
+                    <div className="hero-narrative" style={{ textAlign: 'center', padding: '0 20px', marginBottom: '8px' }}>
+                        <p className="hero-desc text-body-large" style={{ margin: '0 auto 20px auto', maxWidth: '380px' }}>
                             Exclusive member privileges on luxury resort stays, gourmet dining, spa retreats &amp; family leisure across 50+ cities in India.
                         </p>
-                        <div className="hero-actions">
+                        <div className="hero-actions" style={{ justifyContent: 'center', gap: '16px', marginBottom: '24px' }}>
                             <Link href="/explore" className="btn btn-primary">
                                 Explore 240+ Offers 
                                 <svg className="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -236,6 +189,76 @@ export default function Home() {
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                             </Link>
                         </div>
+                    </div>
+
+                    {/* 3. Visual Collage (Exact Mobile Interlocking Geometry) */}
+                    <div className="hero-visual">
+                        <svg className="hero-svg-collage" viewBox="0 0 420 440" preserveAspectRatio="xMidYMid meet">
+                            <defs>
+                                <clipPath id="m-resort-clip">
+                                    <path d="M 290 0 L 420 0 L 420 180 L 350 240 L 220 120 C 250 70, 270 30, 290 0 Z" />
+                                </clipPath>
+
+                                <clipPath id="m-dining-clip">
+                                    <path d="M 20 220 C 10 160, 110 90, 220 120 L 350 240 L 250 360 C 170 340, 70 300, 20 220 Z" />
+                                </clipPath>
+
+                                <clipPath id="m-spa-clip">
+                                    <path d="M 90 440 C 50 370, 10 290, 20 220 C 70 300, 170 340, 250 360 L 220 440 Z" />
+                                </clipPath>
+
+                                <clipPath id="m-water-clip">
+                                    <path d="M 350 240 L 420 180 L 420 440 L 220 440 L 250 360 Z" />
+                                </clipPath>
+
+                                <filter id="m-card-shadow" x="-20%" y="-20%" width="140%" height="140%">
+                                    <feDropShadow dx="0" dy="6" stdDeviation="10" floodColor="#1C1A18" floodOpacity="0.12" />
+                                </filter>
+                            </defs>
+
+                            <g clipPath="url(#m-resort-clip)">
+                                <image href="/images/webp/hero_collage_1.jpg" x="200" y="-20" width="240" height="280" preserveAspectRatio="xMidYMid slice" />
+                            </g>
+                            <g clipPath="url(#m-dining-clip)">
+                                <image href="/images/webp/hero_collage_2.jpg" x="0" y="80" width="370" height="300" preserveAspectRatio="xMidYMid slice" />
+                            </g>
+                            <g clipPath="url(#m-spa-clip)">
+                                <image href="/images/webp/hero_collage_3.jpg" x="0" y="200" width="270" height="260" preserveAspectRatio="xMidYMid slice" />
+                            </g>
+                            <g clipPath="url(#m-water-clip)">
+                                <image href="/images/webp/hero_collage_4.jpg" x="190" y="160" width="250" height="300" preserveAspectRatio="xMidYMid slice" />
+                            </g>
+
+                            {/* Gold Lines */}
+                            <path d="M 290 0 C 270 30, 250 70, 220 120 C 110 90, 10 160, 20 220 C 10 290, 50 370, 90 440" fill="none" stroke="var(--color-champagne-gold)" strokeWidth="1.2" opacity="0.85" />
+                            <path d="M 20 220 C 10 160, 110 90, 220 120" fill="none" stroke="var(--color-champagne-gold)" strokeWidth="1.2" opacity="0.85" />
+                            <path d="M 220 120 L 350 240" fill="none" stroke="var(--color-champagne-gold)" strokeWidth="1.2" opacity="0.85" />
+                            <path d="M 20 220 C 70 300, 170 340, 250 360" fill="none" stroke="var(--color-champagne-gold)" strokeWidth="1.2" opacity="0.85" />
+                            <path d="M 350 240 L 250 360 L 220 440" fill="none" stroke="var(--color-champagne-gold)" strokeWidth="1.2" opacity="0.85" />
+
+                            {/* Mobile Diamond Card */}
+                            <g transform="translate(280, 275)" filter="url(#m-card-shadow)">
+                                <g transform="rotate(45)">
+                                    <rect x="-58" y="-58" width="116" height="116" rx="8" fill="var(--color-ivory)" stroke="var(--color-champagne-gold)" strokeWidth="1.2" />
+                                </g>
+                                <foreignObject x="-54" y="-54" width="108" height="108">
+                                    <div style={{ height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center', boxSizing: 'border-box', padding: '4px', fontFamily: 'var(--font-sans)' }}>
+                                        <div style={{ width: '22px', height: '22px', borderRadius: '50%', border: '1px solid var(--color-champagne-gold)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--color-champagne-gold)', marginBottom: '4px', background: 'rgba(197, 168, 128, 0.08)' }}>
+                                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75">
+                                                <path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"></path>
+                                                <circle cx="7" cy="7" r="1.5" fill="currentColor"></circle>
+                                            </svg>
+                                        </div>
+                                        <div style={{ fontSize: '8px', fontWeight: 700, letterSpacing: '0.12em', color: 'var(--color-charcoal)', marginBottom: '2px', textTransform: 'uppercase' }}>
+                                            CURATED OFFERS
+                                        </div>
+                                        <div style={{ fontSize: '7px', lineHeight: '1.3', color: 'var(--color-charcoal-light)', maxWidth: '90px' }}>
+                                            Handpicked deals from trusted partners across leisure.
+                                        </div>
+                                    </div>
+                                </foreignObject>
+                            </g>
+                        </svg>
                     </div>
 
                     {/* 4. Trust Metrics */}
