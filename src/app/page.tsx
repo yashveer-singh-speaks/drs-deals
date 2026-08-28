@@ -67,40 +67,77 @@ export default function Home() {
                     </div>
 
                     <div className="hero-visual">
-                        <div className="hero-collage">
-                            <img 
-                                src="/images/webp/Hero Section (Collage Primary Image).webp" 
-                                alt="Luxury Resort Pool overlooking mountains" 
-                                className="collage-img img-1" 
-                                width={480} 
-                                height={360} 
-                                loading="eager"
-                            />
-                            <img 
-                                src="/images/webp/Hero Section (Collage Overlay Image Top-Right).webp" 
-                                alt="Amusement park roller coaster at sunset" 
-                                className="collage-img img-2" 
-                                width={240} 
-                                height={180} 
-                                loading="eager"
-                            />
-                            <img 
-                                src="/images/webp/Hero Section (Collage Overlay Image Bottom-Right).webp" 
-                                alt="Fine dining restaurant table setup" 
-                                className="collage-img img-3" 
-                                width={240} 
-                                height={180} 
-                                loading="eager"
-                            />
-                        </div>
-                        
-                        <div className="hero-badge">
-                            <span className="logo-main">DRS<span className="logo-star">✦</span></span>
-                            <p className="hero-badge-text">Exclusive Memberships<br />2M+ Happy Guests<br />₹1B+ Savings</p>
-                        </div>
+                        <svg className="hero-svg-collage" viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid slice" style={{ width: '100%', height: '100%', position: 'absolute', top: 0, left: 0 }}>
+                            <defs>
+                                <clipPath id="cp-resort">
+                                    <path d="M 0 0 L 1000 0 L 1000 450 C 700 350, 400 300, 0 550 Z" />
+                                </clipPath>
+                                <clipPath id="cp-dining">
+                                    <path d="M 0 550 C 400 300, 700 350, 1000 450 L 1000 750 C 600 900, 300 800, 0 950 Z" />
+                                </clipPath>
+                                <clipPath id="cp-spa">
+                                    <path d="M 0 950 C 300 800, 600 900, 1000 750 L 1000 1000 L 0 1000 Z" />
+                                </clipPath>
+                                <clipPath id="cp-offers">
+                                    <path d="M 400 650 C 600 450, 950 450, 1000 700 C 950 900, 600 850, 400 650 Z" />
+                                </clipPath>
+                                <clipPath id="cp-water">
+                                    <path d="M 650 1000 C 700 850, 900 800, 1000 950 L 1000 1000 Z" />
+                                </clipPath>
+                                <filter id="shadow-drop" x="-10%" y="-10%" width="120%" height="120%">
+                                    <feDropShadow dx="0" dy="10" stdDeviation="10" floodOpacity="0.15" />
+                                </filter>
+                            </defs>
+                            
+                            {/* Base / Spa */}
+                            <g>
+                                <image href="/images/webp/hero_collage_3.jpg" x="0" y="500" width="1000" height="500" preserveAspectRatio="xMidYMid slice" />
+                            </g>
+
+                            {/* Dining */}
+                            <g filter="url(#shadow-drop)">
+                                <g clipPath="url(#cp-dining)">
+                                    <image href="/images/webp/hero_collage_2.jpg" x="0" y="200" width="1000" height="800" preserveAspectRatio="xMidYMid slice" />
+                                </g>
+                                <path d="M 0 550 C 400 300, 700 350, 1000 450" fill="none" stroke="var(--color-champagne-gold)" strokeWidth="4" />
+                                <path d="M 0 950 C 300 800, 600 900, 1000 750" fill="none" stroke="var(--color-champagne-gold)" strokeWidth="4" />
+                            </g>
+
+                            {/* Resort */}
+                            <g filter="url(#shadow-drop)">
+                                <g clipPath="url(#cp-resort)">
+                                    <image href="/images/webp/hero_collage_1.jpg" x="0" y="0" width="1000" height="600" preserveAspectRatio="xMidYMid slice" />
+                                </g>
+                                <path d="M 0 550 C 400 300, 700 350, 1000 450" fill="none" stroke="var(--color-champagne-gold)" strokeWidth="4" />
+                            </g>
+
+                            {/* Water Park */}
+                            <g filter="url(#shadow-drop)">
+                                <g clipPath="url(#cp-water)">
+                                    <image href="/images/webp/hero_collage_4.jpg" x="600" y="800" width="400" height="200" preserveAspectRatio="xMidYMid slice" />
+                                </g>
+                                <path d="M 650 1000 C 700 850, 900 800, 1000 950" fill="none" stroke="var(--color-champagne-gold)" strokeWidth="4" />
+                            </g>
+
+                            {/* Offers */}
+                            <g filter="url(#shadow-drop)">
+                                <g clipPath="url(#cp-offers)">
+                                    <rect x="0" y="0" width="1000" height="1000" fill="var(--color-ivory)" />
+                                    <foreignObject x="450" y="550" width="400" height="250">
+                                        <div  style={{ textAlign: 'center', fontFamily: 'var(--font-sans)', color: 'var(--color-charcoal)', padding: '20px' }}>
+                                            <div style={{ width: '40px', height: '40px', border: '1px solid var(--color-champagne-gold)', borderRadius: '50%', margin: '0 auto 12px auto', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--color-champagne-gold)' }}>
+                                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21.44 11.05l-9.19 9.19a2 2 0 01-2.83 0l-5.66-5.66a2 2 0 010-2.83l9.19-9.19a2 2 0 011.41-.59H19a2 2 0 012 2v4.59a2 2 0 01-.56 1.41z"></path><circle cx="15.5" cy="8.5" r="1.5"></circle></svg>
+                                            </div>
+                                            <div style={{ fontSize: '1rem', fontWeight: '500', letterSpacing: '0.1em', marginBottom: '8px', color: 'var(--color-charcoal)' }}>CURATED OFFERS</div>
+                                            <div style={{ fontSize: '0.85rem', lineHeight: '1.6', color: 'var(--color-charcoal-light)', maxWidth: '240px', margin: '0 auto' }}>Handpicked deals from trusted partners across leisure and hospitality.</div>
+                                        </div>
+                                    </foreignObject>
+                                </g>
+                                <path d="M 400 650 C 600 450, 950 450, 1000 700 C 950 900, 600 850, 400 650 Z" fill="none" stroke="var(--color-champagne-gold)" strokeWidth="4" opacity="0.9" />
+                            </g>
+                        </svg>
                     </div>
                 </div>
-
                 {/* MOBILE HERO (Phones & Tablets < 1024px) */}
                 <div className="hero-mobile-wrapper">
                     {/* 1. Header (Eyebrow & Main Title) */}
