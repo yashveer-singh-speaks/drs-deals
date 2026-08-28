@@ -688,12 +688,18 @@ h1, h2, h3, h4, h5, h6 {
 .hero-visual {
   position: relative;
   min-height: 50vh;
+  overflow: hidden;
 }
 
 @media (min-width: 1024px) {
   .hero-visual {
     min-height: 100vh;
   }
+}
+
+/* SVG collage fills its container */
+.hero-svg-collage {
+  display: block;
 }
 
 .hero-collage {
@@ -840,10 +846,11 @@ h1, h2, h3, h4, h5, h6 {
 .hero-mobile-wrapper .hero-visual {
   width: 100%;
   max-width: 100%;
-  padding: 0 16px;
+  padding: 0;
   margin-bottom: 32px;
-  min-height: auto;
+  min-height: 380px;
   position: relative;
+  overflow: hidden;
 }
 
 .hero-mobile-wrapper .hero-collage {
