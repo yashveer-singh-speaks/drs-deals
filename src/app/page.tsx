@@ -68,25 +68,27 @@ export default function Home() {
                 </div>
                 {/* MOBILE HERO (Phones & Tablets < 1024px) */}
                 <div className="hero-mobile-wrapper">
-                    <div className="hero-mobile-text">
-                        <div className="hero-eyebrow">PREMIUM LEISURE &amp; DINING PRIVILEGES</div>
-                        <h1 className="hero-title">
-                            More Experiences. <br />
-                            More Memories. <br />
-                            <span className="text-gold">For Less.</span>
-                        </h1>
-                        <p className="hero-desc text-body-large">
-                            Exclusive member privileges on luxury resort stays, gourmet dining, spa retreats &amp; family leisure across 50+ cities in India.
-                        </p>
-                        <div className="hero-actions">
-                            <Link href="/explore" className="btn btn-primary">
-                                Explore 240+ Offers 
-                                <svg className="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                            </Link>
-                            <Link href="/how-it-works" className="link-arrow">
-                                How It Works
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                            </Link>
+                    <div className="hero-mobile-stage">
+                        <div className="hero-mobile-text">
+                            <div className="hero-eyebrow">PREMIUM LEISURE &amp; DINING PRIVILEGES</div>
+                            <h1 className="hero-title">
+                                More Experiences. <br />
+                                More Memories. <br />
+                                <span className="text-gold">For Less.</span>
+                            </h1>
+                            <p className="hero-desc text-body-large">
+                                Exclusive member privileges on luxury resort stays, gourmet dining, spa retreats &amp; family leisure across 50+ cities in India.
+                            </p>
+                            <div className="hero-actions">
+                                <Link href="/explore" className="btn btn-primary">
+                                    Explore 240+ Offers 
+                                    <svg className="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                                </Link>
+                                <Link href="/how-it-works" className="link-arrow">
+                                    How It Works
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                                </Link>
+                            </div>
                         </div>
                     </div>
 
