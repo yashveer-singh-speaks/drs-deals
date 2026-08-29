@@ -541,59 +541,100 @@ h1, h2, h3, h4, h5, h6 {
   position: relative;
   min-height: 100vh;
   padding-top: var(--header-height);
-  background-color: var(--color-warm-white);
+  background-color: #FAF8F5;
+  background-image: url('/images/background.png');
+  background-position: right center;
+  background-size: cover;
+  background-repeat: no-repeat;
   width: 100%;
-}
-
-.hero-desktop-wrapper {
-  display: none;
-}
-
-.hero-mobile-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  padding-top: 16px;
-  padding-bottom: 48px;
+  overflow: hidden;
 }
 
 @media (max-width: 1023px) {
   .hero {
     padding-top: 72px !important;
-    min-height: auto !important;
+    min-height: 100vh !important;
+    background-position: 82% center;
+    background-size: cover;
   }
 }
 
+@media (max-width: 767px) {
+  .hero {
+    min-height: calc(100vh - 60px) !important;
+    background-position: 78% center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    background-position: 76% center;
+  }
+}
+
+/* Desktop Hero Wrapper */
 @media (min-width: 1024px) {
   .hero-desktop-wrapper {
     display: flex;
     align-items: center;
-    min-height: 100vh;
+    justify-content: flex-start;
+    min-height: calc(100vh - var(--header-height));
     width: 100%;
-    position: relative;
-    overflow: hidden;
   }
   .hero-mobile-wrapper {
-    display: none;
+    display: none !important;
   }
 }
 
 /* Desktop Hero Content */
 .hero-content {
-  padding: var(--spacing-64) var(--spacing-24);
+  padding: var(--spacing-48) var(--spacing-24) var(--spacing-48) 8%;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  width: 100%;
+  max-width: 580px;
+  position: relative;
+  z-index: 5;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1280px) {
   .hero-content {
     padding-left: 10%;
-    padding-right: 5%;
-    max-width: 55%;
-    z-index: 10;
+    max-width: 620px;
+  }
+}
+
+/* Mobile Hero Wrapper */
+@media (max-width: 1023px) {
+  .hero-desktop-wrapper {
+    display: none !important;
+  }
+  .hero-mobile-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    min-height: calc(100vh - 72px);
+    padding: var(--spacing-24) var(--spacing-20) var(--spacing-40) var(--spacing-20);
     position: relative;
+    z-index: 5;
+  }
+  .hero-mobile-text {
+    width: 100%;
+    max-width: 460px;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-mobile-text {
+    max-width: 72%;
+  }
+}
+
+@media (max-width: 400px) {
+  .hero-mobile-text {
+    max-width: 75%;
   }
 }
 
