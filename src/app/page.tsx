@@ -25,6 +25,7 @@ export default function Home() {
             <section className="hero">
                 {/* DESKTOP HERO (Laptops, Desktops & Large Screens >= 1024px) */}
                 <div className="hero-desktop-wrapper">
+                    {/* 1. Left Typography & Content (Z-index above canvas) */}
                     <div className="hero-content">
                         <div className="hero-eyebrow">PREMIUM LEISURE &amp; DINING PRIVILEGES</div>
                         <h1 className="hero-title">
@@ -66,218 +67,254 @@ export default function Home() {
                         </div>
                     </div>
 
+                    {/* 2. Full-Bleed Sculptural Ribbon Artwork Layer */}
                     <div className="hero-visual">
-                        <svg className="hero-svg-collage" viewBox="0 0 820 780" preserveAspectRatio="xMidYMid meet">
+                        <svg className="hero-svg-collage" viewBox="0 0 1440 850" preserveAspectRatio="none">
                             <defs>
-                                {/* 1. Top-Right Resort Mask (Dominant hospitality image) */}
-                                <clipPath id="d-clip-resort">
-                                    <path d="M 560 0 L 820 0 L 820 340 L 680 430 L 420 220 C 480 160, 520 70, 560 0 Z" />
+                                {/* 1. Top Hotel/Resort Ribbon Mask (Upper-right entering at top) */}
+                                <clipPath id="d-ribbon-resort">
+                                    <path d="M 1020 0 L 1440 0 L 1440 360 L 1260 430 C 1120 340, 960 260, 920 180 C 960 100, 990 40, 1020 0 Z" />
                                 </clipPath>
 
-                                {/* 2. Center Dining Arch Mask */}
-                                <clipPath id="d-clip-dining">
-                                    <path d="M 20 400 C 10 300, 220 180, 420 220 L 680 430 L 480 630 C 320 600, 120 540, 20 400 Z" />
+                                {/* 2. Dining Ribbon Mask (Curves across center underneath resort) */}
+                                <clipPath id="d-ribbon-dining">
+                                    <path d="M 640 320 C 760 240, 860 200, 920 180 C 960 260, 1120 340, 1260 430 L 1440 360 L 1440 500 L 1060 620 C 920 540, 780 440, 640 320 Z" />
                                 </clipPath>
 
-                                {/* 3. Lower-Left Spa Arch Mask */}
-                                <clipPath id="d-clip-spa">
-                                    <path d="M 160 780 C 80 650, 10 520, 20 400 C 120 540, 320 600, 480 630 L 420 780 Z" />
+                                {/* 3. Spa/Wellness Ribbon Mask (Sweeps toward lower-left) */}
+                                <clipPath id="d-ribbon-spa">
+                                    <path d="M 440 850 C 480 720, 550 560, 640 320 C 780 440, 920 540, 1060 620 L 980 740 C 820 800, 640 840, 440 850 Z" />
                                 </clipPath>
 
-                                {/* 4. Lower-Right Water Park Mask */}
-                                <clipPath id="d-clip-water">
-                                    <path d="M 680 430 L 820 340 L 820 780 L 420 780 L 480 630 Z" />
+                                {/* 4. Leisure / Pool Ribbon Mask (Emerges lower-right) */}
+                                <clipPath id="d-ribbon-pool">
+                                    <path d="M 1260 540 L 1440 480 L 1440 850 L 920 850 C 960 780, 1100 680, 1260 540 Z" />
                                 </clipPath>
-
-                                {/* Soft Editorial Shadow for Card Only */}
-                                <filter id="d-card-shadow" x="-20%" y="-20%" width="140%" height="140%">
-                                    <feDropShadow dx="0" dy="8" stdDeviation="12" floodColor="#1C1A18" floodOpacity="0.12" />
-                                </filter>
                             </defs>
 
-                            {/* SECTOR 1: Top-Right Resort */}
-                            <g clipPath="url(#d-clip-resort)">
-                                <image href="/images/webp/hero_collage_1.jpg" x="360" y="-30" width="480" height="500" preserveAspectRatio="xMidYMid slice" />
+                            {/* LAYER 1: Top Hotel / Resort Image */}
+                            <g clipPath="url(#d-ribbon-resort)">
+                                <image href="/images/webp/hero_collage_1.jpg" x="900" y="-30" width="560" height="480" preserveAspectRatio="xMidYMid slice" />
                             </g>
 
-                            {/* SECTOR 2: Center Dining */}
-                            <g clipPath="url(#d-clip-dining)">
-                                <image href="/images/webp/hero_collage_2.jpg" x="0" y="160" width="700" height="500" preserveAspectRatio="xMidYMid slice" />
+                            {/* LAYER 2: Dining Image */}
+                            <g clipPath="url(#d-ribbon-dining)">
+                                <image href="/images/webp/hero_collage_2.jpg" x="600" y="160" width="860" height="480" preserveAspectRatio="xMidYMid slice" />
                             </g>
 
-                            {/* SECTOR 3: Lower-Left Spa */}
-                            <g clipPath="url(#d-clip-spa)">
-                                <image href="/images/webp/hero_collage_3.jpg" x="0" y="380" width="500" height="420" preserveAspectRatio="xMidYMid slice" />
+                            {/* LAYER 3: Spa / Wellness Image */}
+                            <g clipPath="url(#d-ribbon-spa)">
+                                <image href="/images/webp/hero_collage_3.jpg" x="380" y="300" width="700" height="560" preserveAspectRatio="xMidYMid slice" />
                             </g>
 
-                            {/* SECTOR 4: Lower-Right Water Park */}
-                            <g clipPath="url(#d-clip-water)">
-                                <image href="/images/webp/hero_collage_4.jpg" x="380" y="320" width="460" height="480" preserveAspectRatio="xMidYMid slice" />
+                            {/* LAYER 4: Leisure / Pool Image */}
+                            <g clipPath="url(#d-ribbon-pool)">
+                                <image href="/images/webp/hero_collage_4.jpg" x="880" y="460" width="580" height="400" preserveAspectRatio="xMidYMid slice" />
                             </g>
 
-                            {/* REFINED 1.5PX CHAMPAGNE GOLD INTERLOCKING SEAMS */}
-                            {/* Outer Grand Sweeping Silhouette Arc */}
-                            <path d="M 560 0 C 520 70, 480 160, 420 220 C 220 180, 10 300, 20 400 C 10 520, 80 650, 160 780" fill="none" stroke="var(--color-champagne-gold)" strokeWidth="1.5" opacity="0.85" />
+                            {/* LAYER 5: Broad Woven Ivory Curated Offers Ribbon */}
+                            <path d="M 1440 460 L 1080 580 C 960 630, 940 700, 1020 780 L 1440 740 Z" fill="var(--color-ivory)" />
+
+                            {/* REFINED 1.5PX CHAMPAGNE GOLD INTERWOVEN BOUNDARY SEAMS */}
+                            {/* Grand Left Silhouette Sweep */}
+                            <path d="M 1020 0 C 990 40, 960 100, 920 180 C 860 200, 760 240, 640 320 C 550 560, 480 720, 440 850" fill="none" stroke="var(--color-champagne-gold)" strokeWidth="1.5" opacity="0.85" />
                             
-                            {/* Dining Arch Boundary */}
-                            <path d="M 20 400 C 10 300, 220 180, 420 220" fill="none" stroke="var(--color-champagne-gold)" strokeWidth="1.5" opacity="0.85" />
+                            {/* Seam: Resort to Dining */}
+                            <path d="M 920 180 C 960 260, 1120 340, 1260 430 L 1440 360" fill="none" stroke="var(--color-champagne-gold)" strokeWidth="1.5" opacity="0.85" />
 
-                            {/* Dining to Resort Diagonal Seam */}
-                            <path d="M 420 220 L 680 430" fill="none" stroke="var(--color-champagne-gold)" strokeWidth="1.5" opacity="0.85" />
+                            {/* Seam: Dining to Spa */}
+                            <path d="M 640 320 C 780 440, 920 540, 1060 620" fill="none" stroke="var(--color-champagne-gold)" strokeWidth="1.5" opacity="0.85" />
 
-                            {/* Spa to Dining Arch Seam */}
-                            <path d="M 20 400 C 120 540, 320 600, 480 630" fill="none" stroke="var(--color-champagne-gold)" strokeWidth="1.5" opacity="0.85" />
+                            {/* Seam: Spa to Ivory Ribbon */}
+                            <path d="M 1060 620 L 980 740 C 820 800, 640 840, 440 850" fill="none" stroke="var(--color-champagne-gold)" strokeWidth="1.5" opacity="0.85" />
 
-                            {/* Water Park to Dining / Spa Diagonal Seam */}
-                            <path d="M 680 430 L 480 630 L 420 780" fill="none" stroke="var(--color-champagne-gold)" strokeWidth="1.5" opacity="0.85" />
+                            {/* Seam: Pool to Ivory Ribbon */}
+                            <path d="M 1020 780 L 1440 740" fill="none" stroke="var(--color-champagne-gold)" strokeWidth="1.5" opacity="0.85" />
 
-                            {/* CENTERPIECE: ROTATED DIAMOND "CURATED OFFERS" CARD */}
-                            <g transform="translate(550, 490)" filter="url(#d-card-shadow)">
-                                {/* Rotated 45-degree square with warm ivory fill and gold border */}
-                                <g transform="rotate(45)">
-                                    <rect x="-105" y="-105" width="210" height="210" rx="12" fill="var(--color-ivory)" stroke="var(--color-champagne-gold)" strokeWidth="1.5" />
-                                </g>
-
-                                {/* Upright horizontal text & icon content */}
-                                <foreignObject x="-95" y="-95" width="190" height="190">
-                                    <div style={{ height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center', boxSizing: 'border-box', padding: '8px', fontFamily: 'var(--font-sans)' }}>
-                                        {/* Icon */}
-                                        <div style={{ width: '36px', height: '36px', borderRadius: '50%', border: '1px solid var(--color-champagne-gold)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--color-champagne-gold)', marginBottom: '10px', background: 'rgba(197, 168, 128, 0.08)' }}>
-                                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75">
-                                                <path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"></path>
-                                                <circle cx="7" cy="7" r="1.5" fill="currentColor"></circle>
-                                            </svg>
-                                        </div>
-                                        {/* Title */}
-                                        <div style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.14em', color: 'var(--color-charcoal)', marginBottom: '6px', textTransform: 'uppercase' }}>
-                                            CURATED OFFERS
-                                        </div>
-                                        {/* Subtitle */}
-                                        <div style={{ fontSize: '10.5px', lineHeight: '1.45', color: 'var(--color-charcoal-light)', maxWidth: '155px' }}>
-                                            Handpicked deals from trusted partners across leisure &amp; hospitality.
-                                        </div>
+                            {/* CURATED OFFERS CONTENT (Interwoven inside the ivory ribbon) */}
+                            <foreignObject x="1000" y="560" width="340" height="200">
+                                <div style={{ height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center', padding: '12px', fontFamily: 'var(--font-sans)' }}>
+                                    <div style={{ width: '36px', height: '36px', borderRadius: '50%', border: '1px solid var(--color-champagne-gold)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--color-champagne-gold)', marginBottom: '8px', background: 'rgba(197, 168, 128, 0.08)' }}>
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75">
+                                            <path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"></path>
+                                            <circle cx="7" cy="7" r="1.5" fill="currentColor"></circle>
+                                        </svg>
                                     </div>
-                                </foreignObject>
-                            </g>
+                                    <div style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.14em', color: 'var(--color-charcoal)', marginBottom: '4px', textTransform: 'uppercase' }}>
+                                        CURATED OFFERS
+                                    </div>
+                                    <div style={{ fontSize: '10.5px', lineHeight: '1.45', color: 'var(--color-charcoal-light)', maxWidth: '220px' }}>
+                                        Handpicked deals from trusted partners across leisure &amp; hospitality.
+                                    </div>
+                                </div>
+                            </foreignObject>
                         </svg>
                     </div>
                 </div>
                 {/* MOBILE HERO (Phones & Tablets < 1024px) */}
                 <div className="hero-mobile-wrapper">
-                    {/* 1. Header (Eyebrow & Main Title) */}
-                    <div className="hero-header">
-                        <div className="hero-eyebrow">PREMIUM LEISURE &amp; DINING PRIVILEGES</div>
-                        <h1 className="hero-title">
-                            More Experiences. <br />
-                            More Memories. <br />
-                            <span className="text-gold">For Less.</span>
-                        </h1>
-                    </div>
-
-                    {/* 2. Narrative & Actions (Directly below Title, matching mobile reference) */}
-                    <div className="hero-narrative" style={{ textAlign: 'center', padding: '0 20px', marginBottom: '8px' }}>
-                        <p className="hero-desc text-body-large" style={{ margin: '0 auto 20px auto', maxWidth: '380px' }}>
-                            Exclusive member privileges on luxury resort stays, gourmet dining, spa retreats &amp; family leisure across 50+ cities in India.
-                        </p>
-                        <div className="hero-actions" style={{ justifyContent: 'center', gap: '16px', marginBottom: '24px' }}>
-                            <Link href="/explore" className="btn btn-primary">
-                                Explore 240+ Offers 
-                                <svg className="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                            </Link>
-                            <Link href="/how-it-works" className="link-arrow">
-                                How It Works
-                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                            </Link>
+                    {/* Hero Stage: Text and Interwoven Artwork Coexisting in First Viewport */}
+                    <div className="hero-mobile-stage">
+                        {/* 1. Mobile Text Content (Left ~68%) */}
+                        <div className="hero-mobile-text">
+                            <div className="hero-eyebrow" style={{ fontSize: '0.75rem', marginBottom: '10px' }}>PREMIUM PRIVILEGES</div>
+                            <h1 className="hero-title" style={{ fontSize: '2rem', lineHeight: '1.15', marginBottom: '12px' }}>
+                                More Experiences.<br />
+                                <em>Greater Value.</em>
+                            </h1>
+                            <p className="hero-desc" style={{ fontSize: '0.8rem', lineHeight: '1.45', marginBottom: '14px', maxWidth: '240px' }}>
+                                Exclusive member privileges on luxury resort stays, gourmet dining and artisanal retreats curated for moments that matter.
+                            </p>
+                            <div style={{ display: 'flex', gap: '10px', fontSize: '0.65rem', fontWeight: 600, letterSpacing: '0.08em', color: 'var(--color-charcoal)', marginBottom: '16px', alignItems: 'center' }}>
+                                <span>50+ CITIES</span>
+                                <span>&bull;</span>
+                                <span>240+ OFFERS</span>
+                            </div>
+                            <div className="hero-actions" style={{ margin: 0 }}>
+                                <Link href="/explore" className="btn btn-primary" style={{ padding: '8px 18px', fontSize: '0.75rem' }}>
+                                    Explore 240+ Offers 
+                                    <svg className="btn-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                                </Link>
+                            </div>
                         </div>
-                    </div>
 
-                    {/* 3. Visual Collage (Exact Mobile Interlocking Geometry) */}
-                    <div className="hero-visual">
-                        <svg className="hero-svg-collage" viewBox="0 0 420 440" preserveAspectRatio="xMidYMid meet">
-                            <defs>
-                                <clipPath id="m-resort-clip">
-                                    <path d="M 290 0 L 420 0 L 420 180 L 350 240 L 220 120 C 250 70, 270 30, 290 0 Z" />
-                                </clipPath>
+                        {/* 2. Sculptural Artwork Layer (Enters from Top-Right beside text) */}
+                        <div className="hero-visual">
+                            <svg className="hero-svg-collage" viewBox="0 0 390 560" preserveAspectRatio="none">
+                                <defs>
+                                    {/* 1. Top Hotel/Resort Ribbon Mask (Visible from top right beside text) */}
+                                    <clipPath id="mob-clip-resort">
+                                        <path d="M 230 0 L 390 0 L 390 220 L 260 280 C 220 210, 240 90, 230 0 Z" />
+                                    </clipPath>
 
-                                <clipPath id="m-dining-clip">
-                                    <path d="M 20 220 C 10 160, 110 90, 220 120 L 350 240 L 250 360 C 170 340, 70 300, 20 220 Z" />
-                                </clipPath>
+                                    {/* 2. Dining Ribbon Mask (Curves across center underneath resort) */}
+                                    <clipPath id="mob-clip-dining">
+                                        <path d="M 160 210 C 230 190, 260 210, 360 160 L 390 220 L 290 360 C 210 320, 170 260, 160 210 Z" />
+                                    </clipPath>
 
-                                <clipPath id="m-spa-clip">
-                                    <path d="M 90 440 C 50 370, 10 290, 20 220 C 70 300, 170 340, 250 360 L 220 440 Z" />
-                                </clipPath>
+                                    {/* 3. Spa/Wellness Ribbon Mask (Sweeps towards lower-left) */}
+                                    <clipPath id="mob-clip-spa">
+                                        <path d="M 0 360 C 70 320, 130 260, 160 210 C 170 260, 210 320, 200 330 C 170 350, 150 390, 180 420 C 190 440, 240 470, 280 510 L 0 560 Z" />
+                                    </clipPath>
 
-                                <clipPath id="m-water-clip">
-                                    <path d="M 350 240 L 420 180 L 420 440 L 220 440 L 250 360 Z" />
-                                </clipPath>
+                                    {/* 4. Leisure / Pool Ribbon Mask (Emerges lower-right) */}
+                                    <clipPath id="mob-clip-pool">
+                                        <path d="M 390 300 L 390 560 L 240 560 C 250 510, 300 450, 310 400 L 390 300 Z" />
+                                    </clipPath>
+                                </defs>
 
-                                <filter id="m-card-shadow" x="-20%" y="-20%" width="140%" height="140%">
-                                    <feDropShadow dx="0" dy="6" stdDeviation="10" floodColor="#1C1A18" floodOpacity="0.12" />
-                                </filter>
-                            </defs>
-
-                            <g clipPath="url(#m-resort-clip)">
-                                <image href="/images/webp/hero_collage_1.jpg" x="200" y="-20" width="240" height="280" preserveAspectRatio="xMidYMid slice" />
-                            </g>
-                            <g clipPath="url(#m-dining-clip)">
-                                <image href="/images/webp/hero_collage_2.jpg" x="0" y="80" width="370" height="300" preserveAspectRatio="xMidYMid slice" />
-                            </g>
-                            <g clipPath="url(#m-spa-clip)">
-                                <image href="/images/webp/hero_collage_3.jpg" x="0" y="200" width="270" height="260" preserveAspectRatio="xMidYMid slice" />
-                            </g>
-                            <g clipPath="url(#m-water-clip)">
-                                <image href="/images/webp/hero_collage_4.jpg" x="190" y="160" width="250" height="300" preserveAspectRatio="xMidYMid slice" />
-                            </g>
-
-                            {/* Gold Lines */}
-                            <path d="M 290 0 C 270 30, 250 70, 220 120 C 110 90, 10 160, 20 220 C 10 290, 50 370, 90 440" fill="none" stroke="var(--color-champagne-gold)" strokeWidth="1.2" opacity="0.85" />
-                            <path d="M 20 220 C 10 160, 110 90, 220 120" fill="none" stroke="var(--color-champagne-gold)" strokeWidth="1.2" opacity="0.85" />
-                            <path d="M 220 120 L 350 240" fill="none" stroke="var(--color-champagne-gold)" strokeWidth="1.2" opacity="0.85" />
-                            <path d="M 20 220 C 70 300, 170 340, 250 360" fill="none" stroke="var(--color-champagne-gold)" strokeWidth="1.2" opacity="0.85" />
-                            <path d="M 350 240 L 250 360 L 220 440" fill="none" stroke="var(--color-champagne-gold)" strokeWidth="1.2" opacity="0.85" />
-
-                            {/* Mobile Diamond Card */}
-                            <g transform="translate(280, 275)" filter="url(#m-card-shadow)">
-                                <g transform="rotate(45)">
-                                    <rect x="-58" y="-58" width="116" height="116" rx="8" fill="var(--color-ivory)" stroke="var(--color-champagne-gold)" strokeWidth="1.2" />
+                                {/* LAYER 1: Top Resort Image */}
+                                <g clipPath="url(#mob-clip-resort)">
+                                    <image href="/images/webp/hero_collage_1.jpg" x="180" y="-20" width="230" height="310" preserveAspectRatio="xMidYMid slice" />
                                 </g>
-                                <foreignObject x="-54" y="-54" width="108" height="108">
-                                    <div style={{ height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center', boxSizing: 'border-box', padding: '4px', fontFamily: 'var(--font-sans)' }}>
-                                        <div style={{ width: '22px', height: '22px', borderRadius: '50%', border: '1px solid var(--color-champagne-gold)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--color-champagne-gold)', marginBottom: '4px', background: 'rgba(197, 168, 128, 0.08)' }}>
+
+                                {/* LAYER 2: Dining Image */}
+                                <g clipPath="url(#mob-clip-dining)">
+                                    <image href="/images/webp/hero_collage_2.jpg" x="140" y="140" width="260" height="230" preserveAspectRatio="xMidYMid slice" />
+                                </g>
+
+                                {/* LAYER 3: Spa / Wellness Image */}
+                                <g clipPath="url(#mob-clip-spa)">
+                                    <image href="/images/webp/hero_collage_3.jpg" x="-20" y="200" width="310" height="370" preserveAspectRatio="xMidYMid slice" />
+                                </g>
+
+                                {/* LAYER 4: Pool / Leisure Image */}
+                                <g clipPath="url(#mob-clip-pool)">
+                                    <image href="/images/webp/hero_collage_4.jpg" x="220" y="290" width="180" height="280" preserveAspectRatio="xMidYMid slice" />
+                                </g>
+
+                                {/* LAYER 5: Broad Ivory Curated Offers Ribbon (Woven seamlessly) */}
+                                <path d="M 390 220 L 250 320 C 220 340, 210 370, 240 410 L 390 420 Z" fill="var(--color-ivory)" />
+                                
+                                {/* Fine Gold Boundary Seams (1.2px) */}
+                                {/* Grand Left Silhouette Sweep */}
+                                <path d="M 230 0 C 240 90, 220 210, 160 210 C 130 260, 70 320, 0 360" fill="none" stroke="var(--color-champagne-gold)" strokeWidth="1.2" opacity="0.8" />
+                                
+                                {/* Seam: Resort to Dining */}
+                                <path d="M 230 210 C 260 210, 310 180, 390 170" fill="none" stroke="var(--color-champagne-gold)" strokeWidth="1.2" opacity="0.8" />
+                                
+                                {/* Seam: Dining to Ivory Ribbon */}
+                                <path d="M 160 210 C 190 270, 230 300, 390 220" fill="none" stroke="var(--color-champagne-gold)" strokeWidth="1.2" opacity="0.8" />
+                                
+                                {/* Seam: Spa to Ivory Ribbon */}
+                                <path d="M 160 210 C 170 260, 210 320, 250 320 C 220 340, 210 370, 240 410 C 270 460, 330 510, 390 530" fill="none" stroke="var(--color-champagne-gold)" strokeWidth="1.2" opacity="0.8" />
+                                
+                                {/* Seam: Pool to Ivory Ribbon */}
+                                <path d="M 240 410 L 390 420" fill="none" stroke="var(--color-champagne-gold)" strokeWidth="1.2" opacity="0.8" />
+
+                                {/* CURATED OFFERS CONTENT (Positioned inside the woven ivory ribbon) */}
+                                <foreignObject x="220" y="260" width="160" height="150">
+                                    <div style={{ height: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center', padding: '4px', fontFamily: 'var(--font-sans)' }}>
+                                        <div style={{ width: '24px', height: '24px', borderRadius: '50%', border: '1px solid var(--color-champagne-gold)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--color-champagne-gold)', marginBottom: '4px', background: 'rgba(197, 168, 128, 0.08)' }}>
                                             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75">
                                                 <path d="M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z"></path>
                                                 <circle cx="7" cy="7" r="1.5" fill="currentColor"></circle>
                                             </svg>
                                         </div>
-                                        <div style={{ fontSize: '8px', fontWeight: 700, letterSpacing: '0.12em', color: 'var(--color-charcoal)', marginBottom: '2px', textTransform: 'uppercase' }}>
+                                        <div style={{ fontSize: '8.5px', fontWeight: 700, letterSpacing: '0.12em', color: 'var(--color-charcoal)', marginBottom: '2px', textTransform: 'uppercase' }}>
                                             CURATED OFFERS
                                         </div>
-                                        <div style={{ fontSize: '7px', lineHeight: '1.3', color: 'var(--color-charcoal-light)', maxWidth: '90px' }}>
+                                        <div style={{ fontSize: '7.5px', lineHeight: '1.35', color: 'var(--color-charcoal-light)', maxWidth: '120px' }}>
                                             Handpicked deals from trusted partners across leisure.
                                         </div>
                                     </div>
                                 </foreignObject>
-                            </g>
-                        </svg>
+                            </svg>
+                        </div>
                     </div>
 
-                    {/* 4. Trust Metrics */}
-                    <div className="hero-trust-grid">
-                        <div className="trust-item">
-                            <svg className="trust-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M21.5 12H16c-.7 2-2 3-4 3s-3.3-1-4-3H2.5"/><path d="M5.5 5.1L2 12v6c0 1.1.9 2 2 2h16a2 2 0 002-2v-6l-3.5-6.9A2 2 0 0016.7 4H7.3a2 2 0 00-1.8 1.1z"/></svg>
-                            <span className="trust-label">240+<br />Curated Offers</span>
+                    {/* 3. Mobile Trust List (Positioned cleanly below the hero stage) */}
+                    <div className="hero-mobile-trust-list">
+                        <div className="mobile-trust-row">
+                            <div className="mobile-trust-left">
+                                <div className="mobile-trust-icon-box">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                                </div>
+                                <div>
+                                    <div className="mobile-trust-title">TRUSTED PARTNERS</div>
+                                    <div className="mobile-trust-sub">Curated luxury with 5-star hotel &amp; resort partners</div>
+                                </div>
+                            </div>
+                            <div className="mobile-trust-arrow">&rsaquo;</div>
                         </div>
-                        <div className="trust-item">
-                            <svg className="trust-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>
-                            <span className="trust-label">1,000+<br />Partners</span>
+
+                        <div className="mobile-trust-row">
+                            <div className="mobile-trust-left">
+                                <div className="mobile-trust-icon-box">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                </div>
+                                <div>
+                                    <div className="mobile-trust-title">WIDE DESTINATIONS</div>
+                                    <div className="mobile-trust-sub">Top verified spots across 50+ Indian cities</div>
+                                </div>
+                            </div>
+                            <div className="mobile-trust-arrow">&rsaquo;</div>
                         </div>
-                        <div className="trust-item">
-                            <svg className="trust-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-                            <span className="trust-label">4.9 ★<br />Member Rating</span>
+
+                        <div className="mobile-trust-row">
+                            <div className="mobile-trust-left">
+                                <div className="mobile-trust-icon-box">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                </div>
+                                <div>
+                                    <div className="mobile-trust-title">MORE VALUE</div>
+                                    <div className="mobile-trust-sub">Save more on every stay, dinner &amp; holiday pass</div>
+                                </div>
+                            </div>
+                            <div className="mobile-trust-arrow">&rsaquo;</div>
                         </div>
-                        <div className="trust-item">
-                            <svg className="trust-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
-                            <span className="trust-label">Direct<br />Concierge</span>
+
+                        <div className="mobile-trust-row">
+                            <div className="mobile-trust-left">
+                                <div className="mobile-trust-icon-box">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+                                </div>
+                                <div>
+                                    <div className="mobile-trust-title">PRIVILEGE HELP</div>
+                                    <div className="mobile-trust-sub">24/7 dedicated concierge assistance</div>
+                                </div>
+                            </div>
+                            <div className="mobile-trust-arrow">&rsaquo;</div>
                         </div>
                     </div>
                 </div>
