@@ -1,3 +1,4 @@
+import PartnerMarquee from '@/components/PartnerMarquee';
 import React from 'react';
 import Link from 'next/link';
 import type { Metadata } from 'next';
@@ -147,6 +148,9 @@ export default function Home() {
                     </div>
                 </div>
             </section>
+
+            {/* BRAND COLLABORATIONS & TIE-UPS MARQUEE */}
+            <PartnerMarquee />
 
             {/* FEATURED EXPERIENCES */}
             <section className="section-padding bg-ivory">
