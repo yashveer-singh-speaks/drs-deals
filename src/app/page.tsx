@@ -574,19 +574,31 @@ export default function Home() {
             {/* SECTION 10A: WHAT DRS DEALS DOES FOR HOSPITALITY BRANDS */}
             <section className="section-padding bg-white border-top">
                 <div className="container">
-                    <div className="section-header text-center justify-center">
-                        <div className="hero-eyebrow" style={{ marginBottom: '12px', color: 'var(--color-champagne-gold)' }}>
-                            FOR HOSPITALITY &amp; EXPERIENCE BRANDS
+                    <div className="story-grid" style={{ marginBottom: '48px', alignItems: 'center' }}>
+                        <div className="story-content">
+                            <div className="hero-eyebrow" style={{ marginBottom: '12px', color: 'var(--color-champagne-gold)' }}>
+                                FOR HOSPITALITY &amp; EXPERIENCE BRANDS
+                            </div>
+                            <h2 className="section-title" style={{ marginBottom: '20px' }}>
+                                We Provide Services At <span className="text-gold">No Upfront Cost</span>
+                            </h2>
+                            <p className="text-body-large text-charcoal-light" style={{ marginBottom: '24px', lineHeight: 1.7 }}>
+                                Strengthening sales, marketing, and customer engagement for leading hotels, resorts, restaurants, and entertainment destinations.
+                            </p>
                         </div>
-                        <h2 className="section-title" style={{ maxWidth: '800px', margin: '0 auto 16px' }}>
-                            We Provide Services At <span className="text-gold">No Upfront Cost</span>
-                        </h2>
-                        <p className="text-body-large text-charcoal-light" style={{ maxWidth: '720px', margin: '0 auto' }}>
-                            Strengthening sales, marketing, and customer engagement for hotels, resorts, restaurants, and entertainment destinations.
-                        </p>
+                        <div className="story-visual">
+                            <img 
+                                src="/images/b2b/b2b_hospitality_showcase.jpg" 
+                                alt="Luxury hotel resort exterior" 
+                                className="rounded-lg shadow-soft" 
+                                width={560} 
+                                height={350} 
+                                loading="lazy" 
+                            />
+                        </div>
                     </div>
 
-                    <div className="grid-3-col" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px', marginTop: '40px' }}>
+                    <div className="grid-3-col" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px' }}>
                         <div className="b2b-impact-card" style={{ background: 'var(--color-ivory)', padding: '32px', borderRadius: '12px', border: '1px solid rgba(188, 144, 68, 0.2)' }}>
                             <div style={{ fontSize: '1.25rem', fontWeight: 600, color: 'var(--color-charcoal)', marginBottom: '8px' }}>Acquire New Customers</div>
                             <p className="text-body-small text-charcoal-light">Introduce your venue to thousands of active high-intent local guests and travelers without upfront ad spend.</p>
@@ -618,19 +630,32 @@ export default function Home() {
             {/* SECTION 11: VENUE PARTNERSHIPS */}
             <section className="section-padding bg-ivory text-charcoal">
                 <div className="container">
-                    <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
-                        <div className="hero-eyebrow" style={{ justifyContent: 'center', marginBottom: '12px', color: 'var(--color-champagne-gold)' }}>
-                            STRATEGIC VENUE COLLABORATION
+                    <div className="story-grid" style={{ marginBottom: '40px', alignItems: 'center' }}>
+                        <div className="story-visual">
+                            <img 
+                                src="/images/b2b/venue_partnership_banner.jpg" 
+                                alt="Executive hospitality partnership meeting" 
+                                className="rounded-lg shadow-soft" 
+                                width={560} 
+                                height={350} 
+                                loading="lazy" 
+                            />
                         </div>
-                        <h2 className="section-title text-charcoal" style={{ marginBottom: '20px' }}>
-                            Join 1,000+ Leading Hotels, Resorts &amp; Dining Brands
-                        </h2>
-                        <p className="text-body-large text-charcoal-light" style={{ marginBottom: '32px', lineHeight: 1.7 }}>
-                            We design customized sales programs that drive direct footfall, cross-department revenue, and long-term customer relationships for luxury hospitality properties across India.
-                        </p>
+                        <div className="story-content">
+                            <div className="hero-eyebrow" style={{ marginBottom: '12px', color: 'var(--color-champagne-gold)' }}>
+                                STRATEGIC VENUE COLLABORATION
+                            </div>
+                            <h2 className="section-title text-charcoal" style={{ marginBottom: '20px' }}>
+                                Join 1,000+ Leading Hotels, Resorts &amp; Dining Brands
+                            </h2>
+                            <p className="text-body-large text-charcoal-light" style={{ marginBottom: '24px', lineHeight: 1.7 }}>
+                                We design customized sales programs that drive direct footfall, cross-department revenue, and long-term customer relationships for luxury hospitality properties across India.
+                            </p>
+                            <Link href="/partners" className="btn btn-primary">Discuss a Partnership Program</Link>
+                        </div>
                     </div>
 
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '20px', marginTop: '32px' }}>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '20px' }}>
                         <div style={{ background: '#fff', padding: '24px', borderRadius: '8px', borderLeft: '4px solid var(--color-champagne-gold)' }}>
                             <strong style={{ display: 'block', fontSize: '1.1rem', marginBottom: '6px' }}>Acquire New Customers</strong>
                             <span style={{ fontSize: '0.9rem', color: '#666' }}>Reach high-spending leisure travelers and local corporate members.</span>
@@ -648,27 +673,35 @@ export default function Home() {
                             <span style={{ fontSize: '0.9rem', color: '#666' }}>Drive room guests to dining outlets, bars, spa, and leisure facilities.</span>
                         </div>
                     </div>
-
-                    <div style={{ textAlign: 'center', marginTop: '40px' }}>
-                        <Link href="/partners" className="btn btn-primary">Discuss a Partnership Program</Link>
-                    </div>
                 </div>
             </section>
 
             {/* SECTION 11A: HOW OUR PARTNERSHIP PROGRAM WORKS */}
             <section className="section-padding bg-white">
                 <div className="container">
-                    <div className="section-header text-center justify-center">
-                        <div className="hero-eyebrow" style={{ marginBottom: '12px', color: 'var(--color-champagne-gold)' }}>
-                            WORKFLOW &amp; EXECUTION
+                    <div className="story-grid" style={{ marginBottom: '40px', alignItems: 'center' }}>
+                        <div className="story-content">
+                            <div className="hero-eyebrow" style={{ marginBottom: '12px', color: 'var(--color-champagne-gold)' }}>
+                                WORKFLOW &amp; EXECUTION
+                            </div>
+                            <h2 className="section-title">How Our Partnership Program Works</h2>
+                            <p className="text-body-large text-charcoal-light" style={{ marginTop: '12px', lineHeight: 1.7 }}>
+                                An end-to-end managed execution model built on trust, transparency, and zero upfront financial risk.
+                            </p>
                         </div>
-                        <h2 className="section-title">How Our Partnership Program Works</h2>
-                        <p className="text-body-large text-charcoal-light" style={{ maxWidth: '700px', margin: '8px auto 0' }}>
-                            A end-to-end managed execution model built on trust, transparency, and zero upfront risk.
-                        </p>
+                        <div className="story-visual">
+                            <img 
+                                src="/images/b2b/workflow_concierge_execution.jpg" 
+                                alt="Hotel concierge guest service" 
+                                className="rounded-lg shadow-soft" 
+                                width={560} 
+                                height={350} 
+                                loading="lazy" 
+                            />
+                        </div>
                     </div>
 
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '24px', marginTop: '40px' }}>
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '24px' }}>
                         <div style={{ padding: '24px', background: 'var(--color-ivory)', borderRadius: '8px' }}>
                             <span style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--color-champagne-gold)', letterSpacing: '0.1em' }}>STEP 1</span>
                             <h4 style={{ fontSize: '1.15rem', marginTop: '8px', marginBottom: '8px' }}>Initial Consultation &amp; Needs Assessment</h4>
