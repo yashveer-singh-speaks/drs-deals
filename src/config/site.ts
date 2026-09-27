@@ -9,10 +9,14 @@ export const siteConfig = {
     
     // Centralized Contact Configuration
     contacts: {
+        address: 'B 14 UGF, DRS Building, Gulab Bagh, Pillar No. 725, Near Nawada Metro Station, New Delhi 110059',
         conciergeEmail: 'drsdeals.in@gmail.com',
         partnerEmail: 'drsdeals.in@gmail.com',
         hotline1: '+91 98111 20892',
         hotline2: '+91 98113 60808',
+        hotline3: '+91 99119 03366',
+        hotline4: '+91 99119 03377',
+        hotline5: '+91 99119 03399',
         hotline1Raw: '+919811120892',
         hotline2Raw: '+919811360808',
         

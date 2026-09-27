@@ -22,9 +22,16 @@ export default function Footer() {
                         </p>
                         
                         {/* Direct Contact info */}
-                        <div style={{ marginBottom: '24px', fontSize: '0.85rem', color: 'rgba(255,255,255,0.6)' }}>
-                            <div style={{ marginBottom: '6px' }}>
-                                Concierge: <a href={`tel:${siteConfig.contacts.hotline1Raw}`} style={{ color: 'var(--color-champagne-gold)', textDecoration: 'none', fontWeight: 600 }}>{siteConfig.contacts.hotline1}</a>
+                        <div style={{ marginBottom: '24px', fontSize: '0.85rem', color: 'rgba(255,255,255,0.7)', lineHeight: '1.6' }}>
+                            <div style={{ marginBottom: '8px', color: 'rgba(255,255,255,0.85)' }}>
+                                <strong>Headquarters:</strong><br />
+                                {siteConfig.contacts.address}
+                            </div>
+                            <div style={{ marginBottom: '4px' }}>
+                                Concierge: <a href={`tel:${siteConfig.contacts.hotline1Raw}`} style={{ color: 'var(--color-champagne-gold)', textDecoration: 'none', fontWeight: 600 }}>{siteConfig.contacts.hotline1}</a> | <a href={`tel:${siteConfig.contacts.hotline2Raw}`} style={{ color: 'var(--color-champagne-gold)', textDecoration: 'none', fontWeight: 600 }}>{siteConfig.contacts.hotline2}</a>
+                            </div>
+                            <div style={{ marginBottom: '4px' }}>
+                                Corporate: {siteConfig.contacts.hotline3} / 77 / 99
                             </div>
                             <div>
                                 Email: <a href={`mailto:${siteConfig.contacts.conciergeEmail}`} style={{ color: 'rgba(255,255,255,0.85)', textDecoration: 'none' }}>{siteConfig.contacts.conciergeEmail}</a>

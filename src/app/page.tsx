@@ -27,22 +27,22 @@ export default function Home() {
                 {/* DESKTOP HERO (Laptops, Desktops & Large Screens >= 1024px) */}
                 <div className="hero-desktop-wrapper">
                     <div className="hero-content">
-                        <div className="hero-eyebrow">PREMIUM LEISURE &amp; DINING PRIVILEGES</div>
+                        <div className="hero-eyebrow">PREMIUM LEISURE PRIVILEGES &amp; BRAND PARTNERSHIPS</div>
                         <h1 className="hero-title">
                             More Experiences. <br />
                             More Memories. <br />
                             <span className="text-gold">For Less.</span>
                         </h1>
                         <p className="hero-desc text-body-large">
-                            Exclusive member privileges on luxury resort stays, gourmet dining, spa retreats &amp; family leisure across 50+ cities in India.
+                            Connecting 2M+ guests with 1,000+ luxury resorts, fine dining, spa retreats &amp; leisure destinations across India.
                         </p>
                         <div className="hero-actions">
-                            <Link href="/explore" className="btn btn-primary">
-                                Explore 240+ Offers 
+                            <Link href="/deals" className="btn btn-primary">
+                                Explore Experiences 
                                 <svg className="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                             </Link>
-                            <Link href="/how-it-works" className="link-arrow">
-                                How It Works
+                            <Link href="/partners" className="btn btn-outline" style={{ background: 'rgba(255,255,255,0.85)' }}>
+                                Partner With DRS Deals
                                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                             </Link>
                         </div>
@@ -71,22 +71,22 @@ export default function Home() {
                 <div className="hero-mobile-wrapper">
                     <div className="hero-mobile-stage">
                         <div className="hero-mobile-text">
-                            <div className="hero-eyebrow">PREMIUM LEISURE &amp; DINING PRIVILEGES</div>
+                            <div className="hero-eyebrow">PREMIUM LEISURE PRIVILEGES &amp; BRAND PARTNERSHIPS</div>
                             <h1 className="hero-title">
                                 More Experiences. <br />
                                 More Memories. <br />
                                 <span className="text-gold">For Less.</span>
                             </h1>
                             <p className="hero-desc text-body-large">
-                                Exclusive member privileges on luxury resort stays, gourmet dining, spa retreats &amp; family leisure across 50+ cities in India.
+                                Connecting 2M+ guests with 1,000+ luxury resorts, fine dining, spa retreats &amp; leisure destinations across India.
                             </p>
                             <div className="hero-actions">
-                                <Link href="/explore" className="btn btn-primary">
-                                    Explore 240+ Offers 
+                                <Link href="/deals" className="btn btn-primary">
+                                    Explore Experiences 
                                     <svg className="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                                 </Link>
-                                <Link href="/how-it-works" className="link-arrow">
-                                    How It Works
+                                <Link href="/partners" className="btn btn-outline" style={{ background: 'rgba(255,255,255,0.85)' }}>
+                                    Partner With DRS Deals
                                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                                 </Link>
                             </div>
@@ -571,55 +571,200 @@ export default function Home() {
             {/* SAVINGS CALCULATOR */}
             <SavingsCalculator />
 
-            {/* BUSINESS PARTNER SECTION */}
-            <section className="section-padding bg-ivory text-charcoal text-center">
+            {/* SECTION 10A: WHAT DRS DEALS DOES FOR HOSPITALITY BRANDS */}
+            <section className="section-padding bg-white border-top">
                 <div className="container">
-                    <div style={{ maxWidth: '640px', margin: '0 auto' }}>
-                        <div className="hero-eyebrow" style={{ justifyContent: 'center', marginBottom: '12px', color: 'var(--color-champagne-gold)' }}>
-                            VENUE PARTNERSHIPS
+                    <div className="section-header text-center justify-center">
+                        <div className="hero-eyebrow" style={{ marginBottom: '12px', color: 'var(--color-champagne-gold)' }}>
+                            FOR HOSPITALITY &amp; EXPERIENCE BRANDS
                         </div>
-                        <h2 className="section-title text-charcoal" style={{ marginBottom: '20px' }}>Join 1,000+ Premium Venue Partners</h2>
-                        <p className="text-body-large text-charcoal-light" style={{ marginBottom: '32px', lineHeight: 1.7 }}>
-                            Partner with DRS Deals to feature your resort, fine dining venue, or leisure property before an audience of over 2 million discerning guests.
+                        <h2 className="section-title" style={{ maxWidth: '800px', margin: '0 auto 16px' }}>
+                            We Provide Services At <span className="text-gold">No Upfront Cost</span>
+                        </h2>
+                        <p className="text-body-large text-charcoal-light" style={{ maxWidth: '720px', margin: '0 auto' }}>
+                            Strengthening sales, marketing, and customer engagement for hotels, resorts, restaurants, and entertainment destinations.
                         </p>
-                        <Link href="/partners" className="btn btn-primary">Discuss a Partnership</Link>
+                    </div>
+
+                    <div className="grid-3-col" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px', marginTop: '40px' }}>
+                        <div className="b2b-impact-card" style={{ background: 'var(--color-ivory)', padding: '32px', borderRadius: '12px', border: '1px solid rgba(188, 144, 68, 0.2)' }}>
+                            <div style={{ fontSize: '1.25rem', fontWeight: 600, color: 'var(--color-charcoal)', marginBottom: '8px' }}>Acquire New Customers</div>
+                            <p className="text-body-small text-charcoal-light">Introduce your venue to thousands of active high-intent local guests and travelers without upfront ad spend.</p>
+                        </div>
+                        <div className="b2b-impact-card" style={{ background: 'var(--color-ivory)', padding: '32px', borderRadius: '12px', border: '1px solid rgba(188, 144, 68, 0.2)' }}>
+                            <div style={{ fontSize: '1.25rem', fontWeight: 600, color: 'var(--color-charcoal)', marginBottom: '8px' }}>Increase Profitability</div>
+                            <p className="text-body-small text-charcoal-light">Fill unutilized room inventory, off-peak dining tables, and weekday activity slots to boost overall margin.</p>
+                        </div>
+                        <div className="b2b-impact-card" style={{ background: 'var(--color-ivory)', padding: '32px', borderRadius: '12px', border: '1px solid rgba(188, 144, 68, 0.2)' }}>
+                            <div style={{ fontSize: '1.25rem', fontWeight: 600, color: 'var(--color-charcoal)', marginBottom: '8px' }}>Achieve Sales Targets</div>
+                            <p className="text-body-small text-charcoal-light">Drive guaranteed sales volumes through structured membership voucher releases and customized promo privileges.</p>
+                        </div>
+                        <div className="b2b-impact-card" style={{ background: 'var(--color-ivory)', padding: '32px', borderRadius: '12px', border: '1px solid rgba(188, 144, 68, 0.2)' }}>
+                            <div style={{ fontSize: '1.25rem', fontWeight: 600, color: 'var(--color-charcoal)', marginBottom: '8px' }}>Drive New Footfall</div>
+                            <p className="text-body-small text-charcoal-light">Turn first-time visitors into repeat patrons through high-value dining and resort experience incentives.</p>
+                        </div>
+                        <div className="b2b-impact-card" style={{ background: 'var(--color-ivory)', padding: '32px', borderRadius: '12px', border: '1px solid rgba(188, 144, 68, 0.2)' }}>
+                            <div style={{ fontSize: '1.25rem', fontWeight: 600, color: 'var(--color-charcoal)', marginBottom: '8px' }}>Retain Existing Guests</div>
+                            <p className="text-body-small text-charcoal-light">Strengthen guest loyalty with dedicated privilege passes and direct concierge-backed repeat booking support.</p>
+                        </div>
+                        <div className="b2b-impact-card" style={{ background: 'var(--color-ivory)', padding: '32px', borderRadius: '12px', border: '1px solid rgba(188, 144, 68, 0.2)' }}>
+                            <div style={{ fontSize: '1.25rem', fontWeight: 600, color: 'var(--color-charcoal)', marginBottom: '8px' }}>Digital Marketing &amp; Re-engagement</div>
+                            <p className="text-body-small text-charcoal-light">Benefit from 30M+ social reel views and direct campaign outreach to win back past or dissatisfied guests.</p>
+                        </div>
                     </div>
                 </div>
             </section>
 
-            {/* VERIFIED STATS GRID */}
+            {/* SECTION 11: VENUE PARTNERSHIPS */}
+            <section className="section-padding bg-ivory text-charcoal">
+                <div className="container">
+                    <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
+                        <div className="hero-eyebrow" style={{ justifyContent: 'center', marginBottom: '12px', color: 'var(--color-champagne-gold)' }}>
+                            STRATEGIC VENUE COLLABORATION
+                        </div>
+                        <h2 className="section-title text-charcoal" style={{ marginBottom: '20px' }}>
+                            Join 1,000+ Leading Hotels, Resorts &amp; Dining Brands
+                        </h2>
+                        <p className="text-body-large text-charcoal-light" style={{ marginBottom: '32px', lineHeight: 1.7 }}>
+                            We design customized sales programs that drive direct footfall, cross-department revenue, and long-term customer relationships for luxury hospitality properties across India.
+                        </p>
+                    </div>
+
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '20px', marginTop: '32px' }}>
+                        <div style={{ background: '#fff', padding: '24px', borderRadius: '8px', borderLeft: '4px solid var(--color-champagne-gold)' }}>
+                            <strong style={{ display: 'block', fontSize: '1.1rem', marginBottom: '6px' }}>Acquire New Customers</strong>
+                            <span style={{ fontSize: '0.9rem', color: '#666' }}>Reach high-spending leisure travelers and local corporate members.</span>
+                        </div>
+                        <div style={{ background: '#fff', padding: '24px', borderRadius: '8px', borderLeft: '4px solid var(--color-champagne-gold)' }}>
+                            <strong style={{ display: 'block', fontSize: '1.1rem', marginBottom: '6px' }}>Increase Utilization</strong>
+                            <span style={{ fontSize: '0.9rem', color: '#666' }}>Fill slow weekday slots, banquets, spa sessions, and quiet seasonal periods.</span>
+                        </div>
+                        <div style={{ background: '#fff', padding: '24px', borderRadius: '8px', borderLeft: '4px solid var(--color-champagne-gold)' }}>
+                            <strong style={{ display: 'block', fontSize: '1.1rem', marginBottom: '6px' }}>Build Relationships</strong>
+                            <span style={{ fontSize: '0.9rem', color: '#666' }}>Convert voucher users into lifetime repeat guests through exceptional service.</span>
+                        </div>
+                        <div style={{ background: '#fff', padding: '24px', borderRadius: '8px', borderLeft: '4px solid var(--color-champagne-gold)' }}>
+                            <strong style={{ display: 'block', fontSize: '1.1rem', marginBottom: '6px' }}>Cross-Department Growth</strong>
+                            <span style={{ fontSize: '0.9rem', color: '#666' }}>Drive room guests to dining outlets, bars, spa, and leisure facilities.</span>
+                        </div>
+                    </div>
+
+                    <div style={{ textAlign: 'center', marginTop: '40px' }}>
+                        <Link href="/partners" className="btn btn-primary">Discuss a Partnership Program</Link>
+                    </div>
+                </div>
+            </section>
+
+            {/* SECTION 11A: HOW OUR PARTNERSHIP PROGRAM WORKS */}
             <section className="section-padding bg-white">
                 <div className="container">
-                    <div className="stats-cards-grid">
+                    <div className="section-header text-center justify-center">
+                        <div className="hero-eyebrow" style={{ marginBottom: '12px', color: 'var(--color-champagne-gold)' }}>
+                            WORKFLOW &amp; EXECUTION
+                        </div>
+                        <h2 className="section-title">How Our Partnership Program Works</h2>
+                        <p className="text-body-large text-charcoal-light" style={{ maxWidth: '700px', margin: '8px auto 0' }}>
+                            A end-to-end managed execution model built on trust, transparency, and zero upfront risk.
+                        </p>
+                    </div>
+
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '24px', marginTop: '40px' }}>
+                        <div style={{ padding: '24px', background: 'var(--color-ivory)', borderRadius: '8px' }}>
+                            <span style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--color-champagne-gold)', letterSpacing: '0.1em' }}>STEP 1</span>
+                            <h4 style={{ fontSize: '1.15rem', marginTop: '8px', marginBottom: '8px' }}>Initial Consultation &amp; Needs Assessment</h4>
+                            <p style={{ fontSize: '0.9rem', color: 'var(--color-charcoal-light)' }}>We evaluate property objectives, occupancy gaps, dining capacity, and revenue targets.</p>
+                        </div>
+                        <div style={{ padding: '24px', background: 'var(--color-ivory)', borderRadius: '8px' }}>
+                            <span style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--color-champagne-gold)', letterSpacing: '0.1em' }}>STEP 2</span>
+                            <h4 style={{ fontSize: '1.15rem', marginTop: '8px', marginBottom: '8px' }}>Program Design &amp; Authorization</h4>
+                            <p style={{ fontSize: '0.9rem', color: 'var(--color-charcoal-light)' }}>Co-design tailored membership structures, validity periods, and custom privilege vouchers.</p>
+                        </div>
+                        <div style={{ padding: '24px', background: 'var(--color-ivory)', borderRadius: '8px' }}>
+                            <span style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--color-champagne-gold)', letterSpacing: '0.1em' }}>STEP 3</span>
+                            <h4 style={{ fontSize: '1.15rem', marginTop: '8px', marginBottom: '8px' }}>Collateral &amp; Content Creation</h4>
+                            <p style={{ fontSize: '0.9rem', color: 'var(--color-charcoal-light)' }}>Develop high-quality physical &amp; digital marketing materials, videos, and reel features.</p>
+                        </div>
+                        <div style={{ padding: '24px', background: 'var(--color-ivory)', borderRadius: '8px' }}>
+                            <span style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--color-champagne-gold)', letterSpacing: '0.1em' }}>STEP 4</span>
+                            <h4 style={{ fontSize: '1.15rem', marginTop: '8px', marginBottom: '8px' }}>Direct Sales &amp; Digital Outreach</h4>
+                            <p style={{ fontSize: '0.9rem', color: 'var(--color-charcoal-light)' }}>Deploy trained sales executives, corporate channels, and targeted digital promotion campaigns.</p>
+                        </div>
+                        <div style={{ padding: '24px', background: 'var(--color-ivory)', borderRadius: '8px' }}>
+                            <span style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--color-champagne-gold)', letterSpacing: '0.1em' }}>STEP 5</span>
+                            <h4 style={{ fontSize: '1.15rem', marginTop: '8px', marginBottom: '8px' }}>Customer Acquisition &amp; Concierge</h4>
+                            <p style={{ fontSize: '0.9rem', color: 'var(--color-charcoal-light)' }}>Manage guest onboarding, phone/WhatsApp inquiries, reservation bookings, and support.</p>
+                        </div>
+                        <div style={{ padding: '24px', background: 'var(--color-ivory)', borderRadius: '8px' }}>
+                            <span style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--color-champagne-gold)', letterSpacing: '0.1em' }}>STEP 6</span>
+                            <h4 style={{ fontSize: '1.15rem', marginTop: '8px', marginBottom: '8px' }}>Settlement &amp; Program Review</h4>
+                            <p style={{ fontSize: '0.9rem', color: 'var(--color-charcoal-light)' }}>Provide transparent redemptions reporting, revenue tracking, and ongoing program optimization.</p>
+                        </div>
+                    </div>
+
+                    <div style={{ background: 'var(--color-ivory)', padding: '24px 32px', borderRadius: '12px', border: '1px dashed var(--color-champagne-gold)', marginTop: '32px', textAlign: 'center' }}>
+                        <span style={{ fontWeight: 600, color: 'var(--color-charcoal)', fontSize: '1.05rem' }}>
+                            🛡️ No Upfront Financial Investment Required: We bear marketing and distribution costs under performance-based agreements.
+                        </span>
+                    </div>
+                </div>
+            </section>
+
+            {/* SECTION 12: VERIFIED STATS GRID */}
+            <section className="section-padding bg-ivory">
+                <div className="container">
+                    <div className="section-header text-center justify-center" style={{ marginBottom: '32px' }}>
+                        <h2 className="section-title">Verified Brand &amp; Heritage Statistics</h2>
+                    </div>
+                    <div className="stats-cards-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))' }}>
                         <div className="stat-card">
                             <div className="stat-number">23 Years</div>
                             <div className="stat-label">Hospitality Legacy</div>
                             <div className="stat-desc">Curating luxury experiences since 2003.</div>
                         </div>
                         <div className="stat-card">
-                            <div className="stat-number">2M+</div>
-                            <div className="stat-label">Happy Guests</div>
-                            <div className="stat-desc">Members enjoying premium privileges.</div>
+                            <div className="stat-number">11+ Years</div>
+                            <div className="stat-label">Industry Leadership</div>
+                            <div className="stat-desc">Specialized sales execution model.</div>
+                        </div>
+                        <div className="stat-card">
+                            <div className="stat-number">200+</div>
+                            <div className="stat-label">Brand Tie-Ups</div>
+                            <div className="stat-desc">Trusted by leading national hospitality chains.</div>
                         </div>
                         <div className="stat-card">
                             <div className="stat-number">1,000+</div>
                             <div className="stat-label">Venue Partners</div>
-                            <div className="stat-desc">Top-tier hotels, resorts &amp; dining.</div>
+                            <div className="stat-desc">Hotels, resorts, spas &amp; leisure spots.</div>
+                        </div>
+                        <div className="stat-card">
+                            <div className="stat-number">2M+</div>
+                            <div className="stat-label">Happy Guests</div>
+                            <div className="stat-desc">Discerning members served nationwide.</div>
+                        </div>
+                        <div className="stat-card">
+                            <div className="stat-number">30M+</div>
+                            <div className="stat-label">Social Reel Views</div>
+                            <div className="stat-desc">Massive organic digital footprint.</div>
                         </div>
                         <div className="stat-card">
                             <div className="stat-number">50+</div>
                             <div className="stat-label">Cities Covered</div>
-                            <div className="stat-desc">Extensive network across India.</div>
+                            <div className="stat-desc">Extensive presence across India.</div>
                         </div>
                         <div className="stat-card">
                             <div className="stat-number">₹1B+</div>
                             <div className="stat-label">Value Delivered</div>
-                            <div className="stat-desc">Exclusive savings for our members.</div>
+                            <div className="stat-desc">Member savings &amp; partner revenue.</div>
                         </div>
                         <div className="stat-card">
-                            <div className="stat-number">4.9 ★</div>
-                            <div className="stat-label">Member Rating</div>
-                            <div className="stat-desc">Consistently top-rated service.</div>
+                            <div className="stat-number">MSME</div>
+                            <div className="stat-label">Certified</div>
+                            <div className="stat-desc">Government recognized enterprise.</div>
+                        </div>
+                        <div className="stat-card">
+                            <div className="stat-number">DRS DEALS®</div>
+                            <div className="stat-label">Registered Trademark</div>
+                            <div className="stat-desc">Official Govt registered brand.</div>
                         </div>
                     </div>
                 </div>
@@ -703,6 +848,38 @@ export default function Home() {
                                 height={320} 
                                 loading="lazy" 
                             />
+                        </div>
+                    </div>
+                </div>
+            </section>
+            {/* SECTION 15: FINAL DUAL CTA (GUESTS vs HOSPITALITY BRANDS) */}
+            <section className="section-padding bg-ivory border-top">
+                <div className="container">
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '32px' }}>
+                        {/* Guest CTA Card */}
+                        <div style={{ background: '#fff', padding: '40px', borderRadius: '16px', boxShadow: 'var(--shadow-soft)', border: '1px solid rgba(0,0,0,0.05)' }}>
+                            <div className="hero-eyebrow" style={{ marginBottom: '8px', color: 'var(--color-champagne-gold)' }}>FOR GUESTS &amp; MEMBERS</div>
+                            <h3 style={{ fontSize: '1.75rem', fontFamily: 'var(--font-serif)', marginBottom: '16px' }}>Ready to Experience More for Less?</h3>
+                            <p className="text-body-small text-charcoal-light" style={{ marginBottom: '24px', lineHeight: 1.7 }}>
+                                Explore 240+ verified member privileges across 5-star hotels, luxury resorts, dining, spa retreats, and family waterparks.
+                            </p>
+                            <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
+                                <Link href="/deals" className="btn btn-primary">Browse All Deals</Link>
+                                <a href={siteConfig.getWhatsAppUrl()} target="_blank" rel="noopener noreferrer" className="btn btn-outline">WhatsApp Concierge</a>
+                            </div>
+                        </div>
+
+                        {/* Partner CTA Card */}
+                        <div style={{ background: 'var(--color-charcoal)', color: '#fff', padding: '40px', borderRadius: '16px', boxShadow: 'var(--shadow-hover)' }}>
+                            <div className="hero-eyebrow" style={{ marginBottom: '8px', color: 'var(--color-champagne-gold)' }}>FOR HOSPITALITY BRANDS</div>
+                            <h3 style={{ fontSize: '1.75rem', fontFamily: 'var(--font-serif)', color: '#fff', marginBottom: '16px' }}>Strengthen Sales &amp; Acquire New Guests</h3>
+                            <p className="text-body-small" style={{ color: 'rgba(255,255,255,0.7)', marginBottom: '24px', lineHeight: 1.7 }}>
+                                Partner with DRS Deals at no upfront cost. We bring structured sales execution, footfall, and digital promotion to your property.
+                            </p>
+                            <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
+                                <Link href="/partners" className="btn btn-primary">Partner With Us</Link>
+                                <a href={`mailto:${siteConfig.contacts.partnerEmail}`} className="btn btn-outline" style={{ color: '#fff', borderColor: 'rgba(255,255,255,0.3)' }}>Email Partnership Team</a>
+                            </div>
                         </div>
                     </div>
                 </div>

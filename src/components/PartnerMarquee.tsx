@@ -42,8 +42,11 @@ export default function PartnerMarquee() {
         <section className="partner-marquee-section" aria-label="Brand Collaborations">
             <div className="partner-marquee-header">
                 <span className="partner-marquee-eyebrow">
-                    OUR BRAND COLLABORATIONS &amp; TIE-UPS
+                    200+ TRUSTED BRAND COLLABORATIONS &amp; TIE-UPS
                 </span>
+                <p className="partner-marquee-subhead" style={{ fontSize: '0.9rem', opacity: 0.8, marginTop: '4px' }}>
+                    Hotels &amp; Resorts &bull; Fine Dining &bull; Wellness &amp; Spa &bull; Waterparks &amp; Entertainment
+                </p>
             </div>
 
             <div className="partner-marquee-container">
