@@ -330,7 +330,7 @@ export default function Home() {
             </section>
 
             {/* SHOWCASE SECTION */}
-            <section className="relative w-full overflow-hidden" style={{ height: '100vh', minHeight: '700px' }}>
+            <section className="showcase-iframe-section">
                 <iframe
                     src="/section-showcase/index.html"
                     style={{ width: '100%', height: '100%', border: 'none', display: 'block' }}

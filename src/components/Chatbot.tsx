@@ -91,31 +91,14 @@ export default function Chatbot() {
     ];
 
     return (
-        <aside aria-label="DRS Deals Concierge Assistant" style={{ position: 'fixed', bottom: '24px', left: '24px', zIndex: 995 }}>
+        <aside aria-label="DRS Deals Concierge Assistant" className="chatbot-floating-wrapper">
             {/* Small Square Toggle Button with Comfortably Rounded Corners on Bottom-Left */}
             {!isOpen && (
                 <button
                     onClick={() => setIsOpen(true)}
                     aria-label="Open DRS Deals Chatbot"
                     aria-expanded={isOpen}
-                    style={{
-                        display: 'inline-flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        gap: '6px',
-                        height: '44px',
-                        padding: '0 16px',
-                        borderRadius: '12px',
-                        background: '#080705',
-                        color: 'var(--color-champagne-gold)',
-                        border: '1px solid rgba(188, 144, 68, 0.4)',
-                        boxShadow: '0 6px 20px rgba(0, 0, 0, 0.3)',
-                        cursor: 'pointer',
-                        fontWeight: 600,
-                        fontSize: '0.88rem',
-                        transition: 'all 0.25s cubic-bezier(0.16, 1, 0.3, 1)',
-                        lineHeight: 1,
-                    }}
+                    className="chatbot-toggle-btn"
                 >
                     <span>Chat ✨</span>
                 </button>
@@ -124,24 +107,10 @@ export default function Chatbot() {
             {/* Chat Modal on Bottom-Left */}
             {isOpen && (
                 <div
-                    style={{
-                        position: 'fixed',
-                        bottom: '24px',
-                        left: '24px',
-                        width: '360px',
-                        maxWidth: 'calc(100vw - 32px)',
-                        height: '520px',
-                        maxHeight: 'calc(100vh - 100px)',
-                        background: '#fff',
-                        borderRadius: '16px',
-                        border: '1px solid var(--color-stone)',
-                        boxShadow: '0 16px 40px rgba(0, 0, 0, 0.3)',
-                        display: 'flex',
-                        flexDirection: 'column',
-                        overflow: 'hidden',
-                        zIndex: 1000,
-                        animation: 'fadeIn 0.2s ease-out',
-                    }}
+                    className="chatbot-modal-window"
+                    role="dialog"
+                    aria-label="DRS Concierge Chat"
+                    aria-modal="true"
                 >
                     {/* Header */}
                     <div style={{ background: '#080705', color: '#fff', padding: '16px 20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid rgba(188, 144, 68, 0.3)' }}>
