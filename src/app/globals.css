@@ -634,35 +634,32 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (max-width: 767px) {
   .hero-mobile-stage {
-    min-height: 540px;
-    background-size: 720px auto;
-    background-position: right 10px;
+    min-height: auto;
+    background-image: none !important;
+    background-color: #F5EFEB; /* Solid beige/wheat colored background */
+    padding-bottom: var(--spacing-48);
   }
   .hero-mobile-text {
-    width: 66%;
+    width: 100%;
   }
 }
 
 @media (max-width: 480px) {
   .hero-mobile-stage {
-    min-height: 520px;
-    background-size: 660px auto;
-    background-position: right 10px;
     padding: 16px 16px 24px 16px;
+    background-color: #F5EFEB;
   }
   .hero-mobile-text {
-    width: 68%;
+    width: 100%;
   }
 }
 
 @media (max-width: 375px) {
   .hero-mobile-stage {
-    min-height: 500px;
-    background-size: 620px auto;
-    background-position: right 5px;
+    background-color: #F5EFEB;
   }
   .hero-mobile-text {
-    width: 70%;
+    width: 100%;
   }
 }
 
