@@ -9,6 +9,16 @@ export default function BottomRightActions() {
         <aside
             aria-label="Quick Actions"
             className="bottom-right-floating-container"
+            style={{
+                position: 'fixed',
+                bottom: '24px',
+                right: '24px',
+                zIndex: 990,
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                gap: '12px',
+            }}
         >
             {/* Smaller Go To Top sits clearly above WhatsApp with a visible gap */}
             <ScrollToTop />

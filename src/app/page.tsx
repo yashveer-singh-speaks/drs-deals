@@ -93,57 +93,113 @@ export default function Home() {
                         </div>
                     </div>
 
-                    <div className="hero-mobile-trust-list">
-                        <div className="mobile-trust-row">
-                            <div className="mobile-trust-left">
-                                <div className="mobile-trust-icon-box">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    <div className="hero-mobile-trust-marquee" aria-label="DRS Deals Core Privileges">
+                        <div className="hero-mobile-trust-track">
+                            {/* Set 1 */}
+                            <div className="mobile-trust-card">
+                                <div className="mobile-trust-left">
+                                    <div className="mobile-trust-icon-box">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                                    </div>
+                                    <div>
+                                        <div className="mobile-trust-title">TRUSTED PARTNERS</div>
+                                        <div className="mobile-trust-sub">Curated luxury with 5-star hotel &amp; resort partners</div>
+                                    </div>
                                 </div>
-                                <div>
-                                    <div className="mobile-trust-title">TRUSTED PARTNERS</div>
-                                    <div className="mobile-trust-sub">Curated luxury with 5-star hotel &amp; resort partners</div>
-                                </div>
+                                <div className="mobile-trust-arrow">&rsaquo;</div>
                             </div>
-                            <div className="mobile-trust-arrow">&rsaquo;</div>
-                        </div>
 
-                        <div className="mobile-trust-row">
-                            <div className="mobile-trust-left">
-                                <div className="mobile-trust-icon-box">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                            <div className="mobile-trust-card">
+                                <div className="mobile-trust-left">
+                                    <div className="mobile-trust-icon-box">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                    </div>
+                                    <div>
+                                        <div className="mobile-trust-title">WIDE DESTINATIONS</div>
+                                        <div className="mobile-trust-sub">Top verified spots across 50+ Indian cities</div>
+                                    </div>
                                 </div>
-                                <div>
-                                    <div className="mobile-trust-title">WIDE DESTINATIONS</div>
-                                    <div className="mobile-trust-sub">Top verified spots across 50+ Indian cities</div>
-                                </div>
+                                <div className="mobile-trust-arrow">&rsaquo;</div>
                             </div>
-                            <div className="mobile-trust-arrow">&rsaquo;</div>
-                        </div>
 
-                        <div className="mobile-trust-row">
-                            <div className="mobile-trust-left">
-                                <div className="mobile-trust-icon-box">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            <div className="mobile-trust-card">
+                                <div className="mobile-trust-left">
+                                    <div className="mobile-trust-icon-box">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                    </div>
+                                    <div>
+                                        <div className="mobile-trust-title">MORE VALUE</div>
+                                        <div className="mobile-trust-sub">Save more on every stay, dinner &amp; holiday pass</div>
+                                    </div>
                                 </div>
-                                <div>
-                                    <div className="mobile-trust-title">MORE VALUE</div>
-                                    <div className="mobile-trust-sub">Save more on every stay, dinner &amp; holiday pass</div>
-                                </div>
+                                <div className="mobile-trust-arrow">&rsaquo;</div>
                             </div>
-                            <div className="mobile-trust-arrow">&rsaquo;</div>
-                        </div>
 
-                        <div className="mobile-trust-row">
-                            <div className="mobile-trust-left">
-                                <div className="mobile-trust-icon-box">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+                            <div className="mobile-trust-card">
+                                <div className="mobile-trust-left">
+                                    <div className="mobile-trust-icon-box">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+                                    </div>
+                                    <div>
+                                        <div className="mobile-trust-title">PRIVILEGE HELP</div>
+                                        <div className="mobile-trust-sub">24/7 dedicated concierge assistance</div>
+                                    </div>
                                 </div>
-                                <div>
-                                    <div className="mobile-trust-title">PRIVILEGE HELP</div>
-                                    <div className="mobile-trust-sub">24/7 dedicated concierge assistance</div>
-                                </div>
+                                <div className="mobile-trust-arrow">&rsaquo;</div>
                             </div>
-                            <div className="mobile-trust-arrow">&rsaquo;</div>
+
+                            {/* Set 2 (Duplicate for infinite seamless loop) */}
+                            <div className="mobile-trust-card">
+                                <div className="mobile-trust-left">
+                                    <div className="mobile-trust-icon-box">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                                    </div>
+                                    <div>
+                                        <div className="mobile-trust-title">TRUSTED PARTNERS</div>
+                                        <div className="mobile-trust-sub">Curated luxury with 5-star hotel &amp; resort partners</div>
+                                    </div>
+                                </div>
+                                <div className="mobile-trust-arrow">&rsaquo;</div>
+                            </div>
+
+                            <div className="mobile-trust-card">
+                                <div className="mobile-trust-left">
+                                    <div className="mobile-trust-icon-box">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                    </div>
+                                    <div>
+                                        <div className="mobile-trust-title">WIDE DESTINATIONS</div>
+                                        <div className="mobile-trust-sub">Top verified spots across 50+ Indian cities</div>
+                                    </div>
+                                </div>
+                                <div className="mobile-trust-arrow">&rsaquo;</div>
+                            </div>
+
+                            <div className="mobile-trust-card">
+                                <div className="mobile-trust-left">
+                                    <div className="mobile-trust-icon-box">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                                    </div>
+                                    <div>
+                                        <div className="mobile-trust-title">MORE VALUE</div>
+                                        <div className="mobile-trust-sub">Save more on every stay, dinner &amp; holiday pass</div>
+                                    </div>
+                                </div>
+                                <div className="mobile-trust-arrow">&rsaquo;</div>
+                            </div>
+
+                            <div className="mobile-trust-card">
+                                <div className="mobile-trust-left">
+                                    <div className="mobile-trust-icon-box">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+                                    </div>
+                                    <div>
+                                        <div className="mobile-trust-title">PRIVILEGE HELP</div>
+                                        <div className="mobile-trust-sub">24/7 dedicated concierge assistance</div>
+                                    </div>
+                                </div>
+                                <div className="mobile-trust-arrow">&rsaquo;</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -608,7 +664,7 @@ export default function Home() {
                         </div>
                     </div>
 
-                    <div className="grid-3-col" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px' }}>
+                    <div className="b2b-impact-grid">
                         <div className="b2b-impact-card" style={{ background: 'var(--color-ivory)', padding: '32px', borderRadius: '12px', border: '1px solid rgba(188, 144, 68, 0.2)' }}>
                             <div style={{ fontSize: '1.25rem', fontWeight: 600, color: 'var(--color-charcoal)', marginBottom: '8px' }}>Acquire New Customers</div>
                             <p className="text-body-small text-charcoal-light">Introduce your venue to thousands of active high-intent local guests and travelers without upfront ad spend.</p>
@@ -711,7 +767,7 @@ export default function Home() {
                         </div>
                     </div>
 
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '24px' }}>
+                    <div className="workflow-steps-grid">
                         <div style={{ padding: '24px', background: 'var(--color-ivory)', borderRadius: '8px' }}>
                             <span style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--color-champagne-gold)', letterSpacing: '0.1em' }}>STEP 1</span>
                             <h4 style={{ fontSize: '1.15rem', marginTop: '8px', marginBottom: '8px' }}>Initial Consultation &amp; Needs Assessment</h4>
@@ -752,13 +808,19 @@ export default function Home() {
                 </div>
             </section>
 
-            {/* SECTION 12: VERIFIED STATS GRID */}
-            <section className="section-padding bg-ivory">
-                <div className="container">
-                    <div className="section-header text-center justify-center" style={{ marginBottom: '32px' }}>
+            {/* SECTION 12: VERIFIED STATS MARQUEES */}
+            <section className="section-padding bg-ivory" style={{ overflow: 'hidden' }}>
+                <div className="container" style={{ marginBottom: '36px' }}>
+                    <div className="section-header text-center justify-center" style={{ marginBottom: '0' }}>
+                        <div className="hero-eyebrow" style={{ marginBottom: '8px' }}>PROVEN TRACK RECORD</div>
                         <h2 className="section-title">Verified Brand &amp; Heritage Statistics</h2>
                     </div>
-                    <div className="stats-cards-grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))' }}>
+                </div>
+
+                {/* ROW 1: Moves Left to Right */}
+                <div className="stats-marquee-container" aria-label="Brand heritage row 1" style={{ marginBottom: '24px' }}>
+                    <div className="stats-marquee-track-ltr">
+                        {/* Set 1 */}
                         <div className="stat-card">
                             <div className="stat-number">23 Years</div>
                             <div className="stat-label">Hospitality Legacy</div>
@@ -784,6 +846,67 @@ export default function Home() {
                             <div className="stat-label">Happy Guests</div>
                             <div className="stat-desc">Discerning members served nationwide.</div>
                         </div>
+
+                        {/* Set 2 (Duplicate for infinite seamless loop) */}
+                        <div className="stat-card">
+                            <div className="stat-number">23 Years</div>
+                            <div className="stat-label">Hospitality Legacy</div>
+                            <div className="stat-desc">Curating luxury experiences since 2003.</div>
+                        </div>
+                        <div className="stat-card">
+                            <div className="stat-number">11+ Years</div>
+                            <div className="stat-label">Industry Leadership</div>
+                            <div className="stat-desc">Specialized sales execution model.</div>
+                        </div>
+                        <div className="stat-card">
+                            <div className="stat-number">200+</div>
+                            <div className="stat-label">Brand Tie-Ups</div>
+                            <div className="stat-desc">Trusted by leading national hospitality chains.</div>
+                        </div>
+                        <div className="stat-card">
+                            <div className="stat-number">1,000+</div>
+                            <div className="stat-label">Venue Partners</div>
+                            <div className="stat-desc">Hotels, resorts, spas &amp; leisure spots.</div>
+                        </div>
+                        <div className="stat-card">
+                            <div className="stat-number">2M+</div>
+                            <div className="stat-label">Happy Guests</div>
+                            <div className="stat-desc">Discerning members served nationwide.</div>
+                        </div>
+                    </div>
+                </div>
+
+                {/* ROW 2: Moves Right to Left */}
+                <div className="stats-marquee-container" aria-label="Brand heritage row 2">
+                    <div className="stats-marquee-track-rtl">
+                        {/* Set 1 */}
+                        <div className="stat-card">
+                            <div className="stat-number">30M+</div>
+                            <div className="stat-label">Social Reel Views</div>
+                            <div className="stat-desc">Massive organic digital footprint.</div>
+                        </div>
+                        <div className="stat-card">
+                            <div className="stat-number">50+</div>
+                            <div className="stat-label">Cities Covered</div>
+                            <div className="stat-desc">Extensive presence across India.</div>
+                        </div>
+                        <div className="stat-card">
+                            <div className="stat-number">₹1B+</div>
+                            <div className="stat-label">Value Delivered</div>
+                            <div className="stat-desc">Member savings &amp; partner revenue.</div>
+                        </div>
+                        <div className="stat-card">
+                            <div className="stat-number">MSME</div>
+                            <div className="stat-label">Certified</div>
+                            <div className="stat-desc">Government recognized enterprise.</div>
+                        </div>
+                        <div className="stat-card">
+                            <div className="stat-number">DRS DEALS®</div>
+                            <div className="stat-label">Registered Trademark</div>
+                            <div className="stat-desc">Official Govt registered brand.</div>
+                        </div>
+
+                        {/* Set 2 (Duplicate for infinite seamless loop) */}
                         <div className="stat-card">
                             <div className="stat-number">30M+</div>
                             <div className="stat-label">Social Reel Views</div>

@@ -166,10 +166,10 @@ export default async function DealDetailPage({ params }: Props) {
                             </div>
                         )}
 
-                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(68px, 1fr))', gap: '10px' }}>
+                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '12px' }}>
                             {deal.galleryImages && deal.galleryImages.length > 0 ? (
                                 deal.galleryImages.slice(0, 4).map((imgUrl, i) => (
-                                    <div key={i} style={{ height: '76px', borderRadius: '8px', overflow: 'hidden', border: '1px solid var(--color-stone)' }}>
+                                    <div key={i} style={{ height: '80px', borderRadius: '8px', overflow: 'hidden', border: '1px solid var(--color-stone)' }}>
                                         <img
                                             src={imgUrl}
                                             alt={`${deal.propertyName} Gallery ${i + 1}`}
@@ -179,7 +179,7 @@ export default async function DealDetailPage({ params }: Props) {
                                 ))
                             ) : (
                                 Array.from({ length: deal.imageSkeletonCount || 4 }).slice(0, 4).map((_, i) => (
-                                    <div key={i} className="skeleton-box" style={{ height: '76px', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.75rem', color: 'var(--color-charcoal-light)', border: '1px solid var(--color-stone)' }}>
+                                    <div key={i} className="skeleton-box" style={{ height: '80px', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.75rem', color: 'var(--color-charcoal-light)', border: '1px solid var(--color-stone)' }}>
                                         Gallery {i + 1}
                                     </div>
                                 ))
@@ -188,11 +188,11 @@ export default async function DealDetailPage({ params }: Props) {
                     </div>
 
                     {/* Right: Key Details Card */}
-                    <div className="bg-white shadow-soft" style={{ borderRadius: '16px', padding: 'clamp(24px, 4vw, 40px)', border: '1px solid var(--color-stone)' }}>
+                    <div className="bg-white shadow-soft" style={{ borderRadius: '16px', padding: '40px', border: '1px solid var(--color-stone)' }}>
                         <div style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--color-champagne-gold)', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '8px' }}>
                             {deal.categoryLabel}
                         </div>
-                        <h1 style={{ fontSize: 'clamp(1.75rem, 3.5vw, 2.25rem)', fontFamily: 'var(--font-serif)', color: 'var(--color-charcoal)', marginBottom: '12px', lineHeight: 1.2 }}>
+                        <h1 style={{ fontSize: '2.25rem', fontFamily: 'var(--font-serif)', color: 'var(--color-charcoal)', marginBottom: '12px', lineHeight: 1.2 }}>
                             {deal.title}
                         </h1>
                         <p style={{ fontSize: '1.05rem', color: 'var(--color-charcoal-light)', marginBottom: '20px', lineHeight: 1.5 }}>
@@ -204,8 +204,8 @@ export default async function DealDetailPage({ params }: Props) {
                             <div style={{ fontSize: '0.8rem', color: 'var(--color-charcoal-light)', textTransform: 'uppercase', marginBottom: '4px' }}>
                                 Member Pricing / Rate
                             </div>
-                            <div style={{ display: 'flex', alignItems: 'baseline', gap: '12px', flexWrap: 'wrap' }}>
-                                <span style={{ fontSize: 'clamp(1.75rem, 3vw, 2.25rem)', fontWeight: 700, color: 'var(--color-charcoal)', fontFamily: 'var(--font-serif)' }}>
+                            <div style={{ display: 'flex', alignItems: 'baseline', gap: '12px' }}>
+                                <span style={{ fontSize: '2rem', fontWeight: 700, color: 'var(--color-charcoal)', fontFamily: 'var(--font-serif)' }}>
                                     {deal.price}
                                 </span>
                                 {deal.originalPrice && (
@@ -235,11 +235,11 @@ export default async function DealDetailPage({ params }: Props) {
                                 {deal.bookingInfo.phones.map((phone, idx) => (
                                     <a
                                         key={idx}
-                                        href={`tel:+91${phone.replace(/[^0-9]/g, '')}`}
+                                        href={`tel:+91${phone}`}
                                         className="btn btn-primary"
                                         style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', fontSize: '0.95rem' }}
                                     >
-                                        📞 +91 {phone.replace(/^(\d{5})(\d{5})$/, '$1 $2')}
+                                        📞 Call {phone}
                                     </a>
                                 ))}
                                 <a

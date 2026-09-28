@@ -20,15 +20,18 @@ export async function POST(request: Request) {
         const userQuery = message.trim();
         const apiKey = process.env.NVIDIA_API_KEY || process.env.CHATBOT_API_KEY;
 
-        // Read context.md
+        // Read DRS_DEALS_MASTER_CONTEXT.md or context.md
         let contextKnowledge = '';
         try {
+            const masterPath = path.join(process.cwd(), 'DRS_DEALS_MASTER_CONTEXT.md');
             const contextPath = path.join(process.cwd(), 'context.md');
-            if (fs.existsSync(contextPath)) {
+            if (fs.existsSync(masterPath)) {
+                contextKnowledge = fs.readFileSync(masterPath, 'utf-8');
+            } else if (fs.existsSync(contextPath)) {
                 contextKnowledge = fs.readFileSync(contextPath, 'utf-8');
             }
         } catch (err) {
-            console.error('[DRS Deals Chatbot] Could not load context.md', err);
+            console.error('[DRS Deals Chatbot] Could not load context markdown', err);
         }
 
         const systemPrompt = `You are "DRS Concierge", the official digital concierge for DRS Deals (www.drsdeals.in).

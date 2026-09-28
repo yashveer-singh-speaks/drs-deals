@@ -621,15 +621,93 @@ h1, h2, h3, h4, h5, h6 {
     position: relative;
     z-index: 5;
   }
-  .hero-mobile-trust-list {
-    background-color: #FAF8F5;
-    padding: 16px var(--spacing-24) 32px var(--spacing-24);
+  .hero-mobile-trust-marquee {
     position: relative;
-    z-index: 5;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+    width: 100%;
+    overflow: hidden;
+    background-color: #FAF8F5;
+    padding: 18px 0 28px 0;
+    mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
   }
+  .hero-mobile-trust-track {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    width: max-content;
+    will-change: transform;
+    animation: heroTrustMarqueeScrollLeftToRight 28s linear infinite;
+  }
+  .hero-mobile-trust-marquee:hover .hero-mobile-trust-track {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes heroTrustMarqueeScrollLeftToRight {
+  0% {
+    transform: translate3d(-50%, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.mobile-trust-card {
+  flex-shrink: 0;
+  width: 290px;
+  background: #FFFFFF;
+  border: 1px solid rgba(197, 168, 128, 0.3);
+  border-radius: 12px;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  box-shadow: 0 4px 16px rgba(28, 26, 24, 0.04);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.mobile-trust-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-champagne-gold, #C5A880);
+}
+
+.mobile-trust-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.mobile-trust-icon-box {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: rgba(197, 168, 128, 0.12);
+  color: var(--color-champagne-gold, #C5A880);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.mobile-trust-title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--color-charcoal, #1C1A18);
+  margin-bottom: 2px;
+}
+
+.mobile-trust-sub {
+  font-size: 0.72rem;
+  color: var(--color-charcoal-light, #5C5854);
+  line-height: 1.3;
+}
+
+.mobile-trust-arrow {
+  font-size: 1.25rem;
+  color: var(--color-champagne-gold, #C5A880);
+  padding-left: 4px;
 }
 
 @media (max-width: 767px) {
@@ -852,6 +930,8 @@ h1, h2, h3, h4, h5, h6 {
   justify-content: space-between;
   align-items: flex-end;
   margin-bottom: var(--spacing-48);
+  flex-wrap: wrap;
+  gap: var(--spacing-16);
 }
 .section-header.text-center {
   flex-direction: column;
@@ -860,7 +940,151 @@ h1, h2, h3, h4, h5, h6 {
   gap: var(--spacing-16);
 }
 .section-title {
-  font-size: 2.5rem;
+  font-size: clamp(1.75rem, 4.5vw, 2.5rem);
+  line-height: 1.2;
+}
+@media (max-width: 768px) {
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-16);
+    margin-bottom: var(--spacing-32);
+  }
+  .section-header.text-center {
+    align-items: center;
+  }
+  .section-header .link-arrow,
+  .section-header .btn {
+    align-self: flex-start;
+  }
+}
+
+/* B2B IMPACT GRID (Section 10A) */
+.b2b-impact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+@media (max-width: 1023px) {
+  .b2b-impact-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+@media (max-width: 767px) {
+  .b2b-impact-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+/* WORKFLOW STEPS GRID (Section 11A) */
+.workflow-steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+@media (max-width: 1023px) {
+  .workflow-steps-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+@media (max-width: 767px) {
+  .workflow-steps-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+/* STATS DUAL MARQUEE (Section 12) */
+.stats-marquee-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+  padding: 6px 0;
+}
+
+.stats-marquee-track-ltr {
+  display: flex;
+  align-items: stretch;
+  gap: 20px;
+  width: max-content;
+  will-change: transform;
+  animation: statsMarqueeLeftToRight 36s linear infinite;
+}
+
+.stats-marquee-track-rtl {
+  display: flex;
+  align-items: stretch;
+  gap: 20px;
+  width: max-content;
+  will-change: transform;
+  animation: statsMarqueeRightToLeft 36s linear infinite;
+}
+
+.stats-marquee-container:hover .stats-marquee-track-ltr,
+.stats-marquee-container:hover .stats-marquee-track-rtl {
+  animation-play-state: paused;
+}
+
+@keyframes statsMarqueeLeftToRight {
+  0% {
+    transform: translate3d(-50%, 0, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes statsMarqueeRightToLeft {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.stats-marquee-container .stat-card {
+  flex-shrink: 0;
+  width: 270px;
+  min-height: 150px;
+  background: var(--color-warm-white, #FFFFFF);
+  padding: 24px 20px;
+  border-radius: var(--radius-lg, 12px);
+  border: 1px solid rgba(188, 144, 68, 0.25);
+  box-shadow: 0 4px 16px rgba(28, 26, 24, 0.04);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.stats-marquee-container .stat-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--color-champagne-gold, #C5A880);
+  box-shadow: 0 8px 24px rgba(188, 144, 68, 0.15);
+}
+
+@media (max-width: 768px) {
+  .stats-marquee-container .stat-card {
+    width: 230px;
+    padding: 18px 16px;
+    min-height: 130px;
+  }
+  .stats-marquee-track-ltr {
+    gap: 14px;
+    animation-duration: 26s;
+  }
+  .stats-marquee-track-rtl {
+    gap: 14px;
+    animation-duration: 26s;
+  }
 }
 
 /* DEAL CARDS */

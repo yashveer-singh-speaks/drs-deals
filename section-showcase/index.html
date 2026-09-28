@@ -904,29 +904,26 @@
     }
 
     .close-button {
-      position: fixed;
-      z-index: 60;
-      bottom: 28px;
-      right: 28px;
-      top: auto;
-      left: auto;
+      position: absolute;
+      z-index: 52;
+      top: 30px;
+      left: 50%;
       display: grid;
-      width: 52px;
-      height: 52px;
+      width: 54px;
+      height: 54px;
       place-items: center;
-      border: 1px solid rgba(255, 255, 255, .3);
+      border: 1px solid rgba(255, 255, 255, .26);
       border-radius: 50%;
-      background: rgba(35, 30, 22, .88);
+      background: rgba(42, 37, 28, .28);
       color: var(--paper);
       cursor: pointer;
-      font-size: 24px;
-      font-weight: 300;
+      font-size: 27px;
+      font-weight: 200;
       opacity: 0;
-      transform: translate3d(0, 16px, 0) scale(0.9);
-      transition: opacity 350ms ease, transform 400ms var(--ease), background 200ms ease, box-shadow 200ms ease;
+      transform: translate3d(-50%, -18px, 0) rotate(-45deg);
+      transition: opacity 400ms ease, transform 620ms var(--ease), background 220ms ease;
       pointer-events: none;
-      backdrop-filter: blur(12px);
-      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(8px);
     }
 
     .close-button:hover {
@@ -1177,7 +1174,7 @@
 
     [data-mode="detail"] .close-button {
       opacity: 1;
-      transform: translate3d(0, 0, 0) scale(1);
+      transform: translate3d(-50%, 0, 0) rotate(0);
       pointer-events: auto;
     }
 
@@ -1363,13 +1360,7 @@
       }
 
       .close-button {
-        bottom: 20px;
-        right: 20px;
-        top: auto;
-        left: auto;
-        width: 48px;
-        height: 48px;
-        font-size: 22px;
+        top: 18px;
       }
     }
 
@@ -1531,6 +1522,15 @@
         </div>
         <hr class="detail-rule">
         <div class="action-rail" aria-label="Partnership actions">
+          <button class="pill language" type="button" data-toast="Official DRS Hospitality Partnership · 2026">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.7"/>
+              <path d="M3 12h18M12 3c2.2 2.4 3.3 5.4 3.3 9S14.2 18.6 12 21c-2.2-2.4-3.3-5.4-3.3-9S9.8 5.4 12 3Z" fill="none" stroke="currentColor" stroke-width="1.7"/>
+            </svg>
+            Hospitality Partner
+          </button>
+          <button class="pill" type="button" data-toast="Direct enquiry channels: Hotel concierge and reservation desks are open.">Direct Enquiry</button>
+          <button class="pill" type="button" data-toast="Stay inclusions, dates, and campaign packages confirmed.">Offer Inclusions</button>
           <button class="pill icon-only" id="saveButton" type="button" aria-label="Save partnership" aria-pressed="false">
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <path d="M6.8 4.2h10.4v15.6L12 16.6l-5.2 3.2V4.2Z"/>
@@ -1540,7 +1540,7 @@
       </div>
     </section>
 
-    <button class="close-button" id="closeButton" type="button" aria-label="Close detail view" tabindex="-1">&times;</button>
+    <button class="close-button" id="closeButton" type="button" aria-label="Close detail view" tabindex="-1">×</button>
 
     <div class="blossom-field" aria-hidden="true">
       <span class="blossom" style="--blossom-x: 4%; --blossom-size: 30px; --blossom-r: 18deg; --blossom-duration: 10s; --blossom-delay: -4s;"><i></i><i></i><i></i><i></i><i></i></span>
