@@ -26,16 +26,28 @@ export default function CareersPage() {
                         <div style={{ padding: '24px', background: 'var(--color-ivory)', borderRadius: '12px', border: '1px solid var(--color-stone)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '16px' }}>
                             <div>
                                 <h3 style={{ fontSize: '1.2rem', fontFamily: 'var(--font-serif)', color: 'var(--color-charcoal)', marginBottom: '4px' }}>Venue Partnership Manager</h3>
-                                <p style={{ fontSize: '0.85rem', color: 'var(--color-charcoal-light)' }}>New Delhi / Gurgaon • Full-Time</p>
+                                <p style={{ fontSize: '0.85rem', color: 'var(--color-charcoal-light)' }}>New Delhi / Gurgaon • Full-Time • B2B Hospitality Relations</p>
                             </div>
-                            <button className="btn btn-outline">View Details</button>
+                            <a
+                                href="mailto:drsdeals.in@gmail.com?subject=Job%20Application:%20Venue%20Partnership%20Manager%20-%20DRS%20Deals"
+                                className="btn btn-primary"
+                                style={{ fontSize: '0.85rem', padding: '10px 20px' }}
+                            >
+                                Apply via Email
+                            </a>
                         </div>
                         <div style={{ padding: '24px', background: 'var(--color-ivory)', borderRadius: '12px', border: '1px solid var(--color-stone)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '16px' }}>
                             <div>
                                 <h3 style={{ fontSize: '1.2rem', fontFamily: 'var(--font-serif)', color: 'var(--color-charcoal)', marginBottom: '4px' }}>Hospitality Editorial Writer</h3>
-                                <p style={{ fontSize: '0.85rem', color: 'var(--color-charcoal-light)' }}>Remote / New Delhi • Full-Time</p>
+                                <p style={{ fontSize: '0.85rem', color: 'var(--color-charcoal-light)' }}>Remote / New Delhi • Full-Time • Content &amp; Travel Guides</p>
                             </div>
-                            <button className="btn btn-outline">View Details</button>
+                            <a
+                                href="mailto:drsdeals.in@gmail.com?subject=Job%20Application:%20Hospitality%20Editorial%20Writer%20-%20DRS%20Deals"
+                                className="btn btn-primary"
+                                style={{ fontSize: '0.85rem', padding: '10px 20px' }}
+                            >
+                                Apply via Email
+                            </a>
                         </div>
                     </div>
                 </div>

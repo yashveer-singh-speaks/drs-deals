@@ -333,8 +333,8 @@ export default function Home() {
             <section className="showcase-iframe-section">
                 <iframe
                     src="/section-showcase/index.html"
-                    style={{ width: '100%', height: '100%', border: 'none', display: 'block' }}
-                    title="DRS Deals Showcase"
+                    className="showcase-iframe"
+                    title="DRS Deals Interactive 3D Showcase"
                     allow="autoplay"
                 ></iframe>
             </section>

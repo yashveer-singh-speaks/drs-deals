@@ -92,6 +92,7 @@ export default function Header() {
                             onMouseLeave={() => setOpenDropdown(null)}
                         >
                             <button
+                                onClick={() => toggleDropdown('experiences')}
                                 className={`lux-nav-link ${pathname && pathname.includes('/experiences') ? 'active' : ''}`}
                                 aria-haspopup="true"
                                 aria-expanded={openDropdown === 'experiences'}

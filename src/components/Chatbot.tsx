@@ -107,10 +107,13 @@ export default function Chatbot() {
             {/* Chat Modal on Bottom-Left */}
             {isOpen && (
                 <div
-                    className="chatbot-modal-window"
                     role="dialog"
-                    aria-label="DRS Concierge Chat"
                     aria-modal="true"
+                    aria-label="DRS Deals Concierge Chat"
+                    className="chatbot-modal-container"
+                    onKeyDown={(e) => {
+                        if (e.key === 'Escape') setIsOpen(false);
+                    }}
                 >
                     {/* Header */}
                     <div style={{ background: '#080705', color: '#fff', padding: '16px 20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderBottom: '1px solid rgba(188, 144, 68, 0.3)' }}>
