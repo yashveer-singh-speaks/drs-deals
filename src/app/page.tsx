@@ -329,6 +329,16 @@ export default function Home() {
                 </div>
             </section>
 
+            {/* SHOWCASE SECTION */}
+            <section className="relative w-full overflow-hidden" style={{ height: '100vh', minHeight: '700px' }}>
+                <iframe
+                    src="/section-showcase/index.html"
+                    style={{ width: '100%', height: '100%', border: 'none', display: 'block' }}
+                    title="DRS Deals Showcase"
+                    allow="autoplay"
+                ></iframe>
+            </section>
+
             {/* HOW DRS DEALS WORKS */}
             <section className="section-padding bg-white">
                 <div className="container">
