@@ -611,19 +611,22 @@ h1, h2, h3, h4, h5, h6 {
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center top;
-    padding: var(--spacing-24) var(--spacing-20) var(--spacing-32) var(--spacing-20);
+    padding: var(--spacing-24) var(--spacing-16) var(--spacing-32) 12px;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    align-items: flex-start;
   }
   .hero-mobile-text {
-    width: 58%;
+    width: 65%;
     position: relative;
     z-index: 5;
     text-align: left;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    padding: 0;
+    margin: 0;
   }
   .hero-mobile-trust-marquee {
     position: relative;
@@ -722,36 +725,45 @@ h1, h2, h3, h4, h5, h6 {
     background-size: cover;
     background-position: center top;
     background-color: #F5EFEB;
-    padding: 28px 20px 48px 20px;
+    padding: 24px 16px 44px 12px;
+    align-items: flex-start;
   }
   .hero-mobile-text {
     width: 100%;
+    padding: 0;
+    margin: 0;
   }
 }
 
 @media (max-width: 480px) {
   .hero-mobile-stage {
-    padding: 20px 16px 36px 16px;
+    padding: 20px 14px 36px 10px;
     background-image: url('/images/mobile-bg-1.png') !important;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center top;
+    align-items: flex-start;
   }
   .hero-mobile-text {
     width: 100%;
+    padding: 0;
+    margin: 0;
   }
 }
 
 @media (max-width: 375px) {
   .hero-mobile-stage {
-    padding: 16px 14px 28px 14px;
+    padding: 16px 12px 28px 8px;
     background-image: url('/images/mobile-bg-1.png') !important;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center top;
+    align-items: flex-start;
   }
   .hero-mobile-text {
     width: 100%;
+    padding: 0;
+    margin: 0;
   }
 }
 
@@ -860,22 +872,24 @@ h1, h2, h3, h4, h5, h6 {
 
 .hero-mobile-wrapper .hero-eyebrow {
   justify-content: flex-start;
-  margin-bottom: 16px;
-  font-size: 0.85rem;
-  letter-spacing: 0.12em;
+  margin-bottom: 14px;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--color-champagne-gold);
   font-weight: 600;
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 8px;
   text-align: left;
+  padding: 0;
+  margin-left: 0;
 }
 
 .hero-mobile-wrapper .hero-eyebrow::before {
   content: '';
   display: inline-block;
-  width: 32px;
+  width: 18px;
   height: 1px;
   background-color: var(--color-champagne-gold);
 }
