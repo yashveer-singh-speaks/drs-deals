@@ -78,7 +78,13 @@ export default function Home() {
                                 <span className="text-gold">For Less.</span>
                             </h1>
                             <p className="hero-desc text-body-large">
-                                Connecting 2M+ guests with 1,000+ luxury resorts, fine dining, spa retreats &amp; leisure destinations across India.
+                                Connecting 2M+ <br />
+                                guests with 1,000+ <br />
+                                luxury resorts,<br />
+                                fine dining, <br />
+                                spa retreats &amp; <br />
+                                leisure destinations <br />
+                                across India.<br />
                             </p>
                             <div className="hero-actions">
                                 <Link href="/deals" className="btn btn-primary">
