@@ -607,10 +607,10 @@ h1, h2, h3, h4, h5, h6 {
     width: 100%;
     min-height: 580px;
     background-color: #FAF8F5;
-    background-image: url('/images/background.png');
+    background-image: url('/images/mobile-bg.png');
     background-repeat: no-repeat;
-    background-size: 880px auto;
-    background-position: right 20px;
+    background-size: cover;
+    background-position: center top;
     padding: var(--spacing-24) var(--spacing-20) var(--spacing-32) var(--spacing-20);
     display: flex;
     flex-direction: column;
@@ -717,9 +717,12 @@ h1, h2, h3, h4, h5, h6 {
 @media (max-width: 767px) {
   .hero-mobile-stage {
     min-height: auto;
-    background-image: none !important;
-    background-color: #F5EFEB; /* Solid beige/wheat colored background */
-    padding-bottom: var(--spacing-48);
+    background-image: url('/images/mobile-bg.png') !important;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center top;
+    background-color: #F5EFEB;
+    padding: 28px 20px 48px 20px;
   }
   .hero-mobile-text {
     width: 100%;
@@ -728,8 +731,11 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (max-width: 480px) {
   .hero-mobile-stage {
-    padding: 16px 16px 24px 16px;
-    background-color: #F5EFEB;
+    padding: 20px 16px 36px 16px;
+    background-image: url('/images/mobile-bg.png') !important;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center top;
   }
   .hero-mobile-text {
     width: 100%;
@@ -738,7 +744,11 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (max-width: 375px) {
   .hero-mobile-stage {
-    background-color: #F5EFEB;
+    padding: 16px 14px 28px 14px;
+    background-image: url('/images/mobile-bg.png') !important;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center top;
   }
   .hero-mobile-text {
     width: 100%;
