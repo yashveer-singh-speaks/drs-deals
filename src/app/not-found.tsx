@@ -6,7 +6,7 @@ export default function NotFound() {
         <main className="section-padding bg-ivory" style={{ minHeight: '80vh', display: 'flex', alignItems: 'center', justifyContent: 'center', paddingTop: '160px', paddingBottom: '100px' }}>
             <div className="container" style={{ maxWidth: '720px', textAlign: 'center' }}>
                 <div className="hero-eyebrow" style={{ justifyContent: 'center', marginBottom: '16px', color: 'var(--color-champagne-gold)', letterSpacing: '0.2em' }}>
-                    404 — EXPERIENCE NOT FOUND
+                    404: EXPERIENCE NOT FOUND
                 </div>
                 <h1 className="hero-title" style={{ fontSize: '3.5rem', marginBottom: '24px', lineHeight: 1.15 }}>
                     This Destination Lies Beyond Our Map

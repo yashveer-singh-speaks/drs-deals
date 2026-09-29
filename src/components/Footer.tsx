@@ -28,7 +28,7 @@ export default function Footer() {
                                 {siteConfig.contacts.address}
                             </div>
                             <div style={{ marginBottom: '4px' }}>
-                                Concierge: <a href={`tel:${siteConfig.contacts.hotline1Raw}`} style={{ color: 'var(--color-champagne-gold)', textDecoration: 'none', fontWeight: 600 }}>{siteConfig.contacts.hotline1}</a> | <a href={`tel:${siteConfig.contacts.hotline2Raw}`} style={{ color: 'var(--color-champagne-gold)', textDecoration: 'none', fontWeight: 600 }}>{siteConfig.contacts.hotline2}</a>
+                                Concierge: <a href={`tel:${siteConfig.contacts.hotline1Raw}`} style={{ color: '#D4A857', textDecoration: 'none', fontWeight: 600 }}>{siteConfig.contacts.hotline1}</a> | <a href={`tel:${siteConfig.contacts.hotline2Raw}`} style={{ color: '#D4A857', textDecoration: 'none', fontWeight: 600 }}>{siteConfig.contacts.hotline2}</a>
                             </div>
                             <div style={{ marginBottom: '4px' }}>
                                 Corporate: {siteConfig.contacts.hotline3} / 77 / 99
@@ -52,7 +52,7 @@ export default function Footer() {
                     </div>
                     
                     <div className="footer-links footer-3d-item">
-                        <h3 className="footer-heading-3d">Discover</h3>
+                        <h2 className="footer-heading-3d">Discover</h2>
                         <ul className="footer-list-3d">
                             <li><Link href="/experiences/resorts">Resorts &amp; Hotels</Link></li>
                             <li><Link href="/experiences/dining">Fine Dining</Link></li>
@@ -64,7 +64,7 @@ export default function Footer() {
                     </div>
 
                     <div className="footer-links footer-3d-item">
-                        <h3 className="footer-heading-3d">Company</h3>
+                        <h2 className="footer-heading-3d">Company</h2>
                         <ul className="footer-list-3d">
                             <li><Link href="/about">About Us</Link></li>
                             <li><Link href="/careers">Careers</Link></li>
@@ -75,7 +75,7 @@ export default function Footer() {
                     </div>
 
                     <div className="footer-links footer-3d-item">
-                        <h3 className="footer-heading-3d">Support &amp; Legal</h3>
+                        <h2 className="footer-heading-3d">Support &amp; Legal</h2>
                         <ul className="footer-list-3d">
                             <li><Link href="/help">Help Center &amp; FAQs</Link></li>
                             <li><Link href="/contact">Contact Concierge</Link></li>
@@ -90,7 +90,7 @@ export default function Footer() {
                 <div className="footer-bottom-3d">
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%', flexWrap: 'wrap', gap: '24px' }}>
                         <div style={{ display: 'flex', gap: '24px', flexWrap: 'wrap' }}>
-                            <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.875rem', margin: 0, letterSpacing: '0.02em' }}>&copy; {new Date().getFullYear()} DRS Deals. All rights reserved.</p>
+                            <p style={{ color: 'rgba(255,255,255,0.72)', fontSize: '0.875rem', margin: 0, letterSpacing: '0.02em' }}>&copy; {new Date().getFullYear()} DRS Deals. All rights reserved.</p>
                         </div>
                         
                         <div className="payment-methods-3d">

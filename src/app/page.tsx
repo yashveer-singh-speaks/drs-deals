@@ -6,6 +6,7 @@ import SavingsCalculator from '@/components/SavingsCalculator';
 import NewsletterForm from '@/components/NewsletterForm';
 import CubeSteps from '@/components/CubeSteps';
 import HoneycombFeatures from '@/components/HoneycombFeatures';
+import ShowcaseIframe from '@/components/ShowcaseIframe';
 import { siteConfig } from '@/config/site';
 
 export const metadata: Metadata = {
@@ -99,7 +100,7 @@ export default function Home() {
                         </div>
                     </div>
 
-                    <div className="hero-mobile-trust-marquee" aria-label="DRS Deals Core Privileges">
+                    <div className="hero-mobile-trust-marquee" role="region" aria-label="DRS Deals Core Privileges">
                         <div className="hero-mobile-trust-track">
                             {/* Set 1 */}
                             <div className="mobile-trust-card">
@@ -155,7 +156,7 @@ export default function Home() {
                             </div>
 
                             {/* Set 2 (Duplicate for infinite seamless loop) */}
-                            <div className="mobile-trust-card">
+                            <div className="mobile-trust-card" aria-hidden="true">
                                 <div className="mobile-trust-left">
                                     <div className="mobile-trust-icon-box">
                                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
@@ -168,7 +169,7 @@ export default function Home() {
                                 <div className="mobile-trust-arrow">&rsaquo;</div>
                             </div>
 
-                            <div className="mobile-trust-card">
+                            <div className="mobile-trust-card" aria-hidden="true">
                                 <div className="mobile-trust-left">
                                     <div className="mobile-trust-icon-box">
                                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
@@ -181,7 +182,7 @@ export default function Home() {
                                 <div className="mobile-trust-arrow">&rsaquo;</div>
                             </div>
 
-                            <div className="mobile-trust-card">
+                            <div className="mobile-trust-card" aria-hidden="true">
                                 <div className="mobile-trust-left">
                                     <div className="mobile-trust-icon-box">
                                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
@@ -194,7 +195,7 @@ export default function Home() {
                                 <div className="mobile-trust-arrow">&rsaquo;</div>
                             </div>
 
-                            <div className="mobile-trust-card">
+                            <div className="mobile-trust-card" aria-hidden="true">
                                 <div className="mobile-trust-left">
                                     <div className="mobile-trust-icon-box">
                                         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
@@ -249,7 +250,7 @@ export default function Home() {
                                     <div className="price-original">Value ₹45k</div>
                                     <div className="price-deal">Exclusive Rates</div>
                                 </div>
-                                <Link href="/deals/wyndham-garden-sonipat-murthal" className="btn btn-outline" style={{ width: '100%', marginTop: '16px' }}>Enquire Details</Link>
+                                <Link href="/deals/wyndham-garden-sonipat-murthal" aria-label="Enquire Details for Wyndham Garden Hotel Membership" className="btn btn-outline" style={{ width: '100%', marginTop: '16px' }}>Enquire Details</Link>
                             </div>
                         </div>
                         
@@ -276,7 +277,7 @@ export default function Home() {
                                     <div className="price-original">₹40,000</div>
                                     <div className="price-deal">₹5,000</div>
                                 </div>
-                                <Link href="/deals/hotel-sk-premium-ghaziabad" className="btn btn-outline" style={{ width: '100%', marginTop: '16px' }}>Enquire Details</Link>
+                                <Link href="/deals/hotel-sk-premium-ghaziabad" aria-label="Enquire Details for Hotel SK Premium Membership" className="btn btn-outline" style={{ width: '100%', marginTop: '16px' }}>Enquire Details</Link>
                             </div>
                         </div>
 
@@ -303,7 +304,7 @@ export default function Home() {
                                     <div className="price-original">₹50,000</div>
                                     <div className="price-deal">₹10,000</div>
                                 </div>
-                                <Link href="/deals/oren-kasauli-membership" className="btn btn-outline" style={{ width: '100%', marginTop: '16px' }}>Enquire Details</Link>
+                                <Link href="/deals/oren-kasauli-membership" aria-label="Enquire Details for Oren Kasauli Membership Card" className="btn btn-outline" style={{ width: '100%', marginTop: '16px' }}>Enquire Details</Link>
                             </div>
                         </div>
 
@@ -330,7 +331,7 @@ export default function Home() {
                                     <div className="price-original">₹50,000</div>
                                     <div className="price-deal">₹8,999</div>
                                 </div>
-                                <Link href="/deals/atmayog-luxury-manor-manali" className="btn btn-outline" style={{ width: '100%', marginTop: '16px' }}>Enquire Details</Link>
+                                <Link href="/deals/atmayog-luxury-manor-manali" aria-label="Enquire Details for Atma Yog Luxury Manor" className="btn btn-outline" style={{ width: '100%', marginTop: '16px' }}>Enquire Details</Link>
                             </div>
                         </div>
 
@@ -357,7 +358,7 @@ export default function Home() {
                                     <div className="price-original">₹50,000</div>
                                     <div className="price-deal">₹7,999</div>
                                 </div>
-                                <Link href="/deals/white-flower-resorts-mussoorie-corbett" className="btn btn-outline" style={{ width: '100%', marginTop: '16px' }}>Enquire Details</Link>
+                                <Link href="/deals/white-flower-resorts-mussoorie-corbett" aria-label="Enquire Details for The White Flower Resorts" className="btn btn-outline" style={{ width: '100%', marginTop: '16px' }}>Enquire Details</Link>
                             </div>
                         </div>
 
@@ -384,7 +385,7 @@ export default function Home() {
                                     <div className="price-original">₹1,500</div>
                                     <div className="price-deal">&lt; ₹1,500</div>
                                 </div>
-                                <Link href="/deals/rangmanch-farms-gurgaon" className="btn btn-outline" style={{ width: '100%', marginTop: '16px' }}>Enquire Details</Link>
+                                <Link href="/deals/rangmanch-farms-gurgaon" aria-label="Enquire Details for Rangmanch Farms Day Outing" className="btn btn-outline" style={{ width: '100%', marginTop: '16px' }}>Enquire Details</Link>
                             </div>
                         </div>
                     </div>
@@ -392,14 +393,7 @@ export default function Home() {
             </section>
 
             {/* SHOWCASE SECTION */}
-            <section className="showcase-iframe-section">
-                <iframe
-                    src="/section-showcase/index.html"
-                    className="showcase-iframe"
-                    title="DRS Deals Interactive 3D Showcase"
-                    allow="autoplay"
-                ></iframe>
-            </section>
+            <ShowcaseIframe />
 
             {/* HOW DRS DEALS WORKS */}
             <section className="section-padding bg-white">
@@ -453,7 +447,7 @@ export default function Home() {
             {/* PARTNER SPOTLIGHT */}
             <section className="section-padding bg-ivory">
                 <div className="container">
-                    <h3 className="text-eyebrow" style={{ marginBottom: '24px', textAlign: 'center' }}>Featured Destination Spotlight</h3>
+                    <div className="text-eyebrow" style={{ marginBottom: '24px', textAlign: 'center' }}>Featured Destination Spotlight</div>
                     <div className="spotlight-card rounded-lg shadow-soft">
                         <img 
                             src="/images/webp/Featured Experiences Section (Card 1).webp" 
@@ -579,7 +573,7 @@ export default function Home() {
                 <div className="container">
                     <div className="split-grid">
                         <div>
-                            <h3 className="section-title" style={{ fontSize: '1.75rem', marginBottom: '24px' }}>Popular Searches</h3>
+                            <h2 className="section-title" style={{ fontSize: '1.75rem', marginBottom: '24px' }}>Popular Searches</h2>
                             <ul className="link-list">
                                 <li><Link href="/search?q=water+parks">Water parks near Delhi NCR</Link></li>
                                 <li><Link href="/search?q=weekend+resorts">Weekend luxury resorts</Link></li>
@@ -592,7 +586,7 @@ export default function Home() {
                         </div>
                         
                         <div>
-                            <h3 className="section-title" style={{ fontSize: '1.75rem', marginBottom: '24px' }}>Featured Collections</h3>
+                            <h2 className="section-title" style={{ fontSize: '1.75rem', marginBottom: '24px' }}>Featured Collections</h2>
                             <div className="collection-list">
                                 <Link href="/collections/weekend" className="collection-item">
                                     <img 
@@ -659,14 +653,17 @@ export default function Home() {
                             </p>
                         </div>
                         <div className="story-visual">
-                            <img 
-                                src="/images/b2b/b2b_hospitality_showcase.jpg" 
-                                alt="Luxury hotel resort exterior" 
-                                className="rounded-lg shadow-soft" 
-                                width={560} 
-                                height={350} 
-                                loading="lazy" 
-                            />
+                            <picture>
+                                <source srcSet="/images/b2b/b2b_hospitality_showcase.webp" type="image/webp" />
+                                <img 
+                                    src="/images/b2b/b2b_hospitality_showcase.jpg" 
+                                    alt="Luxury hotel resort exterior" 
+                                    className="rounded-lg shadow-soft" 
+                                    width={560} 
+                                    height={350} 
+                                    loading="lazy" 
+                                />
+                            </picture>
                         </div>
                     </div>
 
@@ -704,14 +701,17 @@ export default function Home() {
                 <div className="container">
                     <div className="story-grid" style={{ marginBottom: '40px', alignItems: 'center' }}>
                         <div className="story-visual">
-                            <img 
-                                src="/images/b2b/venue_partnership_banner.jpg" 
-                                alt="Executive hospitality partnership meeting" 
-                                className="rounded-lg shadow-soft" 
-                                width={560} 
-                                height={350} 
-                                loading="lazy" 
-                            />
+                            <picture>
+                                <source srcSet="/images/b2b/venue_partnership_banner.webp" type="image/webp" />
+                                <img 
+                                    src="/images/b2b/venue_partnership_banner.jpg" 
+                                    alt="Executive hospitality partnership meeting" 
+                                    className="rounded-lg shadow-soft" 
+                                    width={560} 
+                                    height={350} 
+                                    loading="lazy" 
+                                />
+                            </picture>
                         </div>
                         <div className="story-content">
                             <div className="hero-eyebrow" style={{ marginBottom: '12px', color: 'var(--color-champagne-gold)' }}>
@@ -730,19 +730,19 @@ export default function Home() {
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '20px' }}>
                         <div style={{ background: '#fff', padding: '24px', borderRadius: '8px', borderLeft: '4px solid var(--color-champagne-gold)' }}>
                             <strong style={{ display: 'block', fontSize: '1.1rem', marginBottom: '6px' }}>Acquire New Customers</strong>
-                            <span style={{ fontSize: '0.9rem', color: '#666' }}>Reach high-spending leisure travelers and local corporate members.</span>
+                            <span style={{ fontSize: '0.9rem', color: '#4A4A4A' }}>Reach high-spending leisure travelers and local corporate members.</span>
                         </div>
                         <div style={{ background: '#fff', padding: '24px', borderRadius: '8px', borderLeft: '4px solid var(--color-champagne-gold)' }}>
                             <strong style={{ display: 'block', fontSize: '1.1rem', marginBottom: '6px' }}>Increase Utilization</strong>
-                            <span style={{ fontSize: '0.9rem', color: '#666' }}>Fill slow weekday slots, banquets, spa sessions, and quiet seasonal periods.</span>
+                            <span style={{ fontSize: '0.9rem', color: '#4A4A4A' }}>Fill slow weekday slots, banquets, spa sessions, and quiet seasonal periods.</span>
                         </div>
                         <div style={{ background: '#fff', padding: '24px', borderRadius: '8px', borderLeft: '4px solid var(--color-champagne-gold)' }}>
                             <strong style={{ display: 'block', fontSize: '1.1rem', marginBottom: '6px' }}>Build Relationships</strong>
-                            <span style={{ fontSize: '0.9rem', color: '#666' }}>Convert voucher users into lifetime repeat guests through exceptional service.</span>
+                            <span style={{ fontSize: '0.9rem', color: '#4A4A4A' }}>Convert voucher users into lifetime repeat guests through exceptional service.</span>
                         </div>
                         <div style={{ background: '#fff', padding: '24px', borderRadius: '8px', borderLeft: '4px solid var(--color-champagne-gold)' }}>
                             <strong style={{ display: 'block', fontSize: '1.1rem', marginBottom: '6px' }}>Cross-Department Growth</strong>
-                            <span style={{ fontSize: '0.9rem', color: '#666' }}>Drive room guests to dining outlets, bars, spa, and leisure facilities.</span>
+                            <span style={{ fontSize: '0.9rem', color: '#4A4A4A' }}>Drive room guests to dining outlets, bars, spa, and leisure facilities.</span>
                         </div>
                     </div>
                 </div>
@@ -762,46 +762,49 @@ export default function Home() {
                             </p>
                         </div>
                         <div className="story-visual">
-                            <img 
-                                src="/images/b2b/workflow_concierge_execution.jpg" 
-                                alt="Hotel concierge guest service" 
-                                className="rounded-lg shadow-soft" 
-                                width={560} 
-                                height={350} 
-                                loading="lazy" 
-                            />
+                            <picture>
+                                <source srcSet="/images/b2b/workflow_concierge_execution.webp" type="image/webp" />
+                                <img 
+                                    src="/images/b2b/workflow_concierge_execution.jpg" 
+                                    alt="Hotel concierge guest service" 
+                                    className="rounded-lg shadow-soft" 
+                                    width={560} 
+                                    height={350} 
+                                    loading="lazy" 
+                                />
+                            </picture>
                         </div>
                     </div>
 
                     <div className="workflow-steps-grid">
                         <div style={{ padding: '24px', background: 'var(--color-ivory)', borderRadius: '8px' }}>
                             <span style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--color-champagne-gold)', letterSpacing: '0.1em' }}>STEP 1</span>
-                            <h4 style={{ fontSize: '1.15rem', marginTop: '8px', marginBottom: '8px' }}>Initial Consultation &amp; Needs Assessment</h4>
+                            <h3 style={{ fontSize: '1.15rem', marginTop: '8px', marginBottom: '8px' }}>Initial Consultation &amp; Needs Assessment</h3>
                             <p style={{ fontSize: '0.9rem', color: 'var(--color-charcoal-light)' }}>We evaluate property objectives, occupancy gaps, dining capacity, and revenue targets.</p>
                         </div>
                         <div style={{ padding: '24px', background: 'var(--color-ivory)', borderRadius: '8px' }}>
                             <span style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--color-champagne-gold)', letterSpacing: '0.1em' }}>STEP 2</span>
-                            <h4 style={{ fontSize: '1.15rem', marginTop: '8px', marginBottom: '8px' }}>Program Design &amp; Authorization</h4>
+                            <h3 style={{ fontSize: '1.15rem', marginTop: '8px', marginBottom: '8px' }}>Program Design &amp; Authorization</h3>
                             <p style={{ fontSize: '0.9rem', color: 'var(--color-charcoal-light)' }}>Co-design tailored membership structures, validity periods, and custom privilege vouchers.</p>
                         </div>
                         <div style={{ padding: '24px', background: 'var(--color-ivory)', borderRadius: '8px' }}>
                             <span style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--color-champagne-gold)', letterSpacing: '0.1em' }}>STEP 3</span>
-                            <h4 style={{ fontSize: '1.15rem', marginTop: '8px', marginBottom: '8px' }}>Collateral &amp; Content Creation</h4>
+                            <h3 style={{ fontSize: '1.15rem', marginTop: '8px', marginBottom: '8px' }}>Collateral &amp; Content Creation</h3>
                             <p style={{ fontSize: '0.9rem', color: 'var(--color-charcoal-light)' }}>Develop high-quality physical &amp; digital marketing materials, videos, and reel features.</p>
                         </div>
                         <div style={{ padding: '24px', background: 'var(--color-ivory)', borderRadius: '8px' }}>
                             <span style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--color-champagne-gold)', letterSpacing: '0.1em' }}>STEP 4</span>
-                            <h4 style={{ fontSize: '1.15rem', marginTop: '8px', marginBottom: '8px' }}>Direct Sales &amp; Digital Outreach</h4>
+                            <h3 style={{ fontSize: '1.15rem', marginTop: '8px', marginBottom: '8px' }}>Direct Sales &amp; Digital Outreach</h3>
                             <p style={{ fontSize: '0.9rem', color: 'var(--color-charcoal-light)' }}>Deploy trained sales executives, corporate channels, and targeted digital promotion campaigns.</p>
                         </div>
                         <div style={{ padding: '24px', background: 'var(--color-ivory)', borderRadius: '8px' }}>
                             <span style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--color-champagne-gold)', letterSpacing: '0.1em' }}>STEP 5</span>
-                            <h4 style={{ fontSize: '1.15rem', marginTop: '8px', marginBottom: '8px' }}>Customer Acquisition &amp; Concierge</h4>
+                            <h3 style={{ fontSize: '1.15rem', marginTop: '8px', marginBottom: '8px' }}>Customer Acquisition &amp; Concierge</h3>
                             <p style={{ fontSize: '0.9rem', color: 'var(--color-charcoal-light)' }}>Manage guest onboarding, phone/WhatsApp inquiries, reservation bookings, and support.</p>
                         </div>
                         <div style={{ padding: '24px', background: 'var(--color-ivory)', borderRadius: '8px' }}>
                             <span style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--color-champagne-gold)', letterSpacing: '0.1em' }}>STEP 6</span>
-                            <h4 style={{ fontSize: '1.15rem', marginTop: '8px', marginBottom: '8px' }}>Settlement &amp; Program Review</h4>
+                            <h3 style={{ fontSize: '1.15rem', marginTop: '8px', marginBottom: '8px' }}>Settlement &amp; Program Review</h3>
                             <p style={{ fontSize: '0.9rem', color: 'var(--color-charcoal-light)' }}>Provide transparent redemptions reporting, revenue tracking, and ongoing program optimization.</p>
                         </div>
                     </div>
@@ -824,7 +827,7 @@ export default function Home() {
                 </div>
 
                 {/* ROW 1: Moves Left to Right */}
-                <div className="stats-marquee-container" aria-label="Brand heritage row 1" style={{ marginBottom: '24px' }}>
+                <div className="stats-marquee-container" role="region" aria-label="Brand heritage row 1" style={{ marginBottom: '24px' }}>
                     <div className="stats-marquee-track-ltr">
                         {/* Set 1 */}
                         <div className="stat-card">
@@ -854,27 +857,27 @@ export default function Home() {
                         </div>
 
                         {/* Set 2 (Duplicate for infinite seamless loop) */}
-                        <div className="stat-card">
+                        <div className="stat-card" aria-hidden="true">
                             <div className="stat-number">23 Years</div>
                             <div className="stat-label">Hospitality Legacy</div>
                             <div className="stat-desc">Curating luxury experiences since 2003.</div>
                         </div>
-                        <div className="stat-card">
+                        <div className="stat-card" aria-hidden="true">
                             <div className="stat-number">11+ Years</div>
                             <div className="stat-label">Industry Leadership</div>
                             <div className="stat-desc">Specialized sales execution model.</div>
                         </div>
-                        <div className="stat-card">
+                        <div className="stat-card" aria-hidden="true">
                             <div className="stat-number">200+</div>
                             <div className="stat-label">Brand Tie-Ups</div>
                             <div className="stat-desc">Trusted by leading national hospitality chains.</div>
                         </div>
-                        <div className="stat-card">
+                        <div className="stat-card" aria-hidden="true">
                             <div className="stat-number">1,000+</div>
                             <div className="stat-label">Venue Partners</div>
                             <div className="stat-desc">Hotels, resorts, spas &amp; leisure spots.</div>
                         </div>
-                        <div className="stat-card">
+                        <div className="stat-card" aria-hidden="true">
                             <div className="stat-number">2M+</div>
                             <div className="stat-label">Happy Guests</div>
                             <div className="stat-desc">Discerning members served nationwide.</div>
@@ -883,7 +886,7 @@ export default function Home() {
                 </div>
 
                 {/* ROW 2: Moves Right to Left */}
-                <div className="stats-marquee-container" aria-label="Brand heritage row 2">
+                <div className="stats-marquee-container" role="region" aria-label="Brand heritage row 2">
                     <div className="stats-marquee-track-rtl">
                         {/* Set 1 */}
                         <div className="stat-card">
@@ -913,27 +916,27 @@ export default function Home() {
                         </div>
 
                         {/* Set 2 (Duplicate for infinite seamless loop) */}
-                        <div className="stat-card">
+                        <div className="stat-card" aria-hidden="true">
                             <div className="stat-number">30M+</div>
                             <div className="stat-label">Social Reel Views</div>
                             <div className="stat-desc">Massive organic digital footprint.</div>
                         </div>
-                        <div className="stat-card">
+                        <div className="stat-card" aria-hidden="true">
                             <div className="stat-number">50+</div>
                             <div className="stat-label">Cities Covered</div>
                             <div className="stat-desc">Extensive presence across India.</div>
                         </div>
-                        <div className="stat-card">
+                        <div className="stat-card" aria-hidden="true">
                             <div className="stat-number">₹1B+</div>
                             <div className="stat-label">Value Delivered</div>
                             <div className="stat-desc">Member savings &amp; partner revenue.</div>
                         </div>
-                        <div className="stat-card">
+                        <div className="stat-card" aria-hidden="true">
                             <div className="stat-number">MSME</div>
                             <div className="stat-label">Certified</div>
                             <div className="stat-desc">Government recognized enterprise.</div>
                         </div>
-                        <div className="stat-card">
+                        <div className="stat-card" aria-hidden="true">
                             <div className="stat-number">DRS DEALS®</div>
                             <div className="stat-label">Registered Trademark</div>
                             <div className="stat-desc">Official Govt registered brand.</div>
@@ -962,7 +965,7 @@ export default function Home() {
                             <div className="guide-content">
                                 <h3 className="guide-title">Top 10 Resorts Near Delhi NCR for a Quick Escape</h3>
                                 <p className="guide-desc text-body-small text-charcoal-light">Our editors review popular weekend resort properties within a 4-hour drive.</p>
-                                <Link href="/guides/top-10-resorts" className="btn btn-outline" style={{ marginTop: '16px', width: '100%' }}>Read Guide</Link>
+                                <Link href="/guides/top-10-resorts" aria-label="Read Guide: Top 10 Resorts Near Delhi NCR for a Quick Escape" className="btn btn-outline" style={{ marginTop: '16px', width: '100%' }}>Read Guide</Link>
                             </div>
                         </div>
                         <div className="guide-card">
@@ -978,7 +981,7 @@ export default function Home() {
                             <div className="guide-content">
                                 <h3 className="guide-title">The Fine Dining Etiquette &amp; Value Maximiser</h3>
                                 <p className="guide-desc text-body-small text-charcoal-light">How to make the most of 5-star hotel dining passes and chef tasting menus.</p>
-                                <Link href="/guides/fine-dining" className="btn btn-outline" style={{ marginTop: '16px', width: '100%' }}>Read Guide</Link>
+                                <Link href="/guides/fine-dining" aria-label="Read Guide: The Fine Dining Etiquette and Value Maximiser" className="btn btn-outline" style={{ marginTop: '16px', width: '100%' }}>Read Guide</Link>
                             </div>
                         </div>
                         <div className="guide-card">
@@ -994,7 +997,7 @@ export default function Home() {
                             <div className="guide-content">
                                 <h3 className="guide-title">Water Parks vs Theme Parks: Ultimate Family Outing</h3>
                                 <p className="guide-desc text-body-small text-charcoal-light">Helpful tips before booking your family weekend passes and water park visits.</p>
-                                <Link href="/guides/family-parks" className="btn btn-outline" style={{ marginTop: '16px', width: '100%' }}>Read Guide</Link>
+                                <Link href="/guides/family-parks" aria-label="Read Guide: Water Parks vs Theme Parks Ultimate Family Outing" className="btn btn-outline" style={{ marginTop: '16px', width: '100%' }}>Read Guide</Link>
                             </div>
                         </div>
                     </div>
@@ -1031,7 +1034,7 @@ export default function Home() {
                         {/* Guest CTA Card */}
                         <div style={{ background: '#fff', padding: '40px', borderRadius: '16px', boxShadow: 'var(--shadow-soft)', border: '1px solid rgba(0,0,0,0.05)' }}>
                             <div className="hero-eyebrow" style={{ marginBottom: '8px', color: 'var(--color-champagne-gold)' }}>FOR GUESTS &amp; MEMBERS</div>
-                            <h3 style={{ fontSize: '1.75rem', fontFamily: 'var(--font-serif)', marginBottom: '16px' }}>Ready to Experience More for Less?</h3>
+                            <h2 style={{ fontSize: '1.75rem', fontFamily: 'var(--font-serif)', marginBottom: '16px' }}>Ready to Experience More for Less?</h2>
                             <p className="text-body-small text-charcoal-light" style={{ marginBottom: '24px', lineHeight: 1.7 }}>
                                 Explore 240+ verified member privileges across 5-star hotels, luxury resorts, dining, spa retreats, and family waterparks.
                             </p>
@@ -1043,14 +1046,14 @@ export default function Home() {
 
                         {/* Partner CTA Card */}
                         <div style={{ background: 'var(--color-charcoal)', color: '#fff', padding: '40px', borderRadius: '16px', boxShadow: 'var(--shadow-hover)' }}>
-                            <div className="hero-eyebrow" style={{ marginBottom: '8px', color: 'var(--color-champagne-gold)' }}>FOR HOSPITALITY BRANDS</div>
-                            <h3 style={{ fontSize: '1.75rem', fontFamily: 'var(--font-serif)', color: '#fff', marginBottom: '16px' }}>Strengthen Sales &amp; Acquire New Guests</h3>
-                            <p className="text-body-small" style={{ color: 'rgba(255,255,255,0.7)', marginBottom: '24px', lineHeight: 1.7 }}>
+                            <div className="hero-eyebrow" style={{ marginBottom: '8px', color: '#D4A857' }}>FOR HOSPITALITY BRANDS</div>
+                            <h2 style={{ fontSize: '1.75rem', fontFamily: 'var(--font-serif)', color: '#fff', marginBottom: '16px' }}>Strengthen Sales &amp; Acquire New Guests</h2>
+                            <p className="text-body-small" style={{ color: 'rgba(255,255,255,0.82)', marginBottom: '24px', lineHeight: 1.7 }}>
                                 Partner with DRS Deals at no upfront cost. We bring structured sales execution, footfall, and digital promotion to your property.
                             </p>
                             <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
                                 <Link href="/partners" className="btn btn-primary">Partner With Us</Link>
-                                <a href={`mailto:${siteConfig.contacts.partnerEmail}`} className="btn btn-outline" style={{ color: '#fff', borderColor: 'rgba(255,255,255,0.3)' }}>Email Partnership Team</a>
+                                <a href={`mailto:${siteConfig.contacts.partnerEmail}`} className="btn btn-outline" style={{ color: '#fff', borderColor: 'rgba(255,255,255,0.4)' }}>Email Partnership Team</a>
                             </div>
                         </div>
                     </div>

@@ -162,7 +162,7 @@ export default async function DealDetailPage({ params }: Props) {
                             />
                         ) : (
                             <div className="skeleton-box" style={{ width: '100%', height: '380px', borderRadius: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1rem', color: 'var(--color-charcoal-light)', border: '1px solid var(--color-stone)', marginBottom: '16px', background: 'var(--color-stone-light)' }}>
-                                📷 {deal.propertyName} — Featured Image
+                                📷 {deal.propertyName}: Featured Image
                             </div>
                         )}
 

@@ -32,8 +32,12 @@ export default function SavingsCalculator() {
                 {/* Left: luxury resort atmospheric image */}
                 <div className="sc-bg-left">
                     <img
-                        src="/images/webp/luxury-resort-atmospheric.jpg"
+                        src="/images/webp/luxury-resort-atmospheric.webp"
                         alt=""
+                        width={640}
+                        height={800}
+                        loading="lazy"
+                        decoding="async"
                         className="sc-bg-img"
                     />
                 </div>
@@ -72,7 +76,7 @@ export default function SavingsCalculator() {
                     </div>
 
                     {/* Eyebrow */}
-                    <div className="sc-eyebrow" aria-label="Value Estimator">
+                    <div className="sc-eyebrow">
                         <span className="sc-eyebrow-rule" aria-hidden="true"/>
                         <span className="sc-eyebrow-text">VALUE ESTIMATOR</span>
                         <span className="sc-eyebrow-rule" aria-hidden="true"/>
@@ -197,7 +201,7 @@ export default function SavingsCalculator() {
                     </div>
 
                     {/* Footer statement */}
-                    <div className="sc-footer" aria-label="Privileged Access. Exclusive Savings.">
+                    <div className="sc-footer">
                         <span className="sc-footer-rule" aria-hidden="true"/>
                         <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
                             <path d="M5 0L6.2 3.8H10L7 6.2L8.1 10L5 7.5L1.9 10L3 6.2L0 3.8H3.8Z" fill="rgba(178,153,110,0.5)"/>

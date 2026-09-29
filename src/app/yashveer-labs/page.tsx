@@ -420,7 +420,7 @@ export default function YashveerLabsPage() {
                                 Built by Yashveer Singh. Delivered through Yashveer Labs.
                             </h3>
                             <div style={{ fontSize: '0.9rem', color: 'var(--color-stone)' }}>
-                                <strong>Yashveer Labs</strong> — Digital Product Studio &amp; Engineering Agency
+                                <strong>Yashveer Labs</strong>: Digital Product Studio &amp; Engineering Agency
                             </div>
                             <div style={{ fontSize: '0.85rem', color: 'rgba(255,255,255,0.6)', maxWidth: '600px', lineHeight: 1.6 }}>
                                 <strong>Founder:</strong> Yashveer Singh | <strong>Project:</strong> DRS Deals | <strong>Scope:</strong> Website Engineering, SEO, AEO, Geographic Optimisation, Content, Digital Distribution, Social Media, Paid Acquisition and Local Search

@@ -2,6 +2,8 @@ import { MetadataRoute } from 'next';
 import { getAllDeals } from '@/data/deals';
 import { BLOG_POSTS } from '@/data/blogs';
 
+export const dynamic = 'force-static';
+
 export default function sitemap(): MetadataRoute.Sitemap {
     const baseUrl = 'https://www.drsdeals.in';
     const currentDate = new Date().toISOString();

@@ -1,10 +1,26 @@
 import type { Metadata, Viewport } from 'next';
+import { Inter, Playfair_Display } from 'next/font/google';
 import './globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import BottomRightActions from '@/components/BottomRightActions';
 import Chatbot from '@/components/Chatbot';
 import { siteConfig } from '@/config/site';
+
+const inter = Inter({
+    subsets: ['latin'],
+    weight: ['300', '400', '500', '600'],
+    display: 'swap',
+    variable: '--font-inter',
+});
+
+const playfair = Playfair_Display({
+    subsets: ['latin'],
+    weight: ['400', '500', '600', '700'],
+    style: ['normal', 'italic'],
+    display: 'swap',
+    variable: '--font-playfair',
+});
 
 export const viewport: Viewport = {
     width: 'device-width',
@@ -153,8 +169,22 @@ export default function RootLayout({
     };
 
     return (
-        <html lang="en">
+        <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
             <head>
+                <link
+                    rel="preload"
+                    as="image"
+                    href="/images/mobile-bg-1.webp"
+                    media="(max-width: 767px)"
+                    fetchPriority="high"
+                />
+                <link
+                    rel="preload"
+                    as="image"
+                    href="/images/background.webp"
+                    media="(min-width: 768px)"
+                    fetchPriority="high"
+                />
                 <script
                     type="application/ld+json"
                     dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

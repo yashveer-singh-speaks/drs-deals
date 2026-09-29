@@ -30,19 +30,36 @@ export default function CubeSteps() {
     const [next, setNext] = useState(1);
     const [animating, setAnimating] = useState(false);
     const [halfWidth, setHalfWidth] = useState(0);
+    const [isInView, setIsInView] = useState(false);
     const viewportRef = useRef<HTMLDivElement>(null);
     const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-    // Measure viewport width for translateZ
+    // Measure viewport width for translateZ and observe visibility
     useEffect(() => {
+        const el = viewportRef.current;
         const measure = () => {
             if (viewportRef.current) {
                 setHalfWidth(viewportRef.current.offsetWidth / 2);
             }
         };
         measure();
-        window.addEventListener('resize', measure);
-        return () => window.removeEventListener('resize', measure);
+        window.addEventListener('resize', measure, { passive: true });
+
+        let observer: IntersectionObserver | null = null;
+        if (el && 'IntersectionObserver' in window) {
+            observer = new IntersectionObserver(
+                (entries) => {
+                    setIsInView(Boolean(entries[0]?.isIntersecting));
+                },
+                { threshold: 0.1 }
+            );
+            observer.observe(el);
+        }
+
+        return () => {
+            window.removeEventListener('resize', measure);
+            observer?.disconnect();
+        };
     }, []);
 
     const startTransition = useCallback((targetIndex: number) => {
@@ -51,9 +68,9 @@ export default function CubeSteps() {
         setAnimating(true);
     }, [animating]);
 
-    // Auto-advance every 2 seconds
+    // Auto-advance every 2 seconds only when visible in viewport
     useEffect(() => {
-        if (animating) return;
+        if (animating || !isInView) return;
 
         timerRef.current = setTimeout(() => {
             startTransition((current + 1) % steps.length);
@@ -62,7 +79,7 @@ export default function CubeSteps() {
         return () => {
             if (timerRef.current) clearTimeout(timerRef.current);
         };
-    }, [current, animating, startTransition]);
+    }, [current, animating, isInView, startTransition]);
 
     // When CSS animation ends, commit
     const handleAnimationEnd = useCallback(() => {
@@ -71,8 +88,8 @@ export default function CubeSteps() {
     }, [next]);
 
     // 3D cube geometry:
-    // Front face: translateZ(halfWidth) — pushed toward viewer
-    // Right face: rotateY(90deg) translateZ(halfWidth) — on the right side of the cube
+    // Front face: translateZ(halfWidth) - pushed toward viewer
+    // Right face: rotateY(90deg) translateZ(halfWidth) - on the right side of the cube
     // Scene: when animating, rotateY(-90deg) to bring right face to front
     const sceneStyle: React.CSSProperties = {
         transform: animating ? undefined : `translateZ(-${halfWidth}px)`,

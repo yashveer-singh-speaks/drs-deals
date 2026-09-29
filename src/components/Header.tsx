@@ -5,6 +5,8 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { siteConfig } from '@/config/site';
 
+const TRANSPARENT_PIXEL = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
+
 export default function Header() {
     const [isScrolled, setIsScrolled] = useState(false);
     const [drawerOpen, setDrawerOpen] = useState(false);
@@ -65,10 +67,13 @@ export default function Header() {
                 <div className="lux-panel-inner">
 
                     {/* ── ZONE 1: Logo ── */}
-                    <Link href="/" className="lux-logo-zone" aria-label="DRS Deals – Homepage">
+                    <Link href="/" className="lux-logo-zone" aria-label="DRS Deals: Homepage">
                         <img
                             src={siteConfig.logo}
-                            alt="DRS Deals Logo"
+                            alt="DRS Deals Luxury Hospitality Logo"
+                            width={180}
+                            height={56}
+                            decoding="async"
                             className="lux-logo-img"
                         />
                     </Link>
@@ -177,7 +182,7 @@ export default function Header() {
                             aria-controls="mobile-navigation-drawer"
                             onClick={toggleDrawer}
                         >
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
                                 <line x1="3" y1="12" x2="21" y2="12"></line>
                                 <line x1="3" y1="6" x2="21" y2="6"></line>
                                 <line x1="3" y1="18" x2="21" y2="18"></line>
@@ -186,53 +191,55 @@ export default function Header() {
                     </div>
                 </div>
 
-                {/* ── Desktop Mega Menu — Bounded relative to lux-panel ── */}
+                {/* ── Desktop Mega Menu: Bounded relative to lux-panel ── */}
                 <div
                     className={`premium-mega-menu ${openDropdown === 'experiences' ? 'open' : ''}`}
                     onMouseEnter={() => setOpenDropdown('experiences')}
                     onMouseLeave={() => setOpenDropdown(null)}
+                    aria-hidden={openDropdown !== 'experiences'}
                 >
                     <div className="premium-mega-menu-inner">
                         <div className="mega-menu-grid">
                             <div className="mega-menu-list-col">
-                                <h4 className="mega-menu-title">Destinations</h4>
-                                <Link href="/destinations/delhi">Delhi NCR</Link>
-                                <Link href="/destinations/jaipur">Jaipur</Link>
-                                <Link href="/destinations/mumbai">Mumbai</Link>
-                                <Link href="/destinations" className="mega-menu-link-all">
+                                <div className="mega-menu-title">Destinations</div>
+                                <Link href="/destinations/delhi" tabIndex={openDropdown === 'experiences' ? 0 : -1}>Delhi NCR</Link>
+                                <Link href="/destinations/jaipur" tabIndex={openDropdown === 'experiences' ? 0 : -1}>Jaipur</Link>
+                                <Link href="/destinations/mumbai" tabIndex={openDropdown === 'experiences' ? 0 : -1}>Mumbai</Link>
+                                <Link href="/destinations" className="mega-menu-link-all" tabIndex={openDropdown === 'experiences' ? 0 : -1}>
                                     View All Locations{' '}
-                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                                         <path d="M5 12h14M12 5l7 7-7 7" />
                                     </svg>
                                 </Link>
                             </div>
                             <div className="mega-menu-list-col">
-                                <h4 className="mega-menu-title">Experiences</h4>
-                                <Link href="/experiences/resorts">Resorts &amp; Hotels</Link>
-                                <Link href="/experiences/water-parks">Water Parks</Link>
-                                <Link href="/experiences/farmhouses">Farmhouses</Link>
-                                <Link href="/experiences/dining">Fine Dining</Link>
-                                <Link href="/experiences/spa">Spa &amp; Wellness</Link>
+                                <div className="mega-menu-title">Experiences</div>
+                                <Link href="/experiences/resorts" tabIndex={openDropdown === 'experiences' ? 0 : -1}>Resorts &amp; Hotels</Link>
+                                <Link href="/experiences/water-parks" tabIndex={openDropdown === 'experiences' ? 0 : -1}>Water Parks</Link>
+                                <Link href="/experiences/farmhouses" tabIndex={openDropdown === 'experiences' ? 0 : -1}>Farmhouses</Link>
+                                <Link href="/experiences/dining" tabIndex={openDropdown === 'experiences' ? 0 : -1}>Fine Dining</Link>
+                                <Link href="/experiences/spa" tabIndex={openDropdown === 'experiences' ? 0 : -1}>Spa &amp; Wellness</Link>
                             </div>
                             <div className="mega-menu-list-col">
-                                <h4 className="mega-menu-title">Collections</h4>
-                                <Link href="/collections/couples">Romantic Getaways</Link>
-                                <Link href="/collections/family">Family Outings</Link>
-                                <Link href="/collections/weekend">Weekend Escapes</Link>
-                                <Link href="/collections/corporate">Corporate Experiences</Link>
+                                <div className="mega-menu-title">Collections</div>
+                                <Link href="/collections/couples" tabIndex={openDropdown === 'experiences' ? 0 : -1}>Romantic Getaways</Link>
+                                <Link href="/collections/family" tabIndex={openDropdown === 'experiences' ? 0 : -1}>Family Outings</Link>
+                                <Link href="/collections/weekend" tabIndex={openDropdown === 'experiences' ? 0 : -1}>Weekend Escapes</Link>
+                                <Link href="/collections/corporate" tabIndex={openDropdown === 'experiences' ? 0 : -1}>Corporate Experiences</Link>
                             </div>
                         </div>
                         <div className="mega-menu-featured">
                             <img
-                                src="/images/webp/Header Mega Menu.webp"
-                                alt="Curated Luxury Stay"
+                                src={openDropdown === 'experiences' ? '/images/webp/Header Mega Menu.webp' : TRANSPARENT_PIXEL}
+                                alt="Curated luxury resort stay experience on DRS Deals"
                                 className="mega-menu-featured-img"
                                 width={280}
                                 height={200}
                                 loading="lazy"
+                                decoding="async"
                             />
                             <div className="mega-menu-featured-content">
-                                <h5>The Ultimate Escape</h5>
+                                <div style={{ fontSize: '1.1rem', fontWeight: 500, marginBottom: '2px', fontFamily: 'var(--font-serif)' }}>The Ultimate Escape</div>
                                 <p>Discover our curated luxury stays.</p>
                             </div>
                         </div>
@@ -251,21 +258,26 @@ export default function Header() {
             <div
                 id="mobile-navigation-drawer"
                 className={`premium-mobile-drawer ${drawerOpen ? 'open' : ''}`}
-                role="dialog"
-                aria-modal="true"
+                role={drawerOpen ? 'dialog' : undefined}
+                aria-modal={drawerOpen ? 'true' : undefined}
+                aria-hidden={!drawerOpen}
                 aria-label="Mobile Navigation Menu"
             >
                 <div className="drawer-header">
-                    <Link href="/" onClick={closeDrawer} aria-label="DRS Deals Homepage">
+                    <Link href="/" onClick={closeDrawer} aria-label="DRS Deals Homepage" tabIndex={drawerOpen ? 0 : -1}>
                         <img
                             src={siteConfig.logo}
                             alt="DRS Deals Logo"
+                            width={130}
+                            height={32}
+                            loading="lazy"
+                            decoding="async"
                             className="brand-logo-img"
                             style={{ height: '32px', width: 'auto', display: 'block', objectFit: 'contain' }}
                         />
                     </Link>
-                    <button className="close-drawer" aria-label="Close menu" onClick={closeDrawer}>
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                    <button className="close-drawer" aria-label="Close menu" onClick={closeDrawer} tabIndex={drawerOpen ? 0 : -1}>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
                             <line x1="18" y1="6" x2="6" y2="18"></line>
                             <line x1="6" y1="6" x2="18" y2="18"></line>
                         </svg>
@@ -274,13 +286,14 @@ export default function Header() {
 
                 <div className="drawer-body">
                     <nav className="premium-drawer-nav" aria-label="Mobile Navigation">
-                        <Link href="/" className="drawer-link" onClick={closeDrawer}>Home</Link>
+                        <Link href="/" className="drawer-link" onClick={closeDrawer} tabIndex={drawerOpen ? 0 : -1}>Home</Link>
 
                         <div className="drawer-accordion-group">
                             <button
                                 className="drawer-link drawer-accordion-toggle"
                                 onClick={() => toggleDropdown('mobile-experiences')}
                                 aria-expanded={openDropdown === 'mobile-experiences'}
+                                tabIndex={drawerOpen ? 0 : -1}
                             >
                                 <span>Experiences</span>
                                 <svg
@@ -291,34 +304,35 @@ export default function Header() {
                                     fill="none"
                                     stroke="currentColor"
                                     strokeWidth="2"
+                                    aria-hidden="true"
                                 >
                                     <polyline points="6 9 12 15 18 9"></polyline>
                                 </svg>
                             </button>
 
-                            <div className={`drawer-accordion-content ${openDropdown === 'mobile-experiences' ? 'open' : ''}`}>
+                            <div className={`drawer-accordion-content ${openDropdown === 'mobile-experiences' ? 'open' : ''}`} aria-hidden={openDropdown !== 'mobile-experiences'}>
                                 <div className="drawer-accordion-inner">
-                                    <Link href="/destinations" onClick={closeDrawer}>Destinations</Link>
-                                    <Link href="/experiences/resorts" onClick={closeDrawer}>Resorts &amp; Hotels</Link>
-                                    <Link href="/experiences/water-parks" onClick={closeDrawer}>Water Parks</Link>
-                                    <Link href="/experiences/farmhouses" onClick={closeDrawer}>Farmhouses</Link>
-                                    <Link href="/experiences/dining" onClick={closeDrawer}>Fine Dining</Link>
-                                    <Link href="/experiences/spa" onClick={closeDrawer}>Spa &amp; Wellness</Link>
+                                    <Link href="/destinations" onClick={closeDrawer} tabIndex={drawerOpen && openDropdown === 'mobile-experiences' ? 0 : -1}>Destinations</Link>
+                                    <Link href="/experiences/resorts" onClick={closeDrawer} tabIndex={drawerOpen && openDropdown === 'mobile-experiences' ? 0 : -1}>Resorts &amp; Hotels</Link>
+                                    <Link href="/experiences/water-parks" onClick={closeDrawer} tabIndex={drawerOpen && openDropdown === 'mobile-experiences' ? 0 : -1}>Water Parks</Link>
+                                    <Link href="/experiences/farmhouses" onClick={closeDrawer} tabIndex={drawerOpen && openDropdown === 'mobile-experiences' ? 0 : -1}>Farmhouses</Link>
+                                    <Link href="/experiences/dining" onClick={closeDrawer} tabIndex={drawerOpen && openDropdown === 'mobile-experiences' ? 0 : -1}>Fine Dining</Link>
+                                    <Link href="/experiences/spa" onClick={closeDrawer} tabIndex={drawerOpen && openDropdown === 'mobile-experiences' ? 0 : -1}>Spa &amp; Wellness</Link>
                                 </div>
                             </div>
                         </div>
 
-                        <Link href="/deals" className="drawer-link" onClick={closeDrawer}>Deals</Link>
-                        <Link href="/search" className="drawer-link" onClick={closeDrawer}>Search Deals</Link>
-                        <Link href="/blog" className="drawer-link" onClick={closeDrawer}>Blog</Link>
-                        <Link href="/partners" className="drawer-link" onClick={closeDrawer}>Partner With Us</Link>
-                        <Link href="/about" className="drawer-link" onClick={closeDrawer}>About</Link>
-                        <Link href="/contact" className="drawer-link" onClick={closeDrawer}>Contact Concierge</Link>
+                        <Link href="/deals" className="drawer-link" onClick={closeDrawer} tabIndex={drawerOpen ? 0 : -1}>Deals</Link>
+                        <Link href="/search" className="drawer-link" onClick={closeDrawer} tabIndex={drawerOpen ? 0 : -1}>Search Deals</Link>
+                        <Link href="/blog" className="drawer-link" onClick={closeDrawer} tabIndex={drawerOpen ? 0 : -1}>Blog</Link>
+                        <Link href="/partners" className="drawer-link" onClick={closeDrawer} tabIndex={drawerOpen ? 0 : -1}>Partner With Us</Link>
+                        <Link href="/about" className="drawer-link" onClick={closeDrawer} tabIndex={drawerOpen ? 0 : -1}>About</Link>
+                        <Link href="/contact" className="drawer-link" onClick={closeDrawer} tabIndex={drawerOpen ? 0 : -1}>Contact Concierge</Link>
                     </nav>
                 </div>
 
                 <div className="drawer-footer">
-                    <Link href="/explore" className="lux-cta-btn full-width" onClick={closeDrawer}>
+                    <Link href="/explore" className="lux-cta-btn full-width" onClick={closeDrawer} tabIndex={drawerOpen ? 0 : -1}>
                         <svg
                             className="lux-sparkle"
                             width="14"

@@ -89,13 +89,15 @@ export default function HoneycombFeatures() {
     const [current, setCurrent] = useState(0);
     const [nextIdx, setNextIdx] = useState(1);
     const [transitioning, setTransitioning] = useState(false);
+    const [isInView, setIsInView] = useState(false);
     const viewportRef = useRef<HTMLDivElement>(null);
     const [dims, setDims] = useState({ w: 520, h: 325 });
     const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
     const transTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-    // Measure container
+    // Measure container and observe viewport visibility
     useEffect(() => {
+        const el = viewportRef.current;
         const measure = () => {
             if (viewportRef.current) {
                 setDims({
@@ -105,8 +107,23 @@ export default function HoneycombFeatures() {
             }
         };
         measure();
-        window.addEventListener('resize', measure);
-        return () => window.removeEventListener('resize', measure);
+        window.addEventListener('resize', measure, { passive: true });
+
+        let observer: IntersectionObserver | null = null;
+        if (el && 'IntersectionObserver' in window) {
+            observer = new IntersectionObserver(
+                (entries) => {
+                    setIsInView(Boolean(entries[0]?.isIntersecting));
+                },
+                { threshold: 0.1 }
+            );
+            observer.observe(el);
+        }
+
+        return () => {
+            window.removeEventListener('resize', measure);
+            observer?.disconnect();
+        };
     }, []);
 
     const hexCells = useMemo(() => buildHexGrid(dims.w, dims.h), [dims]);
@@ -121,16 +138,16 @@ export default function HoneycombFeatures() {
         setTransitioning(true);
     }, [transitioning]);
 
-    // Auto-advance every 2 seconds
+    // Auto-advance every 2 seconds only when visible in viewport
     useEffect(() => {
-        if (transitioning) return;
+        if (transitioning || !isInView) return;
         timerRef.current = setTimeout(() => {
             startTransition((current + 1) % features.length);
         }, 2000);
         return () => {
             if (timerRef.current) clearTimeout(timerRef.current);
         };
-    }, [current, transitioning, startTransition]);
+    }, [current, transitioning, isInView, startTransition]);
 
     // Complete transition after hex dissolve finishes
     useEffect(() => {
