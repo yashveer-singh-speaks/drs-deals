@@ -9,15 +9,12 @@ import { siteConfig } from '@/config/site';
 
 const inter = Inter({
     subsets: ['latin'],
-    weight: ['300', '400', '500', '600'],
     display: 'swap',
     variable: '--font-inter',
 });
 
 const playfair = Playfair_Display({
     subsets: ['latin'],
-    weight: ['400', '500', '600', '700'],
-    style: ['normal', 'italic'],
     display: 'swap',
     variable: '--font-playfair',
 });
