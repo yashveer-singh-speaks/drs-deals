@@ -4,8 +4,8 @@ import type { Metadata } from 'next';
 import { getAllDeals } from '@/data/deals';
 
 export const metadata: Metadata = {
-    title: 'Jaipur Heritage Resort Deals & Palace Dining | DRS Deals',
-    description: 'Exclusive palace stay vouchers, heritage resort packages, and fine dining privileges across Jaipur & Rajasthan.',
+    title: 'Heritage Resort Deals & Palace Dining | DRS Deals',
+    description: 'Exclusive palace stay vouchers, heritage resort packages, and fine dining privileges in Delhi NCR and More.',
 };
 
 export default function JaipurDestinationPage() {
@@ -16,13 +16,13 @@ export default function JaipurDestinationPage() {
             <div className="container">
                 <div style={{ maxWidth: '800px', margin: '0 auto 48px auto', textAlign: 'center' }}>
                     <div className="hero-eyebrow" style={{ justifyContent: 'center', marginBottom: '16px', letterSpacing: '0.15em', textTransform: 'uppercase', fontSize: '0.85rem', fontWeight: 600, color: 'var(--color-champagne-gold)' }}>
-                        ROYAL RAJASTHAN HUB
+                        DESTINATION GETAWAYS
                     </div>
                     <h1 className="hero-title" style={{ fontSize: '3rem', marginBottom: '20px' }}>
-                        Jaipur &amp; Rajasthan Member Offers
+                        Delhi NCR and More Member Offers
                     </h1>
                     <p className="text-body-large text-charcoal-light">
-                        Heritage stays, palace dining passes, and hill resort getaways in Kasauli, Manali, and Mussoorie.
+                        Heritage stays, dining passes, and hill resort getaways in Delhi NCR and More.
                     </p>
                 </div>
 

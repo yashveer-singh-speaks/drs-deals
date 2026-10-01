@@ -22,7 +22,7 @@ export default function CouplesCollectionPage() {
                         Couples &amp; Romantic Experiences
                     </h1>
                     <p className="text-body-large text-charcoal-light">
-                        Luxury hill resort memberships, candlelit dining vouchers, and private suite getaways across India.
+                        Luxury hill resort memberships, candlelit dining vouchers, and private suite getaways in Delhi NCR and More.
                     </p>
                 </div>
 

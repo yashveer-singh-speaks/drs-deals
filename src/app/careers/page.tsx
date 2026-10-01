@@ -29,7 +29,7 @@ export default function CareersPage() {
                                 <p style={{ fontSize: '0.85rem', color: 'var(--color-charcoal-light)' }}>New Delhi / Gurgaon • Full-Time • B2B Hospitality Relations</p>
                             </div>
                             <a
-                                href="mailto:drsdeals.in@gmail.com?subject=Job%20Application:%20Venue%20Partnership%20Manager%20-%20DRS%20Deals"
+                                href="mailto:Info@drsdeals.in?subject=Job%20Application:%20Venue%20Partnership%20Manager%20-%20DRS%20Deals"
                                 className="btn btn-primary"
                                 style={{ fontSize: '0.85rem', padding: '10px 20px' }}
                             >
@@ -42,7 +42,7 @@ export default function CareersPage() {
                                 <p style={{ fontSize: '0.85rem', color: 'var(--color-charcoal-light)' }}>Remote / New Delhi • Full-Time • Content &amp; Travel Guides</p>
                             </div>
                             <a
-                                href="mailto:drsdeals.in@gmail.com?subject=Job%20Application:%20Hospitality%20Editorial%20Writer%20-%20DRS%20Deals"
+                                href="mailto:Info@drsdeals.in?subject=Job%20Application:%20Hospitality%20Editorial%20Writer%20-%20DRS%20Deals"
                                 className="btn btn-primary"
                                 style={{ fontSize: '0.85rem', padding: '10px 20px' }}
                             >

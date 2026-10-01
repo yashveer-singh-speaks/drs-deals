@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 export const metadata: Metadata = {
     title: 'About DRS Deals | Our 23-Year Legacy & Inception Story',
-    description: 'Since 2003, DRS Deals has been India’s premier curated platform connecting over 2M+ guests with 1,000+ luxury hospitality, dining, and leisure partners across 50+ cities.',
+    description: 'Since 2003, DRS Deals has been India’s premier curated platform connecting over 2M+ guests with 1,000+ luxury hospitality, dining, and leisure partners across Delhi NCR and More.',
     alternates: {
         canonical: 'https://www.drsdeals.in/about',
     },
@@ -34,7 +34,7 @@ export default function AboutPage() {
                                 Founded in 2003, DRS Deals was established with a singular conviction: premium leisure experiences, 5-star resort stays, and gourmet dining should be accessible to discerning individuals without requiring exorbitant markups.
                             </p>
                             <p style={{ color: 'var(--color-charcoal-light)', lineHeight: 1.8 }}>
-                                Over the past 23 years, we have built direct relationships with over 1,000 premier partner venues across 50+ cities in India, serving more than 2 million happy guests and delivering over ₹1 Billion in member savings while ensuring guests receive full VIP hospitality.
+                                Over the past 23 years, we have built direct relationships with over 1,000 premier partner venues across Delhi NCR and More, serving more than 2 million happy guests and delivering over ₹1 Billion in member savings while ensuring guests receive full VIP hospitality.
                             </p>
                         </div>
                         <div>
@@ -61,7 +61,7 @@ export default function AboutPage() {
                         <div style={{ padding: '24px', background: 'var(--color-ivory)', borderRadius: '12px', border: '1px solid var(--color-stone)' }}>
                             <h3 style={{ fontSize: '1.25rem', fontFamily: 'var(--font-serif)', color: 'var(--color-charcoal)', marginBottom: '12px' }}>3. Dedicated Concierge Support</h3>
                             <p style={{ fontSize: '0.95rem', color: 'var(--color-charcoal-light)', lineHeight: 1.6 }}>
-                                Our dedicated team assists members directly with reservation confirmations and custom arrangements at +91 98111 20892.
+                                Our dedicated team assists members directly with reservation confirmations and custom arrangements at +91 99110 11458.
                             </p>
                         </div>
                     </div>

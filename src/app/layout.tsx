@@ -32,18 +32,18 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
     metadataBase: new URL(siteConfig.url),
     title: {
-        default: 'DRS Deals | Premium Leisure, Dining & Resort Experiences across India',
+        default: 'DRS Deals | Premium Leisure, Dining & Resort Experiences in Delhi NCR and More',
         template: '%s | DRS Deals',
     },
-    description: 'Since 2003, DRS Deals has curated India’s finest luxury resorts, fine dining, spa retreats, and water park passes across 50+ cities at exclusive member rates.',
+    description: 'Since 2003, DRS Deals has curated luxury resorts, fine dining, spa retreats, and water park passes in Delhi NCR and More at exclusive member rates.',
     keywords: [
         'DRS Deals',
-        'Luxury Resort Deals India',
+        'Luxury Resort Deals Delhi NCR',
         'Fine Dining Vouchers Delhi NCR',
-        'Jaipur Heritage Stay Discounts',
-        'Spa Retreat Offers Mumbai',
-        'Water Park Passes Noida',
-        'Exclusive Travel Experiences India',
+        'Heritage Stay Discounts Delhi NCR',
+        'Spa Retreat Offers Delhi NCR',
+        'Water Park Passes Delhi NCR',
+        'Exclusive Travel Experiences',
         'Curated Hospitality Memberships',
         '23 Year Legacy Hospitality',
     ],
@@ -65,7 +65,7 @@ export const metadata: Metadata = {
     },
     openGraph: {
         title: 'DRS Deals | Premium Experiences & Exclusive Offers Since 2003',
-        description: 'Curating India’s finest luxury resorts, fine dining, spa retreats, and family experiences at exclusive member rates. 23-Year Hospitality Legacy.',
+        description: 'Curating luxury resorts, fine dining, spa retreats, and family experiences in Delhi NCR and More at exclusive member rates. 23-Year Hospitality Legacy.',
         url: `${siteConfig.url}/`,
         siteName: siteConfig.name,
         images: [
@@ -82,7 +82,7 @@ export const metadata: Metadata = {
     twitter: {
         card: 'summary_large_image',
         title: 'DRS Deals | Premium Experiences for Less Since 2003',
-        description: 'Discover luxury stays, gourmet dining, and spa retreats across India at exclusive member rates.',
+        description: 'Discover luxury stays, gourmet dining, and spa retreats in Delhi NCR and More at exclusive member rates.',
         images: [siteConfig.socialImage],
     },
     icons: {

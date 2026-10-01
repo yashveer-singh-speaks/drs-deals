@@ -5,7 +5,7 @@ import { getFeaturedDeals, getAllDeals } from '@/data/deals';
 
 export const metadata: Metadata = {
     title: 'Exclusive Deals & Hotel Memberships | DRS Deals',
-    description: 'Explore verified memberships and deals on luxury stays, fine dining, water parks, and resort packages across Delhi NCR, Himachal Pradesh, and Uttarakhand.',
+    description: 'Explore verified memberships and deals on luxury stays, fine dining, water parks, and resort packages across Delhi NCR and More.',
 };
 
 export default function DealsPage() {

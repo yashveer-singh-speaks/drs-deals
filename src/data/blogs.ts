@@ -23,11 +23,11 @@ const RESORT_IMAGES = [
 ];
 
 const DESTINATION_IMAGES = [
-    { src: '/images/blogs/blog-5.webp', altDesc: 'Grand heritage palace hotel in Rajasthan with traditional carved sandstone arches' },
-    { src: '/images/blogs/blog-10.webp', altDesc: 'Hill retreat and wildlife safari lodge in Mussoorie and Jim Corbett' },
-    { src: '/images/blogs/blog-16.webp', altDesc: 'Historic Jaipur architecture and majestic desert state heritage stays' },
+    { src: '/images/blogs/blog-5.webp', altDesc: 'Grand heritage palace hotel in Delhi NCR and More with traditional carved sandstone arches' },
+    { src: '/images/blogs/blog-10.webp', altDesc: 'Hill retreat and wildlife safari lodge in Delhi NCR and More' },
+    { src: '/images/blogs/blog-16.webp', altDesc: 'Historic architecture and majestic heritage stays in Delhi NCR and More' },
     { src: '/images/blogs/blog-17.webp', altDesc: 'Delhi NCR urban luxury hotel skyline and evening ambiance' },
-    { src: '/images/blogs/blog-18.webp', altDesc: 'Serene regional getaways across Punjab and scenic hill states' },
+    { src: '/images/blogs/blog-18.webp', altDesc: 'Serene regional getaways in Delhi NCR and More' },
     { src: '/images/blogs/blog-4.webp', altDesc: 'Pristine mountain vistas and pine-covered ridges in Kasauli' },
     { src: '/images/blogs/blog-9.webp', altDesc: 'Himalayan mountain valley views from a boutique Manali suite' }
 ];
@@ -59,13 +59,13 @@ const SPA_WELLNESS_IMAGES = [
 ];
 
 const WEEKEND_ESCAPE_IMAGES = [
-    { src: '/images/blogs/blog-4.webp', altDesc: 'Tranquil weekend mountain getaway at Oren Kasauli in Himachal Pradesh' },
+    { src: '/images/blogs/blog-4.webp', altDesc: 'Tranquil weekend mountain getaway at Oren Kasauli' },
     { src: '/images/blogs/blog-8.webp', altDesc: 'Full day adventure and rural farm picnic escape near Gurgaon Delhi NCR' },
-    { src: '/images/blogs/blog-10.webp', altDesc: 'Dual-destination hill station and wildlife getaway in Uttarakhand' },
+    { src: '/images/blogs/blog-10.webp', altDesc: 'Dual-destination getaway in Delhi NCR and More' },
     { src: '/images/blogs/blog-14.webp', altDesc: 'Romantic weekend escape with private dining and scenic balconies' },
     { src: '/images/blogs/blog-15.webp', altDesc: 'Curated weekend family leisure and resort hospitality experience' },
     { src: '/images/blogs/blog-19.webp', altDesc: '23-year legacy of curated 5-star hotel memberships and weekend escapes' },
-    { src: '/images/blogs/blog-22.webp', altDesc: 'Exclusive member privileges across India’s finest hospitality retreats' }
+    { src: '/images/blogs/blog-22.webp', altDesc: 'Exclusive member privileges in Delhi NCR and More' }
 ];
 
 // Generate the 198 curated blog post metadata entries with natural customer-facing categories
@@ -75,7 +75,7 @@ export const BLOG_POSTS: BlogPost[] = [
         const imgObj = RESORT_IMAGES[i % RESORT_IMAGES.length];
         return {
             slug: `resort-guide-${i + 1}`,
-            title: `The Ultimate Guide to Luxury Resort Living in India #${i + 1}`,
+            title: `The Ultimate Guide to Luxury Resort Living in Delhi NCR and More #${i + 1}`,
             category: 'Resorts & Stays' as const,
             excerpt: `Discover how curated 5-star resort stays, private pool villas, and heritage retreats elevate your weekend breaks with uncompromised luxury privileges.`,
             readTime: '4 min read',
@@ -89,13 +89,13 @@ export const BLOG_POSTS: BlogPost[] = [
 
     // 33 Destinations & Travel Blogs
     ...Array.from({ length: 33 }, (_, i) => {
-        const destName = i + 1 === 1 ? 'Delhi NCR' : i % 3 === 0 ? 'Jaipur' : i % 3 === 1 ? 'Mumbai' : 'Gurugram';
+        const destName = i + 1 === 1 ? 'Delhi NCR' : i % 3 === 0 ? 'Delhi NCR' : i % 3 === 1 ? 'Delhi NCR' : 'Gurugram';
         const imgObj = DESTINATION_IMAGES[i % DESTINATION_IMAGES.length];
         return {
             slug: `destinations-guide-${i + 1}`,
             title: `Exploring Regional Destinations: Finding Top Local Escapes in #${destName}`,
             category: 'Destinations & Travel' as const,
-            excerpt: `Exploring premier regional destinations and local getaway spots across Delhi NCR, Rajasthan, Maharashtra, Punjab, and Gujarat.`,
+            excerpt: `Exploring premier regional destinations and local getaway spots in Delhi NCR and More.`,
             readTime: '5 min read',
             publishedDate: 'August 2026',
             author: 'DRS Deals Editorial Team',

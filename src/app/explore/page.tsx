@@ -5,7 +5,7 @@ import { getAllDeals } from '@/data/deals';
 
 export const metadata: Metadata = {
     title: 'Explore All Offers & Experiences | DRS Deals',
-    description: 'Search and discover luxury resort stays, fine dining passes, water parks, and family entertainment passes across India.',
+    description: 'Search and discover luxury resort stays, fine dining passes, water parks, and family entertainment passes in Delhi NCR and More.',
 };
 
 export default function ExplorePage() {
@@ -22,7 +22,7 @@ export default function ExplorePage() {
                         Explore All Experiences &amp; Memberships
                     </h1>
                     <p className="text-body-large text-charcoal-light">
-                        Discover resort stays, fine dining vouchers, water parks, and family getaways across India.
+                        Discover resort stays, fine dining vouchers, water parks, and family getaways in Delhi NCR and More.
                     </p>
                 </div>
 

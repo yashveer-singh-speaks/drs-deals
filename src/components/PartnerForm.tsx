@@ -187,7 +187,7 @@ Sent via DRS Deals Partner Onboarding Form (www.drsdeals.in)`;
                                 <label style={{ display: 'block', fontSize: '0.8rem', color: 'var(--color-stone)', marginBottom: '6px' }}>Location / City</label>
                                 <input
                                     type="text"
-                                    placeholder="e.g. Jaipur, Rajasthan"
+                                    placeholder="e.g. Delhi NCR, Gurugram, etc."
                                     value={location}
                                     onChange={(e) => setLocation(e.target.value)}
                                     aria-label="Property Location"

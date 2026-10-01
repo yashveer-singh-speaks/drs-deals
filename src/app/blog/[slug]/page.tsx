@@ -176,7 +176,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                 <div className="bg-white shadow-soft" style={{ borderRadius: '16px', padding: '48px', border: '1px solid var(--color-stone)', marginBottom: '48px' }}>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '24px', fontSize: '1.05rem', color: 'var(--color-charcoal-light)', lineHeight: 1.8 }}>
                         <p style={{ fontSize: '1.15rem', fontWeight: 500, color: 'var(--color-charcoal)' }}>
-                            Welcome to this comprehensive DRS Deals editorial guide on <strong>{post.category}</strong>. Our travel research team regularly evaluates top hospitality properties across India to help members access premier experiences with unmatched clarity and savings.
+                            Welcome to this comprehensive DRS Deals editorial guide on <strong>{post.category}</strong>. Our travel research team regularly evaluates top hospitality properties in Delhi NCR and More to help members access premier experiences with unmatched clarity and savings.
                         </p>
 
                         <h2 style={{ fontSize: '1.75rem', fontFamily: 'var(--font-serif)', color: 'var(--color-charcoal)', marginTop: '16px', marginBottom: '8px' }}>
@@ -202,7 +202,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                             How to Reserve &amp; Maximize Your Privileges
                         </h2>
                         <p>
-                            To redeem any offer mentioned in our journal, contact the official DRS Deals booking hotline at <strong>9811120892</strong> or <strong>9811360808</strong>. Our reservation concierge confirms availability directly with property desks to ensure seamless check-in and priority guest treatment.
+                            To redeem any offer mentioned in our journal, contact the official DRS Deals booking hotline at <strong>{siteConfig.contacts.hotline1}</strong> or <strong>{siteConfig.contacts.hotline2}</strong>. Our reservation concierge confirms availability directly with property desks to ensure seamless check-in and priority guest treatment.
                         </p>
                     </div>
 
@@ -214,7 +214,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
                             <div style={{ padding: '20px', background: 'var(--color-ivory)', borderRadius: '10px', border: '1px solid var(--color-stone)' }}>
                                 <strong style={{ color: 'var(--color-charcoal)', display: 'block', marginBottom: '6px' }}>How do I purchase a DRS Deals membership?</strong>
-                                <span style={{ fontSize: '0.95rem', color: 'var(--color-charcoal-light)' }}>Call our authorized booking numbers (9811120892 / 9811360808) for instant verification and physical membership card delivery.</span>
+                                <span style={{ fontSize: '0.95rem', color: 'var(--color-charcoal-light)' }}>Call our authorized booking hotlines ({siteConfig.contacts.hotline1} / {siteConfig.contacts.hotline2}) for instant verification and physical membership card delivery.</span>
                             </div>
                             <div style={{ padding: '20px', background: 'var(--color-ivory)', borderRadius: '10px', border: '1px solid var(--color-stone)' }}>
                                 <strong style={{ color: 'var(--color-charcoal)', display: 'block', marginBottom: '6px' }}>Are there blackout dates for complimentary stays?</strong>

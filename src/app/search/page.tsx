@@ -23,7 +23,7 @@ export default function SearchPage() {
                         Find Your Next Luxury Experience
                     </h1>
                     <p className="text-body-large text-charcoal-light">
-                        Explore verified hotel memberships, dining packages, water park passes, and editorial destination guides across India.
+                        Explore verified hotel memberships, dining packages, water park passes, and editorial destination guides in Delhi NCR and More.
                     </p>
                 </div>
 

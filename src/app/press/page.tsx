@@ -25,8 +25,8 @@ export default function PressPage() {
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
                         <div style={{ padding: '24px', background: 'var(--color-ivory)', borderRadius: '12px', border: '1px solid var(--color-stone)' }}>
                             <span style={{ fontSize: '0.8rem', color: 'var(--color-champagne-gold)', fontWeight: 600 }}>August 2026</span>
-                            <h3 style={{ fontSize: '1.25rem', fontFamily: 'var(--font-serif)', color: 'var(--color-charcoal)', margin: '8px 0' }}>DRS Deals Expands Curated Resort Privileges Across Rajasthan and Maharashtra</h3>
-                            <p style={{ fontSize: '0.9rem', color: 'var(--color-charcoal-light)' }}>DRS Deals announces new direct partnership agreements with 50+ luxury heritage properties.</p>
+                            <h3 style={{ fontSize: '1.25rem', fontFamily: 'var(--font-serif)', color: 'var(--color-charcoal)', margin: '8px 0' }}>DRS Deals Expands Curated Resort Privileges in Delhi NCR and More</h3>
+                            <p style={{ fontSize: '0.9rem', color: 'var(--color-charcoal-light)' }}>DRS Deals announces new direct partnership agreements with luxury heritage properties.</p>
                         </div>
                     </div>
                 </div>

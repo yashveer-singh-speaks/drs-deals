@@ -1,9 +1,10 @@
 import { NextResponse } from 'next/server';
 import fs from 'fs';
 import path from 'path';
+import { siteConfig } from '@/config/site';
 
 // Fallback message strictly required by business policy
-const STRICT_FALLBACK_MESSAGE = 'Sorry, please connect to +91 98111 20892 to get the answer to that question.';
+const STRICT_FALLBACK_MESSAGE = `Sorry, please connect to ${siteConfig.contacts.hotline1} to get the answer to that question.`;
 
 export async function POST(request: Request) {
     try {
@@ -88,31 +89,31 @@ ${contextKnowledge}
         let reply = '';
 
         if (q.includes('phone') || q.includes('call') || q.includes('contact') || q.includes('number') || q.includes('hotline')) {
-            reply = 'You can speak directly with our DRS Deals concierge team at +91 98111 20892 or +91 98113 60808. You can also reach us on WhatsApp at +91 98111 20892.';
+            reply = `You can speak directly with our DRS Deals concierge team at ${siteConfig.contacts.hotlines.map(h => h.display).join(' / ')}. You can also reach us on WhatsApp at ${siteConfig.contacts.whatsappDisplay} or email ${siteConfig.contacts.email}.`;
         } else if (q.includes('sonipat') || q.includes('murthal') || q.includes('wyndham')) {
-            reply = 'Wyndham Garden Sonipat Murthal 5-Star Hotel Membership includes 2 complimentary room nights, 10 dinner buffets, 6 swimming pool entries, tea/coffee with cookies, mocktails/beers, and 1 kg celebration cake (valid for 1 year). For bookings and exclusive rates, please connect with our concierge at +91 98111 20892.';
+            reply = `Wyndham Garden Sonipat Murthal 5-Star Hotel Membership is priced at ₹10,000 (valid 1 year) and includes 2 night stays with breakfast (2 adults + kids up to 6 yrs), 10 dinner vouchers, 6 swimming pool entries, tea/coffee with cookies, mocktails/beers, and BOGO vouchers. Please connect with our concierge at ${siteConfig.contacts.hotline1}.`;
         } else if (q.includes('sk premium') || q.includes('ghaziabad') || q.includes('mohan nagar')) {
-            reply = 'Hotel SK Premium Ghaziabad Membership is priced at ₹5,000 for 1 year (worth ₹40,000+). It includes 1 free Executive/Deluxe room stay with breakfast, ₹5,250 in F&B vouchers, 4 breakfast buffets, 1 couple dinner buffet, pool entries, and BOGO dining certificates. Please call +91 98111 20892 to reserve.';
+            reply = `Hotel SK Premium Ghaziabad Membership is priced at ₹5,000 for 1 year (worth ₹40,000+). It includes 1 room stay with breakfast (2 adults + 2 kids <=5 yrs), 4 breakfast buffets, 1 couple dinner buffet, 4 desserts, mocktails, pool entries, and BOGO dining certificates. Please call ${siteConfig.contacts.hotline1} to reserve.`;
         } else if (q.includes('kasauli') || q.includes('oren')) {
-            reply = 'Oren Kasauli Membership Card is ₹10,000 (valid 1 year) and includes 2 complimentary night stays in scenic Kasauli hills, 10 dinner buffets, refreshments, pool access, and cake. Call +91 98111 20892 to enquire.';
+            reply = `Oren Kasauli Membership Card is ₹10,000 (valid 1 year) and includes 2 night stays with breakfast (2 adults + 2 kids up to 10 yrs), ₹10,000 food and beverage cash vouchers, free pool access, 2 spa treatment vouchers, and tea/coffee. Call ${siteConfig.contacts.hotline1} to enquire.`;
         } else if (q.includes('manali') || q.includes('atma yog')) {
-            reply = 'Atma Yog Luxury Manor Manali is priced at ₹8,999 (1-year validity) and offers 3 complimentary room nights in luxury mountain suites with daily breakfast, dining discounts, and bonfire evenings. Call +91 98111 20892 for reservations.';
+            reply = `Atma Yog Luxury Manor Manali is priced at ₹9,000 (1-year validity) and offers 3 night stays with breakfast (2 adults + kids up to 6 yrs), 8 buffet lunch or dinner vouchers, and 10 tea/coffee servings. Call ${siteConfig.contacts.hotline1} for reservations.`;
         } else if (q.includes('white flower') || q.includes('mussoorie') || q.includes('corbett')) {
-            reply = 'The White Flower Resorts membership is ₹7,999 and gives dual-destination access across Mussoorie & Jim Corbett with 2 complimentary night stays and dining privileges. Call +91 98111 20892 for details.';
+            reply = `The White Flower Resorts membership is ₹7,999 and gives dual-destination access across Mussoorie & Jim Corbett with room night stays, 10 buffet vouchers, and leisure access. Call ${siteConfig.contacts.hotline1} for details.`;
         } else if (q.includes('rangmanch') || q.includes('gurgaon farm') || q.includes('sultanpur')) {
-            reply = 'Rangmanch Farms Gurgaon offers a full-day adventure outing (₹1,499/adult, ₹799/child) with 80+ activities (zipline, swimming pool, tractor rides) and unlimited multi-meal buffet. Call +91 98111 20892 to book.';
+            reply = `Rangmanch Farms Gurgaon offers a full-day adventure outing with 80+ activities (zipline, swimming pool, sky cycling) and unlimited meals. Contact DRS Deals at ${siteConfig.contacts.hotline1} for exclusive member offers.`;
         } else if (q.includes('mera gaon') || q.includes('mera desh')) {
-            reply = 'Mera Gaon Mera Desh Murthal Day Pass is priced at ₹800 (listed park rate ₹1,400) and includes unlimited village meals, 60+ cultural activities, and full water park access. Call +91 98111 20892 to book.';
+            reply = `Mera Gaon Mera Desh Murthal offers an authentic rural village experience with unlimited meals, 60+ cultural activities, and full water park access. Contact DRS Deals at ${siteConfig.contacts.hotline1} for special member passes.`;
         } else if (q.includes('madhavgarh') || q.includes('tikli')) {
-            reply = 'Madhavgarh Farms Gurgaon Day Outing Ticket is priced at ₹749 (listed rate ₹1,499) for the morning slot (9 AM to 5 PM) with unlimited rural food and 50+ activities. Advance booking required via +91 98111 20892.';
+            reply = `Madhavgarh Farms Gurgaon Day Outing offers authentic rural village food and 50+ activities for the morning slot (9 AM to 5 PM). Advance booking required via ${siteConfig.contacts.hotline1}.`;
         } else if (q.includes('mojoland')) {
-            reply = 'Mojoland Multi Theme Park Murthal Combo Pass is priced at ₹700 for ANY TWO PARKS (Water, Adventure, Amusement, or Snow Park). Call +91 98111 20892 to book.';
+            reply = `Mojoland Multi Theme Park Murthal Combo Pass is priced at ₹700 for ANY TWO PARKS (Water, Adventure, Amusement, or Snow Park). Call ${siteConfig.contacts.hotline1} to book.`;
         } else if (q.includes('how it works') || q.includes('how to book') || q.includes('how do i buy') || q.includes('payment')) {
-            reply = 'DRS Deals operates as a personalized concierge desk: 1) Explore our curated hotel memberships. 2) Call +91 98111 20892 or WhatsApp us. 3) Our concierge verifies dates and confirms your membership directly with property management. No online checkout required.';
+            reply = `DRS Deals operates as a personalized concierge desk: 1) Explore our curated hotel memberships. 2) Call ${siteConfig.contacts.hotline1} or WhatsApp ${siteConfig.contacts.whatsappDisplay}. 3) Our concierge verifies dates and coordinates your membership directly with property management.`;
         } else if (q.includes('partner') || q.includes('hotel partner') || q.includes('list property')) {
-            reply = '5-star hotels, luxury resorts, water parks, and fine dining venues can partner with DRS Deals with zero upfront listing fees. Email drsdeals.in@gmail.com or submit your property on /partners.';
+            reply = `5-star hotels, luxury resorts, water parks, and fine dining venues can partner with DRS Deals with zero upfront cost. Email ${siteConfig.contacts.email} or submit your property on /partners.`;
         } else if (q.includes('heritage') || q.includes('years') || q.includes('since') || q.includes('about')) {
-            reply = 'Since 2003, DRS Deals has a 23-Year Legacy curating India’s finest hospitality experiences across 50+ cities, serving over 2M+ happy customers with ₹1B+ savings delivered.';
+            reply = `Since 2003, DRS Deals has a 23-Year Legacy curating India’s finest hospitality experiences across Delhi NCR and More, serving over 2M+ happy customers with ₹1B+ savings delivered.`;
         } else {
             // Strict Fallback Message for any out-of-context or unverified query
             reply = STRICT_FALLBACK_MESSAGE;

@@ -100,7 +100,14 @@ Sent via DRS Deals Concierge Form (www.drsdeals.in)`;
                     <div style={{ padding: '16px', background: 'var(--color-ivory)', borderRadius: '10px', border: '1px solid var(--color-stone)', fontSize: '0.9rem', color: 'var(--color-charcoal-light)', textAlign: 'left', maxWidth: '480px', margin: '0 auto 24px auto' }}>
                         <strong>Prefer to speak with us directly?</strong>
                         <div style={{ marginTop: '6px' }}>
-                            Call our concierge hotline: <a href={`tel:${siteConfig.contacts.hotline1Raw}`} style={{ color: 'var(--color-champagne-gold)', fontWeight: 700 }}>{siteConfig.contacts.hotline1}</a> or <a href={`tel:${siteConfig.contacts.hotline2Raw}`} style={{ color: 'var(--color-champagne-gold)', fontWeight: 700 }}>{siteConfig.contacts.hotline2}</a>
+                            Call our concierge hotlines:
+                            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px 12px', marginTop: '6px' }}>
+                                {siteConfig.contacts.hotlines.map((h, i) => (
+                                    <a key={i} href={`tel:${h.raw}`} style={{ color: 'var(--color-champagne-gold)', fontWeight: 700 }}>
+                                        {h.display}
+                                    </a>
+                                ))}
+                            </div>
                         </div>
                     </div>
 

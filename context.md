@@ -1,4 +1,4 @@
-# DRS Deals — Official Authoritative Knowledge Base
+# DRS Deals  -  Official Authoritative Knowledge Base
 
 This document is the single, approved source of truth for DRS Deals (`drsdeals.in`). All AI chatbot responses, concierge recommendations, and customer answers must be strictly grounded in the facts presented here.
 
@@ -35,7 +35,7 @@ DRS Deals is **not an open discount coupon site or automated shopping cart check
    - **Primary Hotline:** +91 98111 20892
    - **Secondary Hotline:** +91 98113 60808
    - **WhatsApp Concierge:** +91 98111 20892
-   - **Official Email:** drsdeals.in@gmail.com
+   - **Official Email:** Info@drsdeals.in
 3. **Property Coordination:** The concierge team coordinates dates, room categories, and membership booklets directly with property management.
 4. **Reservation Confirmation:** The reservation or membership certificate is officially verified and confirmed for the member.
 5. **Experience:** The guest arrives at the property, presents their confirmation, and enjoys 5-star hospitality privileges with zero hidden surcharge traps.
@@ -47,14 +47,14 @@ DRS Deals is **not an open discount coupon site or automated shopping cart check
 - **Primary Booking & Concierge Hotline:** +91 98111 20892
 - **Secondary Reservation Hotline:** +91 98113 60808
 - **WhatsApp Concierge Number:** +91 98111 20892 (Available on WhatsApp for instant chat)
-- **Official Contact Email:** drsdeals.in@gmail.com
+- **Official Contact Email:** Info@drsdeals.in
 - **Operating Hours:** Concierge desk assists all days from morning to late evening.
 
 ---
 
 ## 4. All 9 Verified Properties & Deal Inclusions
 
-### 1. Wyndham Garden Sonipat Murthal — 5-Star Hotel Membership
+### 1. Wyndham Garden Sonipat Murthal  -  5-Star Hotel Membership
 - **Property:** Wyndham Garden Sonipat Murthal
 - **Location:** Sonipat Murthal, Haryana (Delhi NCR)
 - **Category:** Five Star Hotel & Resort Membership
@@ -70,7 +70,7 @@ DRS Deals is **not an open discount coupon site or automated shopping cart check
   - 1 kg complimentary celebration cake
 - **Booking:** Call +91 98111 20892 / +91 98113 60808.
 
-### 2. Hotel SK Premium Membership — Mohan Nagar, Ghaziabad
+### 2. Hotel SK Premium Membership  -  Mohan Nagar, Ghaziabad
 - **Property:** Hotel SK Premium
 - **Location:** Mohan Nagar, Ghaziabad (Delhi NCR)
 - **Category:** Luxury Hotel & Dining Membership
@@ -88,7 +88,7 @@ DRS Deals is **not an open discount coupon site or automated shopping cart check
   - 10 discount certificates of ₹1,000 off on ₹2,000 food & drinks bill
   - Buy One Get One (BOGO) free vouchers across beverages, soups, starters, main courses, desserts, and Chinese cuisine.
 
-### 3. Oren Kasauli Membership Card — Himachal Pradesh
+### 3. Oren Kasauli Membership Card  -  Himachal Pradesh
 - **Property:** Oren Kasauli
 - **Location:** Kasauli Hills, Himachal Pradesh
 - **Category:** Mountain Resort & Dining Membership
@@ -102,7 +102,7 @@ DRS Deals is **not an open discount coupon site or automated shopping cart check
   - 1 kg complimentary celebration cake
   - 4 complimentary nature walk / leisure activities
 
-### 4. Atma Yog Luxury Manor — Manali
+### 4. Atma Yog Luxury Manor  -  Manali
 - **Property:** Atma Yog Luxury Manor
 - **Location:** Manali, Himachal Pradesh
 - **Category:** Luxury Boutique Mountain Manor
@@ -113,7 +113,7 @@ DRS Deals is **not an open discount coupon site or automated shopping cart check
   - 20% off on all fine dining and room service orders
   - Complimentary bonfire evening and guided apple orchard walk
 
-### 5. The White Flower Resorts — Mussoorie & Jim Corbett
+### 5. The White Flower Resorts  -  Mussoorie & Jim Corbett
 - **Property:** The White Flower Resorts
 - **Location:** Dual destination access across Mussoorie Hills (Uttarakhand) & Jim Corbett National Park (Uttarakhand)
 - **Category:** Hill Resort & Wildlife Safari Resort
@@ -124,7 +124,7 @@ DRS Deals is **not an open discount coupon site or automated shopping cart check
   - 4 breakfast vouchers
   - 20% off on jungle safari coordination and resort dining
 
-### 6. Rangmanch Farms — Gurgaon
+### 6. Rangmanch Farms  -  Gurgaon
 - **Property:** Rangmanch Farms
 - **Location:** Sultanpur, Gurgaon, Haryana
 - **Category:** Full-Day Farmhouse Adventure & Cultural Outing
@@ -135,7 +135,7 @@ DRS Deals is **not an open discount coupon site or automated shopping cart check
   - Unlimited multi-meal food: welcome drinks, traditional breakfast buffet, lavish lunch buffet, evening snacks with tea
   - 80+ activities: zipline, bull ride, pottery, mud bath, swimming pool, archery, tractor ride, obstacle courses
 
-### 7. Mera Gaon Mera Desh — Murthal
+### 7. Mera Gaon Mera Desh  -  Murthal
 - **Property:** Mera Gaon Mera Desh
 - **Location:** Murthal, Haryana (Delhi NCR)
 - **Category:** Rural Cultural Village & Water Park Day Pass
@@ -147,7 +147,7 @@ DRS Deals is **not an open discount coupon site or automated shopping cart check
   - 60+ cultural activities and games
   - Full Water Park access with slides and pools
 
-### 8. Madhavgarh Farms — Gurgaon
+### 8. Madhavgarh Farms  -  Gurgaon
 - **Property:** Madhavgarh Farms
 - **Location:** Tikli Village, Badshahpur Road, Gurgaon, Haryana
 - **Category:** Village Theme & Cultural Farm Day Outing
@@ -159,7 +159,7 @@ DRS Deals is **not an open discount coupon site or automated shopping cart check
   - Unlimited activities: mud bath, tubewell bath, pottery, tractor rides, zipline, 50+ games
   - Note: Advance booking required; same-day walk-in not available.
 
-### 9. Mojoland Multi Theme Park — Murthal
+### 9. Mojoland Multi Theme Park  -  Murthal
 - **Property:** Mojoland Multi Theme Park
 - **Location:** Grand Trunk Road, Murthal, Sonipat, Haryana
 - **Category:** Multi-Theme Park (Water, Snow, Adventure, Amusement)
@@ -180,7 +180,7 @@ DRS Deals is **not an open discount coupon site or automated shopping cart check
   - Membership booklets and certificates carry a 7-day review period from issuance if unused.
   - Date rescheduling for confirmed resort stays is supported subject to hotel partner notice policies (typically 48 hours prior to check-in).
   - Day park passes are non-refundable on the day of the visit once entry is authorized.
-  - For refund/cancellation assistance, guests can email drsdeals.in@gmail.com or call +91 98111 20892.
+  - For refund/cancellation assistance, guests can email Info@drsdeals.in or call +91 98111 20892.
 
 ---
 
@@ -191,7 +191,7 @@ DRS Deals is **not an open discount coupon site or automated shopping cart check
   - High-spending, verified member traffic.
   - No upfront listing fees.
   - Blackout date protection to safeguard peak occupancy.
-- **How to Apply:** Submit property details on `drsdeals.in/partners` or email drsdeals.in@gmail.com.
+- **How to Apply:** Submit property details on `drsdeals.in/partners` or email Info@drsdeals.in.
 
 ---
 

@@ -77,8 +77,8 @@ export default function PartnerMarquee() {
                                 <img
                                     src={shouldShowSrc ? logo.src : TRANSPARENT_PIXEL}
                                     alt={logo.alt}
-                                    width={80}
-                                    height={80}
+                                    width={120}
+                                    height={120}
                                     className="partner-logo-img"
                                     loading="lazy"
                                     decoding="async"
@@ -93,8 +93,8 @@ export default function PartnerMarquee() {
                             <img
                                 src={logo.src}
                                 alt=""
-                                width={80}
-                                height={80}
+                                width={120}
+                                height={120}
                                 className="partner-logo-img"
                                 loading="lazy"
                                 decoding="async"

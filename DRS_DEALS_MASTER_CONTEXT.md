@@ -1,4 +1,4 @@
-# DRS DEALS — MASTER CONTEXT & KNOWLEDGE BASE
+# DRS DEALS  -  MASTER CONTEXT & KNOWLEDGE BASE
 *The Definitive, Comprehensive Source of Truth for DRS Deals (`drsdeals.in`)*
 
 ---
@@ -52,7 +52,7 @@ Founded in 2003, DRS Deals developed its reputation through direct relationship 
      - **Primary Hotline:** +91 98111 20892
      - **Secondary Hotline:** +91 98113 60808
      - **WhatsApp Concierge:** +91 98111 20892
-     - **Official Email:** drsdeals.in@gmail.com
+     - **Official Email:** Info@drsdeals.in
 3. **Step 3: Concierge Coordination & Reservation**
    - The concierge team handles direct communication with property front desks, confirming dates, room categories, table reservations, or membership certificates.
 4. **Step 4: Arrive & Enjoy**
@@ -65,8 +65,8 @@ Founded in 2003, DRS Deals developed its reputation through direct relationship 
 - **Primary Booking & Concierge Hotline:** `+91 98111 20892`
 - **Secondary Reservation Hotline:** `+91 98113 60808`
 - **WhatsApp Concierge Direct Link:** `https://wa.me/919811120892` (Display: `+91 98111 20892`)
-- **Official Contact & Concierge Email:** `drsdeals.in@gmail.com`
-- **Official Partner B2B Email:** `drsdeals.in@gmail.com`
+- **Official Contact & Concierge Email:** `Info@drsdeals.in`
+- **Official Partner B2B Email:** `Info@drsdeals.in`
 - **Operating Hours:** Concierge desk assists all days from morning to late evening.
 - **Physical Head Office Presence:** New Delhi, India.
 
@@ -78,7 +78,7 @@ Below is the complete, itemized breakdown of every active deal and membership in
 
 ---
 
-### DEAL 1: Wyndham Garden Sonipat Murthal — 5-Star Hotel Membership
+### DEAL 1: Wyndham Garden Sonipat Murthal  -  5-Star Hotel Membership
 
 - **Property Name:** Wyndham Garden Sonipat Murthal
 - **Property Classification:** Five Star Hotel & Resort
@@ -118,7 +118,7 @@ Below is the complete, itemized breakdown of every active deal and membership in
 
 ---
 
-### DEAL 2: Hotel SK Premium Membership — Mohan Nagar, Ghaziabad
+### DEAL 2: Hotel SK Premium Membership  -  Mohan Nagar, Ghaziabad
 
 - **Property Name:** Hotel SK Premium
 - **Property Classification:** Luxury Business & Leisure Hotel & Fine Dining
@@ -175,7 +175,7 @@ The membership includes **10 vouchers in each of the following 6 culinary catego
 
 ---
 
-### DEAL 3: Oren Kasauli Membership Card — Himachal Pradesh
+### DEAL 3: Oren Kasauli Membership Card  -  Himachal Pradesh
 
 - **Property Name:** Oren Kasauli
 - **Property Classification:** Luxury Hill Resort & Spa
@@ -233,7 +233,7 @@ The membership includes **10 vouchers in each of the following 6 culinary catego
 
 ---
 
-### DEAL 4: Atma Yog Luxury Manor — Manali, Himachal Pradesh
+### DEAL 4: Atma Yog Luxury Manor  -  Manali, Himachal Pradesh
 
 - **Property Name:** Atma Yog Luxury Manor
 - **Property Classification:** Luxury Boutique Mountain Manor
@@ -267,7 +267,7 @@ The membership includes **10 vouchers in each of the following 6 culinary catego
 
 ---
 
-### DEAL 5: The White Flower Resorts — Mussoorie & Jim Corbett, Uttarakhand
+### DEAL 5: The White Flower Resorts  -  Mussoorie & Jim Corbett, Uttarakhand
 
 - **Property Name:** The White Flower Resorts
 - **Property Classification:** Multi-Destination Hill Resort & Wildlife Safari Resort
@@ -320,7 +320,7 @@ The membership includes **10 vouchers in each of the following 6 culinary catego
 
 ---
 
-### DEAL 6: Rangmanch Farms — Sultanpur, Gurgaon
+### DEAL 6: Rangmanch Farms  -  Sultanpur, Gurgaon
 
 - **Property Name:** Rangmanch Farms
 - **Property Classification:** Full-Day Farmhouse Adventure & Cultural Outing
@@ -351,7 +351,7 @@ The membership includes **10 vouchers in each of the following 6 culinary catego
 
 ---
 
-### DEAL 7: Mera Gaon Mera Desh — Murthal, Haryana
+### DEAL 7: Mera Gaon Mera Desh  -  Murthal, Haryana
 
 - **Property Name:** Mera Gaon Mera Desh
 - **Property Classification:** Rural Cultural Village & Water Park Day Destination
@@ -380,7 +380,7 @@ The membership includes **10 vouchers in each of the following 6 culinary catego
 
 ---
 
-### DEAL 8: Madhavgarh Farms — Tikli Village, Gurgaon
+### DEAL 8: Madhavgarh Farms  -  Tikli Village, Gurgaon
 
 - **Property Name:** Madhavgarh Farms
 - **Property Classification:** Village Theme & Cultural Farm Day Outing
@@ -413,7 +413,7 @@ The membership includes **10 vouchers in each of the following 6 culinary catego
 
 ---
 
-### DEAL 9: Mojoland Multi Theme Park — Murthal, Sonipat
+### DEAL 9: Mojoland Multi Theme Park  -  Murthal, Sonipat
 
 - **Property Name:** Mojoland Multi Theme Park
 - **Property Classification:** Integrated Multi-Theme & Adventure Park
@@ -528,7 +528,7 @@ DRS Deals is an established customer acquisition engine for hotels, resorts, and
 - **Brand Protection:** Controlled membership allocation, custom blackout date protection during peak 100% occupancy dates, and elegant editorial presentation.
 - **High-Spending Footfall:** Members frequently spend on premium add-ons, room upgrades, spa treatments, and extra dining beyond included vouchers.
 - **Concierge Coordination:** DRS Deals concierge acts as an intermediary, sending organized, verified bookings directly to hotel front desks.
-- **Application Portal:** Properties can apply online at `drsdeals.in/partners` or email `drsdeals.in@gmail.com`.
+- **Application Portal:** Properties can apply online at `drsdeals.in/partners` or email `Info@drsdeals.in`.
 
 ---
 

@@ -2,7 +2,8 @@ import PartnerMarquee from '@/components/PartnerMarquee';
 import React from 'react';
 import Link from 'next/link';
 import type { Metadata } from 'next';
-import SavingsCalculator from '@/components/SavingsCalculator';
+import ReelsShowcase from '@/components/ReelsShowcase';
+import ReviewsMarquee from '@/components/ReviewsMarquee';
 import NewsletterForm from '@/components/NewsletterForm';
 import CubeSteps from '@/components/CubeSteps';
 import HoneycombFeatures from '@/components/HoneycombFeatures';
@@ -10,8 +11,8 @@ import ShowcaseIframe from '@/components/ShowcaseIframe';
 import { siteConfig } from '@/config/site';
 
 export const metadata: Metadata = {
-    title: 'DRS Deals | Premium Leisure, Dining & Resort Experiences across India',
-    description: 'Since 2003, DRS Deals has curated India’s finest luxury resorts, fine dining, spa retreats, and water park passes across 50+ cities at exclusive member rates.',
+    title: 'DRS Deals | Premium Leisure, Dining & Resort Experiences in Delhi NCR and More',
+    description: 'Since 2003, DRS Deals has curated luxury resorts, fine dining, spa retreats, and water park passes in Delhi NCR and More at exclusive member rates.',
     alternates: {
         canonical: 'https://www.drsdeals.in/',
     },
@@ -35,7 +36,7 @@ export default function Home() {
                             <span className="text-gold">For Less.</span>
                         </h1>
                         <p className="hero-desc text-body-large">
-                            Connecting 2M+ guests with 1,000+ luxury resorts, fine dining, spa retreats &amp; leisure destinations across India.
+                            Connecting 2M+ guests with 1,000+ luxury resorts, fine dining, spa retreats &amp; leisure destinations in Delhi NCR and More.
                         </p>
                         <div className="hero-actions">
                             <Link href="/deals" className="btn btn-primary">
@@ -85,7 +86,7 @@ export default function Home() {
                                 fine dining, <br />
                                 spa retreats &amp; <br />
                                 leisure destinations <br />
-                                across India.<br />
+                                in Delhi NCR and More.<br />
                             </p>
                             <div className="hero-actions">
                                 <Link href="/deals" className="btn btn-primary">
@@ -123,7 +124,7 @@ export default function Home() {
                                     </div>
                                     <div>
                                         <div className="mobile-trust-title">WIDE DESTINATIONS</div>
-                                        <div className="mobile-trust-sub">Top verified spots across 50+ Indian cities</div>
+                                        <div className="mobile-trust-sub">Top verified spots in Delhi NCR and More</div>
                                     </div>
                                 </div>
                                 <div className="mobile-trust-arrow">&rsaquo;</div>
@@ -176,7 +177,7 @@ export default function Home() {
                                     </div>
                                     <div>
                                         <div className="mobile-trust-title">WIDE DESTINATIONS</div>
-                                        <div className="mobile-trust-sub">Top verified spots across 50+ Indian cities</div>
+                                        <div className="mobile-trust-sub">Top verified spots in Delhi NCR and More</div>
                                     </div>
                                 </div>
                                 <div className="mobile-trust-arrow">&rsaquo;</div>
@@ -247,8 +248,8 @@ export default function Home() {
                                 <h3 className="deal-title">Wyndham Garden Hotel Membership</h3>
                                 <div className="deal-partner">Wyndham Garden</div>
                                 <div className="deal-price-row">
-                                    <div className="price-original">Value ₹45k</div>
-                                    <div className="price-deal">Exclusive Rates</div>
+                                    <div className="price-original">₹50,000</div>
+                                    <div className="price-deal">₹10,000</div>
                                 </div>
                                 <Link href="/deals/wyndham-garden-sonipat-murthal" aria-label="Enquire Details for Wyndham Garden Hotel Membership" className="btn btn-outline" style={{ width: '100%', marginTop: '16px' }}>Enquire Details</Link>
                             </div>
@@ -329,7 +330,7 @@ export default function Home() {
                                 <div className="deal-partner">Atma Yog Manor</div>
                                 <div className="deal-price-row">
                                     <div className="price-original">₹50,000</div>
-                                    <div className="price-deal">₹8,999</div>
+                                    <div className="price-deal">₹9,000</div>
                                 </div>
                                 <Link href="/deals/atmayog-luxury-manor-manali" aria-label="Enquire Details for Atma Yog Luxury Manor" className="btn btn-outline" style={{ width: '100%', marginTop: '16px' }}>Enquire Details</Link>
                             </div>
@@ -382,8 +383,8 @@ export default function Home() {
                                 <h3 className="deal-title">Rangmanch Farms Day Outing</h3>
                                 <div className="deal-partner">Rangmanch Farms</div>
                                 <div className="deal-price-row">
-                                    <div className="price-original">₹1,500</div>
-                                    <div className="price-deal">&lt; ₹1,500</div>
+                                    <div className="price-original">Park Rate: ₹1,499</div>
+                                    <div className="price-deal">Contact for offers</div>
                                 </div>
                                 <Link href="/deals/rangmanch-farms-gurgaon" aria-label="Enquire Details for Rangmanch Farms Day Outing" className="btn btn-outline" style={{ width: '100%', marginTop: '16px' }}>Enquire Details</Link>
                             </div>
@@ -415,10 +416,10 @@ export default function Home() {
                             <div className="hero-eyebrow" style={{ marginBottom: '12px' }}>OUR 23-YEAR HERITAGE</div>
                             <h2 className="section-title" style={{ marginBottom: '24px' }}>Why DRS Deals Exists</h2>
                             <p className="text-body-large" style={{ marginBottom: '24px' }}>
-                                Founded in 2003, DRS Deals has spent over two decades pioneering premium hospitality memberships across India, connecting more than 2 million happy guests with 1,000+ luxury partner venues.
+                                Founded in 2003, DRS Deals has spent over two decades pioneering premium hospitality memberships in Delhi NCR and More, connecting more than 2 million happy guests with 1,000+ luxury partner venues.
                             </p>
                             <p className="text-body-small text-charcoal-light" style={{ marginBottom: '32px', lineHeight: 1.7 }}>
-                                We negotiate directly with 5-star hotels, luxury resorts, gourmet restaurants, and entertainment destinations across 50+ cities, securing exclusive privileges while delivering over ₹1 Billion in savings to our discerning members.
+                                We negotiate directly with 5-star hotels, luxury resorts, gourmet restaurants, and entertainment destinations in Delhi NCR and More, securing exclusive privileges while delivering over ₹1 Billion in savings to our discerning members.
                             </p>
                             <Link href="/about" className="btn btn-outline">Read Our 23-Year Story</Link>
                         </div>
@@ -517,56 +518,11 @@ export default function Home() {
                             </div>
                         </Link>
                     </div>
-
-                    <div className="section-header" style={{ marginTop: '64px' }}>
-                        <h2 className="section-title">Serving 50+ Cities Across India</h2>
-                        <Link href="/destinations" className="link-arrow">View All Locations <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></Link>
-                    </div>
-                    
-                    <div className="cities-grid">
-                        <Link href="/destinations/delhi" className="city-card">
-                            <img 
-                                src="/images/webp/Cities We Serve Section (Delhi NCR Tile).webp" 
-                                alt="Delhi NCR" 
-                                width={260} 
-                                height={180} 
-                                loading="lazy" 
-                            />
-                            <div className="city-name">Delhi NCR</div>
-                        </Link>
-                        <Link href="/destinations/jaipur" className="city-card">
-                            <img 
-                                src="/images/webp/Cities We Serve Section (Jaipur Tile).webp" 
-                                alt="Jaipur" 
-                                width={260} 
-                                height={180} 
-                                loading="lazy" 
-                            />
-                            <div className="city-name">Jaipur</div>
-                        </Link>
-                        <Link href="/destinations/mumbai" className="city-card">
-                            <img 
-                                src="/images/webp/Cities We Serve Section (Punjab Tile).webp" 
-                                alt="Mumbai" 
-                                width={260} 
-                                height={180} 
-                                loading="lazy" 
-                            />
-                            <div className="city-name">Mumbai</div>
-                        </Link>
-                        <Link href="/destinations" className="city-card">
-                            <img 
-                                src="/images/webp/Cities We Serve Section (Ahmedabad Tile).webp" 
-                                alt="All Locations" 
-                                width={260} 
-                                height={180} 
-                                loading="lazy" 
-                            />
-                            <div className="city-name">All 50+ Locations</div>
-                        </Link>
-                    </div>
                 </div>
             </section>
+
+            {/* DRS DEALS INSTAGRAM REELS & LIVE MOMENTS */}
+            <ReelsShowcase />
 
             {/* POPULAR SEARCHES & FEATURED COLLECTIONS */}
             <section className="section-padding bg-white">
@@ -634,8 +590,8 @@ export default function Home() {
                 </div>
             </section>
 
-            {/* SAVINGS CALCULATOR */}
-            <SavingsCalculator />
+            {/* CUSTOMER & HOTELIER VERIFIED REVIEWS MARQUEE */}
+            <ReviewsMarquee />
 
             {/* SECTION 10A: WHAT DRS DEALS DOES FOR HOSPITALITY BRANDS */}
             <section className="section-padding bg-white border-top">
@@ -653,17 +609,14 @@ export default function Home() {
                             </p>
                         </div>
                         <div className="story-visual">
-                            <picture>
-                                <source srcSet="/images/b2b/b2b_hospitality_showcase.webp" type="image/webp" />
-                                <img 
-                                    src="/images/b2b/b2b_hospitality_showcase.jpg" 
-                                    alt="Luxury hotel resort exterior" 
-                                    className="rounded-lg shadow-soft" 
-                                    width={560} 
-                                    height={350} 
-                                    loading="lazy" 
-                                />
-                            </picture>
+                            <img 
+                                src="/images/b2b/b2b_hospitality_showcase.webp" 
+                                alt="Luxury hotel resort exterior" 
+                                className="rounded-lg shadow-soft" 
+                                width={560} 
+                                height={350} 
+                                loading="lazy" 
+                            />
                         </div>
                     </div>
 
@@ -721,7 +674,7 @@ export default function Home() {
                                 Join 1,000+ Leading Hotels, Resorts &amp; Dining Brands
                             </h2>
                             <p className="text-body-large text-charcoal-light" style={{ marginBottom: '24px', lineHeight: 1.7 }}>
-                                We design customized sales programs that drive direct footfall, cross-department revenue, and long-term customer relationships for luxury hospitality properties across India.
+                                We design customized sales programs that drive direct footfall, cross-department revenue, and long-term customer relationships for luxury hospitality properties in Delhi NCR and More.
                             </p>
                             <Link href="/partners" className="btn btn-primary">Discuss a Partnership Program</Link>
                         </div>
@@ -895,9 +848,9 @@ export default function Home() {
                             <div className="stat-desc">Massive organic digital footprint.</div>
                         </div>
                         <div className="stat-card">
-                            <div className="stat-number">50+</div>
-                            <div className="stat-label">Cities Covered</div>
-                            <div className="stat-desc">Extensive presence across India.</div>
+                            <div className="stat-number">Top Hubs</div>
+                            <div className="stat-label">Key Destinations</div>
+                            <div className="stat-desc">Delhi NCR and More.</div>
                         </div>
                         <div className="stat-card">
                             <div className="stat-number">₹1B+</div>
@@ -922,9 +875,9 @@ export default function Home() {
                             <div className="stat-desc">Massive organic digital footprint.</div>
                         </div>
                         <div className="stat-card" aria-hidden="true">
-                            <div className="stat-number">50+</div>
-                            <div className="stat-label">Cities Covered</div>
-                            <div className="stat-desc">Extensive presence across India.</div>
+                            <div className="stat-number">Top Hubs</div>
+                            <div className="stat-label">Key Destinations</div>
+                            <div className="stat-desc">Delhi NCR and More.</div>
                         </div>
                         <div className="stat-card" aria-hidden="true">
                             <div className="stat-number">₹1B+</div>

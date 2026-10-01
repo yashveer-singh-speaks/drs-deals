@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { getDealBySlug, getAllDeals, Deal } from '@/data/deals';
 import { siteConfig } from '@/config/site';
+import RotatingDealGallery from '@/components/RotatingDealGallery';
 
 interface Props {
     params: Promise<{ slug: string }>;
@@ -144,47 +145,15 @@ export default async function DealDetailPage({ params }: Props) {
 
                 {/* Deal Hero Section */}
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '48px', alignItems: 'flex-start', marginBottom: '64px' }}>
-                    {/* Left: Visual Gallery */}
+                    {/* Left: Visual Rotating Gallery */}
                     <div>
-                        {deal.featuredImage ? (
-                            <img
-                                src={deal.featuredImage}
-                                alt={deal.title}
-                                style={{
-                                    width: '100%',
-                                    height: '380px',
-                                    objectFit: 'cover',
-                                    borderRadius: '16px',
-                                    border: '1px solid var(--color-stone)',
-                                    marginBottom: '16px',
-                                    boxShadow: '0 8px 24px rgba(0, 0, 0, 0.08)',
-                                }}
-                            />
-                        ) : (
-                            <div className="skeleton-box" style={{ width: '100%', height: '380px', borderRadius: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1rem', color: 'var(--color-charcoal-light)', border: '1px solid var(--color-stone)', marginBottom: '16px', background: 'var(--color-stone-light)' }}>
-                                📷 {deal.propertyName}: Featured Image
-                            </div>
-                        )}
-
-                        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '12px' }}>
-                            {deal.galleryImages && deal.galleryImages.length > 0 ? (
-                                deal.galleryImages.slice(0, 4).map((imgUrl, i) => (
-                                    <div key={i} style={{ height: '80px', borderRadius: '8px', overflow: 'hidden', border: '1px solid var(--color-stone)' }}>
-                                        <img
-                                            src={imgUrl}
-                                            alt={`${deal.propertyName} Gallery ${i + 1}`}
-                                            style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                                        />
-                                    </div>
-                                ))
-                            ) : (
-                                Array.from({ length: deal.imageSkeletonCount || 4 }).slice(0, 4).map((_, i) => (
-                                    <div key={i} className="skeleton-box" style={{ height: '80px', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.75rem', color: 'var(--color-charcoal-light)', border: '1px solid var(--color-stone)' }}>
-                                        Gallery {i + 1}
-                                    </div>
-                                ))
-                            )}
-                        </div>
+                        <RotatingDealGallery
+                            featuredImage={deal.featuredImage}
+                            galleryImages={deal.galleryImages}
+                            propertyName={deal.propertyName}
+                            dealTitle={deal.title}
+                            imageSkeletonCount={deal.imageSkeletonCount}
+                        />
                     </div>
 
                     {/* Right: Key Details Card */}

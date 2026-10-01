@@ -11,7 +11,7 @@ export default function WhatsAppConcierge() {
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Chat with DRS Deals Concierge on WhatsApp at +91 98111 20892"
+            aria-label={`Chat with DRS Deals Concierge on WhatsApp at ${siteConfig.contacts.whatsappDisplay}`}
             className="whatsapp-concierge-btn"
             style={{
                 width: '52px',

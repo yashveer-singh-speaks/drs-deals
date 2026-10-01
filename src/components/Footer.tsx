@@ -27,14 +27,18 @@ export default function Footer() {
                                 <strong>Headquarters:</strong><br />
                                 {siteConfig.contacts.address}
                             </div>
-                            <div style={{ marginBottom: '4px' }}>
-                                Concierge: <a href={`tel:${siteConfig.contacts.hotline1Raw}`} style={{ color: '#D4A857', textDecoration: 'none', fontWeight: 600 }}>{siteConfig.contacts.hotline1}</a> | <a href={`tel:${siteConfig.contacts.hotline2Raw}`} style={{ color: '#D4A857', textDecoration: 'none', fontWeight: 600 }}>{siteConfig.contacts.hotline2}</a>
-                            </div>
-                            <div style={{ marginBottom: '4px' }}>
-                                Corporate: {siteConfig.contacts.hotline3} / 77 / 99
+                            <div style={{ marginBottom: '8px' }}>
+                                <strong style={{ color: '#D4A857' }}>Hotline Numbers:</strong><br />
+                                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px 10px', marginTop: '4px' }}>
+                                    {siteConfig.contacts.hotlines.map((h, i) => (
+                                        <a key={i} href={`tel:${h.raw}`} style={{ color: '#D4A857', textDecoration: 'none', fontWeight: 600 }}>
+                                            {h.display}
+                                        </a>
+                                    ))}
+                                </div>
                             </div>
                             <div>
-                                Email: <a href={`mailto:${siteConfig.contacts.conciergeEmail}`} style={{ color: 'rgba(255,255,255,0.85)', textDecoration: 'none' }}>{siteConfig.contacts.conciergeEmail}</a>
+                                Email: <a href={`mailto:${siteConfig.contacts.email}`} style={{ color: 'rgba(255,255,255,0.85)', textDecoration: 'none', fontWeight: 600 }}>{siteConfig.contacts.email}</a>
                             </div>
                         </div>
 
