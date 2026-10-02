@@ -85,16 +85,16 @@ function calculateResponsiveConfig(width: number, height: number) {
         const visibleWidth = visibleHeight * (width / height);
         const halfW = visibleWidth / 2;
 
-        // Physical X-radius pushes outer logos to 92%-95% screen width with 14px safe margin
+        // Physical X-radius pushes outer logos to 92%-95% screen width
         radiusX = halfW * 0.88;
-        radiusY = 96; // Controlled height, zero vertical clipping
-        radiusZ = 82; // Depth span
+        radiusY = 110; // Controlled height, zero vertical clipping
+        radiusZ = 95;  // Depth span
 
-        // Refined, smaller badge sizes to maximize negative space
-        baseLogoSize = 32;       // Down from 54px: creates generous breathing space
-        centerHeroSize = 70;     // Dominant hero anchor (more than 2x base logo)
-        r_exclusion = 58;        // Generous empty moat around DRS core
-        r_influence = 88;        // Gentle deflection transition
+        // Bold, clearly visible logo sizes
+        baseLogoSize = 44;       // Clearly visible from distance (swells to ~85px when colored)
+        centerHeroSize = 88;     // Dominant hero anchor
+        r_exclusion = 68;        // Clean moat around DRS core
+        r_influence = 100;       // Smooth deflection transition
     } else if (isTablet) {
         cameraFov = 40;
         cameraZ = 800;
@@ -103,13 +103,13 @@ function calculateResponsiveConfig(width: number, height: number) {
         const halfW = visibleWidth / 2;
 
         radiusX = halfW * 0.82;
-        radiusY = 160;
-        radiusZ = 135;
+        radiusY = 165;
+        radiusZ = 140;
 
-        baseLogoSize = 46;
-        centerHeroSize = 88;
-        r_exclusion = 72;
-        r_influence = 110;
+        baseLogoSize = 54;       // Swells to ~100px when colored
+        centerHeroSize = 108;
+        r_exclusion = 84;
+        r_influence = 125;
     } else if (isLaptop) {
         cameraFov = 40;
         cameraZ = 850;
@@ -118,13 +118,13 @@ function calculateResponsiveConfig(width: number, height: number) {
         const halfW = visibleWidth / 2;
 
         radiusX = halfW * 0.78;
-        radiusY = 185;
-        radiusZ = 155;
+        radiusY = 195;
+        radiusZ = 165;
 
-        baseLogoSize = 52;
-        centerHeroSize = 98;
-        r_exclusion = 80;
-        r_influence = 122;
+        baseLogoSize = 64;       // Swells to ~118px when colored
+        centerHeroSize = 124;
+        r_exclusion = 96;
+        r_influence = 142;
     } else {
         // Large Desktop
         cameraFov = 40;
@@ -133,14 +133,14 @@ function calculateResponsiveConfig(width: number, height: number) {
         const visibleWidth = visibleHeight * (width / height);
         const halfW = visibleWidth / 2;
 
-        radiusX = Math.min(halfW * 0.74, 640);
-        radiusY = 200;
-        radiusZ = 170;
+        radiusX = Math.min(halfW * 0.74, 660);
+        radiusY = 210;
+        radiusZ = 180;
 
-        baseLogoSize = 56;
-        centerHeroSize = 104;
-        r_exclusion = 85;
-        r_influence = 130;
+        baseLogoSize = 70;       // Swells to ~130px when colored
+        centerHeroSize = 136;
+        r_exclusion = 105;
+        r_influence = 155;
     }
 
     return {
@@ -606,21 +606,20 @@ export default function PartnerLogoSphere() {
                 mat.uniforms.grayscaleAmount.value = THREE.MathUtils.lerp(mat.uniforms.grayscaleAmount.value, 1.0 - highlightFactor, 0.12);
                 mat.uniforms.opacity.value = THREE.MathUtils.lerp(mat.uniforms.opacity.value, targetOpacity, 0.12);
 
-                // 6. Smooth Animated Scale Growth for the 2 Closest Logos:
-                // - Prominent growth bonus (+58% on mobile, +48% on desktop)
-                // - Rear logos scale down dramatically (to ~40% on mobile, ~13-15px)
-                const highlightScaleBonus = isMobile ? 1.58 : 1.48;
+                // 6. Smooth Animated Scale Growth for the Closest Colored Logos:
+                // - High-impact growth bonus (+92% on mobile, +85% on desktop) so they are bold and visible from a big distance
+                const highlightScaleBonus = isMobile ? 1.92 : 1.85;
                 const finalScale = baseLogoSize * (1.0 + highlightFactor * (highlightScaleBonus - 1.0));
                 
-                const minScale = isMobile ? 0.40 : 0.48;
-                const depthScale = Math.max(minScale, (isMobile ? 0.28 : 0.35) + normalZ * (isMobile ? 0.72 : 0.65));
+                const minScale = isMobile ? 0.42 : 0.48;
+                const depthScale = Math.max(minScale, (isMobile ? 0.32 : 0.38) + normalZ * (isMobile ? 0.68 : 0.62));
                 const targetScale = finalScale * (hoveredLogo === mesh ? 1.06 : depthScale);
 
                 // Smoothly animate scale with continuous interpolation (never sudden)
                 if (mesh.userData.currentScale === undefined) {
                     mesh.userData.currentScale = targetScale;
                 }
-                mesh.userData.currentScale = THREE.MathUtils.lerp(mesh.userData.currentScale, targetScale, 0.10);
+                mesh.userData.currentScale = THREE.MathUtils.lerp(mesh.userData.currentScale, targetScale, 0.09);
                 mesh.scale.setScalar(mesh.userData.currentScale);
             });
 
