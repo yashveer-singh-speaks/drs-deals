@@ -567,26 +567,23 @@ export default function PartnerLogoSphere() {
                 const worldPos = new THREE.Vector3();
                 mesh.getWorldPosition(worldPos);
 
-                // 4. Highlight zone activation (STRICT FOCAL SWEET SPOT: ONLY ~2-4 LOGOS MAX):
+                // 4. Highlight zone activation (FOCUSED ON THE 2 CLOSEST LOGOS: 1 ABOVE, 1 BELOW):
                 const frontDepth = Math.max(0, worldPos.z / radiusZ);
-                const smoothZ = THREE.MathUtils.smoothstep(frontDepth, 0.45, 0.95);
+                const smoothZ = THREE.MathUtils.smoothstep(frontDepth, 0.40, 0.95);
 
                 const activeDistXY = Math.hypot(worldPos.x, worldPos.y);
                 const ringDist = Math.abs(activeDistXY - orbitSweetSpot);
                 const ringProximity = Math.max(0, 1.0 - (ringDist / ringWindow));
-                const smoothRing = THREE.MathUtils.smoothstep(ringProximity, 0.20, 1.0);
+                const smoothRing = THREE.MathUtils.smoothstep(ringProximity, 0.10, 1.0);
 
-                // Constrain horizontally so only logos directly above/below the center core light up
-                const xProximity = Math.max(0, 1.0 - Math.abs(worldPos.x) / (radiusX * 0.32));
-                const smoothX = THREE.MathUtils.smoothstep(xProximity, 0.15, 0.90);
+                // Tight horizontal window directly above/below the DRS Deals core
+                const xWindow = radiusX * 0.28;
+                const xDist = Math.abs(worldPos.x);
+                const xProximity = THREE.MathUtils.smoothstep(1.0 - Math.min(xDist / xWindow, 1.0), 0.0, 1.0);
 
-                let rawHighlight = smoothRing * smoothZ * smoothX;
-                // Steep exponential curve guarantees only 2 to 4 logos peak into color simultaneously
-                let highlightFactor = Math.pow(rawHighlight, 2.2);
-
-                if (highlightFactor < 0.12) {
-                    highlightFactor = 0.0;
-                }
+                // Smooth continuous highlight curve
+                const rawHighlight = smoothRing * smoothZ * xProximity;
+                let highlightFactor = THREE.MathUtils.smoothstep(rawHighlight, 0.12, 0.85);
 
                 if (hoveredLogo === mesh) {
                     highlightFactor = 1.0;
@@ -605,20 +602,26 @@ export default function PartnerLogoSphere() {
                 // Smoothly lerp shader uniforms
                 const mat = mesh.material as THREE.ShaderMaterial;
                 mat.uniforms.normalZ.value = normalZ;
-                mat.uniforms.isHero.value = THREE.MathUtils.lerp(mat.uniforms.isHero.value, highlightFactor, 0.14);
-                mat.uniforms.grayscaleAmount.value = THREE.MathUtils.lerp(mat.uniforms.grayscaleAmount.value, 1.0 - highlightFactor, 0.14);
-                mat.uniforms.opacity.value = THREE.MathUtils.lerp(mat.uniforms.opacity.value, targetOpacity, 0.14);
+                mat.uniforms.isHero.value = THREE.MathUtils.lerp(mat.uniforms.isHero.value, highlightFactor, 0.12);
+                mat.uniforms.grayscaleAmount.value = THREE.MathUtils.lerp(mat.uniforms.grayscaleAmount.value, 1.0 - highlightFactor, 0.12);
+                mat.uniforms.opacity.value = THREE.MathUtils.lerp(mat.uniforms.opacity.value, targetOpacity, 0.12);
 
-                // 6. Scale & Strict Hierarchy:
-                // - Highlighted partner logos get an elegant boost (+25%)
+                // 6. Smooth Animated Scale Growth for the 2 Closest Logos:
+                // - Prominent growth bonus (+58% on mobile, +48% on desktop)
                 // - Rear logos scale down dramatically (to ~40% on mobile, ~13-15px)
-                const highlightScaleBonus = 1.25;
+                const highlightScaleBonus = isMobile ? 1.58 : 1.48;
                 const finalScale = baseLogoSize * (1.0 + highlightFactor * (highlightScaleBonus - 1.0));
                 
                 const minScale = isMobile ? 0.40 : 0.48;
                 const depthScale = Math.max(minScale, (isMobile ? 0.28 : 0.35) + normalZ * (isMobile ? 0.72 : 0.65));
-                
-                mesh.scale.setScalar(finalScale * (hoveredLogo === mesh ? 1.06 : depthScale));
+                const targetScale = finalScale * (hoveredLogo === mesh ? 1.06 : depthScale);
+
+                // Smoothly animate scale with continuous interpolation (never sudden)
+                if (mesh.userData.currentScale === undefined) {
+                    mesh.userData.currentScale = targetScale;
+                }
+                mesh.userData.currentScale = THREE.MathUtils.lerp(mesh.userData.currentScale, targetScale, 0.10);
+                mesh.scale.setScalar(mesh.userData.currentScale);
             });
 
             renderer.render(scene, camera);
