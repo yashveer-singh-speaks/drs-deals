@@ -232,7 +232,7 @@ export default function Home() {
                         <div className="deal-card">
                             <div className="deal-img-wrapper">
                                 <img 
-                                    src="/images/webp/Featured Experiences Section (Card 1).webp" 
+                                    src="/images/hotels/wyndham.webp" 
                                     alt="Wyndham Garden Sonipat Murthal Five Star Membership" 
                                     width={380} 
                                     height={240} 
@@ -259,7 +259,7 @@ export default function Home() {
                         <div className="deal-card">
                             <div className="deal-img-wrapper">
                                 <img 
-                                    src="/images/webp/Featured Experiences Section (Card 2).webp" 
+                                    src="/images/hotels/sk-premium.webp" 
                                     alt="Hotel SK Premium Membership Ghaziabad" 
                                     width={380} 
                                     height={240} 
@@ -286,7 +286,7 @@ export default function Home() {
                         <div className="deal-card">
                             <div className="deal-img-wrapper">
                                 <img 
-                                    src="/images/webp/Featured Experiences Section (Card 3).webp" 
+                                    src="/images/hotels/oren.webp" 
                                     alt="Oren Kasauli Membership Card" 
                                     width={380} 
                                     height={240} 
@@ -313,7 +313,7 @@ export default function Home() {
                         <div className="deal-card">
                             <div className="deal-img-wrapper">
                                 <img 
-                                    src="/images/webp/Featured Experiences Section (Card 4).webp" 
+                                    src="/images/hotels/atma-yog.webp" 
                                     alt="Atma Yog Luxury Manor Manali" 
                                     width={380} 
                                     height={240} 
@@ -340,7 +340,7 @@ export default function Home() {
                         <div className="deal-card">
                             <div className="deal-img-wrapper">
                                 <img 
-                                    src="/images/webp/Featured Experiences Section (Card 5).webp" 
+                                    src="/images/hotels/white-flower.webp" 
                                     alt="The White Flower Resorts Mussoorie & Corbett" 
                                     width={380} 
                                     height={240} 
@@ -367,7 +367,7 @@ export default function Home() {
                         <div className="deal-card">
                             <div className="deal-img-wrapper">
                                 <img 
-                                    src="/images/webp/Featured Experiences Section (Card 6).webp" 
+                                    src="/images/hotels/rangmanch.webp" 
                                     alt="Rangmanch Farms Day Outing" 
                                     width={380} 
                                     height={240} 
@@ -451,7 +451,7 @@ export default function Home() {
                     <div className="text-eyebrow" style={{ marginBottom: '24px', textAlign: 'center' }}>Featured Destination Spotlight</div>
                     <div className="spotlight-card rounded-lg shadow-soft">
                         <img 
-                            src="/images/webp/Featured Experiences Section (Card 1).webp" 
+                            src="/images/hotels/wyndham.webp" 
                             alt="Wyndham Garden Sonipat Murthal" 
                             className="spotlight-img" 
                             width={1140} 
