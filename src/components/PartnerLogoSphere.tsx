@@ -87,14 +87,14 @@ function calculateResponsiveConfig(width: number, height: number) {
 
         // Physical X-radius pushes outer logos to 92%-95% screen width
         radiusX = halfW * 0.88;
-        radiusY = 110; // Controlled height, zero vertical clipping
-        radiusZ = 95;  // Depth span
+        radiusY = 115; // Roomy height for large expanding logos
+        radiusZ = 100; // Depth span
 
-        // Bold, clearly visible logo sizes
-        baseLogoSize = 44;       // Clearly visible from distance (swells to ~85px when colored)
-        centerHeroSize = 88;     // Dominant hero anchor
-        r_exclusion = 68;        // Clean moat around DRS core
-        r_influence = 100;       // Smooth deflection transition
+        // Bold, prominent logo sizes
+        baseLogoSize = 46;       // Clearly visible from distance (swells to ~104px when colored)
+        centerHeroSize = 106;    // Grand, dominant DRS Deals hero anchor
+        r_exclusion = 78;        // Clean moat around DRS core
+        r_influence = 114;       // Smooth deflection transition
     } else if (isTablet) {
         cameraFov = 40;
         cameraZ = 800;
@@ -103,13 +103,13 @@ function calculateResponsiveConfig(width: number, height: number) {
         const halfW = visibleWidth / 2;
 
         radiusX = halfW * 0.82;
-        radiusY = 165;
-        radiusZ = 140;
+        radiusY = 170;
+        radiusZ = 145;
 
-        baseLogoSize = 54;       // Swells to ~100px when colored
-        centerHeroSize = 108;
-        r_exclusion = 84;
-        r_influence = 125;
+        baseLogoSize = 56;       // Swells to ~124px when colored
+        centerHeroSize = 126;
+        r_exclusion = 94;
+        r_influence = 138;
     } else if (isLaptop) {
         cameraFov = 40;
         cameraZ = 850;
@@ -118,13 +118,13 @@ function calculateResponsiveConfig(width: number, height: number) {
         const halfW = visibleWidth / 2;
 
         radiusX = halfW * 0.78;
-        radiusY = 195;
-        radiusZ = 165;
+        radiusY = 200;
+        radiusZ = 170;
 
-        baseLogoSize = 64;       // Swells to ~118px when colored
-        centerHeroSize = 124;
-        r_exclusion = 96;
-        r_influence = 142;
+        baseLogoSize = 64;       // Swells to ~138px when colored
+        centerHeroSize = 142;
+        r_exclusion = 108;
+        r_influence = 158;
     } else {
         // Large Desktop
         cameraFov = 40;
@@ -134,13 +134,13 @@ function calculateResponsiveConfig(width: number, height: number) {
         const halfW = visibleWidth / 2;
 
         radiusX = Math.min(halfW * 0.74, 660);
-        radiusY = 210;
-        radiusZ = 180;
+        radiusY = 215;
+        radiusZ = 185;
 
-        baseLogoSize = 70;       // Swells to ~130px when colored
-        centerHeroSize = 136;
-        r_exclusion = 105;
-        r_influence = 155;
+        baseLogoSize = 70;       // Swells to ~150px when colored
+        centerHeroSize = 156;
+        r_exclusion = 118;
+        r_influence = 172;
     }
 
     return {
@@ -379,7 +379,7 @@ export default function PartnerLogoSphere() {
         let dragOffsetPitch = 0;
         let dragOffsetYaw = 0;
 
-        const BASE_VEL_Y = 0.0020; // Smooth, slow, elegant horizontal revolution
+        const BASE_VEL_Y = 0.00075; // Slower, stately, luxurious horizontal revolution
         let velY = BASE_VEL_Y;
         let pitchVel = 0;
 
@@ -414,12 +414,12 @@ export default function PartnerLogoSphere() {
                     draggedSinceDown = true;
                 }
                 
-                // Fluid drag physics
-                velY = deltaX * 0.00012;
-                pitchVel = deltaY * 0.00008;
+                // Fluid drag physics with calm damping
+                velY = deltaX * 0.00008;
+                pitchVel = deltaY * 0.00005;
                 
-                dragOffsetYaw += deltaX * 0.002;
-                dragOffsetPitch = THREE.MathUtils.clamp(dragOffsetPitch + deltaY * 0.0015, -0.15, 0.15);
+                dragOffsetYaw += deltaX * 0.0018;
+                dragOffsetPitch = THREE.MathUtils.clamp(dragOffsetPitch + deltaY * 0.0012, -0.15, 0.15);
 
                 previousMouse = { x: clientX, y: clientY };
             }
@@ -607,19 +607,20 @@ export default function PartnerLogoSphere() {
                 mat.uniforms.opacity.value = THREE.MathUtils.lerp(mat.uniforms.opacity.value, targetOpacity, 0.12);
 
                 // 6. Smooth Animated Scale Growth for the Closest Colored Logos:
-                // - High-impact growth bonus (+92% on mobile, +85% on desktop) so they are bold and visible from a big distance
-                const highlightScaleBonus = isMobile ? 1.92 : 1.85;
-                const finalScale = baseLogoSize * (1.0 + highlightFactor * (highlightScaleBonus - 1.0));
-                
+                // When colored/highlighted, logos swell to a truly BIG, prominent hero scale visible from across the room
+                const heroScale = isMobile ? 108 : 152;
                 const minScale = isMobile ? 0.42 : 0.48;
                 const depthScale = Math.max(minScale, (isMobile ? 0.32 : 0.38) + normalZ * (isMobile ? 0.68 : 0.62));
-                const targetScale = finalScale * (hoveredLogo === mesh ? 1.06 : depthScale);
+                const normalScale = baseLogoSize * depthScale;
+                
+                // Direct smooth interpolation between normalScale and bold heroScale based on highlightFactor
+                const targetScale = THREE.MathUtils.lerp(normalScale, heroScale, highlightFactor) * (hoveredLogo === mesh ? 1.08 : 1.0);
 
                 // Smoothly animate scale with continuous interpolation (never sudden)
                 if (mesh.userData.currentScale === undefined) {
                     mesh.userData.currentScale = targetScale;
                 }
-                mesh.userData.currentScale = THREE.MathUtils.lerp(mesh.userData.currentScale, targetScale, 0.09);
+                mesh.userData.currentScale = THREE.MathUtils.lerp(mesh.userData.currentScale, targetScale, 0.08);
                 mesh.scale.setScalar(mesh.userData.currentScale);
             });
 
