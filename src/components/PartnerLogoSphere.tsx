@@ -90,9 +90,9 @@ function calculateResponsiveConfig(width: number, height: number) {
         radiusY = 115; // Roomy height for large expanding logos
         radiusZ = 100; // Depth span
 
-        // Bold, prominent logo sizes
-        baseLogoSize = 46;       // Clearly visible from distance (swells to ~104px when colored)
-        centerHeroSize = 106;    // Grand, dominant DRS Deals hero anchor
+        // Bold, prominent logo sizes (+4px)
+        baseLogoSize = 50;       // Up from 46px
+        centerHeroSize = 106;    // Kept same
         r_exclusion = 78;        // Clean moat around DRS core
         r_influence = 114;       // Smooth deflection transition
     } else if (isTablet) {
@@ -106,8 +106,8 @@ function calculateResponsiveConfig(width: number, height: number) {
         radiusY = 170;
         radiusZ = 145;
 
-        baseLogoSize = 56;       // Swells to ~124px when colored
-        centerHeroSize = 126;
+        baseLogoSize = 60;       // Up from 56px
+        centerHeroSize = 126;    // Kept same
         r_exclusion = 94;
         r_influence = 138;
     } else if (isLaptop) {
@@ -121,8 +121,8 @@ function calculateResponsiveConfig(width: number, height: number) {
         radiusY = 200;
         radiusZ = 170;
 
-        baseLogoSize = 64;       // Swells to ~138px when colored
-        centerHeroSize = 142;
+        baseLogoSize = 68;       // Up from 64px
+        centerHeroSize = 142;    // Kept same
         r_exclusion = 108;
         r_influence = 158;
     } else {
@@ -137,8 +137,8 @@ function calculateResponsiveConfig(width: number, height: number) {
         radiusY = 215;
         radiusZ = 185;
 
-        baseLogoSize = 70;       // Swells to ~150px when colored
-        centerHeroSize = 156;
+        baseLogoSize = 74;       // Up from 70px
+        centerHeroSize = 156;    // Kept same
         r_exclusion = 118;
         r_influence = 172;
     }
@@ -607,7 +607,7 @@ export default function PartnerLogoSphere() {
 
                 // 6. Smooth Animated Scale Growth for the Closest Colored Logos:
                 // When colored/highlighted, logos swell to a truly BIG, prominent hero scale visible from across the room
-                const heroScale = isMobile ? 108 : 152;
+                const heroScale = isMobile ? 112 : 156;
                 const minScale = isMobile ? 0.42 : 0.48;
                 const depthScale = Math.max(minScale, (isMobile ? 0.32 : 0.38) + normalZ * (isMobile ? 0.68 : 0.62));
                 const normalScale = baseLogoSize * depthScale;
