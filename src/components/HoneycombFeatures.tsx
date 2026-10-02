@@ -36,7 +36,7 @@ const features = [
     },
     {
         title: 'Dedicated Concierge',
-        desc: 'Direct phone (+91 99110 11458) and WhatsApp support for inquiries and reservations.',
+        desc: 'Direct phone (+91 98111 20892) and WhatsApp support for inquiries and reservations.',
         icon: (
             <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
                 <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />

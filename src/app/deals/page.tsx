@@ -40,7 +40,7 @@ export default function DealsPage() {
                             </h2>
                         </div>
                         <p style={{ fontSize: '0.95rem', color: 'var(--color-charcoal-light)', margin: 0 }}>
-                            5 Premier Hospitality Memberships
+                            {featuredDeals.length} Premier Curated Offers
                         </p>
                     </div>
 

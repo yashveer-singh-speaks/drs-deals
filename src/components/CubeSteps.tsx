@@ -11,7 +11,7 @@ const steps = [
     {
         number: 2,
         title: 'Enquire',
-        desc: 'Speak to our concierge team directly by phone (+91 99110 11458), email, or WhatsApp.',
+        desc: 'Speak to our concierge team directly by phone (+91 98111 20892), email, or WhatsApp.',
     },
     {
         number: 3,

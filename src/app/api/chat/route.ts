@@ -98,6 +98,8 @@ ${contextKnowledge}
             reply = `Oren Kasauli Membership Card is ₹10,000 (valid 1 year) and includes 2 night stays with breakfast (2 adults + 2 kids up to 10 yrs), ₹10,000 food and beverage cash vouchers, free pool access, 2 spa treatment vouchers, and tea/coffee. Call ${siteConfig.contacts.hotline1} to enquire.`;
         } else if (q.includes('manali') || q.includes('atma yog')) {
             reply = `Atma Yog Luxury Manor Manali is priced at ₹9,000 (1-year validity) and offers 3 night stays with breakfast (2 adults + kids up to 6 yrs), 8 buffet lunch or dinner vouchers, and 10 tea/coffee servings. Call ${siteConfig.contacts.hotline1} for reservations.`;
+        } else if (q.includes('haut monde') || q.includes('neemrana')) {
+            reply = `Haut Monde Neemrana Membership Card is priced at ₹10,000 (valid 1 year, zero taxes/utility charges on free stays) and includes 3 free room nights with breakfast (2 adults + 2 kids up to 10 yrs), 10 free lunch/dinner buffets, 10 free pool entries, 50% off room stays, BOGO room night offers, ₹1,000 OFF vouchers, and dining privileges. Call ${siteConfig.contacts.hotline1} to enquire.`;
         } else if (q.includes('white flower') || q.includes('mussoorie') || q.includes('corbett')) {
             reply = `The White Flower Resorts membership is ₹7,999 and gives dual-destination access across Mussoorie & Jim Corbett with room night stays, 10 buffet vouchers, and leisure access. Call ${siteConfig.contacts.hotline1} for details.`;
         } else if (q.includes('rangmanch') || q.includes('gurgaon farm') || q.includes('sultanpur')) {

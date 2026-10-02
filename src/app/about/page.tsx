@@ -1,6 +1,7 @@
 import React from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { siteConfig } from '@/config/site';
 
 export const metadata: Metadata = {
     title: 'About DRS Deals | Our 23-Year Legacy & Inception Story',
@@ -61,7 +62,7 @@ export default function AboutPage() {
                         <div style={{ padding: '24px', background: 'var(--color-ivory)', borderRadius: '12px', border: '1px solid var(--color-stone)' }}>
                             <h3 style={{ fontSize: '1.25rem', fontFamily: 'var(--font-serif)', color: 'var(--color-charcoal)', marginBottom: '12px' }}>3. Dedicated Concierge Support</h3>
                             <p style={{ fontSize: '0.95rem', color: 'var(--color-charcoal-light)', lineHeight: 1.6 }}>
-                                Our dedicated team assists members directly with reservation confirmations and custom arrangements at +91 99110 11458.
+                                Our dedicated team assists members directly with reservation confirmations and custom arrangements at {siteConfig.contacts.hotline1}.
                             </p>
                         </div>
                     </div>

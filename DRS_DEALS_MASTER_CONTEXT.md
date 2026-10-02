@@ -62,13 +62,23 @@ Founded in 2003, DRS Deals developed its reputation through direct relationship 
 
 ## 3. OFFICIAL CONTACT INFORMATION
 
-- **Primary Booking & Concierge Hotline:** `+91 98111 20892`
-- **Secondary Reservation Hotline:** `+91 98113 60808`
-- **WhatsApp Concierge Direct Link:** `https://wa.me/919811120892` (Display: `+91 98111 20892`)
+- **Authorized Concierge Hotline Numbers (In Priority Order):**
+  1. `+91 98111 20892`
+  2. `+91 98113 60808`
+  3. `+91 99110 11460`
+  4. `+91 96253 57514`
+  5. `+91 99110 11458`
+  6. `+91 99110 11459`
+  7. `+91 99110 11461`
+  8. `+91 83682 89207`
+- **Dedicated Corporate Inquiries Hotlines (ONLY these two):**
+  1. `+91 98111 20892`
+  2. `+91 98113 60808`
+- **WhatsApp Concierge Number (ONLY this number):** `+91 98111 20892` (`https://wa.me/919811120892`)
+- **Dedicated Deal Pages Contact Number:** `+91 98111 20892`
 - **Official Contact & Concierge Email:** `Info@drsdeals.in`
 - **Official Partner B2B Email:** `Info@drsdeals.in`
-- **Operating Hours:** Concierge desk assists all days from morning to late evening.
-- **Physical Head Office Presence:** New Delhi, India.
+- **Headquarters Address:** B 14 UGF, DRS Building, Gulab Bagh, Pillar No. 725, Near Nawada Metro Station, New Delhi 110059.
 
 ---
 

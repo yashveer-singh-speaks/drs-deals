@@ -4383,7 +4383,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .gallery-thumbnail-grid {
   display: grid;
-  grid-templateColumns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
   gap: 12px;
 }
 

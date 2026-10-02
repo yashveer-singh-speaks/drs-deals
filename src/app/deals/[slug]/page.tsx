@@ -201,18 +201,28 @@ export default async function DealDetailPage({ params }: Props) {
                                 <strong>Direct Concierge &amp; Reservation Assistance:</strong>
                             </div>
                             <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+                                {deal.bookingInfo.phones.map((phone, idx) => (
+                                    <a
+                                        key={idx}
+                                        href={`tel:+91${phone}`}
+                                        className="btn btn-primary"
+                                        style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', fontSize: '0.95rem' }}
+                                    >
+                                        📞 Call {phone}
+                                    </a>
+                                ))}
                                 <a
                                     href={whatsappInquiryUrl}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="btn btn-primary"
-                                    style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', fontSize: '1.05rem', padding: '16px 28px', backgroundColor: '#25D366', borderColor: '#25D366', color: '#fff' }}
+                                    className="btn btn-outline"
+                                    style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', fontSize: '0.95rem' }}
                                 >
-                                    💬 Enquire on WhatsApp ({siteConfig.contacts.whatsappDisplay})
+                                    💬 Enquire on WhatsApp
                                 </a>
                             </div>
                             <p style={{ fontSize: '0.85rem', color: 'var(--color-charcoal-light)', margin: 0, fontStyle: 'italic' }}>
-                                DRS Deals coordinates directly on WhatsApp with property management for verified member privileges.
+                                DRS Deals coordinates directly with property management for verified member privileges.
                             </p>
                         </div>
                     </div>
@@ -266,8 +276,72 @@ export default async function DealDetailPage({ params }: Props) {
                         ))}
                     </div>
 
+                    {/* Stay Benefits Section if present */}
+                    {deal.stayBenefits && deal.stayBenefits.length > 0 && (
+                        <div style={{ marginTop: '28px', paddingTop: '24px', borderTop: '1px solid var(--color-stone)' }}>
+                            <h3 style={{ fontSize: '1.25rem', fontFamily: 'var(--font-serif)', color: 'var(--color-charcoal)', marginBottom: '14px' }}>
+                                🏨 Room Night Stay Privileges
+                            </h3>
+                            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '14px' }}>
+                                {deal.stayBenefits.map((b, i) => (
+                                    <div key={i} style={{ padding: '16px', background: 'var(--color-ivory)', borderRadius: '10px', border: '1px solid var(--color-stone)', fontSize: '0.95rem', fontWeight: 600, color: 'var(--color-charcoal)' }}>
+                                        ✔️ {b}
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    )}
+
+                    {/* Dining & Privilege Offers if present */}
+                    {deal.diningBenefits && deal.diningBenefits.length > 0 && (
+                        <div style={{ marginTop: '28px', paddingTop: '24px', borderTop: '1px solid var(--color-stone)' }}>
+                            <h3 style={{ fontSize: '1.25rem', fontFamily: 'var(--font-serif)', color: 'var(--color-charcoal)', marginBottom: '14px' }}>
+                                🍽️ Dining, Vouchers &amp; Privilege Benefits
+                            </h3>
+                            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '14px' }}>
+                                {deal.diningBenefits.map((b, i) => (
+                                    <div key={i} style={{ padding: '16px', background: 'var(--color-ivory)', borderRadius: '10px', border: '1px solid var(--color-stone)', fontSize: '0.95rem', color: 'var(--color-charcoal)' }}>
+                                        ✔️ <strong>{b}</strong>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    )}
+
+                    {/* Vouchers & Coupons if present */}
+                    {deal.vouchersAndCoupons && deal.vouchersAndCoupons.length > 0 && (
+                        <div style={{ marginTop: '28px', paddingTop: '24px', borderTop: '1px solid var(--color-stone)' }}>
+                            <h3 style={{ fontSize: '1.25rem', fontFamily: 'var(--font-serif)', color: 'var(--color-charcoal)', marginBottom: '14px' }}>
+                                🎟️ Additional Vouchers &amp; Coupons
+                            </h3>
+                            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '14px' }}>
+                                {deal.vouchersAndCoupons.map((b, i) => (
+                                    <div key={i} style={{ padding: '16px', background: 'var(--color-ivory)', borderRadius: '10px', border: '1px solid var(--color-stone)', fontSize: '0.95rem', color: 'var(--color-charcoal)' }}>
+                                        ✔️ {b}
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    )}
+
+                    {/* Kids Pricing if present */}
+                    {deal.kidsPricing && deal.kidsPricing.length > 0 && (
+                        <div style={{ marginTop: '28px', paddingTop: '24px', borderTop: '1px solid var(--color-stone)' }}>
+                            <h3 style={{ fontSize: '1.25rem', fontFamily: 'var(--font-serif)', color: 'var(--color-charcoal)', marginBottom: '14px' }}>
+                                👶 Kids Height &amp; Age Criteria
+                            </h3>
+                            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '12px' }}>
+                                {deal.kidsPricing.map((k, i) => (
+                                    <div key={i} style={{ padding: '14px', background: 'var(--color-ivory)', borderRadius: '10px', border: '1px solid var(--color-stone)', fontSize: '0.95rem', color: 'var(--color-charcoal)' }}>
+                                        👶 {k}
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    )}
+
                     {deal.timings && (
-                        <div style={{ padding: '16px 20px', background: 'var(--color-ivory)', borderRadius: '8px', border: '1px solid var(--color-stone)', marginBottom: '24px' }}>
+                        <div style={{ padding: '16px 20px', background: 'var(--color-ivory)', borderRadius: '8px', border: '1px solid var(--color-stone)', marginTop: '24px' }}>
                             <strong>⏰ Operational Timings:</strong> {deal.timings}
                         </div>
                     )}

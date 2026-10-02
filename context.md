@@ -44,9 +44,20 @@ DRS Deals is **not an open discount coupon site or automated shopping cart check
 
 ## 3. Official Contact Information
 
-- **Primary Booking & Concierge Hotline:** +91 98111 20892
-- **Secondary Reservation Hotline:** +91 98113 60808
+- **Authorized Concierge Hotline Numbers (Priority Order):**
+  1. +91 98111 20892
+  2. +91 98113 60808
+  3. +91 99110 11460
+  4. +91 96253 57514
+  5. +91 99110 11458
+  6. +91 99110 11459
+  7. +91 99110 11461
+  8. +91 83682 89207
+- **Dedicated Corporate Inquiries Desk (ONLY these two):**
+  1. +91 98111 20892
+  2. +91 98113 60808
 - **WhatsApp Concierge Number:** +91 98111 20892 (Available on WhatsApp for instant chat)
+- **Dedicated Deal Pages Phone:** +91 98111 20892
 - **Official Contact Email:** Info@drsdeals.in
 - **Operating Hours:** Concierge desk assists all days from morning to late evening.
 

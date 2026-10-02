@@ -14,14 +14,7 @@ export const siteConfig = {
         partnerEmail: 'Info@drsdeals.in',
         email: 'Info@drsdeals.in',
         
-        // Priority Top Phone Numbers
-        topHotlines: [
-            { display: '+91 98111 20892', raw: '+919811120892', number: '9811120892' },
-            { display: '+91 98113 60808', raw: '+919811360808', number: '9811360808' },
-            { display: '+91 99110 11460', raw: '+919911011460', number: '9911011460' },
-        ],
-
-        // Complete list of authorized phone hotlines in exact required display order
+        // Priority Ordered List of Authorized Phone Hotlines
         phoneNumbers: [
             '9811120892',
             '9811360808',
@@ -44,10 +37,15 @@ export const siteConfig = {
             { raw: '+918368289207', display: '+91 83682 89207', number: '8368289207' },
         ],
 
-        // Corporate Inquiries Numbers
+        // Dedicated Corporate Inquiries Hotlines (ONLY these two)
+        corporatePhoneNumbers: [
+            '9811120892',
+            '9811360808',
+        ],
+
         corporateHotlines: [
-            { display: '+91 98111 20892', raw: '+919811120892', number: '9811120892' },
-            { display: '+91 98113 60808', raw: '+919811360808', number: '9811360808' },
+            { raw: '+919811120892', display: '+91 98111 20892', number: '9811120892' },
+            { raw: '+919811360808', display: '+91 98113 60808', number: '9811360808' },
         ],
 
         hotline1: '+91 98111 20892',
@@ -55,10 +53,14 @@ export const siteConfig = {
         hotline1Raw: '+919811120892',
         hotline2Raw: '+919811360808',
         
-        // WhatsApp Contact Number (98111 20892)
+        // WhatsApp Concierge Number (ONLY this number throughout website)
         whatsappNumber: '9811120892',
         whatsappCountryCode: '91',
         whatsappDisplay: '+91 98111 20892',
+
+        // Dedicated Deal Page Contact Phone (ONLY this number for deal pages)
+        dealPagePhone: '9811120892',
+        dealPagePhoneDisplay: '+91 98111 20892',
     },
 
     // Verified Business Heritage & Scale Statistics

@@ -71,7 +71,7 @@ export default function RotatingDealGallery({
             {/* Thumbnail Row */}
             <div className="gallery-thumbnail-grid">
                 {galleryImages.length > 0 ? (
-                    galleryImages.slice(0, 4).map((imgUrl, i) => {
+                    galleryImages.map((imgUrl, i) => {
                         const globalIdx = allImages.indexOf(imgUrl);
                         const isActive = globalIdx === activeIdx;
                         return (
@@ -94,7 +94,7 @@ export default function RotatingDealGallery({
                         );
                     })
                 ) : (
-                    Array.from({ length: imageSkeletonCount }).slice(0, 4).map((_, i) => (
+                    Array.from({ length: imageSkeletonCount }).map((_, i) => (
                         <div key={`skel-thumb-${i}`} className="skeleton-box gallery-skeleton-thumb">
                             Photo {i + 1}
                         </div>
