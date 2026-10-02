@@ -3725,7 +3725,7 @@ h1, h2, h3, h4, h5, h6 {
   background-color: var(--color-warm-white, #FAF8F5);
   border-top: 1px solid rgba(197, 168, 128, 0.2);
   border-bottom: 1px solid rgba(197, 168, 128, 0.2);
-  padding: 32px 0 0 0;
+  padding: 32px 0 28px 0;
   overflow: hidden;
   width: 100%;
 }
@@ -3739,7 +3739,7 @@ h1, h2, h3, h4, h5, h6 {
 .partner-sphere-viewport {
   position: relative;
   width: 100%;
-  height: 520px;
+  height: 480px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -3754,10 +3754,14 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (max-width: 768px) {
   .partner-sphere-section {
-    padding: 24px 0 0 0;
+    padding: 24px 0 24px 0;
+  }
+  .partner-sphere-header {
+    margin-bottom: 4px;
+    padding: 0 16px;
   }
   .partner-sphere-viewport {
-    height: 400px;
+    height: 320px;
   }
 }
 

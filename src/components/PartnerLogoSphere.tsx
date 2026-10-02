@@ -59,16 +59,14 @@ function fibonacciSphere(n: number): THREE.Vector3[] {
     return points;
 }
 
-/* ─── Responsive Ellipsoid Dimensions Calculation ─── */
-function calculateEllipsoidDimensions(width: number, height: number, cameraFov: number, cameraZ: number) {
-    const visibleHeight = 2 * Math.tan((cameraFov * Math.PI / 180) / 2) * cameraZ;
-    const visibleWidth = visibleHeight * (width / height);
-    const halfW = visibleWidth / 2;
-    const halfH = visibleHeight / 2;
-
+/* ─── Dedicated Responsive Geometry & Sizing Calculator ─── */
+function calculateResponsiveConfig(width: number, height: number) {
     const isMobile = width < 768;
     const isTablet = width >= 768 && width < 1024;
     const isLaptop = width >= 1024 && width < 1440;
+
+    let cameraFov: number;
+    let cameraZ: number;
 
     let radiusX: number;
     let radiusY: number;
@@ -76,38 +74,87 @@ function calculateEllipsoidDimensions(width: number, height: number, cameraFov: 
 
     let baseLogoSize: number;
     let centerHeroSize: number;
+    let r_exclusion: number;
+    let r_influence: number;
 
     if (isMobile) {
-        // Mobile: visually spans 90% to 96% of available screen width
-        radiusX = halfW * 0.86;
-        radiusY = Math.min(halfH * 0.58, 140);
-        radiusZ = radiusY * 0.72;
-        baseLogoSize = 42;
-        centerHeroSize = 78;
+        // Mobile: Dedicated tight camera and wide, spacious horizontal spread
+        cameraFov = 42;
+        cameraZ = 700;
+        const visibleHeight = 2 * Math.tan((cameraFov * Math.PI / 180) / 2) * cameraZ;
+        const visibleWidth = visibleHeight * (width / height);
+        const halfW = visibleWidth / 2;
+
+        // Physical X-radius pushes outer logos to 92%-95% screen width with 14px safe margin
+        radiusX = halfW * 0.88;
+        radiusY = 96; // Controlled height, zero vertical clipping
+        radiusZ = 82; // Depth span
+
+        // Refined, smaller badge sizes to maximize negative space
+        baseLogoSize = 32;       // Down from 54px: creates generous breathing space
+        centerHeroSize = 70;     // Dominant hero anchor (more than 2x base logo)
+        r_exclusion = 58;        // Generous empty moat around DRS core
+        r_influence = 88;        // Gentle deflection transition
     } else if (isTablet) {
-        // Tablet: visually spans 85% to 92% of section width
+        cameraFov = 40;
+        cameraZ = 800;
+        const visibleHeight = 2 * Math.tan((cameraFov * Math.PI / 180) / 2) * cameraZ;
+        const visibleWidth = visibleHeight * (width / height);
+        const halfW = visibleWidth / 2;
+
         radiusX = halfW * 0.82;
-        radiusY = Math.min(halfH * 0.62, 175);
-        radiusZ = radiusY * 0.82;
-        baseLogoSize = 50;
-        centerHeroSize = 92;
+        radiusY = 160;
+        radiusZ = 135;
+
+        baseLogoSize = 46;
+        centerHeroSize = 88;
+        r_exclusion = 72;
+        r_influence = 110;
     } else if (isLaptop) {
-        // Laptop: visually spans 75% to 85% of section width
+        cameraFov = 40;
+        cameraZ = 850;
+        const visibleHeight = 2 * Math.tan((cameraFov * Math.PI / 180) / 2) * cameraZ;
+        const visibleWidth = visibleHeight * (width / height);
+        const halfW = visibleWidth / 2;
+
         radiusX = halfW * 0.78;
-        radiusY = Math.min(halfH * 0.65, 195);
-        radiusZ = radiusY * 0.88;
-        baseLogoSize = 56;
-        centerHeroSize = 100;
+        radiusY = 185;
+        radiusZ = 155;
+
+        baseLogoSize = 52;
+        centerHeroSize = 98;
+        r_exclusion = 80;
+        r_influence = 122;
     } else {
-        // Large Desktop: visually spans 70% to 80% of section width
-        radiusX = Math.min(halfW * 0.74, 680);
-        radiusY = Math.min(halfH * 0.66, 210);
-        radiusZ = radiusY * 0.92;
-        baseLogoSize = 60;
-        centerHeroSize = 106;
+        // Large Desktop
+        cameraFov = 40;
+        cameraZ = 850;
+        const visibleHeight = 2 * Math.tan((cameraFov * Math.PI / 180) / 2) * cameraZ;
+        const visibleWidth = visibleHeight * (width / height);
+        const halfW = visibleWidth / 2;
+
+        radiusX = Math.min(halfW * 0.74, 640);
+        radiusY = 200;
+        radiusZ = 170;
+
+        baseLogoSize = 56;
+        centerHeroSize = 104;
+        r_exclusion = 85;
+        r_influence = 130;
     }
 
-    return { radiusX, radiusY, radiusZ, baseLogoSize, centerHeroSize, isMobile };
+    return {
+        isMobile,
+        cameraFov,
+        cameraZ,
+        radiusX,
+        radiusY,
+        radiusZ,
+        baseLogoSize,
+        centerHeroSize,
+        r_exclusion,
+        r_influence
+    };
 }
 
 export default function PartnerLogoSphere() {
@@ -119,10 +166,12 @@ export default function PartnerLogoSphere() {
         let width = container.clientWidth;
         let height = container.clientHeight;
 
-        /* ─── Scene Setup ─── */
+        let config = calculateResponsiveConfig(width, height);
+
+        /* ─── Scene & Camera Setup ─── */
         const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(40, width / height, 0.1, 2500);
-        camera.position.z = 850;
+        const camera = new THREE.PerspectiveCamera(config.cameraFov, width / height, 0.1, 2500);
+        camera.position.z = config.cameraZ;
 
         const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
         renderer.setSize(width, height);
@@ -139,7 +188,7 @@ export default function PartnerLogoSphere() {
                 varying vec2 vUv; 
                 void main() { 
                     float dist = distance(vUv, vec2(0.5));
-                    float alpha = smoothstep(0.5, 0.0, dist) * 0.35;
+                    float alpha = smoothstep(0.5, 0.0, dist) * 0.28;
                     gl_FragColor = vec4(197.0/255.0, 168.0/255.0, 128.0/255.0, alpha);
                 }
             `,
@@ -223,7 +272,7 @@ export default function PartnerLogoSphere() {
         });
 
         const drsHeroMesh = new THREE.Mesh(planeGeo, drsHeroMat);
-        drsHeroMesh.renderOrder = 9999; // Visually in front at all times
+        drsHeroMesh.renderOrder = 9999; // Visually dominant on top at all times
         drsHeroMesh.userData = {
             isCenterHero: true,
             href: '/about',
@@ -244,7 +293,8 @@ export default function PartnerLogoSphere() {
                     map: { value: null },
                     grayscaleAmount: { value: 1.0 },
                     opacity: { value: 1.0 },
-                    isHero: { value: 0.0 }
+                    isHero: { value: 0.0 },
+                    normalZ: { value: 0.5 }
                 },
                 vertexShader: `
                     varying vec2 vUv;
@@ -258,6 +308,7 @@ export default function PartnerLogoSphere() {
                     uniform float grayscaleAmount;
                     uniform float opacity;
                     uniform float isHero;
+                    uniform float normalZ;
                     varying vec2 vUv;
 
                     void main() {
@@ -272,13 +323,19 @@ export default function PartnerLogoSphere() {
                         // White background backing
                         vec3 baseColor = mix(vec3(1.0), texColor.rgb, texColor.a);
                         
-                        // Grayscale interpolation
+                        // Grayscale
                         float luma = dot(baseColor, vec3(0.299, 0.587, 0.114));
                         vec3 gray = vec3(luma);
-                        vec3 finalColor = mix(baseColor, gray, grayscaleAmount);
 
-                        // Border dynamic tint (Champagne gold to Radiant gold)
-                        vec3 normalBorder = vec3(197.0/255.0, 168.0/255.0, 128.0/255.0);
+                        // Atmospheric depth fade: rear logos melt softly into warm ivory background (#FAF8F5)
+                        vec3 ivory = vec3(250.0/255.0, 248.0/255.0, 245.0/255.0);
+                        float depthFadeFactor = (1.0 - normalZ) * 0.52;
+                        vec3 fadedGray = mix(gray, ivory, depthFadeFactor);
+
+                        vec3 finalColor = mix(fadedGray, baseColor, isHero);
+
+                        // Border: Subtle champagne gold in front, blended in rear, radiant gold when highlighted
+                        vec3 normalBorder = mix(vec3(197.0/255.0, 168.0/255.0, 128.0/255.0), ivory, depthFadeFactor * 0.7);
                         vec3 heroBorder = vec3(255.0/255.0, 215.0/255.0, 95.0/255.0);
                         vec3 currentBorder = mix(normalBorder, heroBorder, isHero);
 
@@ -317,19 +374,14 @@ export default function PartnerLogoSphere() {
             logos.push(mesh);
         });
 
-        /* ─── Motion & State Dynamics ─── */
-        let currentRotX = 0;
+        /* ─── Motion Dynamics & State ─── */
         let currentRotY = 0;
-        let currentRotZ = 0;
-        
-        // Gentle, slow, continuous rotation velocities
-        const BASE_VEL_X = 0.00045; // Slow vertical pitch so poles cycle to equator
-        const BASE_VEL_Y = 0.0019;  // Primary horizontal revolution
-        const BASE_VEL_Z = 0.00015; // Delicate cosmic tilt
+        let dragOffsetPitch = 0;
+        let dragOffsetYaw = 0;
 
-        let velX = BASE_VEL_X;
+        const BASE_VEL_Y = 0.0020; // Smooth, slow, elegant horizontal revolution
         let velY = BASE_VEL_Y;
-        let velZ = BASE_VEL_Z;
+        let pitchVel = 0;
 
         let isDragging = false;
         let previousMouse = { x: 0, y: 0 };
@@ -362,10 +414,13 @@ export default function PartnerLogoSphere() {
                     draggedSinceDown = true;
                 }
                 
-                // Fluid drag sensitivity
-                velX = deltaY * 0.00012;
+                // Fluid drag physics
                 velY = deltaX * 0.00012;
+                pitchVel = deltaY * 0.00008;
                 
+                dragOffsetYaw += deltaX * 0.002;
+                dragOffsetPitch = THREE.MathUtils.clamp(dragOffsetPitch + deltaY * 0.0015, -0.15, 0.15);
+
                 previousMouse = { x: clientX, y: clientY };
             }
 
@@ -388,9 +443,15 @@ export default function PartnerLogoSphere() {
             if (!containerRef.current) return;
             width = containerRef.current.clientWidth;
             height = containerRef.current.clientHeight;
-            renderer.setSize(width, height);
+
+            config = calculateResponsiveConfig(width, height);
+
+            camera.fov = config.cameraFov;
+            camera.position.z = config.cameraZ;
             camera.aspect = width / height;
             camera.updateProjectionMatrix();
+
+            renderer.setSize(width, height);
         };
 
         window.addEventListener('resize', onResize);
@@ -411,50 +472,54 @@ export default function PartnerLogoSphere() {
             animId = requestAnimationFrame(render);
             const elapsedTime = clock.getElapsedTime();
 
-            // Calculate dynamic responsive dimensions for the wide ellipsoid
-            const dims = calculateEllipsoidDimensions(width, height, camera.fov, camera.position.z);
-            const { radiusX, radiusY, radiusZ, baseLogoSize, centerHeroSize, isMobile } = dims;
+            const {
+                isMobile,
+                radiusX,
+                radiusY,
+                radiusZ,
+                baseLogoSize,
+                centerHeroSize,
+                r_exclusion,
+                r_influence
+            } = config;
 
             // Environment floor positioning
-            floor.scale.set(radiusX * 2.6, radiusZ * 2.6, 1);
-            floor.position.y = -radiusY - (isMobile ? 32 : 55);
+            floor.scale.set(radiusX * 2.5, radiusZ * 2.5, 1);
+            floor.position.y = -radiusY - (isMobile ? 24 : 45);
 
             // Center DRS Deals hero positioning with subtle 3D levitation floating motion
-            const floatLevitation = Math.sin(elapsedTime * 2.2) * 3;
-            const floatZ = radiusZ * 0.20; // Sits in front of the sphere's core
+            const floatLevitation = Math.sin(elapsedTime * 2.2) * (isMobile ? 2.0 : 3.0);
+            const floatZ = radiusZ * 0.22;
             drsHeroMesh.position.set(0, floatLevitation, floatZ);
             drsHeroMesh.lookAt(camera.position);
             
             // Subtle luxury breathing pulse for the fixed center hero
             const breathScale = 1.0 + Math.sin(elapsedTime * 2.5) * 0.025;
-            drsHeroMesh.scale.setScalar(centerHeroSize * breathScale * (hoveredLogo === drsHeroMesh ? 1.08 : 1.0));
+            drsHeroMesh.scale.setScalar(centerHeroSize * breathScale * (hoveredLogo === drsHeroMesh ? 1.06 : 1.0));
             drsHeroMat.uniforms.time.value = elapsedTime;
             drsHeroMat.uniforms.isHovered.value = hoveredLogo === drsHeroMesh ? 1.0 : 0.0;
 
-            /* ─── Continuous Multi-Axis 3D Rotation Physics ─── */
+            /* ─── Continuous Level Rotation Physics (No Diagonal Slant) ─── */
             if (!isDragging) {
                 if (hoveredLogo && hoveredLogo !== drsHeroMesh) {
-                    // Smoothly pause/slow down on hover for easy clicking
-                    velX *= 0.88;
-                    velY *= 0.88;
-                    velZ *= 0.88;
+                    velY *= 0.90;
+                    pitchVel *= 0.90;
                 } else {
-                    // Smoothly blend back to baseline continuous rotation
-                    velX = THREE.MathUtils.lerp(velX, BASE_VEL_X, 0.025);
                     velY = THREE.MathUtils.lerp(velY, BASE_VEL_Y, 0.025);
-                    velZ = THREE.MathUtils.lerp(velZ, BASE_VEL_Z, 0.025);
+                    pitchVel *= 0.95;
+                    dragOffsetPitch = THREE.MathUtils.lerp(dragOffsetPitch, 0, 0.02);
                 }
             }
 
-            currentRotX += velX;
             currentRotY += velY;
-            currentRotZ += velZ;
 
-            // Compute unified 3D rotation matrix for the network
-            const rotEuler = new THREE.Euler(currentRotX, currentRotY, currentRotZ, 'YXZ');
-            const rotMat = new THREE.Matrix4().makeRotationFromEuler(rotEuler);
+            // Compute rotation matrix:
+            // Tilted strictly forward/backward in the Y-Z plane so visual mass is level with NO diagonal slant across X
+            const tiltAngle = (isMobile ? 0.24 : 0.30) + dragOffsetPitch;
+            const rotAxis = new THREE.Vector3(0, Math.cos(tiltAngle), Math.sin(tiltAngle)).normalize();
+            const rotQuat = new THREE.Quaternion().setFromAxisAngle(rotAxis, currentRotY + dragOffsetYaw);
 
-            // Raycast for hover state (including the center DRS hero and partner logos)
+            // Raycast for hover state
             raycaster.setFromCamera(mouse, camera);
             const intersectObjects = [drsHeroMesh, ...logos];
             const intersects = raycaster.intersectObjects(intersectObjects);
@@ -466,20 +531,16 @@ export default function PartnerLogoSphere() {
                 container.style.cursor = isDragging ? 'grabbing' : 'grab';
             }
 
-            /* ─── Protected Center Exclusion Radius ─── */
-            // Generous moat around DRS Deals so center is clean, open, and never crowded
-            const r_exclusion = centerHeroSize * 0.82;
-            const r_influence = r_exclusion * 1.50;
-
-            /* ─── Highlight Orbit Zone Geometry ─── */
-            const orbitRingRadius = r_exclusion * 1.55;
+            /* ─── Highlight Orbit Sweet-Spot Parameters ─── */
+            const orbitSweetSpot = r_exclusion * 1.38;
+            const ringWindow = r_exclusion * 0.42;
 
             /* ─── Update Surrounding Logos in Wide 3D Ellipsoid ─── */
             logos.forEach(mesh => {
                 const base = mesh.userData.basePos as THREE.Vector3;
                 
                 // 1. Rotate the point rigidly on the unit sphere
-                const unitRotated = base.clone().applyMatrix4(rotMat);
+                const unitRotated = base.clone().applyQuaternion(rotQuat);
 
                 // 2. Map unit sphere to the wide horizontal ellipsoid coordinates
                 let px = unitRotated.x * radiusX;
@@ -506,25 +567,36 @@ export default function PartnerLogoSphere() {
                 const worldPos = new THREE.Vector3();
                 mesh.getWorldPosition(worldPos);
 
-                // 4. Highlight zone activation:
-                // Only front-facing logos passing through the highlight orbit ring around the DRS Deals core
+                // 4. Highlight zone activation (STRICT FOCAL SWEET SPOT: ONLY ~2-4 LOGOS MAX):
                 const frontDepth = Math.max(0, worldPos.z / radiusZ);
-                const smoothZ = THREE.MathUtils.smoothstep(frontDepth, 0.25, 0.90);
+                const smoothZ = THREE.MathUtils.smoothstep(frontDepth, 0.45, 0.95);
 
                 const activeDistXY = Math.hypot(worldPos.x, worldPos.y);
-                const ringDist = Math.abs(activeDistXY - orbitRingRadius);
-                const ringProximity = 1.0 - Math.min(ringDist / (r_exclusion * 0.85), 1.0);
-                const smoothRing = THREE.MathUtils.smoothstep(ringProximity, 0.0, 1.0);
+                const ringDist = Math.abs(activeDistXY - orbitSweetSpot);
+                const ringProximity = Math.max(0, 1.0 - (ringDist / ringWindow));
+                const smoothRing = THREE.MathUtils.smoothstep(ringProximity, 0.20, 1.0);
 
-                let highlightFactor = smoothRing * smoothZ;
+                // Constrain horizontally so only logos directly above/below the center core light up
+                const xProximity = Math.max(0, 1.0 - Math.abs(worldPos.x) / (radiusX * 0.32));
+                const smoothX = THREE.MathUtils.smoothstep(xProximity, 0.15, 0.90);
+
+                let rawHighlight = smoothRing * smoothZ * smoothX;
+                // Steep exponential curve guarantees only 2 to 4 logos peak into color simultaneously
+                let highlightFactor = Math.pow(rawHighlight, 2.2);
+
+                if (highlightFactor < 0.12) {
+                    highlightFactor = 0.0;
+                }
 
                 if (hoveredLogo === mesh) {
                     highlightFactor = 1.0;
                 }
 
-                // 5. Depth opacity (rear logos softly fade to communicate deep 3D space)
-                const normalZ = (worldPos.z + radiusZ) / (2 * radiusZ);
-                let targetOpacity = 0.25 + 0.75 * Math.pow(Math.max(normalZ, 0), 1.6);
+                // 5. Strong Dramatic 3D Depth Mapping (Rear logos are faint and small):
+                const normalZ = THREE.MathUtils.clamp((worldPos.z + radiusZ) / (2 * radiusZ), 0.0, 1.0);
+                
+                // Rear logos drop down to 0.14 - 0.22 opacity on mobile
+                let targetOpacity = (isMobile ? 0.14 : 0.20) + (isMobile ? 0.86 : 0.80) * Math.pow(normalZ, 2.2);
                 
                 if (hoveredLogo === mesh) {
                     targetOpacity = 1.0;
@@ -532,21 +604,21 @@ export default function PartnerLogoSphere() {
 
                 // Smoothly lerp shader uniforms
                 const mat = mesh.material as THREE.ShaderMaterial;
-                mat.uniforms.isHero.value = THREE.MathUtils.lerp(mat.uniforms.isHero.value, highlightFactor, 0.12);
-                mat.uniforms.grayscaleAmount.value = THREE.MathUtils.lerp(mat.uniforms.grayscaleAmount.value, 1.0 - highlightFactor, 0.12);
-                mat.uniforms.opacity.value = THREE.MathUtils.lerp(mat.uniforms.opacity.value, targetOpacity, 0.12);
+                mat.uniforms.normalZ.value = normalZ;
+                mat.uniforms.isHero.value = THREE.MathUtils.lerp(mat.uniforms.isHero.value, highlightFactor, 0.14);
+                mat.uniforms.grayscaleAmount.value = THREE.MathUtils.lerp(mat.uniforms.grayscaleAmount.value, 1.0 - highlightFactor, 0.14);
+                mat.uniforms.opacity.value = THREE.MathUtils.lerp(mat.uniforms.opacity.value, targetOpacity, 0.14);
 
-                // 6. Scale & Visual Hierarchy:
-                // - Highlighted partner logos get an elegant scale boost (+28%)
-                // - Foreground logos across the full width remain medium and sharp
-                // - Background logos scale down smoothly for realistic depth perspective
-                const highlightScaleBonus = 1.28;
+                // 6. Scale & Strict Hierarchy:
+                // - Highlighted partner logos get an elegant boost (+25%)
+                // - Rear logos scale down dramatically (to ~40% on mobile, ~13-15px)
+                const highlightScaleBonus = 1.25;
                 const finalScale = baseLogoSize * (1.0 + highlightFactor * (highlightScaleBonus - 1.0));
                 
-                const minScale = isMobile ? 0.60 : 0.50;
-                const depthScale = Math.max(minScale, 0.40 + normalZ * 0.60);
+                const minScale = isMobile ? 0.40 : 0.48;
+                const depthScale = Math.max(minScale, (isMobile ? 0.28 : 0.35) + normalZ * (isMobile ? 0.72 : 0.65));
                 
-                mesh.scale.setScalar(finalScale * (hoveredLogo === mesh ? 1.05 : depthScale));
+                mesh.scale.setScalar(finalScale * (hoveredLogo === mesh ? 1.06 : depthScale));
             });
 
             renderer.render(scene, camera);
@@ -576,7 +648,7 @@ export default function PartnerLogoSphere() {
                 <span className="partner-marquee-eyebrow">
                     200+ TRUSTED BRAND COLLABORATIONS &amp; TIE-UPS
                 </span>
-                <p className="partner-marquee-subhead" style={{ fontSize: '0.9rem', color: 'var(--color-charcoal-light)', marginTop: '4px' }}>
+                <p className="partner-marquee-subhead" style={{ fontSize: '0.88rem', color: 'var(--color-charcoal-light)', marginTop: '4px' }}>
                     Hotels &amp; Resorts &bull; Fine Dining &bull; Wellness &amp; Spa &bull; Waterparks &amp; Entertainment
                 </p>
             </div>
