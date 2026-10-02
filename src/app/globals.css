@@ -3719,6 +3719,48 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
+/* ── 3D Partner Logo Sphere ── */
+.partner-sphere-section {
+  position: relative;
+  background-color: var(--color-warm-white, #FAF8F5);
+  border-top: 1px solid rgba(197, 168, 128, 0.2);
+  border-bottom: 1px solid rgba(197, 168, 128, 0.2);
+  padding: 32px 0 0 0;
+  overflow: hidden;
+  width: 100%;
+}
+
+.partner-sphere-header {
+  text-align: center;
+  margin-bottom: 8px;
+  padding: 0 20px;
+}
+
+.partner-sphere-viewport {
+  position: relative;
+  width: 100%;
+  height: 520px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  touch-action: pan-y;
+}
+
+.partner-sphere-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+@media (max-width: 768px) {
+  .partner-sphere-section {
+    padding: 24px 0 0 0;
+  }
+  .partner-sphere-viewport {
+    height: 400px;
+  }
+}
+
 /* --- 3D INTERACTIVE SHOWCASE SECTION --- */
 .showcase-iframe-section {
   position: relative;
