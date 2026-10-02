@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useRef, useEffect, useState, useCallback } from 'react';
+import React, { useRef, useEffect } from 'react';
+import * as THREE from 'three';
 
 /* ─── Logo Data ─── */
 const partnerLogos = [
@@ -40,428 +41,368 @@ const partnerLogos = [
     { src: '/images/companies-tie-up/waterpark-cinema-village_34.webp', alt: 'Eco Leisure Village Partner', href: '/partners' },
 ];
 
-/* ─── Types ─── */
-interface LogoPoint {
-    x: number;
-    y: number;
-    z: number;
-    projX: number;
-    projY: number;
-    scale: number;
-    opacity: number;
-    img: HTMLImageElement | null;
-    loaded: boolean;
-    alt: string;
-    href: string;
-    index: number;
-}
-
-/* ─── Fibonacci Sphere Distribution ─── */
-function fibonacciSphere(n: number, radius: number): { x: number; y: number; z: number }[] {
+/* ─── Fibonacci Sphere Distribution (Unit Vectors) ─── */
+function fibonacciSphere(n: number): THREE.Vector3[] {
     const goldenAngle = Math.PI * (3 - Math.sqrt(5));
-    const points: { x: number; y: number; z: number }[] = [];
+    const points: THREE.Vector3[] = [];
     for (let i = 0; i < n; i++) {
         const y = 1 - (i / (n - 1)) * 2; // -1 to 1
         const radiusAtY = Math.sqrt(1 - y * y);
         const theta = goldenAngle * i;
-        points.push({
-            x: Math.cos(theta) * radiusAtY * radius,
-            y: y * radius,
-            z: Math.sin(theta) * radiusAtY * radius,
-        });
+        points.push(new THREE.Vector3(
+            Math.cos(theta) * radiusAtY,
+            y,
+            Math.sin(theta) * radiusAtY
+        ));
     }
     return points;
 }
 
-/* ─── Rotation matrix (Y then X) ─── */
-function rotatePoint(
-    px: number, py: number, pz: number,
-    angleX: number, angleY: number
-): { x: number; y: number; z: number } {
-    // Rotate around Y axis
-    const cosY = Math.cos(angleY);
-    const sinY = Math.sin(angleY);
-    const x1 = px * cosY - pz * sinY;
-    const z1 = px * sinY + pz * cosY;
-    // Rotate around X axis
-    const cosX = Math.cos(angleX);
-    const sinX = Math.sin(angleX);
-    const y2 = py * cosX - z1 * sinX;
-    const z2 = py * sinX + z1 * cosX;
-    return { x: x1, y: y2, z: z2 };
-}
-
-/* ─── Main Component ─── */
 export default function PartnerLogoSphere() {
-    const canvasRef = useRef<HTMLCanvasElement>(null);
     const containerRef = useRef<HTMLDivElement>(null);
-    const stateRef = useRef({
-        angleX: 0,
-        angleY: 0,
-        velX: 0,
-        velY: 0.002,       // idle auto-rotation on Y
-        isMobile: false,
-        paused: false,
-        hoveredIndex: -1,
-        mouseX: 0,
-        mouseY: 0,
-        containerRect: { left: 0, top: 0, width: 0, height: 0 },
-        dpr: 1,
-        sphereRadius: 220,
-        zDepthFactor: 1.0, // flattened on mobile
-        logos: [] as LogoPoint[],
-        basePositions: [] as { x: number; y: number; z: number }[],
-        animId: 0,
-    });
-    const [, forceRender] = useState(0);
 
-    /* ── Load images ── */
-    const initLogos = useCallback(() => {
-        const s = stateRef.current;
-        const n = partnerLogos.length;
-        s.basePositions = fibonacciSphere(n, s.sphereRadius);
-        s.logos = partnerLogos.map((logo, i) => {
-            const pt: LogoPoint = {
-                ...s.basePositions[i],
-                projX: 0,
-                projY: 0,
-                scale: 1,
-                opacity: 1,
-                img: null,
-                loaded: false,
-                alt: logo.alt,
-                href: logo.href,
-                index: i,
-            };
-            const img = new Image();
-            img.crossOrigin = 'anonymous';
-            img.src = logo.src;
-            img.onload = () => {
-                pt.img = img;
-                pt.loaded = true;
-            };
-            return pt;
-        });
-    }, []);
-
-    /* ── Resize handler ── */
-    const handleResize = useCallback(() => {
-        const s = stateRef.current;
-        const canvas = canvasRef.current;
+    useEffect(() => {
+        if (!containerRef.current) return;
         const container = containerRef.current;
-        if (!canvas || !container) return;
+        let width = container.clientWidth;
+        let height = container.clientHeight;
 
-        const rect = container.getBoundingClientRect();
-        s.containerRect = { left: rect.left, top: rect.top, width: rect.width, height: rect.height };
-        s.dpr = Math.min(window.devicePixelRatio || 1, 2);
-        s.isMobile = window.innerWidth < 768;
+        /* ─── Scene Setup ─── */
+        const scene = new THREE.Scene();
+        // Setup perspective camera
+        const camera = new THREE.PerspectiveCamera(40, width / height, 0.1, 2500);
+        camera.position.z = 850; // Pull back slightly for better FOV composition
 
-        // Dynamic sphere sizing
-        const minDim = Math.min(rect.width, rect.height);
-        s.sphereRadius = s.isMobile ? minDim * 0.32 : Math.min(minDim * 0.36, 260);
-        s.zDepthFactor = s.isMobile ? 0.5 : 1.0;
+        const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+        renderer.setSize(width, height);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        
+        container.innerHTML = ''; // Clear previous canvas if any
+        container.appendChild(renderer.domElement);
 
-        // Recalculate base positions
-        s.basePositions = fibonacciSphere(partnerLogos.length, s.sphereRadius);
-
-        // Canvas sizing
-        canvas.width = rect.width * s.dpr;
-        canvas.height = rect.height * s.dpr;
-        canvas.style.width = rect.width + 'px';
-        canvas.style.height = rect.height + 'px';
-    }, []);
-
-    /* ── Draw loop ── */
-    const draw = useCallback(() => {
-        const s = stateRef.current;
-        const canvas = canvasRef.current;
-        if (!canvas) return;
-        const ctx = canvas.getContext('2d');
-        if (!ctx) return;
-
-        const w = canvas.width;
-        const h = canvas.height;
-        const dpr = s.dpr;
-        const cx = w / 2;
-        const cy = h / 2;
-
-        // Physics: update angles
-        if (!s.paused) {
-            s.angleX += s.velX;
-            s.angleY += s.velY;
-            // Dampen velocity back to idle
-            s.velX *= 0.97;
-            s.velY = s.velY * 0.97 + 0.002 * 0.03; // lerp back to 0.002
+        /* ─── Environment (Orbits & Floor) ─── */
+        const orbitGroup = new THREE.Group();
+        for (let i = 0; i < 3; i++) {
+            const path = new THREE.Path();
+            path.absarc(0, 0, 1, 0, Math.PI * 2, false);
+            const points = path.getPoints(64);
+            const geometry = new THREE.BufferGeometry().setFromPoints(points);
+            const material = new THREE.LineBasicMaterial({ color: 0xc5a880, transparent: true, opacity: 0.08 });
+            const line = new THREE.LineLoop(geometry, material);
+            line.rotation.x = Math.random() * Math.PI;
+            line.rotation.y = Math.random() * Math.PI;
+            orbitGroup.add(line);
         }
+        scene.add(orbitGroup);
 
-        // Logo sizing
-        const baseLogoSize = s.isMobile ? 48 * dpr : 72 * dpr;
-        const minScaleMobile = 0.65;
-        const minScaleDesktop = 0.40;
+        const floorGeo = new THREE.PlaneGeometry(3, 3);
+        const floorMat = new THREE.ShaderMaterial({
+            vertexShader: `varying vec2 vUv; void main() { vUv = uv; gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0); }`,
+            fragmentShader: `
+                varying vec2 vUv; 
+                void main() { 
+                    float dist = distance(vUv, vec2(0.5));
+                    float alpha = smoothstep(0.5, 0.0, dist) * 0.35;
+                    gl_FragColor = vec4(197.0/255.0, 168.0/255.0, 128.0/255.0, alpha);
+                }
+            `,
+            transparent: true,
+            depthWrite: false
+        });
+        const floor = new THREE.Mesh(floorGeo, floorMat);
+        floor.rotation.x = -Math.PI / 2;
+        scene.add(floor);
 
-        // Clear
-        ctx.clearRect(0, 0, w, h);
+        /* ─── Logos ─── */
+        const sphereGroup = new THREE.Group();
+        scene.add(sphereGroup);
+        const logos: THREE.Mesh[] = [];
+        const loader = new THREE.TextureLoader();
 
-        // Project all logos
-        for (let i = 0; i < s.logos.length; i++) {
-            const base = s.basePositions[i];
-            const rp = rotatePoint(
-                base.x, base.y, base.z * s.zDepthFactor,
-                s.angleX, s.angleY
-            );
-            const logo = s.logos[i];
-            // Perspective projection
-            const fov = 600 * dpr;
-            const zOffset = s.sphereRadius * 1.8;
-            const perspZ = rp.z + zOffset;
-            const projScale = fov / perspZ;
-            logo.projX = cx + rp.x * projScale;
-            logo.projY = cy + rp.y * projScale;
+        const fibPoints = fibonacciSphere(partnerLogos.length);
+        const planeGeo = new THREE.PlaneGeometry(1, 1);
 
-            // Normalised depth: 0 = far background, 1 = close foreground
-            const normalZ = (rp.z + s.sphereRadius) / (2 * s.sphereRadius);
+        partnerLogos.forEach((logo, i) => {
+            const mat = new THREE.ShaderMaterial({
+                uniforms: {
+                    map: { value: null },
+                    grayscaleAmount: { value: 1.0 },
+                    opacity: { value: 1.0 },
+                    isHero: { value: 0.0 }
+                },
+                vertexShader: `
+                    varying vec2 vUv;
+                    void main() {
+                        vUv = uv;
+                        gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+                    }
+                `,
+                fragmentShader: `
+                    uniform sampler2D map;
+                    uniform float grayscaleAmount;
+                    uniform float opacity;
+                    uniform float isHero;
+                    varying vec2 vUv;
 
-            if (s.isMobile) {
-                logo.scale = Math.max(minScaleMobile, 0.65 + normalZ * 0.35);
-                logo.opacity = 0.35 + normalZ * 0.65;
-            } else {
-                logo.scale = Math.max(minScaleDesktop, 0.40 + normalZ * 0.60);
-                logo.opacity = 0.30 + normalZ * 0.70;
+                    void main() {
+                        vec2 uv = vUv;
+                        float dist = distance(uv, vec2(0.5));
+                        
+                        if (dist > 0.5) discard;
+
+                        // Slightly shrink the UV to give margin for the circle clip
+                        vec2 centerUv = (uv - 0.5) * 1.08 + 0.5;
+                        vec4 texColor = texture2D(map, centerUv);
+
+                        // Pre-multiply alpha to simulate white canvas background for transparent logos
+                        vec3 baseColor = mix(vec3(1.0), texColor.rgb, texColor.a);
+                        
+                        // Calculate grayscale
+                        float luma = dot(baseColor, vec3(0.299, 0.587, 0.114));
+                        vec3 gray = vec3(luma);
+                        vec3 finalColor = mix(baseColor, gray, grayscaleAmount);
+
+                        // Colors for the border
+                        vec3 normalBorder = vec3(197.0/255.0, 168.0/255.0, 128.0/255.0);
+                        vec3 heroBorder = vec3(255.0/255.0, 215.0/255.0, 100.0/255.0);
+                        vec3 currentBorder = mix(normalBorder, heroBorder, isHero);
+
+                        // Masks
+                        float ringMask = smoothstep(0.44, 0.43, dist) - smoothstep(0.41, 0.40, dist);
+                        float glowMask = smoothstep(0.50, 0.44, dist) * isHero;
+                        
+                        vec3 colorWithRing = mix(finalColor, currentBorder, ringMask);
+
+                        if (dist > 0.44) {
+                            // The outer glow
+                            gl_FragColor = vec4(currentBorder, glowMask * opacity * 0.85);
+                        } else {
+                            // The core logo
+                            gl_FragColor = vec4(colorWithRing, opacity);
+                        }
+                    }
+                `,
+                transparent: true,
+                depthWrite: false
+            });
+
+            loader.load(logo.src, (tex) => {
+                tex.generateMipmaps = true;
+                tex.minFilter = THREE.LinearMipmapLinearFilter;
+                mat.uniforms.map.value = tex;
+                mat.needsUpdate = true;
+            });
+
+            const mesh = new THREE.Mesh(planeGeo, mat);
+            mesh.userData = {
+                basePos: fibPoints[i],
+                href: logo.href,
+                index: i
+            };
+
+            sphereGroup.add(mesh);
+            logos.push(mesh);
+        });
+
+        /* ─── State & Interaction ─── */
+        let currentRotX = 0;
+        let currentRotY = 0;
+        let isDragging = false;
+        let previousMouse = { x: 0, y: 0 };
+        let startMouse = { x: 0, y: 0 };
+        let velocity = { x: 0, y: 0.002 };
+        let hoveredLogo: THREE.Mesh | null = null;
+        let draggedSinceDown = false;
+
+        const raycaster = new THREE.Raycaster();
+        const mouse = new THREE.Vector2(-10, -10); // Start offscreen
+
+        const onPointerDown = (e: MouseEvent | TouchEvent) => {
+            isDragging = true;
+            draggedSinceDown = false;
+            const clientX = 'touches' in e ? e.touches[0].clientX : e.clientX;
+            const clientY = 'touches' in e ? e.touches[0].clientY : e.clientY;
+            startMouse = { x: clientX, y: clientY };
+            previousMouse = { x: clientX, y: clientY };
+        };
+
+        const onPointerMove = (e: MouseEvent | TouchEvent) => {
+            const clientX = 'touches' in e ? e.touches[0].clientX : e.clientX;
+            const clientY = 'touches' in e ? e.touches[0].clientY : e.clientY;
+            
+            if (isDragging) {
+                const deltaX = clientX - previousMouse.x;
+                const deltaY = clientY - previousMouse.y;
+                const totalDist = Math.hypot(clientX - startMouse.x, clientY - startMouse.y);
+                
+                if (totalDist > 5) {
+                    draggedSinceDown = true;
+                }
+                
+                velocity.x = deltaY * 0.0001;
+                velocity.y = deltaX * 0.0001;
+                
+                previousMouse = { x: clientX, y: clientY };
             }
-        }
 
-        // Sort by Z for painter's algorithm (back to front)
-        const sorted = [...s.logos].sort((a, b) => a.opacity - b.opacity);
+            const rect = container.getBoundingClientRect();
+            mouse.x = ((clientX - rect.left) / rect.width) * 2 - 1;
+            mouse.y = -((clientY - rect.top) / rect.height) * 2 + 1;
+        };
 
-        // Draw each logo
-        for (const logo of sorted) {
-            if (!logo.loaded || !logo.img) continue;
+        const onPointerUp = () => {
+            isDragging = false;
+        };
 
-            const size = baseLogoSize * logo.scale;
-            const halfSize = size / 2;
-            const x = logo.projX - halfSize;
-            const y = logo.projY - halfSize;
-
-            const isHovered = s.hoveredIndex === logo.index;
-
-            ctx.save();
-
-            // Global alpha
-            ctx.globalAlpha = isHovered ? 1.0 : logo.opacity;
-
-            // Draw circular clip + white bg + border
-            const centerX = logo.projX;
-            const centerY = logo.projY;
-            const radius = halfSize;
-
-            // Shadow
-            ctx.shadowColor = isHovered
-                ? 'rgba(197, 168, 128, 0.4)'
-                : 'rgba(28, 26, 24, 0.08)';
-            ctx.shadowBlur = isHovered ? 18 * dpr : 8 * dpr;
-            ctx.shadowOffsetY = isHovered ? 4 * dpr : 3 * dpr;
-
-            // White circle background
-            ctx.beginPath();
-            ctx.arc(centerX, centerY, radius, 0, Math.PI * 2);
-            ctx.fillStyle = '#FFFFFF';
-            ctx.fill();
-
-            // Border
-            ctx.lineWidth = isHovered ? 2.5 * dpr : 1.5 * dpr;
-            ctx.strokeStyle = isHovered
-                ? 'rgba(138, 100, 33, 0.9)'
-                : 'rgba(197, 168, 128, 0.35)';
-            ctx.stroke();
-
-            // Reset shadow for image
-            ctx.shadowColor = 'transparent';
-            ctx.shadowBlur = 0;
-            ctx.shadowOffsetY = 0;
-
-            // Clip for logo image
-            ctx.beginPath();
-            ctx.arc(centerX, centerY, radius - 2 * dpr, 0, Math.PI * 2);
-            ctx.clip();
-
-            // Grayscale: use composite filter on canvas via desaturation
-            if (!isHovered) {
-                // Draw image, then overlay to desaturate
-                ctx.drawImage(logo.img, x + 2 * dpr, y + 2 * dpr, size - 4 * dpr, size - 4 * dpr);
-                // Desaturation overlay
-                ctx.globalCompositeOperation = 'saturation';
-                ctx.fillStyle = 'hsl(0, 0%, 50%)';
-                ctx.fillRect(x, y, size, size);
-                ctx.globalCompositeOperation = 'source-over';
-            } else {
-                // Full color
-                ctx.drawImage(logo.img, x + 2 * dpr, y + 2 * dpr, size - 4 * dpr, size - 4 * dpr);
+        const onClick = () => {
+            if (!draggedSinceDown && hoveredLogo && hoveredLogo.userData.href) {
+                window.location.href = hoveredLogo.userData.href;
             }
+        };
 
-            ctx.restore();
-        }
+        const onResize = () => {
+            width = container.clientWidth;
+            height = container.clientHeight;
+            renderer.setSize(width, height);
+            camera.aspect = width / height;
+            camera.updateProjectionMatrix();
+        };
 
-        s.animId = requestAnimationFrame(draw);
-    }, []);
+        window.addEventListener('resize', onResize);
+        container.addEventListener('mousedown', onPointerDown);
+        window.addEventListener('mousemove', onPointerMove);
+        window.addEventListener('mouseup', onPointerUp);
+        container.addEventListener('click', onClick);
 
-    /* ── Hit testing ── */
-    const getLogoAtPoint = useCallback((clientX: number, clientY: number): number => {
-        const s = stateRef.current;
-        const rect = s.containerRect;
-        const px = (clientX - rect.left) * s.dpr;
-        const py = (clientY - rect.top) * s.dpr;
-        const baseLogoSize = s.isMobile ? 48 * s.dpr : 72 * s.dpr;
+        container.addEventListener('touchstart', onPointerDown, { passive: true });
+        window.addEventListener('touchmove', onPointerMove, { passive: true });
+        window.addEventListener('touchend', onPointerUp);
 
-        // Check front-to-back (highest opacity first)
-        const sorted = [...s.logos].sort((a, b) => b.opacity - a.opacity);
-        for (const logo of sorted) {
-            if (!logo.loaded) continue;
-            const size = baseLogoSize * logo.scale;
-            const halfSize = size / 2;
-            const dx = px - logo.projX;
-            const dy = py - logo.projY;
-            if (dx * dx + dy * dy <= halfSize * halfSize) {
-                return logo.index;
-            }
-        }
-        return -1;
-    }, []);
+        /* ─── Render Loop ─── */
+        let animId = 0;
+        const render = () => {
+            animId = requestAnimationFrame(render);
 
-    /* ── Event handlers ── */
-    const handleMouseMove = useCallback((e: MouseEvent) => {
-        const s = stateRef.current;
-        const rect = s.containerRect;
-        const relX = (e.clientX - rect.left) / rect.width - 0.5;  // -0.5 to 0.5
-        const relY = (e.clientY - rect.top) / rect.height - 0.5;
+            const isMobile = window.innerWidth < 768;
+            const minDim = Math.min(width, height);
+            // Dynamic radius based on screen size
+            const RADIUS = isMobile ? minDim * 0.38 : Math.min(minDim * 0.40, 260);
+            const zFactor = isMobile ? 0.5 : 1.0;
+            const baseSize = isMobile ? 60 : 76;
 
-        // Adjust rotation velocity based on mouse offset
-        s.velY = relX * 0.012;
-        s.velX = relY * 0.006;
+            // Environment scaling
+            orbitGroup.scale.set(RADIUS * 1.15, RADIUS * 1.15, RADIUS * 1.15 * zFactor);
+            floor.scale.set(RADIUS * 3, RADIUS * 3, 1);
+            floor.position.y = -RADIUS - (isMobile ? 30 : 60);
 
-        // Hit test
-        const idx = getLogoAtPoint(e.clientX, e.clientY);
-        s.hoveredIndex = idx;
-        s.paused = idx >= 0;
-
-        // Cursor
-        const canvas = canvasRef.current;
-        if (canvas) {
-            canvas.style.cursor = idx >= 0 ? 'pointer' : 'grab';
-        }
-    }, [getLogoAtPoint]);
-
-    const handleMouseLeave = useCallback(() => {
-        const s = stateRef.current;
-        s.hoveredIndex = -1;
-        s.paused = false;
-        s.velY = 0.002;
-        s.velX = 0;
-        const canvas = canvasRef.current;
-        if (canvas) canvas.style.cursor = 'grab';
-    }, []);
-
-    const handleClick = useCallback((e: MouseEvent) => {
-        const idx = getLogoAtPoint(e.clientX, e.clientY);
-        if (idx >= 0) {
-            const logo = partnerLogos[idx];
-            if (logo.href) {
-                window.location.href = logo.href;
-            }
-        }
-    }, [getLogoAtPoint]);
-
-    /* ── Touch handlers ── */
-    const touchStartRef = useRef({ x: 0, y: 0, time: 0 });
-
-    const handleTouchStart = useCallback((e: TouchEvent) => {
-        const touch = e.touches[0];
-        touchStartRef.current = { x: touch.clientX, y: touch.clientY, time: Date.now() };
-
-        const s = stateRef.current;
-        const idx = getLogoAtPoint(touch.clientX, touch.clientY);
-        if (idx >= 0) {
-            s.hoveredIndex = idx;
-            s.paused = true;
-        }
-    }, [getLogoAtPoint]);
-
-    const handleTouchMove = useCallback((e: TouchEvent) => {
-        const s = stateRef.current;
-        const touch = e.touches[0];
-        const rect = s.containerRect;
-        const relX = (touch.clientX - rect.left) / rect.width - 0.5;
-        const relY = (touch.clientY - rect.top) / rect.height - 0.5;
-
-        s.velY = relX * 0.015;
-        s.velX = relY * 0.008;
-        s.hoveredIndex = -1;
-        s.paused = false;
-    }, []);
-
-    const handleTouchEnd = useCallback((e: TouchEvent) => {
-        const s = stateRef.current;
-        const touch = e.changedTouches[0];
-        const dt = Date.now() - touchStartRef.current.time;
-        const dx = touch.clientX - touchStartRef.current.x;
-        const dy = touch.clientY - touchStartRef.current.y;
-
-        // Detect tap (short duration, small movement)
-        if (dt < 300 && Math.abs(dx) < 10 && Math.abs(dy) < 10) {
-            const idx = getLogoAtPoint(touch.clientX, touch.clientY);
-            if (idx >= 0) {
-                const logo = partnerLogos[idx];
-                if (logo.href) {
-                    window.location.href = logo.href;
+            // Physics & Rotation
+            if (!isDragging) {
+                if (hoveredLogo) {
+                    velocity.x = 0;
+                    velocity.y = 0;
+                } else {
+                    velocity.x *= 0.95; // Damping
+                    velocity.y = velocity.y * 0.95 + 0.002 * 0.05; // Return to baseline speed
                 }
             }
-        }
 
-        s.hoveredIndex = -1;
-        s.paused = false;
-        // Apply swipe momentum
-        s.velY = dx * 0.00003;
-        s.velX = dy * 0.00002;
-    }, [getLogoAtPoint]);
+            currentRotX += velocity.x;
+            currentRotY += velocity.y;
+            
+            // Limit vertical rotation to prevent flipping upside down
+            currentRotX = THREE.MathUtils.clamp(currentRotX, -0.3, 0.3);
 
-    /* ── Lifecycle ── */
-    useEffect(() => {
-        initLogos();
-        handleResize();
+            sphereGroup.rotation.x = currentRotX;
+            sphereGroup.rotation.y = currentRotY;
+            sphereGroup.updateMatrixWorld();
 
-        const canvas = canvasRef.current;
-        if (!canvas) return;
+            // Raycast for hover state
+            raycaster.setFromCamera(mouse, camera);
+            const intersects = raycaster.intersectObjects(logos);
+            if (intersects.length > 0) {
+                hoveredLogo = intersects[0].object as THREE.Mesh;
+                container.style.cursor = 'pointer';
+            } else {
+                hoveredLogo = null;
+                container.style.cursor = isDragging ? 'grabbing' : 'grab';
+            }
 
-        // Start animation
-        stateRef.current.animId = requestAnimationFrame(draw);
+            // The target "front center" position where a logo becomes the hero
+            const targetPos = new THREE.Vector3(0, 0, RADIUS * zFactor);
 
-        // Events
-        window.addEventListener('resize', handleResize, { passive: true });
-        canvas.addEventListener('mousemove', handleMouseMove, { passive: true });
-        canvas.addEventListener('mouseleave', handleMouseLeave);
-        canvas.addEventListener('click', handleClick);
-        canvas.addEventListener('touchstart', handleTouchStart, { passive: true });
-        canvas.addEventListener('touchmove', handleTouchMove, { passive: true });
-        canvas.addEventListener('touchend', handleTouchEnd, { passive: true });
+            logos.forEach(mesh => {
+                // Spherical position update (applying responsive radius and z-depth flatten)
+                const base = mesh.userData.basePos;
+                mesh.position.set(
+                    base.x * RADIUS,
+                    base.y * RADIUS,
+                    base.z * RADIUS * zFactor
+                );
 
-        // Force a re-render once images start loading
-        const checkInterval = setInterval(() => {
-            const loaded = stateRef.current.logos.filter(l => l.loaded).length;
-            if (loaded >= partnerLogos.length) clearInterval(checkInterval);
-            forceRender(v => v + 1);
-        }, 500);
+                // Billboard effect: Logos always face the camera directly
+                mesh.lookAt(camera.position);
+
+                const worldPos = new THREE.Vector3();
+                mesh.getWorldPosition(worldPos);
+
+                // Distance to front center
+                const dist = worldPos.distanceTo(targetPos);
+                
+                // Hero factor based on distance
+                const heroRadius = RADIUS * 0.55;
+                let heroFactor = 1.0 - Math.min(dist / heroRadius, 1.0);
+                heroFactor = THREE.MathUtils.smoothstep(heroFactor, 0.0, 1.0);
+
+                if (hoveredLogo === mesh) {
+                    heroFactor = 1.0;
+                }
+
+                // Opacity fades out for distant logos
+                // normalZ is 0 at the back (-RADIUS) and 1 at the front (+RADIUS)
+                const normalZ = (worldPos.z + RADIUS * zFactor) / (2 * RADIUS * zFactor);
+                let targetOpacity = 0.25 + 0.75 * Math.pow(Math.max(normalZ, 0), 1.8);
+                
+                if (hoveredLogo === mesh) {
+                    targetOpacity = 1.0;
+                }
+
+                // Smoothly lerp shader uniforms
+                const mat = mesh.material as THREE.ShaderMaterial;
+                mat.uniforms.isHero.value = THREE.MathUtils.lerp(mat.uniforms.isHero.value, heroFactor, 0.1);
+                mat.uniforms.grayscaleAmount.value = THREE.MathUtils.lerp(mat.uniforms.grayscaleAmount.value, 1.0 - heroFactor, 0.1);
+                mat.uniforms.opacity.value = THREE.MathUtils.lerp(mat.uniforms.opacity.value, targetOpacity, 0.1);
+
+                // Dynamic Scaling
+                const heroScaleBonus = 1.4; // Hero gets 40% larger
+                const finalScale = baseSize * (1.0 + heroFactor * (heroScaleBonus - 1.0));
+                
+                // Perspective clamp logic (preventing tiny background dots)
+                const minScale = isMobile ? 0.65 : 0.40;
+                const depthScale = Math.max(minScale, 0.35 + normalZ * 0.65);
+                
+                mesh.scale.setScalar(finalScale * (hoveredLogo === mesh ? 1.0 : depthScale));
+            });
+
+            renderer.render(scene, camera);
+        };
+
+        animId = requestAnimationFrame(render);
 
         return () => {
-            cancelAnimationFrame(stateRef.current.animId);
-            window.removeEventListener('resize', handleResize);
-            canvas.removeEventListener('mousemove', handleMouseMove);
-            canvas.removeEventListener('mouseleave', handleMouseLeave);
-            canvas.removeEventListener('click', handleClick);
-            canvas.removeEventListener('touchstart', handleTouchStart);
-            canvas.removeEventListener('touchmove', handleTouchMove);
-            canvas.removeEventListener('touchend', handleTouchEnd);
-            clearInterval(checkInterval);
+            cancelAnimationFrame(animId);
+            renderer.dispose();
+            container.innerHTML = '';
+            
+            window.removeEventListener('resize', onResize);
+            container.removeEventListener('mousedown', onPointerDown);
+            window.removeEventListener('mousemove', onPointerMove);
+            window.removeEventListener('mouseup', onPointerUp);
+            container.removeEventListener('click', onClick);
+            container.removeEventListener('touchstart', onPointerDown);
+            window.removeEventListener('touchmove', onPointerMove);
+            window.removeEventListener('touchend', onPointerUp);
         };
-    }, [initLogos, handleResize, draw, handleMouseMove, handleMouseLeave, handleClick, handleTouchStart, handleTouchMove, handleTouchEnd]);
+    }, []);
 
     return (
         <section className="partner-sphere-section" aria-label="Brand Collaborations">
@@ -478,13 +419,14 @@ export default function PartnerLogoSphere() {
                 className="partner-sphere-viewport"
                 role="img"
                 aria-label="Interactive 3D sphere showing 34 partner brand logos. Drag to rotate, click any logo to learn more."
-            >
-                <canvas
-                    ref={canvasRef}
-                    className="partner-sphere-canvas"
-                    style={{ cursor: 'grab' }}
-                />
-            </div>
+                style={{ 
+                    width: '100%', 
+                    minHeight: '550px', 
+                    position: 'relative', 
+                    overflow: 'hidden',
+                    touchAction: 'pan-y' // Prevent horizontal scroll to allow drag rotation, but allow vertical scrolling
+                }}
+            />
         </section>
     );
 }
