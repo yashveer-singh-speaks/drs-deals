@@ -4,7 +4,7 @@ import React, { useRef, useEffect } from 'react';
 import * as THREE from 'three';
 import { siteConfig } from '@/config/site';
 
-/* ─── Partner Logo Data ─── */
+/* ─── Partner Logo Data (34 Brands) ─── */
 const partnerLogos = [
     { src: '/images/companies-tie-up/renowned-hotels_8.webp', alt: 'Wyndham and Renowned Hotel Partners', href: '/partners' },
     { src: '/images/companies-tie-up/renowned-hotels_9.webp', alt: 'Choice Hotels Hospitality Partner', href: '/partners' },
@@ -42,20 +42,33 @@ const partnerLogos = [
     { src: '/images/companies-tie-up/waterpark-cinema-village_34.webp', alt: 'Eco Leisure Village Partner', href: '/partners' },
 ];
 
-/* ─── Fibonacci Sphere Distribution (Unit Vectors) ─── */
-function fibonacciSphere(n: number): THREE.Vector3[] {
-    const goldenAngle = Math.PI * (3 - Math.sqrt(5));
+/* ─── Orbital Spherical Distribution with Protected Center Exclusion Zone ─── */
+interface RingConfig {
+    y: number;          // Normalized height (-1 to 1)
+    count: number;      // Number of logos on this ring
+    angleOffset: number;// Stagger phase offset
+}
+
+const ringConfigs: RingConfig[] = [
+    { y: 0.68, count: 5, angleOffset: 0.2 },              // Crown Top Ring (5 logos)
+    { y: 0.34, count: 12, angleOffset: 0.0 },             // Upper Orbit (12 logos - 2 hero logos above center)
+    { y: -0.34, count: 12, angleOffset: Math.PI / 12 },   // Lower Orbit (12 logos - 2 hero logos below center)
+    { y: -0.68, count: 5, angleOffset: 0.4 },             // Crown Bottom Ring (5 logos)
+];
+
+function generateOrbitalSpherePoints(): THREE.Vector3[] {
     const points: THREE.Vector3[] = [];
-    for (let i = 0; i < n; i++) {
-        const y = 1 - (i / (n - 1)) * 2; // -1 to 1
-        const radiusAtY = Math.sqrt(1 - y * y);
-        const theta = goldenAngle * i;
-        points.push(new THREE.Vector3(
-            Math.cos(theta) * radiusAtY,
-            y,
-            Math.sin(theta) * radiusAtY
-        ));
-    }
+    ringConfigs.forEach(ring => {
+        const radiusAtY = Math.sqrt(Math.max(0, 1 - ring.y * ring.y));
+        for (let i = 0; i < ring.count; i++) {
+            const angle = (i / ring.count) * Math.PI * 2 + ring.angleOffset;
+            points.push(new THREE.Vector3(
+                Math.cos(angle) * radiusAtY,
+                ring.y,
+                Math.sin(angle) * radiusAtY
+            ));
+        }
+    });
     return points;
 }
 
@@ -80,21 +93,7 @@ export default function PartnerLogoSphere() {
         container.innerHTML = '';
         container.appendChild(renderer.domElement);
 
-        /* ─── Environment (Orbits & Floor) ─── */
-        const orbitGroup = new THREE.Group();
-        for (let i = 0; i < 3; i++) {
-            const path = new THREE.Path();
-            path.absarc(0, 0, 1, 0, Math.PI * 2, false);
-            const points = path.getPoints(64);
-            const geometry = new THREE.BufferGeometry().setFromPoints(points);
-            const material = new THREE.LineBasicMaterial({ color: 0xc5a880, transparent: true, opacity: 0.12 });
-            const line = new THREE.LineLoop(geometry, material);
-            line.rotation.x = Math.random() * Math.PI;
-            line.rotation.y = Math.random() * Math.PI;
-            orbitGroup.add(line);
-        }
-        scene.add(orbitGroup);
-
+        /* ─── Environment (Floor & Celestial Guides) ─── */
         const floorGeo = new THREE.PlaneGeometry(3, 3);
         const floorMat = new THREE.ShaderMaterial({
             vertexShader: `varying vec2 vUv; void main() { vUv = uv; gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0); }`,
@@ -113,7 +112,7 @@ export default function PartnerLogoSphere() {
         floor.rotation.x = -Math.PI / 2;
         scene.add(floor);
 
-        /* ─── Center Hero: Permanent DRS Deals Logo ─── */
+        /* ─── Center Hero Anchor: Permanent Floating DRS Deals Logo ─── */
         const loader = new THREE.TextureLoader();
         const planeGeo = new THREE.PlaneGeometry(1, 1);
 
@@ -160,11 +159,11 @@ export default function PartnerLogoSphere() {
                     
                     // Radiant dynamic gold glow pulse
                     float pulse = 0.85 + 0.15 * sin(time * 2.8);
-                    float glowMask = smoothstep(0.50, 0.45, dist) * (pulse + isHovered * 0.3);
+                    float glowMask = smoothstep(0.50, 0.45, dist) * (pulse + isHovered * 0.35);
 
                     vec3 finalColor = baseColor;
                     finalColor = mix(finalColor, goldMain, outerRing);
-                    finalColor = mix(finalColor, goldBright, innerRing * 0.7);
+                    finalColor = mix(finalColor, goldBright, innerRing * 0.75);
 
                     if (dist > 0.45) {
                         gl_FragColor = vec4(goldBright, glowMask * opacity * 0.95);
@@ -186,20 +185,38 @@ export default function PartnerLogoSphere() {
         });
 
         const drsHeroMesh = new THREE.Mesh(planeGeo, drsHeroMat);
-        drsHeroMesh.renderOrder = 9999; // Always render in front of rotating sphere logos
+        drsHeroMesh.renderOrder = 9999; // Visually in front at all times
         drsHeroMesh.userData = {
             isCenterHero: true,
             href: '/about',
-            alt: 'DRS Deals Luxury Anchor'
+            alt: 'DRS Deals Luxury Core Anchor'
         };
         scene.add(drsHeroMesh);
 
-        /* ─── Rotating Surrounding Partner Logos ─── */
+        /* ─── Rotating Partner Logo Sphere (4 Orbital Bands) ─── */
         const sphereGroup = new THREE.Group();
         scene.add(sphereGroup);
-        const logos: THREE.Mesh[] = [];
 
-        const fibPoints = fibonacciSphere(partnerLogos.length);
+        // Orbital Golden Guides (Tilted visual orbits)
+        const orbitGuideGroup = new THREE.Group();
+        sphereGroup.add(orbitGuideGroup);
+
+        // Add visual guide rings matching the 2 active hero orbit bands (y = +0.34 and y = -0.34)
+        [0.34, -0.34].forEach(yPos => {
+            const radAtY = Math.sqrt(1 - yPos * yPos);
+            const path = new THREE.Path();
+            path.absarc(0, 0, radAtY, 0, Math.PI * 2, false);
+            const points = path.getPoints(64);
+            const geometry = new THREE.BufferGeometry().setFromPoints(points);
+            const material = new THREE.LineBasicMaterial({ color: 0xc5a880, transparent: true, opacity: 0.10 });
+            const line = new THREE.LineLoop(geometry, material);
+            line.rotation.x = Math.PI / 2; // Flat horizontal ring
+            line.position.y = yPos;
+            orbitGuideGroup.add(line);
+        });
+
+        const logos: THREE.Mesh[] = [];
+        const orbitalPoints = generateOrbitalSpherePoints();
 
         partnerLogos.forEach((logo, i) => {
             const mat = new THREE.ShaderMaterial({
@@ -271,7 +288,7 @@ export default function PartnerLogoSphere() {
 
             const mesh = new THREE.Mesh(planeGeo, mat);
             mesh.userData = {
-                basePos: fibPoints[i],
+                basePos: orbitalPoints[i],
                 href: logo.href,
                 index: i
             };
@@ -366,21 +383,24 @@ export default function PartnerLogoSphere() {
             const minDim = Math.min(width, height);
             const RADIUS = isMobile ? minDim * 0.38 : Math.min(minDim * 0.40, 260);
             const zFactor = isMobile ? 0.5 : 1.0;
-            const baseSize = isMobile ? 56 : 74;
-            const centerHeroSize = isMobile ? 86 : 110;
+            const baseSize = isMobile ? 54 : 72;
+            const centerHeroSize = isMobile ? 88 : 112;
 
             // Environment scaling
-            orbitGroup.scale.set(RADIUS * 1.15, RADIUS * 1.15, RADIUS * 1.15 * zFactor);
             floor.scale.set(RADIUS * 3, RADIUS * 3, 1);
             floor.position.y = -RADIUS - (isMobile ? 30 : 60);
 
-            // Center DRS Deals hero positioning & floating effect
-            const floatZ = RADIUS * zFactor + (isMobile ? 35 : 55);
-            drsHeroMesh.position.set(0, 0, floatZ);
+            // Scale orbital lines
+            orbitGuideGroup.scale.set(RADIUS, RADIUS, RADIUS * zFactor);
+
+            // Center DRS Deals hero positioning with subtle 3D levitation floating motion
+            const floatLevitation = Math.sin(elapsedTime * 2.2) * 4;
+            const floatZ = RADIUS * zFactor * 0.20; // Sits right in front of the sphere's core
+            drsHeroMesh.position.set(0, floatLevitation, floatZ);
             drsHeroMesh.lookAt(camera.position);
             
             // Subtle luxury breathing pulse for the fixed center hero
-            const breathScale = 1.0 + Math.sin(elapsedTime * 2.2) * 0.03;
+            const breathScale = 1.0 + Math.sin(elapsedTime * 2.5) * 0.025;
             drsHeroMesh.scale.setScalar(centerHeroSize * breathScale * (hoveredLogo === drsHeroMesh ? 1.08 : 1.0));
             drsHeroMat.uniforms.time.value = elapsedTime;
             drsHeroMat.uniforms.isHovered.value = hoveredLogo === drsHeroMesh ? 1.0 : 0.0;
@@ -399,8 +419,8 @@ export default function PartnerLogoSphere() {
             currentRotX += velocity.x;
             currentRotY += velocity.y;
             
-            // Constrain vertical rotation so sphere remains an upright globe
-            currentRotX = THREE.MathUtils.clamp(currentRotX, -0.3, 0.3);
+            // Constrain vertical tilt so the orbit tracks stay cleanly aligned
+            currentRotX = THREE.MathUtils.clamp(currentRotX, -0.22, 0.22);
 
             sphereGroup.rotation.x = currentRotX;
             sphereGroup.rotation.y = currentRotY;
@@ -418,7 +438,7 @@ export default function PartnerLogoSphere() {
                 container.style.cursor = isDragging ? 'grabbing' : 'grab';
             }
 
-            /* ─── Update Surrounding Logos & Influence Zone ─── */
+            /* ─── Update Surrounding Logos & 4-Point Highlight Zone ─── */
             logos.forEach(mesh => {
                 const base = mesh.userData.basePos;
                 mesh.position.set(
@@ -427,32 +447,33 @@ export default function PartnerLogoSphere() {
                     base.z * RADIUS * zFactor
                 );
 
-                // Billboard: Partner logos always stay upright and face the camera
+                // Billboard: Partner logos always stay upright and face the camera directly
                 mesh.lookAt(camera.position);
 
                 const worldPos = new THREE.Vector3();
                 mesh.getWorldPosition(worldPos);
 
-                // 2D distance from the center DRS Deals logo in XY plane
-                const distXY = Math.hypot(worldPos.x, worldPos.y);
+                // Highlight zone activation:
+                // Only the active orbit rings (|base.y| ≈ 0.34) can be highlighted.
+                // In these rings (12 logos each), as they rotate across the front center,
+                // exactly 2 upper logos and 2 lower logos within |worldPos.x| < RADIUS * 0.45 turn full color.
+                const isActiveOrbit = Math.abs(base.y) > 0.20 && Math.abs(base.y) < 0.50;
+                
+                // Front-facing factor (logos in the front quadrant z > 0)
+                const frontDepth = Math.max(0, worldPos.z / (RADIUS * zFactor));
+                const smoothZ = THREE.MathUtils.smoothstep(frontDepth, 0.15, 0.90);
 
-                // Highlight zone around the DRS Deals logo:
-                // Activates approximately 4 front-facing logos surrounding the center anchor (2 above, 2 below)
-                const highlightRadius = RADIUS * 0.72;
-                const xyProximity = 1.0 - Math.min(distXY / highlightRadius, 1.0);
-                const smoothXy = THREE.MathUtils.smoothstep(xyProximity, 0.0, 1.0);
+                // Horizontal center proximity
+                const xProximity = 1.0 - Math.min(Math.abs(worldPos.x) / (RADIUS * 0.48), 1.0);
+                const smoothX = THREE.MathUtils.smoothstep(xProximity, 0.0, 1.0);
 
-                // Only activate logos that are in the front quadrant facing the user
-                const frontDepth = Math.max(0, (worldPos.z - RADIUS * zFactor * 0.1) / (RADIUS * zFactor * 0.9));
-                const smoothZ = THREE.MathUtils.smoothstep(frontDepth, 0.0, 1.0);
-
-                let highlightFactor = smoothXy * smoothZ;
+                let highlightFactor = isActiveOrbit ? smoothX * smoothZ : 0.0;
 
                 if (hoveredLogo === mesh) {
                     highlightFactor = 1.0;
                 }
 
-                // Opacity based on world Z depth (back logos smoothly fade out)
+                // Opacity based on depth (back logos smoothly fade out)
                 const normalZ = (worldPos.z + RADIUS * zFactor) / (2 * RADIUS * zFactor);
                 let targetOpacity = 0.25 + 0.75 * Math.pow(Math.max(normalZ, 0), 1.8);
                 
@@ -512,7 +533,7 @@ export default function PartnerLogoSphere() {
                 ref={containerRef}
                 className="partner-sphere-viewport"
                 role="img"
-                aria-label="Interactive 3D sphere showing DRS Deals central anchor and 34 partner brand logos. Drag to rotate, click any logo to learn more."
+                aria-label="Interactive 3D sphere showing DRS Deals central anchor and 34 partner brand logos orbiting around the protected center. Drag to rotate, click any logo to learn more."
                 style={{ 
                     width: '100%', 
                     minHeight: '550px', 
