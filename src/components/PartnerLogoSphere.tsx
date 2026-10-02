@@ -376,11 +376,14 @@ export default function PartnerLogoSphere() {
 
         /* ─── Motion Dynamics & State ─── */
         let currentRotY = 0;
+        let currentRotX = 0;
         let dragOffsetPitch = 0;
         let dragOffsetYaw = 0;
 
         const BASE_VEL_Y = 0.00075; // Slower, stately, luxurious horizontal revolution
+        const BASE_VEL_X = 0.00022; // Slow vertical pitch so every latitude band cycles through the equator
         let velY = BASE_VEL_Y;
+        let velX = BASE_VEL_X;
         let pitchVel = 0;
 
         let isDragging = false;
@@ -416,6 +419,7 @@ export default function PartnerLogoSphere() {
                 
                 // Fluid drag physics with calm damping
                 velY = deltaX * 0.00008;
+                velX = deltaY * 0.00005;
                 pitchVel = deltaY * 0.00005;
                 
                 dragOffsetYaw += deltaX * 0.0018;
@@ -499,25 +503,28 @@ export default function PartnerLogoSphere() {
             drsHeroMat.uniforms.time.value = elapsedTime;
             drsHeroMat.uniforms.isHovered.value = hoveredLogo === drsHeroMesh ? 1.0 : 0.0;
 
-            /* ─── Continuous Level Rotation Physics (No Diagonal Slant) ─── */
+            /* ─── Continuous Multi-Axis Level Rotation ─── */
             if (!isDragging) {
                 if (hoveredLogo && hoveredLogo !== drsHeroMesh) {
                     velY *= 0.90;
+                    velX *= 0.90;
                     pitchVel *= 0.90;
                 } else {
                     velY = THREE.MathUtils.lerp(velY, BASE_VEL_Y, 0.025);
+                    velX = THREE.MathUtils.lerp(velX, BASE_VEL_X, 0.025);
                     pitchVel *= 0.95;
                     dragOffsetPitch = THREE.MathUtils.lerp(dragOffsetPitch, 0, 0.02);
                 }
             }
 
             currentRotY += velY;
+            currentRotX += velX;
 
-            // Compute rotation matrix:
-            // Tilted strictly forward/backward in the Y-Z plane so visual mass is level with NO diagonal slant across X
-            const tiltAngle = (isMobile ? 0.24 : 0.30) + dragOffsetPitch;
-            const rotAxis = new THREE.Vector3(0, Math.cos(tiltAngle), Math.sin(tiltAngle)).normalize();
-            const rotQuat = new THREE.Quaternion().setFromAxisAngle(rotAxis, currentRotY + dragOffsetYaw);
+            // Rotation matrix in YXZ order:
+            // Continuous horizontal spin (Y) combined with gentle vertical precession (X)
+            // Ensures 100% of all 34 partner logos gradually rotate through the highlight zone!
+            const rotEuler = new THREE.Euler(currentRotX + dragOffsetPitch, currentRotY + dragOffsetYaw, 0, 'YXZ');
+            const rotMat = new THREE.Matrix4().makeRotationFromEuler(rotEuler);
 
             // Raycast for hover state
             raycaster.setFromCamera(mouse, camera);
@@ -531,16 +538,12 @@ export default function PartnerLogoSphere() {
                 container.style.cursor = isDragging ? 'grabbing' : 'grab';
             }
 
-            /* ─── Highlight Orbit Sweet-Spot Parameters ─── */
-            const orbitSweetSpot = r_exclusion * 1.38;
-            const ringWindow = r_exclusion * 0.42;
-
             /* ─── Update Surrounding Logos in Wide 3D Ellipsoid ─── */
             logos.forEach(mesh => {
                 const base = mesh.userData.basePos as THREE.Vector3;
                 
                 // 1. Rotate the point rigidly on the unit sphere
-                const unitRotated = base.clone().applyQuaternion(rotQuat);
+                const unitRotated = base.clone().applyMatrix4(rotMat);
 
                 // 2. Map unit sphere to the wide horizontal ellipsoid coordinates
                 let px = unitRotated.x * radiusX;
@@ -567,23 +570,19 @@ export default function PartnerLogoSphere() {
                 const worldPos = new THREE.Vector3();
                 mesh.getWorldPosition(worldPos);
 
-                // 4. Highlight zone activation (FOCUSED ON THE 2 CLOSEST LOGOS: 1 ABOVE, 1 BELOW):
+                // 4. Highlight zone activation (Ensures 100% full, rich, vibrant color for passing logos):
                 const frontDepth = Math.max(0, worldPos.z / radiusZ);
-                const smoothZ = THREE.MathUtils.smoothstep(frontDepth, 0.40, 0.95);
+                const frontFactor = THREE.MathUtils.smoothstep(frontDepth, 0.20, 0.70);
 
                 const activeDistXY = Math.hypot(worldPos.x, worldPos.y);
-                const ringDist = Math.abs(activeDistXY - orbitSweetSpot);
-                const ringProximity = Math.max(0, 1.0 - (ringDist / ringWindow));
-                const smoothRing = THREE.MathUtils.smoothstep(ringProximity, 0.10, 1.0);
+                const highlightMax = r_exclusion * 2.1;
+                const centerCloseness = Math.max(0, 1.0 - (activeDistXY - r_exclusion * 0.90) / (highlightMax - r_exclusion * 0.90));
+                
+                const xCloseness = Math.max(0, 1.0 - Math.abs(worldPos.x) / (radiusX * 0.38));
+                const activation = centerCloseness * xCloseness * frontFactor;
 
-                // Tight horizontal window directly above/below the DRS Deals core
-                const xWindow = radiusX * 0.28;
-                const xDist = Math.abs(worldPos.x);
-                const xProximity = THREE.MathUtils.smoothstep(1.0 - Math.min(xDist / xWindow, 1.0), 0.0, 1.0);
-
-                // Smooth continuous highlight curve
-                const rawHighlight = smoothRing * smoothZ * xProximity;
-                let highlightFactor = THREE.MathUtils.smoothstep(rawHighlight, 0.12, 0.85);
+                // Smoothly and decisively reach 1.0 (100% FULL COLOR) without being washed out or dull
+                let highlightFactor = THREE.MathUtils.smoothstep(activation, 0.08, 0.45);
 
                 if (hoveredLogo === mesh) {
                     highlightFactor = 1.0;
