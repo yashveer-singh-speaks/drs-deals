@@ -87,15 +87,6 @@ export default function CubeSteps() {
         setAnimating(false);
     }, [next]);
 
-    // 3D cube geometry:
-    // Front face: translateZ(halfWidth) - pushed toward viewer
-    // Right face: rotateY(90deg) translateZ(halfWidth) - on the right side of the cube
-    // Scene: when animating, rotateY(-90deg) to bring right face to front
-    const sceneStyle: React.CSSProperties = {
-        transform: animating ? undefined : `translateZ(-${halfWidth}px)`,
-        transition: animating ? undefined : 'none',
-    };
-
     const frontStyle: React.CSSProperties = {
         transform: `rotateY(0deg) translateZ(${halfWidth}px)`,
     };

@@ -5,14 +5,28 @@ const nextConfig: NextConfig = {
     images: {
         formats: ['image/avif', 'image/webp'],
     },
+    generateBuildId: async () => {
+        return `drs-deals-${Date.now()}`;
+    },
     async headers() {
         return [
+            // Ensure HTML pages and documents always revalidate so returning users get the newest deployment
+            {
+                source: '/((?!api|_next/static|_next/image|favicon.ico).*)',
+                headers: [
+                    {
+                        key: 'Cache-Control',
+                        value: 'public, max-age=0, must-revalidate',
+                    },
+                ],
+            },
+            // Static images and brand logos (daily freshness with background stale revalidation)
             {
                 source: '/images/:path*',
                 headers: [
                     {
                         key: 'Cache-Control',
-                        value: 'public, max-age=31536000, immutable',
+                        value: 'public, max-age=86400, stale-while-revalidate=604800',
                     },
                 ],
             },
@@ -21,7 +35,7 @@ const nextConfig: NextConfig = {
                 headers: [
                     {
                         key: 'Cache-Control',
-                        value: 'public, max-age=31536000, immutable',
+                        value: 'public, max-age=86400, stale-while-revalidate=604800',
                     },
                 ],
             },
@@ -30,7 +44,7 @@ const nextConfig: NextConfig = {
                 headers: [
                     {
                         key: 'Cache-Control',
-                        value: 'public, max-age=31536000, immutable',
+                        value: 'public, max-age=86400, stale-while-revalidate=604800',
                     },
                 ],
             },

@@ -14,7 +14,7 @@ export default function GuidesPage() {
             category: 'Resorts',
             title: 'Top 10 Weekend Escapes Near Delhi NCR',
             time: '5 min read',
-            img: '/images/webp/The Curated Guide Section (Guide 1 Thumbnail).webp',
+            img: '/images/webp/the-curated-guide-1.webp',
             excerpt: 'Our editors evaluate luxury pool resorts, heritage properties, and golf retreats within a short 2 to 4 hour drive of the capital.',
         },
         {
@@ -22,7 +22,7 @@ export default function GuidesPage() {
             category: 'Dining',
             title: 'The Ultimate Guide to Fine Dining in Mumbai',
             time: '4 min read',
-            img: '/images/webp/The Curated Guide Section (Guide 2 Thumbnail).webp',
+            img: '/images/webp/the-curated-guide-2.webp',
             excerpt: 'Exploring chef’s tasting menus, seafront buffets, and private dining rooms across Mumbai and Pune.',
         },
         {
@@ -30,7 +30,7 @@ export default function GuidesPage() {
             category: 'Family',
             title: 'Best Water Parks for a Family Day Out',
             time: '6 min read',
-            img: '/images/webp/The Curated Guide Section (Guide 3 Thumbnail).webp',
+            img: '/images/webp/the-curated-guide-3.webp',
             excerpt: 'A comprehensive ranking of wave pools, thrill slides, and family amusement parks in North and West India.',
         },
     ];

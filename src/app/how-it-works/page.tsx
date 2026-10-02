@@ -44,7 +44,7 @@ export default function HowItWorksPage() {
                         How DRS Deals Works
                     </h1>
                     <p className="text-body-large text-charcoal-light" style={{ fontSize: '1.2rem', lineHeight: 1.7 }}>
-                        Four simple concierge-guided steps connecting you with India's premier luxury hospitality properties.
+                        Four simple concierge-guided steps connecting you with India&apos;s premier luxury hospitality properties.
                     </p>
                 </div>
 

@@ -18,7 +18,7 @@ export default function Footer() {
                             />
                         </Link>
                         <p className="text-body-small" style={{ color: 'rgba(255,255,255,0.7)', marginBottom: '24px', maxWidth: '320px', lineHeight: 1.6, fontSize: '0.95rem' }}>
-                            Curating India's finest luxury resort stays, gourmet dining, spa retreats, and family entertainment experiences at exclusive member rates.
+                            Curating India&apos;s finest luxury resort stays, gourmet dining, spa retreats, and family entertainment experiences at exclusive member rates.
                         </p>
                         
                         {/* Direct Contact info */}

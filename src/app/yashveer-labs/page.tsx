@@ -148,7 +148,7 @@ export default function YashveerLabsPage() {
 
                         <blockquote style={{ padding: '24px 32px', background: 'var(--color-ivory)', borderLeft: '4px solid var(--color-champagne-gold)', borderRadius: '0 12px 12px 0', margin: 0 }}>
                             <p style={{ fontSize: '1.3rem', fontFamily: 'var(--font-serif)', color: 'var(--color-charcoal)', fontStyle: 'italic', margin: 0, lineHeight: 1.5 }}>
-                                "Make DRS Deals easier to discover, easier to trust and easier to choose."
+                                &ldquo;Make DRS Deals easier to discover, easier to trust and easier to choose.&rdquo;
                             </p>
                         </blockquote>
                     </div>
@@ -265,7 +265,7 @@ export default function YashveerLabsPage() {
                                 </li>
                                 <li>
                                     <strong style={{ color: 'var(--color-charcoal)', display: 'block', fontSize: '1rem' }}>Blogger</strong>
-                                    <span style={{ fontSize: '0.9rem', color: 'var(--color-charcoal-light)' }}>Additional content distribution through Google's Blogger platform, supporting broader indexed content and referral pathways.</span>
+                                    <span style={{ fontSize: '0.9rem', color: 'var(--color-charcoal-light)' }}>Additional content distribution through Google&apos;s Blogger platform, supporting broader indexed content and referral pathways.</span>
                                 </li>
                                 <li>
                                     <strong style={{ color: 'var(--color-charcoal)', display: 'block', fontSize: '1rem' }}>Medium</strong>

@@ -40,9 +40,5 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-/images/
-!public/images/
-scratch/
-images to use/
-haut monde/
-
+*.log
+.turbo

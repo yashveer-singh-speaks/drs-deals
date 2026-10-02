@@ -1,23 +1,24 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { getAllDeals, Deal } from '@/data/deals';
-import { BLOG_POSTS, BlogPost } from '@/data/blogs';
+import { getAllDeals } from '@/data/deals';
+import { BLOG_POSTS } from '@/data/blogs';
 import BlogCard from '@/components/BlogCard';
 
 export default function SearchClient() {
     const searchParams = useSearchParams();
     const router = useRouter();
-    const initialQuery = searchParams.get('q') || '';
+    const paramQuery = searchParams.get('q') || '';
 
-    const [query, setQuery] = useState(initialQuery);
+    const [query, setQuery] = useState(paramQuery);
+    const [prevParamQuery, setPrevParamQuery] = useState(paramQuery);
+    if (prevParamQuery !== paramQuery) {
+        setPrevParamQuery(paramQuery);
+        setQuery(paramQuery);
+    }
     const [filterType, setFilterType] = useState<'all' | 'deals' | 'blogs'>('all');
-
-    useEffect(() => {
-        setQuery(searchParams.get('q') || '');
-    }, [searchParams]);
 
     const handleSearchChange = (newQuery: string) => {
         setQuery(newQuery);

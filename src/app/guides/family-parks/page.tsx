@@ -14,7 +14,7 @@ export default function FamilyParksGuidePage() {
                 <div className="bg-white shadow-soft" style={{ borderRadius: '16px', padding: '40px', border: '1px solid var(--color-stone)' }}>
                     <span style={{ fontSize: '0.8rem', color: 'var(--color-champagne-gold)', fontWeight: 600, textTransform: 'uppercase' }}>Family &amp; Parks</span>
                     <h1 className="hero-title" style={{ fontSize: '2.5rem', margin: '16px 0 24px 0' }}>Best Water Parks for a Family Day Out</h1>
-                    <img src="/images/webp/The Curated Guide Section (Guide 3 Thumbnail).webp" alt="Water Park" style={{ width: '100%', borderRadius: '12px', height: '360px', objectFit: 'cover', marginBottom: '32px' }} />
+                    <img src="/images/webp/the-curated-guide-3.webp" alt="Water Park" style={{ width: '100%', borderRadius: '12px', height: '360px', objectFit: 'cover', marginBottom: '32px' }} />
                     <p style={{ color: 'var(--color-charcoal-light)', lineHeight: 1.8, marginBottom: '20px' }}>
                         Planning a summer day out with family requires finding venues with clean water filtration, safety-certified slides, and comfortable dining amenities. DRS Deals lists verified water parks across Noida, Gurgaon, Pune, and Jaipur with exclusive family group pass savings.
                     </p>

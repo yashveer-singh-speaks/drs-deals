@@ -14,9 +14,9 @@ export default function FineDiningGuidePage() {
                 <div className="bg-white shadow-soft" style={{ borderRadius: '16px', padding: '40px', border: '1px solid var(--color-stone)' }}>
                     <span style={{ fontSize: '0.8rem', color: 'var(--color-champagne-gold)', fontWeight: 600, textTransform: 'uppercase' }}>Fine Dining</span>
                     <h1 className="hero-title" style={{ fontSize: '2.5rem', margin: '16px 0 24px 0' }}>The Ultimate Guide to Fine Dining in Mumbai</h1>
-                    <img src="/images/webp/The Curated Guide Section (Guide 2 Thumbnail).webp" alt="Fine Dining" style={{ width: '100%', borderRadius: '12px', height: '360px', objectFit: 'cover', marginBottom: '32px' }} />
+                    <img src="/images/webp/the-curated-guide-2.webp" alt="Fine Dining" style={{ width: '100%', borderRadius: '12px', height: '360px', objectFit: 'cover', marginBottom: '32px' }} />
                     <p style={{ color: 'var(--color-charcoal-light)', lineHeight: 1.8, marginBottom: '20px' }}>
-                        Mumbai's culinary scene is a vibrant blend of historical luxury and contemporary gastronomy. From sea-facing dining rooms in Colaba to modern Asian eateries in BKC, DRS Deals provides exclusive 25% to 40% savings on 5-star hotel buffets and chef's tasting menus.
+                        Mumbai&apos;s culinary scene is a vibrant blend of historical luxury and contemporary gastronomy. From sea-facing dining rooms in Colaba to modern Asian eateries in BKC, DRS Deals provides exclusive 25% to 40% savings on 5-star hotel buffets and chef&apos;s tasting menus.
                     </p>
                     <div style={{ marginTop: '32px' }}>
                         <Link href="/experiences/dining" className="btn btn-primary">Explore Dining Offers</Link>

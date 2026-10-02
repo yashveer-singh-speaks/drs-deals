@@ -32,7 +32,7 @@ export default function PartnersPage() {
                     <h2 className="section-title" style={{ fontSize: '2rem', marginBottom: '24px' }}>A Curated Approach to Venue Promotion</h2>
                     <div style={{ color: 'var(--color-charcoal-light)', lineHeight: 1.8, display: 'flex', flexDirection: 'column', gap: '24px' }}>
                         <p>
-                            In today's hospitality landscape, maintaining brand prestige while reaching high-spending guests is essential. DRS Deals operates as a private, curated experiences platform with personalized concierge coordination rather than an open coupon directory.
+                            In today&apos;s hospitality landscape, maintaining brand prestige while reaching high-spending guests is essential. DRS Deals operates as a private, curated experiences platform with personalized concierge coordination rather than an open coupon directory.
                         </p>
                         <p>
                             We present your venue with bespoke editorial features and clear membership privileges that encourage higher on-property spending across dining, spa upgrades, and extended stays.

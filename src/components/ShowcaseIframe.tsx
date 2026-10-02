@@ -3,15 +3,19 @@
 import React, { useState, useEffect, useRef } from 'react';
 
 export default function ShowcaseIframe() {
-    const [shouldLoad, setShouldLoad] = useState(false);
+    const [shouldLoad, setShouldLoad] = useState(() => {
+        if (typeof window !== 'undefined' && !('IntersectionObserver' in window)) {
+            return true;
+        }
+        return false;
+    });
     const containerRef = useRef<HTMLElement>(null);
 
     useEffect(() => {
         const el = containerRef.current;
-        if (!el) return;
+        if (!el || shouldLoad) return;
 
         if (!('IntersectionObserver' in window)) {
-            setShouldLoad(true);
             return;
         }
 
@@ -27,7 +31,7 @@ export default function ShowcaseIframe() {
 
         observer.observe(el);
         return () => observer.disconnect();
-    }, []);
+    }, [shouldLoad]);
 
     return (
         <section ref={containerRef} className="showcase-iframe-section" aria-label="Interactive Hospitality Showcase">

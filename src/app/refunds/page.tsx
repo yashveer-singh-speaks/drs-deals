@@ -33,7 +33,7 @@ export default function RefundsPage() {
                     <h3 style={{ fontSize: '1.2rem', fontFamily: 'var(--font-serif)', color: 'var(--color-charcoal)', marginBottom: '12px' }}>Guidelines &amp; Rescheduling</h3>
                     <ul style={{ paddingLeft: '20px', marginBottom: '20px' }}>
                         <li><strong>Membership Inquiries:</strong> If you have questions prior to purchasing a physical or digital membership card, our concierge is available by phone to clarify all terms.</li>
-                        <li><strong>Reservation Rescheduling:</strong> Room night reservations may be rescheduled subject to the individual property's advance notice policy (typically 48 to 72 hours prior to check-in).</li>
+                        <li><strong>Reservation Rescheduling:</strong> Room night reservations may be rescheduled subject to the individual property&apos;s advance notice policy (typically 48 to 72 hours prior to check-in).</li>
                         <li><strong>Property Coordination:</strong> In the rare event of property unavailability during your validity period, our concierge team will assist in arranging an alternative date or suitable partner venue.</li>
                     </ul>
 

@@ -32,7 +32,7 @@ export default function DelhiDestinationPage() {
                 <div className="bg-white shadow-soft" style={{ borderRadius: '16px', padding: '40px', border: '1px solid var(--color-stone)', marginBottom: '48px' }}>
                     <h2 className="section-title" style={{ fontSize: '1.75rem', marginBottom: '16px' }}>About Delhi NCR Curated Deals</h2>
                     <p style={{ color: 'var(--color-charcoal-light)', lineHeight: 1.7, margin: 0 }}>
-                        Delhi NCR remains the central hub for DRS Deals' hospitality partnership network. From 5-star hotel memberships in Sonipat Murthal to village-themed day outings in Gurgaon and dining memberships in Ghaziabad, our curated vouchers provide verified savings with zero hidden conditions.
+                        Delhi NCR remains the central hub for DRS Deals&apos; hospitality partnership network. From 5-star hotel memberships in Sonipat Murthal to village-themed day outings in Gurgaon and dining memberships in Ghaziabad, our curated vouchers provide verified savings with zero hidden conditions.
                     </p>
                 </div>
 

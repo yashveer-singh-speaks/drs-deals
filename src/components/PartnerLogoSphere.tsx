@@ -384,7 +384,6 @@ export default function PartnerLogoSphere() {
         const BASE_VEL_X = 0.00022; // Slow vertical pitch so every latitude band cycles through the equator
         let velY = BASE_VEL_Y;
         let velX = BASE_VEL_X;
-        let pitchVel = 0;
 
         let isDragging = false;
         let previousMouse = { x: 0, y: 0 };
@@ -420,7 +419,6 @@ export default function PartnerLogoSphere() {
                 // Fluid drag physics with calm damping
                 velY = deltaX * 0.00008;
                 velX = deltaY * 0.00005;
-                pitchVel = deltaY * 0.00005;
                 
                 dragOffsetYaw += deltaX * 0.0018;
                 dragOffsetPitch = THREE.MathUtils.clamp(dragOffsetPitch + deltaY * 0.0012, -0.15, 0.15);
@@ -508,11 +506,9 @@ export default function PartnerLogoSphere() {
                 if (hoveredLogo && hoveredLogo !== drsHeroMesh) {
                     velY *= 0.90;
                     velX *= 0.90;
-                    pitchVel *= 0.90;
                 } else {
                     velY = THREE.MathUtils.lerp(velY, BASE_VEL_Y, 0.025);
                     velX = THREE.MathUtils.lerp(velX, BASE_VEL_X, 0.025);
-                    pitchVel *= 0.95;
                     dragOffsetPitch = THREE.MathUtils.lerp(dragOffsetPitch, 0, 0.02);
                 }
             }
@@ -548,7 +544,7 @@ export default function PartnerLogoSphere() {
                 // 2. Map unit sphere to the wide horizontal ellipsoid coordinates
                 let px = unitRotated.x * radiusX;
                 let py = unitRotated.y * radiusY;
-                let pz = unitRotated.z * radiusZ;
+                const pz = unitRotated.z * radiusZ;
 
                 // 3. Smooth organic deflection around the protected center core
                 const distXY = Math.hypot(px, py);

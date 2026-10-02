@@ -24,12 +24,18 @@ export async function POST(request: Request) {
         // Read DRS_DEALS_MASTER_CONTEXT.md or context.md
         let contextKnowledge = '';
         try {
-            const masterPath = path.join(process.cwd(), 'DRS_DEALS_MASTER_CONTEXT.md');
-            const contextPath = path.join(process.cwd(), 'context.md');
-            if (fs.existsSync(masterPath)) {
-                contextKnowledge = fs.readFileSync(masterPath, 'utf-8');
-            } else if (fs.existsSync(contextPath)) {
-                contextKnowledge = fs.readFileSync(contextPath, 'utf-8');
+            const docsMasterPath = path.join(process.cwd(), 'docs', 'DRS_DEALS_MASTER_CONTEXT.md');
+            const rootMasterPath = path.join(process.cwd(), 'DRS_DEALS_MASTER_CONTEXT.md');
+            const docsContextPath = path.join(process.cwd(), 'docs', 'context.md');
+            const rootContextPath = path.join(process.cwd(), 'context.md');
+            if (fs.existsSync(docsMasterPath)) {
+                contextKnowledge = fs.readFileSync(docsMasterPath, 'utf-8');
+            } else if (fs.existsSync(rootMasterPath)) {
+                contextKnowledge = fs.readFileSync(rootMasterPath, 'utf-8');
+            } else if (fs.existsSync(docsContextPath)) {
+                contextKnowledge = fs.readFileSync(docsContextPath, 'utf-8');
+            } else if (fs.existsSync(rootContextPath)) {
+                contextKnowledge = fs.readFileSync(rootContextPath, 'utf-8');
             }
         } catch (err) {
             console.error('[DRS Deals Chatbot] Could not load context markdown', err);

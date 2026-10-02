@@ -68,12 +68,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }));
 
     // Dynamic Blog Articles
-    const blogRoutes: MetadataRoute.Sitemap = BLOG_POSTS.map((post) => ({
-        url: `${baseUrl}/blog/${post.slug}`,
-        lastModified: post.publishedDate ? new Date(post.publishedDate).toISOString() : currentDate,
-        changeFrequency: 'monthly',
-        priority: 0.75,
-    }));
+    const blogRoutes: MetadataRoute.Sitemap = BLOG_POSTS.map((post) => {
+        let lastMod = currentDate;
+        if (post.publishedDate) {
+            const parsed = new Date(post.publishedDate);
+            if (!isNaN(parsed.getTime())) {
+                lastMod = parsed.toISOString();
+            }
+        }
+        return {
+            url: `${baseUrl}/blog/${post.slug}`,
+            lastModified: lastMod,
+            changeFrequency: 'monthly',
+            priority: 0.75,
+        };
+    });
 
     return [...staticRoutes, ...dealRoutes, ...blogRoutes];
 }

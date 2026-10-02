@@ -39,7 +39,7 @@ export default function AboutPage() {
                             </p>
                         </div>
                         <div>
-                            <img src="/images/webp/Why DRS Deals Exists Section.webp" alt="DRS Deals Heritage" style={{ borderRadius: '12px', width: '100%', height: 'auto', objectFit: 'cover' }} />
+                            <img src="/images/webp/why-drs-deals-exists.webp" alt="DRS Deals Heritage" style={{ borderRadius: '12px', width: '100%', height: 'auto', objectFit: 'cover' }} />
                         </div>
                     </div>
 

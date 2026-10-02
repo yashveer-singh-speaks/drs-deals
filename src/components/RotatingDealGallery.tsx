@@ -50,7 +50,7 @@ export default function RotatingDealGallery({
                         <img
                             key={activeImageSrc}
                             src={activeImageSrc}
-                            alt={`${propertyName} - View ${activeIdx + 1} of ${allImages.length}`}
+                            alt={`${propertyName} - ${dealTitle} - View ${activeIdx + 1} of ${allImages.length}`}
                             className="gallery-main-image"
                             width={760}
                             height={480}

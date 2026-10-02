@@ -19,10 +19,15 @@ export default function Header() {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
-    // Reset drawer state when pathname changes
+    const [prevPathname, setPrevPathname] = useState(pathname);
+    if (prevPathname !== pathname) {
+        setPrevPathname(pathname);
+        if (drawerOpen) setDrawerOpen(false);
+        if (openDropdown) setOpenDropdown(null);
+    }
+
+    // Ensure body scroll is unlocked on navigation
     useEffect(() => {
-        setDrawerOpen(false);
-        setOpenDropdown(null);
         document.body.style.overflow = '';
     }, [pathname]);
 
@@ -230,7 +235,7 @@ export default function Header() {
                         </div>
                         <div className="mega-menu-featured">
                             <img
-                                src={openDropdown === 'experiences' ? '/images/webp/Header Mega Menu.webp' : TRANSPARENT_PIXEL}
+                                src={openDropdown === 'experiences' ? '/images/webp/header-mega-menu.webp' : TRANSPARENT_PIXEL}
                                 alt="Curated luxury resort stay experience on DRS Deals"
                                 className="mega-menu-featured-img"
                                 width={280}

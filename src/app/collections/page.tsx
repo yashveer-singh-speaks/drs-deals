@@ -12,25 +12,25 @@ export default function CollectionsOverviewPage() {
         {
             title: 'Romantic Getaways',
             slug: 'couples',
-            img: '/images/webp/Featured Collections Section (Romantic Getaways Thumbnail).webp',
+            img: '/images/webp/featured-collections-romantic-getaways.webp',
             desc: 'Private candlelight dinners, luxury spa suites, and secluded palace stays curated for couples.',
         },
         {
             title: 'Family Outings',
             slug: 'family',
-            img: '/images/webp/Featured Collections Section (Family Fun Thumbnail).webp',
+            img: '/images/webp/featured-collections-family-fun.webp',
             desc: 'Action-packed water park passes, resort daycations, and theme park group packages for all ages.',
         },
         {
             title: 'Weekend Escapes',
             slug: 'weekend',
-            img: '/images/webp/Featured Collections Section (Weekend Escapes Thumbnail).webp',
+            img: '/images/webp/featured-collections-weekend-escapes.webp',
             desc: 'Short drive-to luxury resort escapes within 2 to 4 hours of major metro cities.',
         },
         {
             title: 'Corporate Experiences',
             slug: 'corporate',
-            img: '/images/webp/Featured Collections Section (Luxury Dining Thumbnail).webp',
+            img: '/images/webp/featured-collections-luxury-dining.webp',
             desc: 'B2B team dayouts, corporate dining privileges, conference venues, and bulk voucher packages.',
         },
     ];

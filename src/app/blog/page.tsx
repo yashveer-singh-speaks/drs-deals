@@ -23,12 +23,12 @@ function BlogIndex() {
 
     // Local state for search input text to keep typing responsive
     const [searchInput, setSearchInput] = useState(searchQuery);
-    const gridHeaderRef = useRef<HTMLDivElement>(null);
-
-    // Sync local input with search query parameter (e.g., on back/forward navigation)
-    useEffect(() => {
+    const [prevSearchQuery, setPrevSearchQuery] = useState(searchQuery);
+    if (prevSearchQuery !== searchQuery) {
+        setPrevSearchQuery(searchQuery);
         setSearchInput(searchQuery);
-    }, [searchQuery]);
+    }
+    const gridHeaderRef = useRef<HTMLDivElement>(null);
 
     const categories = [
         'All',

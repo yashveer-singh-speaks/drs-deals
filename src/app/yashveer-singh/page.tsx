@@ -186,7 +186,7 @@ export default function YashveerSinghPage() {
                                 This approach also influences how Yashveer uses AI during development.
                             </p>
                             <p>
-                                AI can accelerate implementation, exploration and problem solving, but generated code still needs engineering judgement. Yashveer's workflow focuses on reviewing, adapting, testing and improving AI assisted output rather than treating generated code as finished software.
+                                AI can accelerate implementation, exploration and problem solving, but generated code still needs engineering judgement. Yashveer&apos;s workflow focuses on reviewing, adapting, testing and improving AI assisted output rather than treating generated code as finished software.
                             </p>
                             <p style={{ fontWeight: 600, color: 'var(--color-charcoal)' }}>
                                 The result is a development process that combines the speed of modern AI tools with conventional software engineering discipline.
@@ -206,7 +206,7 @@ export default function YashveerSinghPage() {
                         </h3>
 
                         <p style={{ color: 'var(--color-charcoal-light)', fontSize: '1.05rem', lineHeight: 1.8, marginBottom: '32px' }}>
-                            Yashveer's portfolio includes projects across education, real estate, hospitality, gaming, artificial intelligence and developer tooling.
+                            Yashveer&apos;s portfolio includes projects across education, real estate, hospitality, gaming, artificial intelligence and developer tooling.
                         </p>
 
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '28px', marginBottom: '36px' }}>
@@ -230,7 +230,7 @@ export default function YashveerSinghPage() {
                                 <h4 style={{ fontSize: '1.4rem', fontFamily: 'var(--font-serif)', color: 'var(--color-charcoal)', marginBottom: '4px' }}>Dwarka Bricks</h4>
                                 <div style={{ fontSize: '0.95rem', fontWeight: 600, color: 'var(--color-charcoal)', marginBottom: '12px' }}>Real estate web application, CRM and business dashboard</div>
                                 <p style={{ fontSize: '0.98rem', color: 'var(--color-charcoal-light)', lineHeight: 1.7, margin: 0 }}>
-                                    Dwarka Bricks combines a full stack real estate website with a CRM, dashboards and role based administration. The project demonstrates Yashveer's approach to building software beyond the public facing website.
+                                    Dwarka Bricks combines a full stack real estate website with a CRM, dashboards and role based administration. The project demonstrates Yashveer&apos;s approach to building software beyond the public facing website.
                                 </p>
                             </div>
 
@@ -266,7 +266,7 @@ export default function YashveerSinghPage() {
                                 <h4 style={{ fontSize: '1.4rem', fontFamily: 'var(--font-serif)', color: 'var(--color-charcoal)', marginBottom: '4px' }}>Velmora</h4>
                                 <div style={{ fontSize: '0.95rem', fontWeight: 600, color: 'var(--color-charcoal)', marginBottom: '12px' }}>Roblox game</div>
                                 <p style={{ fontSize: '0.98rem', color: 'var(--color-charcoal-light)', lineHeight: 1.7, margin: 0 }}>
-                                    Velmora is a skill based melee PvP game built around a dark fantasy environment. The project represents another side of Yashveer's technical interests, extending into interactive software and game development.
+                                    Velmora is a skill based melee PvP game built around a dark fantasy environment. The project represents another side of Yashveer&apos;s technical interests, extending into interactive software and game development.
                                 </p>
                             </div>
                         </div>
@@ -313,7 +313,7 @@ export default function YashveerSinghPage() {
 
                         <blockquote style={{ padding: '24px 32px', background: 'var(--color-ivory)', borderLeft: '4px solid var(--color-champagne-gold)', borderRadius: '0 12px 12px 0', margin: '0 0 32px 0' }}>
                             <p style={{ fontSize: '1.3rem', fontFamily: 'var(--font-serif)', color: 'var(--color-charcoal)', fontStyle: 'italic', margin: 0 }}>
-                                "Built by Yashveer Singh. Delivered through Yashveer Labs."
+                                &ldquo;Built by Yashveer Singh. Delivered through Yashveer Labs.&rdquo;
                             </p>
                         </blockquote>
 
@@ -473,7 +473,7 @@ export default function YashveerSinghPage() {
                         </h2>
                         <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', color: 'var(--color-charcoal-light)', lineHeight: 1.8, fontSize: '1.05rem' }}>
                             <p>
-                                Yashveer's work is not limited to one technology, one product category or one industry.
+                                Yashveer&apos;s work is not limited to one technology, one product category or one industry.
                             </p>
                             <p>
                                 His interests include software engineering, artificial intelligence, machine learning, computer vision, natural language processing, robotics, databases, developer tooling and digital products.

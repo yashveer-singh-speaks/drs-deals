@@ -3,7 +3,7 @@ export const siteConfig = {
     legalName: 'DRS Deals',
     url: 'https://www.drsdeals.in',
     logo: '/logo-drs-deals.webp',
-    socialImage: '/social image.png',
+    socialImage: '/social-image.png',
     tagline: 'Curated. Trusted. Unforgettable.',
     description: 'Since 2003, DRS Deals has curated India’s finest luxury resort stays, fine dining experiences, wellness retreats, and leisure passes across Delhi NCR and More at exclusive member rates.',
     

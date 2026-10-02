@@ -12,31 +12,31 @@ export default function ExperiencesOverviewPage() {
         {
             title: 'Resorts & Hotels',
             slug: 'resorts',
-            img: '/images/webp/Explore by Category Section (Resorts Category Tile).webp',
+            img: '/images/webp/explore-category-resorts.webp',
             desc: 'Five-star weekend escapes, heritage palace stays, and luxury pool villas with verified breakfast & dining inclusions.',
         },
         {
             title: 'Fine Dining',
             slug: 'dining',
-            img: '/images/webp/Explore by Category Section (Dining Category Tile).webp',
+            img: '/images/webp/explore-category-dining.webp',
             desc: 'Chef’s tasting menus, buffet passes, and exclusive beverage privileges at top-rated hotel dining venues.',
         },
         {
             title: 'Spa & Wellness',
             slug: 'spa',
-            img: '/images/webp/Explore by Category Section (Spa Category Tile).webp',
+            img: '/images/webp/explore-category-spa.webp',
             desc: 'Ayurvedic wellness therapies, couples spa packages, and hydrotherapy retreats at 40% verified savings.',
         },
         {
             title: 'Water Parks & Amusement',
             slug: 'water-parks',
-            img: '/images/webp/Hero Section (Collage Overlay Image Top-Right).webp',
+            img: '/images/webp/hero-collage-overlay-top-right.webp',
             desc: 'Family adventure passes, wave pool day passes, and thrill park group tickets at guaranteed lowest prices.',
         },
         {
             title: 'Private Farmhouses',
             slug: 'farmhouses',
-            img: '/images/webp/Why DRS Deals Exists Section.webp',
+            img: '/images/webp/why-drs-deals-exists.webp',
             desc: 'Secluded pool farmhouses and private estate rentals for family celebrations, corporate retreats, and weekend gatherings.',
         },
     ];

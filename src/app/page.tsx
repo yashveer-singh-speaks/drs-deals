@@ -479,7 +479,7 @@ export default function Home() {
                         </div>
                         <div className="story-visual">
                             <img 
-                                src="/images/webp/Why DRS Deals Exists Section.webp" 
+                                src="/images/webp/why-drs-deals-exists.webp" 
                                 alt="Guests enjoying a premium vacation" 
                                 className="rounded-lg shadow-soft" 
                                 width={560} 
@@ -537,7 +537,7 @@ export default function Home() {
                     <div className="category-grid">
                         <Link href="/experiences/resorts" className="category-card">
                             <img 
-                                src="/images/webp/Explore by Category Section (Resorts Category Tile).webp" 
+                                src="/images/webp/explore-category-resorts.webp" 
                                 alt="Resorts" 
                                 width={360} 
                                 height={240} 
@@ -549,7 +549,7 @@ export default function Home() {
                         </Link>
                         <Link href="/experiences/dining" className="category-card">
                             <img 
-                                src="/images/webp/Explore by Category Section (Dining Category Tile).webp" 
+                                src="/images/webp/explore-category-dining.webp" 
                                 alt="Dining" 
                                 width={360} 
                                 height={240} 
@@ -561,7 +561,7 @@ export default function Home() {
                         </Link>
                         <Link href="/experiences/spa" className="category-card">
                             <img 
-                                src="/images/webp/Explore by Category Section (Spa Category Tile).webp" 
+                                src="/images/webp/explore-category-spa.webp" 
                                 alt="Spa &amp; Wellness" 
                                 width={360} 
                                 height={240} 
@@ -600,7 +600,7 @@ export default function Home() {
                             <div className="collection-list">
                                 <Link href="/collections/weekend" className="collection-item">
                                     <img 
-                                        src="/images/webp/Featured Collections Section (Weekend Escapes Thumbnail).webp" 
+                                        src="/images/webp/featured-collections-weekend-escapes.webp" 
                                         alt="Weekend Escapes" 
                                         width={80} 
                                         height={80} 
@@ -610,7 +610,7 @@ export default function Home() {
                                 </Link>
                                 <Link href="/collections/couples" className="collection-item">
                                     <img 
-                                        src="/images/webp/Featured Collections Section (Romantic Getaways Thumbnail).webp" 
+                                        src="/images/webp/featured-collections-romantic-getaways.webp" 
                                         alt="Romantic Getaways" 
                                         width={80} 
                                         height={80} 
@@ -620,7 +620,7 @@ export default function Home() {
                                 </Link>
                                 <Link href="/collections/family" className="collection-item">
                                     <img 
-                                        src="/images/webp/Featured Collections Section (Family Fun Thumbnail).webp" 
+                                        src="/images/webp/featured-collections-family-fun.webp" 
                                         alt="Family Fun" 
                                         width={80} 
                                         height={80} 
@@ -630,7 +630,7 @@ export default function Home() {
                                 </Link>
                                 <Link href="/collections/corporate" className="collection-item">
                                     <img 
-                                        src="/images/webp/Featured Collections Section (Luxury Dining Thumbnail).webp" 
+                                        src="/images/webp/featured-collections-luxury-dining.webp" 
                                         alt="Corporate Experiences" 
                                         width={80} 
                                         height={80} 
@@ -711,7 +711,7 @@ export default function Home() {
                             <picture>
                                 <source srcSet="/images/b2b/venue_partnership_banner.webp" type="image/webp" />
                                 <img 
-                                    src="/images/b2b/venue_partnership_banner.jpg" 
+                                    src="/images/b2b/venue_partnership_banner.webp" 
                                     alt="Executive hospitality partnership meeting" 
                                     className="rounded-lg shadow-soft" 
                                     width={560} 
@@ -772,7 +772,7 @@ export default function Home() {
                             <picture>
                                 <source srcSet="/images/b2b/workflow_concierge_execution.webp" type="image/webp" />
                                 <img 
-                                    src="/images/b2b/workflow_concierge_execution.jpg" 
+                                    src="/images/b2b/workflow_concierge_execution.webp" 
                                     alt="Hotel concierge guest service" 
                                     className="rounded-lg shadow-soft" 
                                     width={560} 
@@ -962,7 +962,7 @@ export default function Home() {
                         <div className="guide-card">
                             <div className="guide-visual">
                                 <img 
-                                    src="/images/webp/The Curated Guide Section (Guide 1 Thumbnail).webp" 
+                                    src="/images/webp/the-curated-guide-1.webp" 
                                     alt="Resort guide" 
                                     width={320} 
                                     height={200} 
@@ -978,7 +978,7 @@ export default function Home() {
                         <div className="guide-card">
                             <div className="guide-visual">
                                 <img 
-                                    src="/images/webp/The Curated Guide Section (Guide 2 Thumbnail).webp" 
+                                    src="/images/webp/the-curated-guide-2.webp" 
                                     alt="Fine dining guide" 
                                     width={320} 
                                     height={200} 
@@ -994,7 +994,7 @@ export default function Home() {
                         <div className="guide-card">
                             <div className="guide-visual">
                                 <img 
-                                    src="/images/webp/The Curated Guide Section (Guide 3 Thumbnail).webp" 
+                                    src="/images/webp/the-curated-guide-3.webp" 
                                     alt="Water park guide" 
                                     width={320} 
                                     height={200} 
@@ -1023,7 +1023,7 @@ export default function Home() {
                         </div>
                         <div className="newsletter-visual">
                             <img 
-                                src="/images/webp/Newsletter - App Promo Section.webp" 
+                                src="/images/webp/newsletter-app-promo.webp" 
                                 alt="DRS Deals preview" 
                                 className="rounded-lg shadow-soft" 
                                 width={450} 
