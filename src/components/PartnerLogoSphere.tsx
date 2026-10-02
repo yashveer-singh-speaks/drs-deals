@@ -59,6 +59,57 @@ function fibonacciSphere(n: number): THREE.Vector3[] {
     return points;
 }
 
+/* ─── Responsive Ellipsoid Dimensions Calculation ─── */
+function calculateEllipsoidDimensions(width: number, height: number, cameraFov: number, cameraZ: number) {
+    const visibleHeight = 2 * Math.tan((cameraFov * Math.PI / 180) / 2) * cameraZ;
+    const visibleWidth = visibleHeight * (width / height);
+    const halfW = visibleWidth / 2;
+    const halfH = visibleHeight / 2;
+
+    const isMobile = width < 768;
+    const isTablet = width >= 768 && width < 1024;
+    const isLaptop = width >= 1024 && width < 1440;
+
+    let radiusX: number;
+    let radiusY: number;
+    let radiusZ: number;
+
+    let baseLogoSize: number;
+    let centerHeroSize: number;
+
+    if (isMobile) {
+        // Mobile: visually spans 90% to 96% of available screen width
+        radiusX = halfW * 0.86;
+        radiusY = Math.min(halfH * 0.58, 140);
+        radiusZ = radiusY * 0.72;
+        baseLogoSize = 42;
+        centerHeroSize = 78;
+    } else if (isTablet) {
+        // Tablet: visually spans 85% to 92% of section width
+        radiusX = halfW * 0.82;
+        radiusY = Math.min(halfH * 0.62, 175);
+        radiusZ = radiusY * 0.82;
+        baseLogoSize = 50;
+        centerHeroSize = 92;
+    } else if (isLaptop) {
+        // Laptop: visually spans 75% to 85% of section width
+        radiusX = halfW * 0.78;
+        radiusY = Math.min(halfH * 0.65, 195);
+        radiusZ = radiusY * 0.88;
+        baseLogoSize = 56;
+        centerHeroSize = 100;
+    } else {
+        // Large Desktop: visually spans 70% to 80% of section width
+        radiusX = Math.min(halfW * 0.74, 680);
+        radiusY = Math.min(halfH * 0.66, 210);
+        radiusZ = radiusY * 0.92;
+        baseLogoSize = 60;
+        centerHeroSize = 106;
+    }
+
+    return { radiusX, radiusY, radiusZ, baseLogoSize, centerHeroSize, isMobile };
+}
+
 export default function PartnerLogoSphere() {
     const containerRef = useRef<HTMLDivElement>(null);
 
@@ -180,7 +231,7 @@ export default function PartnerLogoSphere() {
         };
         scene.add(drsHeroMesh);
 
-        /* ─── Rotating Partner Logo Sphere ─── */
+        /* ─── Rotating Partner Logo Network ─── */
         const sphereGroup = new THREE.Group();
         scene.add(sphereGroup);
 
@@ -266,21 +317,19 @@ export default function PartnerLogoSphere() {
             logos.push(mesh);
         });
 
-        /* ─── State & Random Acceleration Dynamics ─── */
-        // Dynamic rotational velocities
+        /* ─── Motion & State Dynamics ─── */
         let currentRotX = 0;
         let currentRotY = 0;
         let currentRotZ = 0;
         
-        let velX = 0.0006;
-        let velY = 0.0022;
-        let velZ = 0.0003;
+        // Gentle, slow, continuous rotation velocities
+        const BASE_VEL_X = 0.00045; // Slow vertical pitch so poles cycle to equator
+        const BASE_VEL_Y = 0.0019;  // Primary horizontal revolution
+        const BASE_VEL_Z = 0.00015; // Delicate cosmic tilt
 
-        let targetVelX = 0.0008;
-        let targetVelY = 0.0022;
-        let targetVelZ = 0.0004;
-
-        let nextAccelerationTime = 0;
+        let velX = BASE_VEL_X;
+        let velY = BASE_VEL_Y;
+        let velZ = BASE_VEL_Z;
 
         let isDragging = false;
         let previousMouse = { x: 0, y: 0 };
@@ -313,8 +362,9 @@ export default function PartnerLogoSphere() {
                     draggedSinceDown = true;
                 }
                 
-                velX = deltaY * 0.0001;
-                velY = deltaX * 0.0001;
+                // Fluid drag sensitivity
+                velX = deltaY * 0.00012;
+                velY = deltaX * 0.00012;
                 
                 previousMouse = { x: clientX, y: clientY };
             }
@@ -335,8 +385,9 @@ export default function PartnerLogoSphere() {
         };
 
         const onResize = () => {
-            width = container.clientWidth;
-            height = container.clientHeight;
+            if (!containerRef.current) return;
+            width = containerRef.current.clientWidth;
+            height = containerRef.current.clientHeight;
             renderer.setSize(width, height);
             camera.aspect = width / height;
             camera.updateProjectionMatrix();
@@ -360,20 +411,17 @@ export default function PartnerLogoSphere() {
             animId = requestAnimationFrame(render);
             const elapsedTime = clock.getElapsedTime();
 
-            const isMobile = window.innerWidth < 768;
-            const minDim = Math.min(width, height);
-            const RADIUS = isMobile ? minDim * 0.38 : Math.min(minDim * 0.40, 260);
-            const zFactor = isMobile ? 0.5 : 1.0;
-            const baseSize = isMobile ? 54 : 72;
-            const centerHeroSize = isMobile ? 88 : 112;
+            // Calculate dynamic responsive dimensions for the wide ellipsoid
+            const dims = calculateEllipsoidDimensions(width, height, camera.fov, camera.position.z);
+            const { radiusX, radiusY, radiusZ, baseLogoSize, centerHeroSize, isMobile } = dims;
 
             // Environment floor positioning
-            floor.scale.set(RADIUS * 3, RADIUS * 3, 1);
-            floor.position.y = -RADIUS - (isMobile ? 30 : 60);
+            floor.scale.set(radiusX * 2.6, radiusZ * 2.6, 1);
+            floor.position.y = -radiusY - (isMobile ? 32 : 55);
 
             // Center DRS Deals hero positioning with subtle 3D levitation floating motion
-            const floatLevitation = Math.sin(elapsedTime * 2.2) * 4;
-            const floatZ = RADIUS * zFactor * 0.20; // Sits right in front of the sphere's core
+            const floatLevitation = Math.sin(elapsedTime * 2.2) * 3;
+            const floatZ = radiusZ * 0.20; // Sits in front of the sphere's core
             drsHeroMesh.position.set(0, floatLevitation, floatZ);
             drsHeroMesh.lookAt(camera.position);
             
@@ -383,31 +431,18 @@ export default function PartnerLogoSphere() {
             drsHeroMat.uniforms.time.value = elapsedTime;
             drsHeroMat.uniforms.isHovered.value = hoveredLogo === drsHeroMesh ? 1.0 : 0.0;
 
-            /* ─── Random Acceleration & Organic 3D Rotation System ─── */
+            /* ─── Continuous Multi-Axis 3D Rotation Physics ─── */
             if (!isDragging) {
                 if (hoveredLogo && hoveredLogo !== drsHeroMesh) {
-                    // Smoothly pause on logo hover
+                    // Smoothly pause/slow down on hover for easy clicking
                     velX *= 0.88;
                     velY *= 0.88;
                     velZ *= 0.88;
                 } else {
-                    // Trigger gentle random acceleration changes every 4-7 seconds
-                    if (elapsedTime > nextAccelerationTime) {
-                        // Moderate random Y velocity (main horizontal drift)
-                        targetVelY = 0.0016 + Math.random() * 0.0016;
-                        // Random X pitch tumbling (-0.0014 to +0.0014) to naturally rotate poles to equator
-                        targetVelX = (Math.random() - 0.5) * 0.0028;
-                        // Subtle Z roll (-0.0008 to +0.0008) for true 3D organic celestial tumbling
-                        targetVelZ = (Math.random() - 0.5) * 0.0016;
-                        
-                        nextAccelerationTime = elapsedTime + 4.0 + Math.random() * 3.5;
-                    }
-
-                    // Smooth acceleration / inertia blending
-                    const accelLerp = 0.012;
-                    velX = THREE.MathUtils.lerp(velX, targetVelX, accelLerp);
-                    velY = THREE.MathUtils.lerp(velY, targetVelY, accelLerp);
-                    velZ = THREE.MathUtils.lerp(velZ, targetVelZ, accelLerp);
+                    // Smoothly blend back to baseline continuous rotation
+                    velX = THREE.MathUtils.lerp(velX, BASE_VEL_X, 0.025);
+                    velY = THREE.MathUtils.lerp(velY, BASE_VEL_Y, 0.025);
+                    velZ = THREE.MathUtils.lerp(velZ, BASE_VEL_Z, 0.025);
                 }
             }
 
@@ -415,9 +450,9 @@ export default function PartnerLogoSphere() {
             currentRotY += velY;
             currentRotZ += velZ;
 
-            // Apply 3D rotation to the entire logo sphere system
-            sphereGroup.rotation.set(currentRotX, currentRotY, currentRotZ);
-            sphereGroup.updateMatrixWorld();
+            // Compute unified 3D rotation matrix for the network
+            const rotEuler = new THREE.Euler(currentRotX, currentRotY, currentRotZ, 'YXZ');
+            const rotMat = new THREE.Matrix4().makeRotationFromEuler(rotEuler);
 
             // Raycast for hover state (including the center DRS hero and partner logos)
             raycaster.setFromCamera(mouse, camera);
@@ -432,59 +467,53 @@ export default function PartnerLogoSphere() {
             }
 
             /* ─── Protected Center Exclusion Radius ─── */
-            // Guaranteed clear circular gap so NO logo ever overlaps, cuts through, or crosses directly behind the DRS Deals logo
-            const r_exclusion = centerHeroSize * 0.70; // Hard protected radius
-            const r_influence = r_exclusion * 1.45;     // Smooth repulsion margin
+            // Generous moat around DRS Deals so center is clean, open, and never crowded
+            const r_exclusion = centerHeroSize * 0.82;
+            const r_influence = r_exclusion * 1.50;
 
-            /* ─── Update Surrounding Logos & 4-Logo Highlight Orbit Zone ─── */
+            /* ─── Highlight Orbit Zone Geometry ─── */
+            const orbitRingRadius = r_exclusion * 1.55;
+
+            /* ─── Update Surrounding Logos in Wide 3D Ellipsoid ─── */
             logos.forEach(mesh => {
-                const base = mesh.userData.basePos;
+                const base = mesh.userData.basePos as THREE.Vector3;
                 
-                // Base position on the rotated sphere
-                let px = base.x * RADIUS;
-                let py = base.y * RADIUS;
-                let pz = base.z * RADIUS * zFactor;
+                // 1. Rotate the point rigidly on the unit sphere
+                const unitRotated = base.clone().applyMatrix4(rotMat);
+
+                // 2. Map unit sphere to the wide horizontal ellipsoid coordinates
+                let px = unitRotated.x * radiusX;
+                let py = unitRotated.y * radiusY;
+                let pz = unitRotated.z * radiusZ;
+
+                // 3. Smooth organic deflection around the protected center core
+                const distXY = Math.hypot(px, py);
+                if (distXY < r_influence) {
+                    const angle = distXY > 0.001 ? Math.atan2(py, px) : (mesh.userData.index * 0.95);
+                    const t = 1.0 - (distXY / r_influence);
+                    const targetDist = THREE.MathUtils.lerp(distXY, r_exclusion, t * t);
+                    const finalDist = Math.max(targetDist, r_exclusion);
+
+                    px = Math.cos(angle) * finalDist;
+                    py = Math.sin(angle) * finalDist;
+                }
+
+                mesh.position.set(px, py, pz);
 
                 // Billboard: Partner logos always stay upright and face the camera directly
-                mesh.position.set(px, py, pz);
                 mesh.lookAt(camera.position);
 
                 const worldPos = new THREE.Vector3();
                 mesh.getWorldPosition(worldPos);
 
-                // Check distance from center in projected camera XY plane
-                const distXY = Math.hypot(worldPos.x, worldPos.y);
+                // 4. Highlight zone activation:
+                // Only front-facing logos passing through the highlight orbit ring around the DRS Deals core
+                const frontDepth = Math.max(0, worldPos.z / radiusZ);
+                const smoothZ = THREE.MathUtils.smoothstep(frontDepth, 0.25, 0.90);
 
-                // Smooth organic deflection to protect the center exclusion zone:
-                // If a logo's trajectory approaches the center, it gracefully glides around the DRS Deals logo
-                if (distXY < r_influence) {
-                    const angle = distXY > 0.001 ? Math.atan2(worldPos.y, worldPos.x) : (mesh.userData.index * 0.9);
-                    const t = 1.0 - (distXY / r_influence);
-                    const targetDist = THREE.MathUtils.lerp(distXY, r_exclusion, t * t);
-                    const finalDist = Math.max(targetDist, r_exclusion);
-
-                    // Apply soft repulsion vector in local group space
-                    const pushFactor = (finalDist - distXY);
-                    px += Math.cos(angle) * pushFactor;
-                    py += Math.sin(angle) * pushFactor;
-                    
-                    mesh.position.set(px, py, pz);
-                    mesh.lookAt(camera.position);
-                    mesh.getWorldPosition(worldPos);
-                }
-
-                // Recalculate distXY after exclusion adjustment
                 const activeDistXY = Math.hypot(worldPos.x, worldPos.y);
-
-                // Highlight zone activation:
-                // When logos pass in front through the highlight orbit ring around the DRS Deals core
-                const frontDepth = Math.max(0, worldPos.z / (RADIUS * zFactor));
-                const smoothZ = THREE.MathUtils.smoothstep(frontDepth, 0.20, 0.92);
-
-                // Annular highlight orbit ring around the DRS core (covers ~4 passing logos: 2 above, 2 below)
-                const orbitRingRadius = RADIUS * 0.44;
                 const ringDist = Math.abs(activeDistXY - orbitRingRadius);
-                const ringProximity = 1.0 - Math.min(ringDist / (RADIUS * 0.26), 1.0);
+                const ringProximity = 1.0 - Math.min(ringDist / (r_exclusion * 0.85), 1.0);
                 const smoothRing = THREE.MathUtils.smoothstep(ringProximity, 0.0, 1.0);
 
                 let highlightFactor = smoothRing * smoothZ;
@@ -493,9 +522,9 @@ export default function PartnerLogoSphere() {
                     highlightFactor = 1.0;
                 }
 
-                // Opacity based on depth (back logos smoothly fade out)
-                const normalZ = (worldPos.z + RADIUS * zFactor) / (2 * RADIUS * zFactor);
-                let targetOpacity = 0.25 + 0.75 * Math.pow(Math.max(normalZ, 0), 1.8);
+                // 5. Depth opacity (rear logos softly fade to communicate deep 3D space)
+                const normalZ = (worldPos.z + radiusZ) / (2 * radiusZ);
+                let targetOpacity = 0.25 + 0.75 * Math.pow(Math.max(normalZ, 0), 1.6);
                 
                 if (hoveredLogo === mesh) {
                     targetOpacity = 1.0;
@@ -507,13 +536,15 @@ export default function PartnerLogoSphere() {
                 mat.uniforms.grayscaleAmount.value = THREE.MathUtils.lerp(mat.uniforms.grayscaleAmount.value, 1.0 - highlightFactor, 0.12);
                 mat.uniforms.opacity.value = THREE.MathUtils.lerp(mat.uniforms.opacity.value, targetOpacity, 0.12);
 
-                // Scale: Highlighted passing logos enlarge slightly for depth hierarchy
-                const highlightScaleBonus = 1.25;
-                const finalScale = baseSize * (1.0 + highlightFactor * (highlightScaleBonus - 1.0));
+                // 6. Scale & Visual Hierarchy:
+                // - Highlighted partner logos get an elegant scale boost (+28%)
+                // - Foreground logos across the full width remain medium and sharp
+                // - Background logos scale down smoothly for realistic depth perspective
+                const highlightScaleBonus = 1.28;
+                const finalScale = baseLogoSize * (1.0 + highlightFactor * (highlightScaleBonus - 1.0));
                 
-                // Clamp scale for mobile legibility
-                const minScale = isMobile ? 0.65 : 0.40;
-                const depthScale = Math.max(minScale, 0.35 + normalZ * 0.65);
+                const minScale = isMobile ? 0.60 : 0.50;
+                const depthScale = Math.max(minScale, 0.40 + normalZ * 0.60);
                 
                 mesh.scale.setScalar(finalScale * (hoveredLogo === mesh ? 1.05 : depthScale));
             });
@@ -553,10 +584,9 @@ export default function PartnerLogoSphere() {
                 ref={containerRef}
                 className="partner-sphere-viewport"
                 role="img"
-                aria-label="Interactive 3D sphere showing DRS Deals central anchor with all partner brand logos rotating with dynamic acceleration. Drag to rotate, click any logo to learn more."
+                aria-label="Interactive 3D sphere showing DRS Deals central anchor with wide, spacious 3D partner brand network. Drag to rotate, click any logo to learn more."
                 style={{ 
                     width: '100%', 
-                    minHeight: '550px', 
                     position: 'relative', 
                     overflow: 'hidden',
                     touchAction: 'pan-y'
