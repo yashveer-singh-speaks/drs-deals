@@ -228,14 +228,14 @@ export default function Home() {
                     </div>
                     
                     <div className="deal-grid">
-                        {/* Card 1 */}
+                        {/* 1st: Wyndham */}
                         <div className="deal-card">
                             <div className="deal-img-wrapper">
                                 <img 
                                     src="/images/hotels/wyndham.webp" 
                                     alt="Wyndham Garden Sonipat Murthal Five Star Membership" 
-                                    width={380} 
-                                    height={240} 
+                                    width={400} 
+                                    height={400} 
                                     loading="lazy" 
                                 />
                                 <div className="deal-badge">5-STAR VIP</div>
@@ -255,41 +255,14 @@ export default function Home() {
                             </div>
                         </div>
                         
-                        {/* Card 2 */}
-                        <div className="deal-card">
-                            <div className="deal-img-wrapper">
-                                <img 
-                                    src="/images/hotels/sk-premium.webp" 
-                                    alt="Hotel SK Premium Membership Ghaziabad" 
-                                    width={380} 
-                                    height={240} 
-                                    loading="lazy" 
-                                />
-                                <div className="deal-badge">COMPLIMENTARY NIGHT</div>
-                            </div>
-                            <div className="deal-content">
-                                <div className="deal-meta">
-                                    <span className="deal-location">Ghaziabad</span>
-                                    <span className="deal-rating">★ 4.9 Verified</span>
-                                </div>
-                                <h3 className="deal-title">Hotel SK Premium Membership</h3>
-                                <div className="deal-partner">Hotel SK Premium</div>
-                                <div className="deal-price-row">
-                                    <div className="price-original">₹40,000</div>
-                                    <div className="price-deal">₹5,000</div>
-                                </div>
-                                <Link href="/deals/hotel-sk-premium-ghaziabad" aria-label="Enquire Details for Hotel SK Premium Membership" className="btn btn-outline" style={{ width: '100%', marginTop: '16px' }}>Enquire Details</Link>
-                            </div>
-                        </div>
-
-                        {/* Card 3 */}
+                        {/* 2nd: Oren */}
                         <div className="deal-card">
                             <div className="deal-img-wrapper">
                                 <img 
                                     src="/images/hotels/oren.webp" 
                                     alt="Oren Kasauli Membership Card" 
-                                    width={380} 
-                                    height={240} 
+                                    width={400} 
+                                    height={400} 
                                     loading="lazy" 
                                 />
                                 <div className="deal-badge">2 NIGHTS FREE</div>
@@ -309,14 +282,68 @@ export default function Home() {
                             </div>
                         </div>
 
-                        {/* Card 4 */}
+                        {/* 3rd: SK Premium */}
+                        <div className="deal-card">
+                            <div className="deal-img-wrapper">
+                                <img 
+                                    src="/images/hotels/sk-premium.webp" 
+                                    alt="Hotel SK Premium Membership Ghaziabad" 
+                                    width={400} 
+                                    height={400} 
+                                    loading="lazy" 
+                                />
+                                <div className="deal-badge">COMPLIMENTARY NIGHT</div>
+                            </div>
+                            <div className="deal-content">
+                                <div className="deal-meta">
+                                    <span className="deal-location">Ghaziabad</span>
+                                    <span className="deal-rating">★ 4.9 Verified</span>
+                                </div>
+                                <h3 className="deal-title">Hotel SK Premium Membership</h3>
+                                <div className="deal-partner">Hotel SK Premium</div>
+                                <div className="deal-price-row">
+                                    <div className="price-original">₹40,000</div>
+                                    <div className="price-deal">₹5,000</div>
+                                </div>
+                                <Link href="/deals/hotel-sk-premium-ghaziabad" aria-label="Enquire Details for Hotel SK Premium Membership" className="btn btn-outline" style={{ width: '100%', marginTop: '16px' }}>Enquire Details</Link>
+                            </div>
+                        </div>
+
+                        {/* 4th: Haut Monde */}
+                        <div className="deal-card">
+                            <div className="deal-img-wrapper">
+                                <img 
+                                    src="/images/hotels/haut-monde.webp" 
+                                    alt="Haut Monde Neemrana Membership Card" 
+                                    width={400} 
+                                    height={400} 
+                                    loading="lazy" 
+                                />
+                                <div className="deal-badge">3 NIGHTS FREE</div>
+                            </div>
+                            <div className="deal-content">
+                                <div className="deal-meta">
+                                    <span className="deal-location">Neemrana</span>
+                                    <span className="deal-rating">★ 4.9 Verified</span>
+                                </div>
+                                <h3 className="deal-title">Haut Monde Neemrana Membership</h3>
+                                <div className="deal-partner">Haut Monde</div>
+                                <div className="deal-price-row">
+                                    <div className="price-original">₹50,000</div>
+                                    <div className="price-deal">₹10,000</div>
+                                </div>
+                                <Link href="/deals/haut-monde-neemrana" aria-label="Enquire Details for Haut Monde Neemrana Membership" className="btn btn-outline" style={{ width: '100%', marginTop: '16px' }}>Enquire Details</Link>
+                            </div>
+                        </div>
+
+                        {/* 5th: Atma Yog */}
                         <div className="deal-card">
                             <div className="deal-img-wrapper">
                                 <img 
                                     src="/images/hotels/atma-yog.webp" 
                                     alt="Atma Yog Luxury Manor Manali" 
-                                    width={380} 
-                                    height={240} 
+                                    width={400} 
+                                    height={400} 
                                     loading="lazy" 
                                 />
                                 <div className="deal-badge">3 NIGHTS FREE</div>
@@ -336,41 +363,14 @@ export default function Home() {
                             </div>
                         </div>
 
-                        {/* Card 5 */}
-                        <div className="deal-card">
-                            <div className="deal-img-wrapper">
-                                <img 
-                                    src="/images/hotels/white-flower.webp" 
-                                    alt="The White Flower Resorts Mussoorie & Corbett" 
-                                    width={380} 
-                                    height={240} 
-                                    loading="lazy" 
-                                />
-                                <div className="deal-badge">2 DESTINATIONS</div>
-                            </div>
-                            <div className="deal-content">
-                                <div className="deal-meta">
-                                    <span className="deal-location">Mussoorie &amp; Corbett</span>
-                                    <span className="deal-rating">★ 4.9 Verified</span>
-                                </div>
-                                <h3 className="deal-title">The White Flower Resorts</h3>
-                                <div className="deal-partner">The White Flower</div>
-                                <div className="deal-price-row">
-                                    <div className="price-original">₹50,000</div>
-                                    <div className="price-deal">₹7,999</div>
-                                </div>
-                                <Link href="/deals/white-flower-resorts-mussoorie-corbett" aria-label="Enquire Details for The White Flower Resorts" className="btn btn-outline" style={{ width: '100%', marginTop: '16px' }}>Enquire Details</Link>
-                            </div>
-                        </div>
-
-                        {/* Card 6 */}
+                        {/* 6th: Rangmanch */}
                         <div className="deal-card">
                             <div className="deal-img-wrapper">
                                 <img 
                                     src="/images/hotels/rangmanch.webp" 
                                     alt="Rangmanch Farms Day Outing" 
-                                    width={380} 
-                                    height={240} 
+                                    width={400} 
+                                    height={400} 
                                     loading="lazy" 
                                 />
                                 <div className="deal-badge">80+ ACTIVITIES</div>
@@ -387,6 +387,60 @@ export default function Home() {
                                     <div className="price-deal">Contact for offers</div>
                                 </div>
                                 <Link href="/deals/rangmanch-farms-gurgaon" aria-label="Enquire Details for Rangmanch Farms Day Outing" className="btn btn-outline" style={{ width: '100%', marginTop: '16px' }}>Enquire Details</Link>
+                            </div>
+                        </div>
+
+                        {/* 7th: Madhavgarh */}
+                        <div className="deal-card">
+                            <div className="deal-img-wrapper">
+                                <img 
+                                    src="/images/hotels/madhavgarh.webp" 
+                                    alt="Madhavgarh Farms Village Experience" 
+                                    width={400} 
+                                    height={400} 
+                                    loading="lazy" 
+                                />
+                                <div className="deal-badge">UNLIMITED FOOD</div>
+                            </div>
+                            <div className="deal-content">
+                                <div className="deal-meta">
+                                    <span className="deal-location">Gurgaon</span>
+                                    <span className="deal-rating">★ 4.9 Verified</span>
+                                </div>
+                                <h3 className="deal-title">Madhavgarh Farms Village Ticket</h3>
+                                <div className="deal-partner">Madhavgarh Farms</div>
+                                <div className="deal-price-row">
+                                    <div className="price-original">Village Pass</div>
+                                    <div className="price-deal">Contact for offers</div>
+                                </div>
+                                <Link href="/deals/madhavgarh-farms-gurgaon" aria-label="Enquire Details for Madhavgarh Farms Village Ticket" className="btn btn-outline" style={{ width: '100%', marginTop: '16px' }}>Enquire Details</Link>
+                            </div>
+                        </div>
+
+                        {/* 8th: Mera Gaon Mera Desh */}
+                        <div className="deal-card">
+                            <div className="deal-img-wrapper">
+                                <img 
+                                    src="/images/hotels/mera-gaon.webp" 
+                                    alt="Mera Gaon Mera Desh Village Experience" 
+                                    width={400} 
+                                    height={400} 
+                                    loading="lazy" 
+                                />
+                                <div className="deal-badge">WATER PARK INCLUDED</div>
+                            </div>
+                            <div className="deal-content">
+                                <div className="deal-meta">
+                                    <span className="deal-location">Murthal</span>
+                                    <span className="deal-rating">★ 4.9 Verified</span>
+                                </div>
+                                <h3 className="deal-title">Mera Gaon Mera Desh Pass</h3>
+                                <div className="deal-partner">Mera Gaon Mera Desh</div>
+                                <div className="deal-price-row">
+                                    <div className="price-original">Day Outing</div>
+                                    <div className="price-deal">Contact for offers</div>
+                                </div>
+                                <Link href="/deals/mera-gaon-mera-desh-murthal" aria-label="Enquire Details for Mera Gaon Mera Desh Pass" className="btn btn-outline" style={{ width: '100%', marginTop: '16px' }}>Enquire Details</Link>
                             </div>
                         </div>
                     </div>
