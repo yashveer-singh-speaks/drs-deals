@@ -2,8 +2,9 @@
 
 import React, { useRef, useEffect } from 'react';
 import * as THREE from 'three';
+import { siteConfig } from '@/config/site';
 
-/* ─── Logo Data ─── */
+/* ─── Partner Logo Data ─── */
 const partnerLogos = [
     { src: '/images/companies-tie-up/renowned-hotels_8.webp', alt: 'Wyndham and Renowned Hotel Partners', href: '/partners' },
     { src: '/images/companies-tie-up/renowned-hotels_9.webp', alt: 'Choice Hotels Hospitality Partner', href: '/partners' },
@@ -69,15 +70,14 @@ export default function PartnerLogoSphere() {
 
         /* ─── Scene Setup ─── */
         const scene = new THREE.Scene();
-        // Setup perspective camera
         const camera = new THREE.PerspectiveCamera(40, width / height, 0.1, 2500);
-        camera.position.z = 850; // Pull back slightly for better FOV composition
+        camera.position.z = 850;
 
         const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
         renderer.setSize(width, height);
         renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
         
-        container.innerHTML = ''; // Clear previous canvas if any
+        container.innerHTML = '';
         container.appendChild(renderer.domElement);
 
         /* ─── Environment (Orbits & Floor) ─── */
@@ -87,7 +87,7 @@ export default function PartnerLogoSphere() {
             path.absarc(0, 0, 1, 0, Math.PI * 2, false);
             const points = path.getPoints(64);
             const geometry = new THREE.BufferGeometry().setFromPoints(points);
-            const material = new THREE.LineBasicMaterial({ color: 0xc5a880, transparent: true, opacity: 0.08 });
+            const material = new THREE.LineBasicMaterial({ color: 0xc5a880, transparent: true, opacity: 0.12 });
             const line = new THREE.LineLoop(geometry, material);
             line.rotation.x = Math.random() * Math.PI;
             line.rotation.y = Math.random() * Math.PI;
@@ -113,14 +113,93 @@ export default function PartnerLogoSphere() {
         floor.rotation.x = -Math.PI / 2;
         scene.add(floor);
 
-        /* ─── Logos ─── */
+        /* ─── Center Hero: Permanent DRS Deals Logo ─── */
+        const loader = new THREE.TextureLoader();
+        const planeGeo = new THREE.PlaneGeometry(1, 1);
+
+        const drsHeroMat = new THREE.ShaderMaterial({
+            uniforms: {
+                map: { value: null },
+                opacity: { value: 1.0 },
+                time: { value: 0.0 },
+                isHovered: { value: 0.0 }
+            },
+            vertexShader: `
+                varying vec2 vUv;
+                void main() {
+                    vUv = uv;
+                    gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+                }
+            `,
+            fragmentShader: `
+                uniform sampler2D map;
+                uniform float opacity;
+                uniform float time;
+                uniform float isHovered;
+                varying vec2 vUv;
+
+                void main() {
+                    vec2 uv = vUv;
+                    float dist = distance(uv, vec2(0.5));
+                    if (dist > 0.5) discard;
+
+                    // Pad the logo slightly inside the badge
+                    vec2 centerUv = (uv - 0.5) * 1.15 + 0.5;
+                    vec4 texColor = texture2D(map, centerUv);
+
+                    // Solid luxury white circle background
+                    vec3 baseColor = mix(vec3(1.0), texColor.rgb, texColor.a);
+
+                    // Imperial Gold color palette
+                    vec3 goldMain = vec3(218.0/255.0, 165.0/255.0, 32.0/255.0);
+                    vec3 goldBright = vec3(255.0/255.0, 225.0/255.0, 120.0/255.0);
+
+                    // Double gold boundary rings
+                    float outerRing = smoothstep(0.45, 0.44, dist) - smoothstep(0.40, 0.39, dist);
+                    float innerRing = smoothstep(0.38, 0.375, dist) - smoothstep(0.365, 0.36, dist);
+                    
+                    // Radiant dynamic gold glow pulse
+                    float pulse = 0.85 + 0.15 * sin(time * 2.8);
+                    float glowMask = smoothstep(0.50, 0.45, dist) * (pulse + isHovered * 0.3);
+
+                    vec3 finalColor = baseColor;
+                    finalColor = mix(finalColor, goldMain, outerRing);
+                    finalColor = mix(finalColor, goldBright, innerRing * 0.7);
+
+                    if (dist > 0.45) {
+                        gl_FragColor = vec4(goldBright, glowMask * opacity * 0.95);
+                    } else {
+                        gl_FragColor = vec4(finalColor, opacity);
+                    }
+                }
+            `,
+            transparent: true,
+            depthWrite: false,
+            depthTest: false
+        });
+
+        loader.load(siteConfig.logo, (tex) => {
+            tex.generateMipmaps = true;
+            tex.minFilter = THREE.LinearMipmapLinearFilter;
+            drsHeroMat.uniforms.map.value = tex;
+            drsHeroMat.needsUpdate = true;
+        });
+
+        const drsHeroMesh = new THREE.Mesh(planeGeo, drsHeroMat);
+        drsHeroMesh.renderOrder = 9999; // Always render in front of rotating sphere logos
+        drsHeroMesh.userData = {
+            isCenterHero: true,
+            href: '/about',
+            alt: 'DRS Deals Luxury Anchor'
+        };
+        scene.add(drsHeroMesh);
+
+        /* ─── Rotating Surrounding Partner Logos ─── */
         const sphereGroup = new THREE.Group();
         scene.add(sphereGroup);
         const logos: THREE.Mesh[] = [];
-        const loader = new THREE.TextureLoader();
 
         const fibPoints = fibonacciSphere(partnerLogos.length);
-        const planeGeo = new THREE.PlaneGeometry(1, 1);
 
         partnerLogos.forEach((logo, i) => {
             const mat = new THREE.ShaderMaterial({
@@ -150,21 +229,20 @@ export default function PartnerLogoSphere() {
                         
                         if (dist > 0.5) discard;
 
-                        // Slightly shrink the UV to give margin for the circle clip
                         vec2 centerUv = (uv - 0.5) * 1.08 + 0.5;
                         vec4 texColor = texture2D(map, centerUv);
 
-                        // Pre-multiply alpha to simulate white canvas background for transparent logos
+                        // White background backing
                         vec3 baseColor = mix(vec3(1.0), texColor.rgb, texColor.a);
                         
-                        // Calculate grayscale
+                        // Grayscale interpolation
                         float luma = dot(baseColor, vec3(0.299, 0.587, 0.114));
                         vec3 gray = vec3(luma);
                         vec3 finalColor = mix(baseColor, gray, grayscaleAmount);
 
-                        // Colors for the border
+                        // Border dynamic tint (Champagne gold to Radiant gold)
                         vec3 normalBorder = vec3(197.0/255.0, 168.0/255.0, 128.0/255.0);
-                        vec3 heroBorder = vec3(255.0/255.0, 215.0/255.0, 100.0/255.0);
+                        vec3 heroBorder = vec3(255.0/255.0, 215.0/255.0, 95.0/255.0);
                         vec3 currentBorder = mix(normalBorder, heroBorder, isHero);
 
                         // Masks
@@ -174,10 +252,8 @@ export default function PartnerLogoSphere() {
                         vec3 colorWithRing = mix(finalColor, currentBorder, ringMask);
 
                         if (dist > 0.44) {
-                            // The outer glow
                             gl_FragColor = vec4(currentBorder, glowMask * opacity * 0.85);
                         } else {
-                            // The core logo
                             gl_FragColor = vec4(colorWithRing, opacity);
                         }
                     }
@@ -215,7 +291,7 @@ export default function PartnerLogoSphere() {
         let draggedSinceDown = false;
 
         const raycaster = new THREE.Raycaster();
-        const mouse = new THREE.Vector2(-10, -10); // Start offscreen
+        const mouse = new THREE.Vector2(-10, -10);
 
         const onPointerDown = (e: MouseEvent | TouchEvent) => {
             isDragging = true;
@@ -280,45 +356,60 @@ export default function PartnerLogoSphere() {
 
         /* ─── Render Loop ─── */
         let animId = 0;
+        const clock = new THREE.Clock();
+
         const render = () => {
             animId = requestAnimationFrame(render);
+            const elapsedTime = clock.getElapsedTime();
 
             const isMobile = window.innerWidth < 768;
             const minDim = Math.min(width, height);
-            // Dynamic radius based on screen size
             const RADIUS = isMobile ? minDim * 0.38 : Math.min(minDim * 0.40, 260);
             const zFactor = isMobile ? 0.5 : 1.0;
-            const baseSize = isMobile ? 60 : 76;
+            const baseSize = isMobile ? 56 : 74;
+            const centerHeroSize = isMobile ? 86 : 110;
 
             // Environment scaling
             orbitGroup.scale.set(RADIUS * 1.15, RADIUS * 1.15, RADIUS * 1.15 * zFactor);
             floor.scale.set(RADIUS * 3, RADIUS * 3, 1);
             floor.position.y = -RADIUS - (isMobile ? 30 : 60);
 
+            // Center DRS Deals hero positioning & floating effect
+            const floatZ = RADIUS * zFactor + (isMobile ? 35 : 55);
+            drsHeroMesh.position.set(0, 0, floatZ);
+            drsHeroMesh.lookAt(camera.position);
+            
+            // Subtle luxury breathing pulse for the fixed center hero
+            const breathScale = 1.0 + Math.sin(elapsedTime * 2.2) * 0.03;
+            drsHeroMesh.scale.setScalar(centerHeroSize * breathScale * (hoveredLogo === drsHeroMesh ? 1.08 : 1.0));
+            drsHeroMat.uniforms.time.value = elapsedTime;
+            drsHeroMat.uniforms.isHovered.value = hoveredLogo === drsHeroMesh ? 1.0 : 0.0;
+
             // Physics & Rotation
             if (!isDragging) {
-                if (hoveredLogo) {
+                if (hoveredLogo && hoveredLogo !== drsHeroMesh) {
                     velocity.x = 0;
                     velocity.y = 0;
                 } else {
-                    velocity.x *= 0.95; // Damping
-                    velocity.y = velocity.y * 0.95 + 0.002 * 0.05; // Return to baseline speed
+                    velocity.x *= 0.95;
+                    velocity.y = velocity.y * 0.95 + 0.002 * 0.05;
                 }
             }
 
             currentRotX += velocity.x;
             currentRotY += velocity.y;
             
-            // Limit vertical rotation to prevent flipping upside down
+            // Constrain vertical rotation so sphere remains an upright globe
             currentRotX = THREE.MathUtils.clamp(currentRotX, -0.3, 0.3);
 
             sphereGroup.rotation.x = currentRotX;
             sphereGroup.rotation.y = currentRotY;
             sphereGroup.updateMatrixWorld();
 
-            // Raycast for hover state
+            // Raycast for hover state (including the center DRS hero and partner logos)
             raycaster.setFromCamera(mouse, camera);
-            const intersects = raycaster.intersectObjects(logos);
+            const intersectObjects = [drsHeroMesh, ...logos];
+            const intersects = raycaster.intersectObjects(intersectObjects);
             if (intersects.length > 0) {
                 hoveredLogo = intersects[0].object as THREE.Mesh;
                 container.style.cursor = 'pointer';
@@ -327,11 +418,8 @@ export default function PartnerLogoSphere() {
                 container.style.cursor = isDragging ? 'grabbing' : 'grab';
             }
 
-            // The target "front center" position where a logo becomes the hero
-            const targetPos = new THREE.Vector3(0, 0, RADIUS * zFactor);
-
+            /* ─── Update Surrounding Logos & Influence Zone ─── */
             logos.forEach(mesh => {
-                // Spherical position update (applying responsive radius and z-depth flatten)
                 const base = mesh.userData.basePos;
                 mesh.position.set(
                     base.x * RADIUS,
@@ -339,26 +427,32 @@ export default function PartnerLogoSphere() {
                     base.z * RADIUS * zFactor
                 );
 
-                // Billboard effect: Logos always face the camera directly
+                // Billboard: Partner logos always stay upright and face the camera
                 mesh.lookAt(camera.position);
 
                 const worldPos = new THREE.Vector3();
                 mesh.getWorldPosition(worldPos);
 
-                // Distance to front center
-                const dist = worldPos.distanceTo(targetPos);
-                
-                // Hero factor based on distance
-                const heroRadius = RADIUS * 0.55;
-                let heroFactor = 1.0 - Math.min(dist / heroRadius, 1.0);
-                heroFactor = THREE.MathUtils.smoothstep(heroFactor, 0.0, 1.0);
+                // 2D distance from the center DRS Deals logo in XY plane
+                const distXY = Math.hypot(worldPos.x, worldPos.y);
+
+                // Highlight zone around the DRS Deals logo:
+                // Activates approximately 4 front-facing logos surrounding the center anchor (2 above, 2 below)
+                const highlightRadius = RADIUS * 0.72;
+                const xyProximity = 1.0 - Math.min(distXY / highlightRadius, 1.0);
+                const smoothXy = THREE.MathUtils.smoothstep(xyProximity, 0.0, 1.0);
+
+                // Only activate logos that are in the front quadrant facing the user
+                const frontDepth = Math.max(0, (worldPos.z - RADIUS * zFactor * 0.1) / (RADIUS * zFactor * 0.9));
+                const smoothZ = THREE.MathUtils.smoothstep(frontDepth, 0.0, 1.0);
+
+                let highlightFactor = smoothXy * smoothZ;
 
                 if (hoveredLogo === mesh) {
-                    heroFactor = 1.0;
+                    highlightFactor = 1.0;
                 }
 
-                // Opacity fades out for distant logos
-                // normalZ is 0 at the back (-RADIUS) and 1 at the front (+RADIUS)
+                // Opacity based on world Z depth (back logos smoothly fade out)
                 const normalZ = (worldPos.z + RADIUS * zFactor) / (2 * RADIUS * zFactor);
                 let targetOpacity = 0.25 + 0.75 * Math.pow(Math.max(normalZ, 0), 1.8);
                 
@@ -368,19 +462,19 @@ export default function PartnerLogoSphere() {
 
                 // Smoothly lerp shader uniforms
                 const mat = mesh.material as THREE.ShaderMaterial;
-                mat.uniforms.isHero.value = THREE.MathUtils.lerp(mat.uniforms.isHero.value, heroFactor, 0.1);
-                mat.uniforms.grayscaleAmount.value = THREE.MathUtils.lerp(mat.uniforms.grayscaleAmount.value, 1.0 - heroFactor, 0.1);
-                mat.uniforms.opacity.value = THREE.MathUtils.lerp(mat.uniforms.opacity.value, targetOpacity, 0.1);
+                mat.uniforms.isHero.value = THREE.MathUtils.lerp(mat.uniforms.isHero.value, highlightFactor, 0.12);
+                mat.uniforms.grayscaleAmount.value = THREE.MathUtils.lerp(mat.uniforms.grayscaleAmount.value, 1.0 - highlightFactor, 0.12);
+                mat.uniforms.opacity.value = THREE.MathUtils.lerp(mat.uniforms.opacity.value, targetOpacity, 0.12);
 
-                // Dynamic Scaling
-                const heroScaleBonus = 1.4; // Hero gets 40% larger
-                const finalScale = baseSize * (1.0 + heroFactor * (heroScaleBonus - 1.0));
+                // Scale: Highlighted passing logos enlarge slightly for depth hierarchy
+                const highlightScaleBonus = 1.25;
+                const finalScale = baseSize * (1.0 + highlightFactor * (highlightScaleBonus - 1.0));
                 
-                // Perspective clamp logic (preventing tiny background dots)
+                // Clamp scale for mobile legibility
                 const minScale = isMobile ? 0.65 : 0.40;
                 const depthScale = Math.max(minScale, 0.35 + normalZ * 0.65);
                 
-                mesh.scale.setScalar(finalScale * (hoveredLogo === mesh ? 1.0 : depthScale));
+                mesh.scale.setScalar(finalScale * (hoveredLogo === mesh ? 1.05 : depthScale));
             });
 
             renderer.render(scene, camera);
@@ -418,13 +512,13 @@ export default function PartnerLogoSphere() {
                 ref={containerRef}
                 className="partner-sphere-viewport"
                 role="img"
-                aria-label="Interactive 3D sphere showing 34 partner brand logos. Drag to rotate, click any logo to learn more."
+                aria-label="Interactive 3D sphere showing DRS Deals central anchor and 34 partner brand logos. Drag to rotate, click any logo to learn more."
                 style={{ 
                     width: '100%', 
                     minHeight: '550px', 
                     position: 'relative', 
                     overflow: 'hidden',
-                    touchAction: 'pan-y' // Prevent horizontal scroll to allow drag rotation, but allow vertical scrolling
+                    touchAction: 'pan-y'
                 }}
             />
         </section>
