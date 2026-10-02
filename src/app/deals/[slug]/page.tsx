@@ -201,28 +201,18 @@ export default async function DealDetailPage({ params }: Props) {
                                 <strong>Direct Concierge &amp; Reservation Assistance:</strong>
                             </div>
                             <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
-                                {deal.bookingInfo.phones.map((phone, idx) => (
-                                    <a
-                                        key={idx}
-                                        href={`tel:+91${phone}`}
-                                        className="btn btn-primary"
-                                        style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', fontSize: '0.95rem' }}
-                                    >
-                                        📞 Call {phone}
-                                    </a>
-                                ))}
                                 <a
                                     href={whatsappInquiryUrl}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="btn btn-outline"
-                                    style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', fontSize: '0.95rem' }}
+                                    className="btn btn-primary"
+                                    style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', fontSize: '1.05rem', padding: '16px 28px', backgroundColor: '#25D366', borderColor: '#25D366', color: '#fff' }}
                                 >
-                                    💬 Enquire on WhatsApp
+                                    💬 Enquire on WhatsApp ({siteConfig.contacts.whatsappDisplay})
                                 </a>
                             </div>
                             <p style={{ fontSize: '0.85rem', color: 'var(--color-charcoal-light)', margin: 0, fontStyle: 'italic' }}>
-                                DRS Deals coordinates directly with property management for verified member privileges.
+                                DRS Deals coordinates directly on WhatsApp with property management for verified member privileges.
                             </p>
                         </div>
                     </div>

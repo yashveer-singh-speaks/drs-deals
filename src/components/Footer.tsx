@@ -29,12 +29,21 @@ export default function Footer() {
                             </div>
                             <div style={{ marginBottom: '8px' }}>
                                 <strong style={{ color: '#D4A857' }}>Hotline Numbers:</strong><br />
-                                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px 10px', marginTop: '4px' }}>
-                                    {siteConfig.contacts.hotlines.map((h, i) => (
-                                        <a key={i} href={`tel:${h.raw}`} style={{ color: '#D4A857', textDecoration: 'none', fontWeight: 600 }}>
-                                            {h.display}
-                                        </a>
-                                    ))}
+                                <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', marginTop: '4px' }}>
+                                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px 12px' }}>
+                                        {siteConfig.contacts.topHotlines.map((h, i) => (
+                                            <a key={i} href={`tel:${h.raw}`} style={{ color: '#D4A857', textDecoration: 'none', fontWeight: 700 }}>
+                                                {h.display}
+                                            </a>
+                                        ))}
+                                    </div>
+                                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '4px 10px', fontSize: '0.82rem', color: 'rgba(212, 168, 87, 0.85)', marginTop: '2px' }}>
+                                        {siteConfig.contacts.hotlines.map((h, i) => (
+                                            <a key={i} href={`tel:${h.raw}`} style={{ color: 'rgba(255,255,255,0.8)', textDecoration: 'none', fontWeight: 500 }}>
+                                                {h.display}
+                                            </a>
+                                        ))}
+                                    </div>
                                 </div>
                             </div>
                             <div>

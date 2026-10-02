@@ -14,38 +14,51 @@ export const siteConfig = {
         partnerEmail: 'Info@drsdeals.in',
         email: 'Info@drsdeals.in',
         
-        // Complete list of authorized phone hotlines
+        // Priority Top Phone Numbers
+        topHotlines: [
+            { display: '+91 98111 20892', raw: '+919811120892', number: '9811120892' },
+            { display: '+91 98113 60808', raw: '+919811360808', number: '9811360808' },
+            { display: '+91 99110 11460', raw: '+919911011460', number: '9911011460' },
+        ],
+
+        // Complete list of authorized phone hotlines in exact required display order
         phoneNumbers: [
-            '9911011458',
-            '9911011459',
-            '9911011460',
-            '9911011461',
-            '8368289207',
-            '9625357514',
             '9811120892',
             '9811360808',
+            '9911011460',
+            '9625357514',
+            '9911011458',
+            '9911011459',
+            '9911011461',
+            '8368289207',
         ],
         
         hotlines: [
-            { raw: '+919911011458', display: '+91 99110 11458', number: '9911011458' },
-            { raw: '+919911011459', display: '+91 99110 11459', number: '9911011459' },
-            { raw: '+919911011460', display: '+91 99110 11460', number: '9911011460' },
-            { raw: '+919911011461', display: '+91 99110 11461', number: '9911011461' },
-            { raw: '+918368289207', display: '+91 83682 89207', number: '8368289207' },
-            { raw: '+919625357514', display: '+91 96253 57514', number: '9625357514' },
             { raw: '+919811120892', display: '+91 98111 20892', number: '9811120892' },
             { raw: '+919811360808', display: '+91 98113 60808', number: '9811360808' },
+            { raw: '+919911011460', display: '+91 99110 11460', number: '9911011460' },
+            { raw: '+919625357514', display: '+91 96253 57514', number: '9625357514' },
+            { raw: '+919911011458', display: '+91 99110 11458', number: '9911011458' },
+            { raw: '+919911011459', display: '+91 99110 11459', number: '9911011459' },
+            { raw: '+919911011461', display: '+91 99110 11461', number: '9911011461' },
+            { raw: '+918368289207', display: '+91 83682 89207', number: '8368289207' },
         ],
 
-        hotline1: '+91 99110 11458',
-        hotline2: '+91 99110 11459',
-        hotline1Raw: '+919911011458',
-        hotline2Raw: '+919911011459',
+        // Corporate Inquiries Numbers
+        corporateHotlines: [
+            { display: '+91 98111 20892', raw: '+919811120892', number: '9811120892' },
+            { display: '+91 98113 60808', raw: '+919811360808', number: '9811360808' },
+        ],
+
+        hotline1: '+91 98111 20892',
+        hotline2: '+91 98113 60808',
+        hotline1Raw: '+919811120892',
+        hotline2Raw: '+919811360808',
         
-        // WhatsApp Concierge Number
-        whatsappNumber: '9911011458',
+        // WhatsApp Contact Number (98111 20892)
+        whatsappNumber: '9811120892',
         whatsappCountryCode: '91',
-        whatsappDisplay: '+91 99110 11458',
+        whatsappDisplay: '+91 98111 20892',
     },
 
     // Verified Business Heritage & Scale Statistics

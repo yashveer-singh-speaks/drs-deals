@@ -212,6 +212,64 @@ export const DEALS_DATA: Deal[] = [
         imageSkeletonCount: 6
     },
     {
+        id: 'haut-monde-neemrana',
+        featuredImage: '/images/deals/haut-monde-neemrana/featured.webp',
+        galleryImages: [
+            '/images/deals/haut-monde-neemrana/gallery-1.webp',
+            '/images/deals/haut-monde-neemrana/gallery-2.webp',
+            '/images/deals/haut-monde-neemrana/gallery-3.webp',
+            '/images/deals/haut-monde-neemrana/gallery-4.webp',
+            '/images/deals/haut-monde-neemrana/gallery-5.webp',
+            '/images/deals/haut-monde-neemrana/gallery-6.webp'
+        ],
+        slug: 'haut-monde-neemrana',
+        title: 'Haut Monde Neemrana Membership Card',
+        propertyName: 'Haut Monde',
+        tagline: 'Exclusive Annual Membership for Room Stays, Dining & Leisure in Neemrana',
+        category: 'resorts',
+        categoryLabel: 'Luxury Heritage & Resort',
+        location: 'Neemrana, Rajasthan',
+        stateRegion: 'Delhi NCR and More',
+        price: '₹10,000',
+        originalPrice: '₹50,000',
+        validity: '1 Year',
+        estimatedValue: '₹50,000+',
+        isFeatured: true,
+        featuredOrder: 4,
+        overview: [
+            'Experience luxury getaway privileges at Haut Monde Neemrana with an exclusive 1-year membership card designed for ultimate relaxation, dining, and leisure.',
+            'Priced at ₹10,000 with zero taxes/utility charges on free stays, this membership covers 2 Adults and 2 Kids up to 10 years of age.',
+            'Enjoys 3 free room nights, 10 buffet meals, 10 swimming pool entries, and extensive Buy 1 Get 1 privileges across food and beverages.'
+        ],
+        inclusions: [
+            { title: '3 Free Deluxe/Standard Room Night Stay + Breakfast', description: 'Absolutely free for 2 adults and 2 kids up to 10 years. No taxes or utility charges. (Max 2 nights single time, 3rd night after 30-day gap).' },
+            { title: '10 Lunch or Dinner Buffets (Free)', description: 'Buffet/TDH meal vouchers. Maximum 4 vouchers usable in a single day.' },
+            { title: '10 Tea/Coffee + Cookies (Free)', description: 'Complimentary hot beverages and cookies.' },
+            { title: '10 Juice/Mocktails (Free)', description: 'Refreshing complimentary mocktails and juices.' },
+            { title: '10 Swimming Pool Entries (Free)', description: 'Complimentary pool access for family relaxation.' }
+        ],
+        vouchersAndCoupons: [
+            'Flat 50% discount on room stay',
+            'Pay for one room night stay & get another room night absolutely free',
+            'Get ₹1000 OFF on billing ₹2000 (10 certificates - all usable together)',
+            'Birthday/Anniversary 30% OFF on total bill + free soft drinks',
+            'Buy 1 Get 1 Free offers (10 vouchers each for Buffet, Beverages, Soup, Starter, Main Course, Dessert)',
+            'Privilege Card: Flat 30% discount on Room & Food'
+        ],
+        conditionsAndTerms: [
+            'Valid for 1 year from date of issue.',
+            'Room stays cover 2 adults + 2 kids up to 10 years with no taxes or utility charges.',
+            'Max 2 complimentary room nights can be used at a single time; 3rd night requires a min 30-day gap from previous booking.',
+            'Max 4 buffet vouchers usable per day.',
+            'Prior reservation mandatory for room stay redemptions.'
+        ],
+        bookingInfo: {
+            phones: AUTHORIZED_PHONES,
+            website: 'www.DRSdeals.in'
+        },
+        imageSkeletonCount: 6
+    },
+    {
         id: 'atmayog-luxury-manor',
         featuredImage: '/images/deals/atmayog-luxury-manor-manali/featured.webp',
         galleryImages: [
