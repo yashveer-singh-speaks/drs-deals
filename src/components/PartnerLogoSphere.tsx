@@ -197,24 +197,6 @@ export default function PartnerLogoSphere() {
         const sphereGroup = new THREE.Group();
         scene.add(sphereGroup);
 
-        // Orbital Golden Guides (Tilted visual orbits)
-        const orbitGuideGroup = new THREE.Group();
-        sphereGroup.add(orbitGuideGroup);
-
-        // Add visual guide rings matching the 2 active hero orbit bands (y = +0.34 and y = -0.34)
-        [0.34, -0.34].forEach(yPos => {
-            const radAtY = Math.sqrt(1 - yPos * yPos);
-            const path = new THREE.Path();
-            path.absarc(0, 0, radAtY, 0, Math.PI * 2, false);
-            const points = path.getPoints(64);
-            const geometry = new THREE.BufferGeometry().setFromPoints(points);
-            const material = new THREE.LineBasicMaterial({ color: 0xc5a880, transparent: true, opacity: 0.10 });
-            const line = new THREE.LineLoop(geometry, material);
-            line.rotation.x = Math.PI / 2; // Flat horizontal ring
-            line.position.y = yPos;
-            orbitGuideGroup.add(line);
-        });
-
         const logos: THREE.Mesh[] = [];
         const orbitalPoints = generateOrbitalSpherePoints();
 
@@ -389,9 +371,6 @@ export default function PartnerLogoSphere() {
             // Environment scaling
             floor.scale.set(RADIUS * 3, RADIUS * 3, 1);
             floor.position.y = -RADIUS - (isMobile ? 30 : 60);
-
-            // Scale orbital lines
-            orbitGuideGroup.scale.set(RADIUS, RADIUS, RADIUS * zFactor);
 
             // Center DRS Deals hero positioning with subtle 3D levitation floating motion
             const floatLevitation = Math.sin(elapsedTime * 2.2) * 4;
