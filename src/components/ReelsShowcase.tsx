@@ -15,30 +15,84 @@ interface ReelItem {
 const REELS: ReelItem[] = [
     {
         id: 'reel-1',
-        videoUrl: '/videos/cover-1.mp4',
-        posterUrl: '/videos/cover-1.webp',
-        title: '5-Star Luxury Stays & Fine Dining',
-        location: 'Sonipat Murthal & Delhi NCR',
-        tag: '#DRSDeals #LuxuryStays',
-        views: '45.2K views',
+        videoUrl: '/videos/reel-1.mp4',
+        posterUrl: '/videos/reel-1.webp',
+        title: 'High-Rope Zipline & Farm Adventure',
+        location: 'Adventure Day Outing & Picnic Park',
+        tag: '#AdventureActivities #DayOuting',
+        views: '48.2K views',
     },
     {
         id: 'reel-2',
-        videoUrl: '/videos/cover-2.mp4',
-        posterUrl: '/videos/cover-2.webp',
-        title: 'Adventure & Splash Waterpark Pass',
-        location: 'Mojoland Multi Theme Park',
-        tag: '#FamilyAdventure #Waterpark',
-        views: '38.9K views',
+        videoUrl: '/videos/reel-2.mp4',
+        posterUrl: '/videos/reel-2.webp',
+        title: 'Seamless 5-Star Hotel Stay & Check-in',
+        location: 'Partner Luxury Hotels & Suites',
+        tag: '#HotelStay #DRSDeals',
+        views: '62.4K views',
     },
     {
         id: 'reel-3',
-        videoUrl: '/videos/cover-3.mp4',
-        posterUrl: '/videos/cover-3.webp',
-        title: 'Serene Mountain Retreats & Manors',
-        location: 'Manali & Kasauli Hills',
-        tag: '#MountainVibes #ResortLife',
-        views: '52.1K views',
+        videoUrl: '/videos/reel-3.mp4',
+        posterUrl: '/videos/reel-3.webp',
+        title: 'Mojoland Multi Theme & Water Park Entry',
+        location: 'Mojoland Multi Theme Park, Murthal',
+        tag: '#Mojoland #WaterPark',
+        views: '74.1K views',
+    },
+    {
+        id: 'reel-4',
+        videoUrl: '/videos/reel-4.mp4',
+        posterUrl: '/videos/reel-4.webp',
+        title: 'Grand Palatial Resort & Royal Lawns',
+        location: 'Luxury Heritage Resorts & Stays',
+        tag: '#HeritageResort #LuxuryRetreat',
+        views: '53.8K views',
+    },
+    {
+        id: 'reel-5',
+        videoUrl: '/videos/reel-5.mp4',
+        posterUrl: '/videos/reel-5.webp',
+        title: 'Comfortable Luxury Suite & Bed Experience',
+        location: 'Partner Boutique Resorts & Hotels',
+        tag: '#ResortLife #WeekendGetaway',
+        views: '41.5K views',
+    },
+    {
+        id: 'reel-6',
+        videoUrl: '/videos/reel-6.mp4',
+        posterUrl: '/videos/reel-6.webp',
+        title: 'Lavish Atrium Lobby & Lounge Ambience',
+        location: 'Exclusive Hospitality Partner Stays',
+        tag: '#BoutiqueHotels #Hospitality',
+        views: '39.7K views',
+    },
+    {
+        id: 'reel-7',
+        videoUrl: '/videos/reel-7.mp4',
+        posterUrl: '/videos/reel-7.webp',
+        title: 'Adrenaline Water Slides & Aqua Splash',
+        location: 'Partner Waterparks & Wave Pools',
+        tag: '#WaterparkFun #AquaSlides',
+        views: '88.3K views',
+    },
+    {
+        id: 'reel-8',
+        videoUrl: '/videos/reel-8.mp4',
+        posterUrl: '/videos/reel-8.webp',
+        title: 'Farm Picnic, Petting Zoo & Rural Vibes',
+        location: 'Eco-Farm Tourism & Nature Parks',
+        tag: '#FarmTourism #FamilyFun',
+        views: '34.6K views',
+    },
+    {
+        id: 'reel-9',
+        videoUrl: '/videos/reel-9.mp4',
+        posterUrl: '/videos/reel-9.webp',
+        title: 'Signature Classical Courtyard & Fountain',
+        location: 'Grand Resort & Banquet Estates',
+        tag: '#RoyalExperience #DRSDeals',
+        views: '59.2K views',
     },
 ];
 
@@ -171,9 +225,6 @@ export default function ReelsShowcase() {
 
                             {/* Badges & Meta */}
                             <div className="reel-top-bar">
-                                <span className="reel-live-badge">
-                                    <span className="live-dot" /> DRS LIVE
-                                </span>
                                 <span className="reel-views-pill">{REELS[activeIndex].views}</span>
                             </div>
 

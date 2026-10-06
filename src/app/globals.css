@@ -3948,7 +3948,7 @@ h1, h2, h3, h4, h5, h6 {
   left: 14px;
   right: 14px;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   z-index: 2;
 }
