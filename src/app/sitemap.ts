@@ -15,7 +15,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
         { url: `${baseUrl}/search`, lastModified: currentDate, changeFrequency: 'daily', priority: 0.9 },
         { url: `${baseUrl}/blog`, lastModified: currentDate, changeFrequency: 'daily', priority: 0.9 },
         
-        // Experiences
+        // Categories & Experiences
+        { url: `${baseUrl}/category`, lastModified: currentDate, changeFrequency: 'daily', priority: 0.9 },
+        { url: `${baseUrl}/category/hotel-resorts`, lastModified: currentDate, changeFrequency: 'daily', priority: 0.9 },
+        { url: `${baseUrl}/category/restaurants-bars`, lastModified: currentDate, changeFrequency: 'daily', priority: 0.9 },
+        { url: `${baseUrl}/category/theme-parks`, lastModified: currentDate, changeFrequency: 'daily', priority: 0.9 },
+        { url: `${baseUrl}/category/waterparks`, lastModified: currentDate, changeFrequency: 'daily', priority: 0.9 },
         { url: `${baseUrl}/experiences`, lastModified: currentDate, changeFrequency: 'weekly', priority: 0.85 },
         { url: `${baseUrl}/experiences/resorts`, lastModified: currentDate, changeFrequency: 'weekly', priority: 0.85 },
         { url: `${baseUrl}/experiences/dining`, lastModified: currentDate, changeFrequency: 'weekly', priority: 0.85 },

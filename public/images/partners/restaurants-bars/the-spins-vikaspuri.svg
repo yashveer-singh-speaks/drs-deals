@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <radialGradient id="rimGrad" cx="35%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#E22630"/>
+      <stop offset="70%" stop-color="#C01822"/>
+      <stop offset="100%" stop-color="#800D14"/>
+    </radialGradient>
+    <radialGradient id="innerPlate" cx="40%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="70%" stop-color="#F7F5F0"/>
+      <stop offset="100%" stop-color="#ECE6D8"/>
+    </radialGradient>
+    <linearGradient id="goldRing" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D4AF37"/>
+      <stop offset="50%" stop-color="#FFDF73"/>
+      <stop offset="100%" stop-color="#AA771C"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#000000" flood-opacity="0.25"/>
+    </filter>
+  </defs>
+
+  <!-- Outer 3D Crimson Rim -->
+  <circle cx="100" cy="100" r="96" fill="url(#rimGrad)" filter="url(#shadow)"/>
+  
+  <!-- Outer Gold Accent Line -->
+  <circle cx="100" cy="100" r="92" fill="none" stroke="url(#goldRing)" stroke-width="2"/>
+
+  <!-- Inner Plate -->
+  <circle cx="100" cy="100" r="82" fill="url(#innerPlate)"/>
+  <circle cx="100" cy="100" r="80" fill="none" stroke="rgba(170,119,28,0.25)" stroke-width="1.2"/>
+
+  <!-- Inner Luxury Emblem Box -->
+  <circle cx="100" cy="74" r="28" fill="#4A235A" opacity="0.95"/>
+  <circle cx="100" cy="74" r="26" fill="none" stroke="url(#goldRing)" stroke-width="1.5"/>
+  <text x="100" y="82" font-family="'Playfair Display', Georgia, serif" font-size="20" font-weight="bold" fill="#FFFFFF" text-anchor="middle" letter-spacing="1">S</text>
+
+  <!-- Brand Name Ribbon / Text -->
+  <text x="100" y="122" font-family="'Cinzel', 'Playfair Display', Georgia, serif" font-size="12" font-weight="700" fill="#1C1B1A" text-anchor="middle" letter-spacing="0.5">The Spins</text>
+  
+  <!-- Divider -->
+  <line x1="60" y1="130" x2="140" y2="130" stroke="#D4AF37" stroke-width="1" opacity="0.7"/>
+
+  <!-- Location Tag -->
+  <text x="100" y="145" font-family="system-ui, -apple-system, sans-serif" font-size="9" font-weight="600" fill="#716B64" text-anchor="middle" letter-spacing="0.5">Vikaspuri</text>
+  
+  <!-- Partner Verified Star -->
+  <text x="100" y="162" font-family="system-ui, sans-serif" font-size="8" font-weight="600" fill="#AA771C" text-anchor="middle" letter-spacing="1">★ PARTNER ★</text>
+</svg>

@@ -60,12 +60,12 @@ export default function Footer() {
                     <div className="footer-links footer-3d-item">
                         <h2 className="footer-heading-3d">Discover</h2>
                         <ul className="footer-list-3d">
-                            <li><Link href="/experiences/resorts">Resorts &amp; Hotels</Link></li>
-                            <li><Link href="/experiences/dining">Fine Dining</Link></li>
-                            <li><Link href="/experiences/spa">Spa &amp; Wellness</Link></li>
-                            <li><Link href="/experiences/water-parks">Water Parks</Link></li>
+                            <li><Link href="/category/hotel-resorts">Hotel &amp; Resorts</Link></li>
+                            <li><Link href="/category/restaurants-bars">Restaurants &amp; Bars</Link></li>
+                            <li><Link href="/category/theme-parks">Theme Parks &amp; Farms</Link></li>
+                            <li><Link href="/category/waterparks">Waterparks</Link></li>
                             <li><Link href="/destinations">All Destinations</Link></li>
-                            <li><Link href="/search">Search Catalog</Link></li>
+                            <li><Link href="/deals">All Deals</Link></li>
                         </ul>
                     </div>
 

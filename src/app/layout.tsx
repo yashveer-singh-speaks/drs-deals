@@ -146,7 +146,7 @@ export default function RootLayout({
                 name: siteConfig.name,
                 image: `${siteConfig.url}${siteConfig.logo}`,
                 url: `${siteConfig.url}/`,
-                priceRange: '₹750 - ₹25000',
+                priceRange: '₹749 - ₹25000',
                 telephone: siteConfig.contacts.hotline1,
                 address: {
                     '@type': 'PostalAddress',

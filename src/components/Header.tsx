@@ -76,8 +76,8 @@ export default function Header() {
                         <img
                             src={siteConfig.logo}
                             alt="DRS Deals Luxury Hospitality Logo"
-                            width={180}
-                            height={56}
+                            width={240}
+                            height={76}
                             decoding="async"
                             className="lux-logo-img"
                         />
@@ -219,11 +219,10 @@ export default function Header() {
                             </div>
                             <div className="mega-menu-list-col">
                                 <div className="mega-menu-title">Experiences</div>
-                                <Link href="/experiences/resorts" tabIndex={openDropdown === 'experiences' ? 0 : -1}>Resorts &amp; Hotels</Link>
-                                <Link href="/experiences/water-parks" tabIndex={openDropdown === 'experiences' ? 0 : -1}>Water Parks</Link>
-                                <Link href="/experiences/farmhouses" tabIndex={openDropdown === 'experiences' ? 0 : -1}>Farmhouses</Link>
-                                <Link href="/experiences/dining" tabIndex={openDropdown === 'experiences' ? 0 : -1}>Fine Dining</Link>
-                                <Link href="/experiences/spa" tabIndex={openDropdown === 'experiences' ? 0 : -1}>Spa &amp; Wellness</Link>
+                                <Link href="/category/hotel-resorts" tabIndex={openDropdown === 'experiences' ? 0 : -1}>Hotel &amp; Resorts</Link>
+                                <Link href="/category/restaurants-bars" tabIndex={openDropdown === 'experiences' ? 0 : -1}>Restaurants &amp; Bars</Link>
+                                <Link href="/category/theme-parks" tabIndex={openDropdown === 'experiences' ? 0 : -1}>Theme Parks</Link>
+                                <Link href="/category/waterparks" tabIndex={openDropdown === 'experiences' ? 0 : -1}>Waterparks</Link>
                             </div>
                             <div className="mega-menu-list-col">
                                 <div className="mega-menu-title">Collections</div>
@@ -273,12 +272,12 @@ export default function Header() {
                         <img
                             src={siteConfig.logo}
                             alt="DRS Deals Logo"
-                            width={130}
-                            height={32}
+                            width={160}
+                            height={44}
                             loading="lazy"
                             decoding="async"
                             className="brand-logo-img"
-                            style={{ height: '32px', width: 'auto', display: 'block', objectFit: 'contain' }}
+                            style={{ height: '44px', width: 'auto', display: 'block', objectFit: 'contain' }}
                         />
                     </Link>
                     <button className="close-drawer" aria-label="Close menu" onClick={closeDrawer} tabIndex={drawerOpen ? 0 : -1}>
@@ -300,7 +299,7 @@ export default function Header() {
                                 aria-expanded={openDropdown === 'mobile-experiences'}
                                 tabIndex={drawerOpen ? 0 : -1}
                             >
-                                <span>Experiences</span>
+                                <span>Categories &amp; Experiences</span>
                                 <svg
                                     className={`accordion-arrow ${openDropdown === 'mobile-experiences' ? 'open' : ''}`}
                                     width="16"
@@ -317,12 +316,11 @@ export default function Header() {
 
                             <div className={`drawer-accordion-content ${openDropdown === 'mobile-experiences' ? 'open' : ''}`} aria-hidden={openDropdown !== 'mobile-experiences'}>
                                 <div className="drawer-accordion-inner">
-                                    <Link href="/destinations" onClick={closeDrawer} tabIndex={drawerOpen && openDropdown === 'mobile-experiences' ? 0 : -1}>Destinations</Link>
-                                    <Link href="/experiences/resorts" onClick={closeDrawer} tabIndex={drawerOpen && openDropdown === 'mobile-experiences' ? 0 : -1}>Resorts &amp; Hotels</Link>
-                                    <Link href="/experiences/water-parks" onClick={closeDrawer} tabIndex={drawerOpen && openDropdown === 'mobile-experiences' ? 0 : -1}>Water Parks</Link>
-                                    <Link href="/experiences/farmhouses" onClick={closeDrawer} tabIndex={drawerOpen && openDropdown === 'mobile-experiences' ? 0 : -1}>Farmhouses</Link>
-                                    <Link href="/experiences/dining" onClick={closeDrawer} tabIndex={drawerOpen && openDropdown === 'mobile-experiences' ? 0 : -1}>Fine Dining</Link>
-                                    <Link href="/experiences/spa" onClick={closeDrawer} tabIndex={drawerOpen && openDropdown === 'mobile-experiences' ? 0 : -1}>Spa &amp; Wellness</Link>
+                                    <Link href="/category/hotel-resorts" onClick={closeDrawer} tabIndex={drawerOpen && openDropdown === 'mobile-experiences' ? 0 : -1}>Hotel &amp; Resorts</Link>
+                                    <Link href="/category/restaurants-bars" onClick={closeDrawer} tabIndex={drawerOpen && openDropdown === 'mobile-experiences' ? 0 : -1}>Restaurants &amp; Bars</Link>
+                                    <Link href="/category/theme-parks" onClick={closeDrawer} tabIndex={drawerOpen && openDropdown === 'mobile-experiences' ? 0 : -1}>Theme Parks</Link>
+                                    <Link href="/category/waterparks" onClick={closeDrawer} tabIndex={drawerOpen && openDropdown === 'mobile-experiences' ? 0 : -1}>Waterparks</Link>
+                                    <Link href="/destinations" onClick={closeDrawer} tabIndex={drawerOpen && openDropdown === 'mobile-experiences' ? 0 : -1}>All Destinations</Link>
                                 </div>
                             </div>
                         </div>

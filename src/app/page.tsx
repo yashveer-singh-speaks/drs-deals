@@ -411,7 +411,7 @@ export default function Home() {
                                 <div className="deal-partner">Madhavgarh Farms</div>
                                 <div className="deal-price-row">
                                     <div className="price-original">Village Pass</div>
-                                    <div className="price-deal">Contact for offers</div>
+                                    <div className="price-deal">₹749</div>
                                 </div>
                                 <Link href="/deals/madhavgarh-farms-gurgaon" aria-label="Enquire Details for Madhavgarh Farms Village Ticket" className="btn btn-outline" style={{ width: '100%', marginTop: '16px' }}>Enquire Details</Link>
                             </div>
@@ -438,7 +438,7 @@ export default function Home() {
                                 <div className="deal-partner">Mera Gaon Mera Desh</div>
                                 <div className="deal-price-row">
                                     <div className="price-original">Day Outing</div>
-                                    <div className="price-deal">Contact for offers</div>
+                                    <div className="price-deal">₹800</div>
                                 </div>
                                 <Link href="/deals/mera-gaon-mera-desh-murthal" aria-label="Enquire Details for Mera Gaon Mera Desh Pass" className="btn btn-outline" style={{ width: '100%', marginTop: '16px' }}>Enquire Details</Link>
                             </div>
@@ -535,40 +535,56 @@ export default function Home() {
                     </div>
                     
                     <div className="category-grid">
-                        <Link href="/experiences/resorts" className="category-card">
+                        <Link href="/category/hotel-resorts" className="category-card" aria-label="Explore Hotel & Resorts">
                             <img 
                                 src="/images/webp/explore-category-resorts.webp" 
-                                alt="Resorts" 
+                                alt="Hotel & Resorts" 
                                 width={360} 
                                 height={240} 
                                 loading="lazy" 
                             />
                             <div className="category-overlay">
-                                <h3 className="category-title">Resorts</h3>
+                                <span style={{ fontSize: '0.75rem', fontWeight: 600, color: 'var(--color-champagne-gold)', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '4px', display: 'block' }}>28+ Properties</span>
+                                <h3 className="category-title">Hotel &amp; Resorts</h3>
                             </div>
                         </Link>
-                        <Link href="/experiences/dining" className="category-card">
+                        <Link href="/category/restaurants-bars" className="category-card" aria-label="Explore Restaurants & Bars">
                             <img 
                                 src="/images/webp/explore-category-dining.webp" 
-                                alt="Dining" 
+                                alt="Restaurants & Bars" 
                                 width={360} 
                                 height={240} 
                                 loading="lazy" 
                             />
                             <div className="category-overlay">
-                                <h3 className="category-title">Dining</h3>
+                                <span style={{ fontSize: '0.75rem', fontWeight: 600, color: 'var(--color-champagne-gold)', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '4px', display: 'block' }}>68+ Destinations</span>
+                                <h3 className="category-title">Restaurants &amp; Bars</h3>
                             </div>
                         </Link>
-                        <Link href="/experiences/spa" className="category-card">
+                        <Link href="/category/theme-parks" className="category-card" aria-label="Explore Theme Parks & Farms">
                             <img 
-                                src="/images/webp/explore-category-spa.webp" 
-                                alt="Spa &amp; Wellness" 
+                                src="/images/webp/explore-category-theme-parks.webp" 
+                                alt="Theme Parks" 
                                 width={360} 
                                 height={240} 
                                 loading="lazy" 
                             />
                             <div className="category-overlay">
-                                <h3 className="category-title">Spa &amp; Wellness</h3>
+                                <span style={{ fontSize: '0.75rem', fontWeight: 600, color: 'var(--color-champagne-gold)', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '4px', display: 'block' }}>17+ Cultural Farms</span>
+                                <h3 className="category-title">Theme Parks</h3>
+                            </div>
+                        </Link>
+                        <Link href="/category/waterparks" className="category-card" aria-label="Explore Waterparks">
+                            <img 
+                                src="/images/webp/explore-category-waterparks.webp" 
+                                alt="Waterparks" 
+                                width={360} 
+                                height={240} 
+                                loading="lazy" 
+                            />
+                            <div className="category-overlay">
+                                <span style={{ fontSize: '0.75rem', fontWeight: 600, color: 'var(--color-champagne-gold)', textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '4px', display: 'block' }}>14+ Splash Parks</span>
+                                <h3 className="category-title">Waterparks</h3>
                             </div>
                         </Link>
                     </div>

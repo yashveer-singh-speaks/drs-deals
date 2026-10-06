@@ -14,7 +14,8 @@ export interface Deal {
     title: string;
     propertyName: string;
     tagline: string;
-    category: 'resorts' | 'water-parks' | 'farmhouses' | 'dining' | 'spa';
+    category: 'hotel-resorts' | 'restaurants-bars' | 'theme-parks' | 'waterparks' | 'resorts' | 'water-parks' | 'farmhouses' | 'dining' | 'spa' | string;
+    categories?: string[];
     categoryLabel: string;
     location: string;
     stateRegion: string;
@@ -62,7 +63,8 @@ export const DEALS_DATA: Deal[] = [
         title: 'Wyndham Garden Sonipat Murthal Five Star Hotel Membership',
         propertyName: 'Wyndham Garden Sonipat Murthal',
         tagline: 'Premium Five Star Hotel Membership in Sonipat Murthal',
-        category: 'resorts',
+        category: 'hotel-resorts',
+        categories: ['hotel-resorts'],
         categoryLabel: 'Five Star Hotel & Resort',
         location: 'Sonipat Murthal, Haryana',
         stateRegion: 'Delhi NCR and More',
@@ -119,7 +121,8 @@ export const DEALS_DATA: Deal[] = [
         title: 'Oren Kasauli Membership Card',
         propertyName: 'Oren Kasauli',
         tagline: 'One Year of Stay, Dining, Wellness and Leisure Benefits in Kasauli',
-        category: 'resorts',
+        category: 'hotel-resorts',
+        categories: ['hotel-resorts'],
         categoryLabel: 'Luxury Hill Resort & Spa',
         location: 'Kasauli, Himachal Pradesh',
         stateRegion: 'Delhi NCR and More',
@@ -167,7 +170,8 @@ export const DEALS_DATA: Deal[] = [
         title: 'Hotel SK Premium Membership',
         propertyName: 'Hotel SK Premium',
         tagline: 'One Membership. A Year of Hotel, Dining and Leisure Benefits.',
-        category: 'dining',
+        category: 'restaurants-bars',
+        categories: ['restaurants-bars', 'hotel-resorts'],
         categoryLabel: 'Hotel & Fine Dining',
         location: 'Mohan Nagar, Ghaziabad, UP',
         stateRegion: 'Delhi NCR and More',
@@ -219,7 +223,8 @@ export const DEALS_DATA: Deal[] = [
         title: 'Haut Monde Neemrana Membership Card',
         propertyName: 'Haut Monde',
         tagline: 'Exclusive Annual Membership for Stays, Dining & Leisure in Neemrana',
-        category: 'resorts',
+        category: 'hotel-resorts',
+        categories: ['hotel-resorts'],
         categoryLabel: 'Luxury Heritage Resort',
         location: 'Neemrana, Rajasthan',
         stateRegion: 'Delhi NCR and More',
@@ -283,7 +288,8 @@ export const DEALS_DATA: Deal[] = [
         title: 'Atma Yog Luxury Manor Membership',
         propertyName: 'Atma Yog Luxury Manor',
         tagline: 'A Year of Memorable Mountain Getaways in Manali',
-        category: 'resorts',
+        category: 'hotel-resorts',
+        categories: ['hotel-resorts'],
         categoryLabel: 'Luxury Mountain Manor',
         location: 'Manali, Himachal Pradesh',
         stateRegion: 'Delhi NCR and More',
@@ -328,7 +334,8 @@ export const DEALS_DATA: Deal[] = [
         title: 'Rangmanch Farms Day Outing Package',
         propertyName: 'Rangmanch Farms',
         tagline: 'Trending ⏫💥💥 - A Complete Day Out Filled With Food, Adventure & Entertainment',
-        category: 'farmhouses',
+        category: 'theme-parks',
+        categories: ['theme-parks'],
         categoryLabel: 'Adventure & Farmhouse Day Outing',
         location: 'Gurgaon, Haryana',
         stateRegion: 'Delhi NCR and More',
@@ -371,18 +378,19 @@ export const DEALS_DATA: Deal[] = [
         title: 'Madhavgarh Farms Village Experience Ticket',
         propertyName: 'Madhavgarh Farms',
         tagline: 'Trending ⏫💥💥 - Village Experience with Unlimited Food & Activities',
-        category: 'farmhouses',
+        category: 'theme-parks',
+        categories: ['theme-parks'],
         categoryLabel: 'Village Theme & Cultural Farm',
         location: 'Tikli Village, Badshahpur Road, Gurgaon',
         stateRegion: 'Delhi NCR and More',
-        price: 'Contact for offers',
+        price: '₹749',
         timings: 'Morning: 9:00 AM to 5:00 PM (Only morning slot available. Same day booking not available.)',
         isFeatured: true,
         featuredOrder: 7,
         overview: [
             'Madhavgarh Farms, located at Tikli Village, Badshahpur Road, Gurgaon, offers a rural themed day outing experience for customers looking for food, activities, entertainment and a refreshing change of pace.',
-            'The experience includes unlimited food and activities, allowing visitors to spend the day enjoying traditional village inspired experiences, entertainment and meals.',
-            'Contact DRS Deals for exclusive passes and corporate/family group packages.'
+            'The experience includes unlimited food and activities, allowing visitors to spend the day enjoying traditional village inspired experiences, entertainment and meals at a special price of ₹749.',
+            'Contact DRS Deals for verified passes and corporate/family group packages.'
         ],
         inclusions: [
             { title: 'Unlimited Village Food', description: 'Fresh, authentic rural buffet meals, snacks, beverages, and traditional delicacies.' },
@@ -391,7 +399,7 @@ export const DEALS_DATA: Deal[] = [
         kidsPricing: [
             'Kids up to 2.5 feet: FREE',
             'Kids 2.5 feet to 4 feet: Special Kid Pass Available',
-            'Guests above 4 feet: Full Access Pass Available'
+            'Guests above 4 feet: Full Access Pass Available (₹749)'
         ],
         conditionsAndTerms: [
             'SAME DAY BOOKING IS NOT AVAILABLE. Advance booking mandatory.',
@@ -417,18 +425,19 @@ export const DEALS_DATA: Deal[] = [
         title: 'Mera Gaon Mera Desh Village Experience Day Pass',
         propertyName: 'Mera Gaon Mera Desh',
         tagline: 'Trending ⏫💥💥 - Village Experience with Unlimited Food & Activities',
-        category: 'water-parks',
+        category: 'theme-parks',
+        categories: ['theme-parks', 'waterparks'],
         categoryLabel: 'Rural Cultural & Water Park',
         location: 'Murthal, Haryana',
         stateRegion: 'Delhi NCR and More',
-        price: 'Contact for offers',
+        price: '₹800',
         timings: 'Morning: 9:30 AM to 5:30 PM',
         isFeatured: true,
         featuredOrder: 8,
         overview: [
             'Mera Gaon Mera Desh in Murthal offers a day outing experience designed around rural India\'s traditional atmosphere, food, activities and entertainment.',
-            'With 60 plus activities, delicious unlimited meals and access to a water park, the experience is designed for visitors who want to spend an entire day enjoying food, adventure, and family entertainment.',
-            'Contact DRS Deals for special member passes and group reservations.'
+            'With 60 plus activities, delicious unlimited meals and full access to a water park at ₹800, the experience is designed for visitors who want to spend an entire day enjoying food, adventure, and family entertainment.',
+            'Contact DRS Deals for verified member passes and group reservations.'
         ],
         inclusions: [
             { title: 'Unlimited Food', description: 'Enjoy traditional village buffet meals and snacks throughout your stay.' },
@@ -438,7 +447,7 @@ export const DEALS_DATA: Deal[] = [
         kidsPricing: [
             'Kids up to 3 feet: FREE',
             'Kids 3 feet to 4 feet: Special Kid Pass Available',
-            'Guests above 4 feet: Full Access Pass Available'
+            'Guests above 4 feet: Full Access Pass Available (₹800)'
         ],
         conditionsAndTerms: [
             'DRS Deals is an authorised channel partner.',
@@ -464,7 +473,8 @@ export const DEALS_DATA: Deal[] = [
         title: 'The White Flower Resorts Membership',
         propertyName: 'The White Flower Resorts',
         tagline: 'One Membership. Two Destinations. A Year of Experiences.',
-        category: 'resorts',
+        category: 'hotel-resorts',
+        categories: ['hotel-resorts'],
         categoryLabel: 'Multi-Destination Luxury Resort',
         location: 'Mussoorie & Jim Corbett',
         stateRegion: 'Delhi NCR and More',
@@ -510,7 +520,8 @@ export const DEALS_DATA: Deal[] = [
         title: 'Mojoland Multi Theme Park Combo Pass',
         propertyName: 'Mojoland Multi Theme Park',
         tagline: 'One Ticket. Choose Any Two Parks in Murthal Sonipat.',
-        category: 'water-parks',
+        category: 'waterparks',
+        categories: ['waterparks', 'theme-parks'],
         categoryLabel: 'Multi Theme Park (Water, Snow, Adventure, Amusement)',
         location: 'Grand Trunk Road, Murthal, Sonipat, Haryana',
         stateRegion: 'Delhi NCR and More',
@@ -560,7 +571,18 @@ export function getDealBySlug(slug: string): Deal | undefined {
 }
 
 export function getDealsByCategory(category: string): Deal[] {
-    return DEALS_DATA.filter(d => d.category === category);
+    let normalized = category;
+    if (category === 'resorts' || category === 'hotels' || category === 'hotels-resorts') normalized = 'hotel-resorts';
+    if (category === 'dining' || category === 'restaurants' || category === 'restaurants-cafes') normalized = 'restaurants-bars';
+    if (category === 'farmhouses' || category === 'farms') normalized = 'theme-parks';
+    if (category === 'water-parks') normalized = 'waterparks';
+
+    return DEALS_DATA.filter(d => 
+        d.category === normalized || 
+        d.category === category || 
+        d.categories?.includes(normalized) || 
+        d.categories?.includes(category)
+    );
 }
 
 export function getDealsByLocation(locationKeyword: string): Deal[] {
