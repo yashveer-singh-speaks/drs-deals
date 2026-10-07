@@ -170,7 +170,7 @@ export const PARTNERS_DATA: PartnerBrand[] = [
         "location": "Neemrana",
         "brand": null,
         "category": "hotel-resorts",
-        "logoSrc": "/images/partners/hotel-resorts/haut-monde-neemrana.svg",
+        "logoSrc": "/images/partners/hotel-resorts/haut-monde-neemrana.webp",
         "order": 16
     },
     {
@@ -190,7 +190,7 @@ export const PARTNERS_DATA: PartnerBrand[] = [
         "location": "Zirakpur",
         "brand": null,
         "category": "hotel-resorts",
-        "logoSrc": "/images/partners/hotel-resorts/royal-park-resort-zirakpur.svg",
+        "logoSrc": "/images/partners/hotel-resorts/royal-park-resort-zirakpur.webp",
         "order": 18
     },
     {
@@ -200,7 +200,7 @@ export const PARTNERS_DATA: PartnerBrand[] = [
         "location": "Manali",
         "brand": null,
         "category": "hotel-resorts",
-        "logoSrc": "/images/partners/hotel-resorts/royal-park-resort-manali.svg",
+        "logoSrc": "/images/partners/hotel-resorts/royal-park-resort-manali.webp",
         "order": 19
     },
     {
@@ -210,7 +210,7 @@ export const PARTNERS_DATA: PartnerBrand[] = [
         "location": "Ambala",
         "brand": null,
         "category": "hotel-resorts",
-        "logoSrc": "/images/partners/hotel-resorts/palm-dela-ambala.svg",
+        "logoSrc": "/images/partners/hotel-resorts/palm-dela-ambala.webp",
         "order": 20
     },
     {
@@ -230,7 +230,7 @@ export const PARTNERS_DATA: PartnerBrand[] = [
         "location": "Alwar",
         "brand": null,
         "category": "hotel-resorts",
-        "logoSrc": "/images/partners/hotel-resorts/rj2-alwar.svg",
+        "logoSrc": "/images/partners/hotel-resorts/rj2-alwar.webp",
         "order": 22
     },
     {
@@ -240,7 +240,7 @@ export const PARTNERS_DATA: PartnerBrand[] = [
         "location": "Ambala",
         "brand": null,
         "category": "hotel-resorts",
-        "logoSrc": "/images/partners/hotel-resorts/amrapali-resort-ambala.svg",
+        "logoSrc": "/images/partners/hotel-resorts/amrapali-resort-ambala.webp",
         "order": 23
     },
     {
@@ -250,7 +250,7 @@ export const PARTNERS_DATA: PartnerBrand[] = [
         "location": "Ludhiana",
         "brand": null,
         "category": "hotel-resorts",
-        "logoSrc": "/images/partners/hotel-resorts/hotel-grand-silver-spoon-ludhiana.svg",
+        "logoSrc": "/images/partners/hotel-resorts/hotel-grand-silver-spoon-ludhiana.webp",
         "order": 24
     },
     {
@@ -280,7 +280,7 @@ export const PARTNERS_DATA: PartnerBrand[] = [
         "location": "Chandigarh",
         "brand": null,
         "category": "hotel-resorts",
-        "logoSrc": "/images/partners/hotel-resorts/hotel-heritage-chandigarh.svg",
+        "logoSrc": "/images/partners/hotel-resorts/hotel-heritage-chandigarh.webp",
         "order": 27
     },
     {
@@ -290,7 +290,7 @@ export const PARTNERS_DATA: PartnerBrand[] = [
         "location": "Punjab",
         "brand": null,
         "category": "hotel-resorts",
-        "logoSrc": "/images/partners/hotel-resorts/malwa-resort-punjab.svg",
+        "logoSrc": "/images/partners/hotel-resorts/malwa-resort-punjab.webp",
         "order": 28
     },
     {
@@ -360,7 +360,7 @@ export const PARTNERS_DATA: PartnerBrand[] = [
         "location": "New Delhi",
         "brand": null,
         "category": "restaurants-bars",
-        "logoSrc": "/images/partners/restaurants-bars/dana-choga-new-delhi.svg",
+        "logoSrc": "/images/partners/restaurants-bars/dana-choga-new-delhi.webp",
         "order": 7
     },
     {
@@ -380,7 +380,7 @@ export const PARTNERS_DATA: PartnerBrand[] = [
         "location": "New Delhi",
         "brand": null,
         "category": "restaurants-bars",
-        "logoSrc": "/images/partners/restaurants-bars/imly-new-delhi.svg",
+        "logoSrc": "/images/partners/restaurants-bars/imly-new-delhi.webp",
         "order": 9
     },
     {
@@ -390,7 +390,7 @@ export const PARTNERS_DATA: PartnerBrand[] = [
         "location": "New Delhi",
         "brand": null,
         "category": "restaurants-bars",
-        "logoSrc": "/images/partners/restaurants-bars/kake-da-hotel-new-delhi.svg",
+        "logoSrc": "/images/partners/restaurants-bars/kake-da-hotel-new-delhi.webp",
         "order": 10
     },
     {
@@ -400,7 +400,7 @@ export const PARTNERS_DATA: PartnerBrand[] = [
         "location": "New Delhi",
         "brand": null,
         "category": "restaurants-bars",
-        "logoSrc": "/images/partners/restaurants-bars/hot-mess-kitchen-bar-new-delhi.svg",
+        "logoSrc": "/images/partners/restaurants-bars/hot-mess-kitchen-bar-new-delhi.webp",
         "order": 11
     },
     {
@@ -410,7 +410,7 @@ export const PARTNERS_DATA: PartnerBrand[] = [
         "location": "New Delhi",
         "brand": null,
         "category": "restaurants-bars",
-        "logoSrc": "/images/partners/restaurants-bars/zabardast-kitchen-new-delhi.svg",
+        "logoSrc": "/images/partners/restaurants-bars/zabardast-kitchen-new-delhi.webp",
         "order": 12
     },
     {
@@ -430,7 +430,7 @@ export const PARTNERS_DATA: PartnerBrand[] = [
         "location": "Ludhiana",
         "brand": null,
         "category": "restaurants-bars",
-        "logoSrc": "/images/partners/restaurants-bars/tube-bar-exchange-ludhiana.svg",
+        "logoSrc": "/images/partners/restaurants-bars/tube-bar-exchange-ludhiana.webp",
         "order": 14
     },
     {
@@ -440,7 +440,7 @@ export const PARTNERS_DATA: PartnerBrand[] = [
         "location": "Ludhiana",
         "brand": null,
         "category": "restaurants-bars",
-        "logoSrc": "/images/partners/restaurants-bars/pk-talli-lounge-bar-ludhiana.svg",
+        "logoSrc": "/images/partners/restaurants-bars/pk-talli-lounge-bar-ludhiana.webp",
         "order": 15
     },
     {
@@ -450,7 +450,7 @@ export const PARTNERS_DATA: PartnerBrand[] = [
         "location": "Gurugram",
         "brand": null,
         "category": "restaurants-bars",
-        "logoSrc": "/images/partners/restaurants-bars/scene-high-bar-gurugram.svg",
+        "logoSrc": "/images/partners/restaurants-bars/scene-high-bar-gurugram.webp",
         "order": 16
     },
     {
@@ -460,7 +460,7 @@ export const PARTNERS_DATA: PartnerBrand[] = [
         "location": "Ludhiana",
         "brand": null,
         "category": "restaurants-bars",
-        "logoSrc": "/images/partners/restaurants-bars/hawaii-adda-ludhiana.svg",
+        "logoSrc": "/images/partners/restaurants-bars/hawaii-adda-ludhiana.webp",
         "order": 17
     },
     {
@@ -470,7 +470,7 @@ export const PARTNERS_DATA: PartnerBrand[] = [
         "location": "Ludhiana",
         "brand": null,
         "category": "restaurants-bars",
-        "logoSrc": "/images/partners/restaurants-bars/roche-ludhiana.svg",
+        "logoSrc": "/images/partners/restaurants-bars/roche-ludhiana.webp",
         "order": 18
     },
     {
@@ -480,7 +480,7 @@ export const PARTNERS_DATA: PartnerBrand[] = [
         "location": "Jalandhar, Punjab",
         "brand": null,
         "category": "restaurants-bars",
-        "logoSrc": "/images/partners/restaurants-bars/jungle-jamboree-jalandhar.svg",
+        "logoSrc": "/images/partners/restaurants-bars/jungle-jamboree-jalandhar.webp",
         "order": 19
     },
     {
@@ -510,7 +510,7 @@ export const PARTNERS_DATA: PartnerBrand[] = [
         "location": "New Delhi",
         "brand": null,
         "category": "restaurants-bars",
-        "logoSrc": "/images/partners/restaurants-bars/zerzura.svg",
+        "logoSrc": "/images/partners/restaurants-bars/zerzura.webp",
         "order": 22
     },
     {
@@ -520,7 +520,7 @@ export const PARTNERS_DATA: PartnerBrand[] = [
         "location": "Rajouri Garden",
         "brand": null,
         "category": "restaurants-bars",
-        "logoSrc": "/images/partners/restaurants-bars/the-sky-bar-rajouri-garden.svg",
+        "logoSrc": "/images/partners/restaurants-bars/the-sky-bar-rajouri-garden.webp",
         "order": 23
     },
     {
@@ -530,7 +530,7 @@ export const PARTNERS_DATA: PartnerBrand[] = [
         "location": "Rajouri Garden",
         "brand": null,
         "category": "restaurants-bars",
-        "logoSrc": "/images/partners/restaurants-bars/24-carat-lounge-rajouri-garden.svg",
+        "logoSrc": "/images/partners/restaurants-bars/24-carat-lounge-rajouri-garden.webp",
         "order": 24
     },
     {
@@ -540,7 +540,7 @@ export const PARTNERS_DATA: PartnerBrand[] = [
         "location": "Dwarka",
         "brand": null,
         "category": "restaurants-bars",
-        "logoSrc": "/images/partners/restaurants-bars/singh-sahib-dwarka.svg",
+        "logoSrc": "/images/partners/restaurants-bars/singh-sahib-dwarka.webp",
         "order": 25
     },
     {
@@ -550,7 +550,7 @@ export const PARTNERS_DATA: PartnerBrand[] = [
         "location": "Rajouri Garden",
         "brand": null,
         "category": "restaurants-bars",
-        "logoSrc": "/images/partners/restaurants-bars/kesar-rajouri-garden.svg",
+        "logoSrc": "/images/partners/restaurants-bars/kesar-rajouri-garden.webp",
         "order": 26
     },
     {
@@ -560,7 +560,7 @@ export const PARTNERS_DATA: PartnerBrand[] = [
         "location": "Rajouri Garden",
         "brand": null,
         "category": "restaurants-bars",
-        "logoSrc": "/images/partners/restaurants-bars/curry-n-cubes-rajouri-garden.svg",
+        "logoSrc": "/images/partners/restaurants-bars/curry-n-cubes-rajouri-garden.webp",
         "order": 27
     },
     {
@@ -570,7 +570,7 @@ export const PARTNERS_DATA: PartnerBrand[] = [
         "location": "Rajouri Garden",
         "brand": null,
         "category": "restaurants-bars",
-        "logoSrc": "/images/partners/restaurants-bars/freeze-ice-bar-rajouri-garden.svg",
+        "logoSrc": "/images/partners/restaurants-bars/freeze-ice-bar-rajouri-garden.webp",
         "order": 28
     },
     {
@@ -580,7 +580,7 @@ export const PARTNERS_DATA: PartnerBrand[] = [
         "location": "Rajouri Garden",
         "brand": null,
         "category": "restaurants-bars",
-        "logoSrc": "/images/partners/restaurants-bars/the-swank-lounge-rajouri-garden.svg",
+        "logoSrc": "/images/partners/restaurants-bars/the-swank-lounge-rajouri-garden.webp",
         "order": 29
     },
     {
@@ -590,7 +590,7 @@ export const PARTNERS_DATA: PartnerBrand[] = [
         "location": "Rajouri Garden",
         "brand": null,
         "category": "restaurants-bars",
-        "logoSrc": "/images/partners/restaurants-bars/high-street-cafe-rajouri-garden.svg",
+        "logoSrc": "/images/partners/restaurants-bars/high-street-cafe-rajouri-garden.webp",
         "order": 30
     },
     {
@@ -600,7 +600,7 @@ export const PARTNERS_DATA: PartnerBrand[] = [
         "location": "Rajouri Garden",
         "brand": null,
         "category": "restaurants-bars",
-        "logoSrc": "/images/partners/restaurants-bars/kadimi-rajouri-garden.svg",
+        "logoSrc": "/images/partners/restaurants-bars/kadimi-rajouri-garden.webp",
         "order": 31
     },
     {
@@ -610,7 +610,7 @@ export const PARTNERS_DATA: PartnerBrand[] = [
         "location": "Paschim Vihar",
         "brand": null,
         "category": "restaurants-bars",
-        "logoSrc": "/images/partners/restaurants-bars/red-chilli-paschim-vihar.svg",
+        "logoSrc": "/images/partners/restaurants-bars/red-chilli-paschim-vihar.webp",
         "order": 32
     },
     {
@@ -620,7 +620,7 @@ export const PARTNERS_DATA: PartnerBrand[] = [
         "location": "Janakpuri",
         "brand": null,
         "category": "restaurants-bars",
-        "logoSrc": "/images/partners/restaurants-bars/red-chilli-janakpuri.svg",
+        "logoSrc": "/images/partners/restaurants-bars/red-chilli-janakpuri.webp",
         "order": 33
     },
     {
@@ -630,7 +630,7 @@ export const PARTNERS_DATA: PartnerBrand[] = [
         "location": "Green Park",
         "brand": null,
         "category": "restaurants-bars",
-        "logoSrc": "/images/partners/restaurants-bars/red-chilli-green-park.svg",
+        "logoSrc": "/images/partners/restaurants-bars/red-chilli-green-park.webp",
         "order": 34
     },
     {
@@ -650,7 +650,7 @@ export const PARTNERS_DATA: PartnerBrand[] = [
         "location": "Janakpuri",
         "brand": null,
         "category": "restaurants-bars",
-        "logoSrc": "/images/partners/restaurants-bars/bite-bikaner-janakpuri.svg",
+        "logoSrc": "/images/partners/restaurants-bars/bite-bikaner-janakpuri.webp",
         "order": 36
     },
     {
@@ -670,7 +670,7 @@ export const PARTNERS_DATA: PartnerBrand[] = [
         "location": "Janakpuri",
         "brand": null,
         "category": "restaurants-bars",
-        "logoSrc": "/images/partners/restaurants-bars/kadimi-janakpuri.svg",
+        "logoSrc": "/images/partners/restaurants-bars/kadimi-janakpuri.webp",
         "order": 38
     },
     {
@@ -680,7 +680,7 @@ export const PARTNERS_DATA: PartnerBrand[] = [
         "location": "Dwarka",
         "brand": null,
         "category": "restaurants-bars",
-        "logoSrc": "/images/partners/restaurants-bars/kadimi-dwarka.svg",
+        "logoSrc": "/images/partners/restaurants-bars/kadimi-dwarka.webp",
         "order": 39
     },
     {
@@ -690,7 +690,7 @@ export const PARTNERS_DATA: PartnerBrand[] = [
         "location": "Tilak Nagar",
         "brand": null,
         "category": "restaurants-bars",
-        "logoSrc": "/images/partners/restaurants-bars/punjabi-haveli-tilak-nagar.svg",
+        "logoSrc": "/images/partners/restaurants-bars/punjabi-haveli-tilak-nagar.webp",
         "order": 40
     },
     {
@@ -700,7 +700,7 @@ export const PARTNERS_DATA: PartnerBrand[] = [
         "location": "Tilak Nagar",
         "brand": null,
         "category": "restaurants-bars",
-        "logoSrc": "/images/partners/restaurants-bars/grand-tavern-tilak-nagar.svg",
+        "logoSrc": "/images/partners/restaurants-bars/grand-tavern-tilak-nagar.webp",
         "order": 41
     },
     {
@@ -720,7 +720,7 @@ export const PARTNERS_DATA: PartnerBrand[] = [
         "location": "Tilak Nagar",
         "brand": null,
         "category": "restaurants-bars",
-        "logoSrc": "/images/partners/restaurants-bars/dilli-tadka-tilak-nagar.svg",
+        "logoSrc": "/images/partners/restaurants-bars/dilli-tadka-tilak-nagar.webp",
         "order": 43
     },
     {
@@ -740,7 +740,7 @@ export const PARTNERS_DATA: PartnerBrand[] = [
         "location": "Vikaspuri",
         "brand": null,
         "category": "restaurants-bars",
-        "logoSrc": "/images/partners/restaurants-bars/the-spins-vikaspuri.svg",
+        "logoSrc": "/images/partners/restaurants-bars/the-spins-vikaspuri.webp",
         "order": 45
     },
     {
@@ -790,7 +790,7 @@ export const PARTNERS_DATA: PartnerBrand[] = [
         "location": "Karol Bagh",
         "brand": null,
         "category": "restaurants-bars",
-        "logoSrc": "/images/partners/restaurants-bars/delly-belly-karol-bagh.svg",
+        "logoSrc": "/images/partners/restaurants-bars/delly-belly-karol-bagh.webp",
         "order": 50
     },
     {
@@ -800,7 +800,7 @@ export const PARTNERS_DATA: PartnerBrand[] = [
         "location": "West Patel Nagar",
         "brand": null,
         "category": "restaurants-bars",
-        "logoSrc": "/images/partners/restaurants-bars/delly-belly-west-patel-nagar.svg",
+        "logoSrc": "/images/partners/restaurants-bars/delly-belly-west-patel-nagar.webp",
         "order": 51
     },
     {
@@ -810,7 +810,7 @@ export const PARTNERS_DATA: PartnerBrand[] = [
         "location": "Rajendra Place",
         "brand": null,
         "category": "restaurants-bars",
-        "logoSrc": "/images/partners/restaurants-bars/delly-belly-rajendra-place.svg",
+        "logoSrc": "/images/partners/restaurants-bars/delly-belly-rajendra-place.webp",
         "order": 52
     },
     {
@@ -820,7 +820,7 @@ export const PARTNERS_DATA: PartnerBrand[] = [
         "location": "Janakpuri",
         "brand": null,
         "category": "restaurants-bars",
-        "logoSrc": "/images/partners/restaurants-bars/singz-janakpuri.svg",
+        "logoSrc": "/images/partners/restaurants-bars/singz-janakpuri.webp",
         "order": 53
     },
     {
@@ -840,7 +840,7 @@ export const PARTNERS_DATA: PartnerBrand[] = [
         "location": "New Delhi",
         "brand": null,
         "category": "restaurants-bars",
-        "logoSrc": "/images/partners/restaurants-bars/sun-n-moon-new-delhi.svg",
+        "logoSrc": "/images/partners/restaurants-bars/sun-n-moon-new-delhi.webp",
         "order": 55
     },
     {
@@ -850,7 +850,7 @@ export const PARTNERS_DATA: PartnerBrand[] = [
         "location": "New Delhi",
         "brand": null,
         "category": "restaurants-bars",
-        "logoSrc": "/images/partners/restaurants-bars/kafila-restaurant-new-delhi.svg",
+        "logoSrc": "/images/partners/restaurants-bars/kafila-restaurant-new-delhi.webp",
         "order": 56
     },
     {
@@ -870,7 +870,7 @@ export const PARTNERS_DATA: PartnerBrand[] = [
         "location": "New Delhi",
         "brand": null,
         "category": "restaurants-bars",
-        "logoSrc": "/images/partners/restaurants-bars/lotus-kitchen.svg",
+        "logoSrc": "/images/partners/restaurants-bars/lotus-kitchen.webp",
         "order": 58
     },
     {
@@ -890,7 +890,7 @@ export const PARTNERS_DATA: PartnerBrand[] = [
         "location": "New Delhi",
         "brand": null,
         "category": "restaurants-bars",
-        "logoSrc": "/images/partners/restaurants-bars/madrina-restaurant.svg",
+        "logoSrc": "/images/partners/restaurants-bars/madrina-restaurant.webp",
         "order": 60
     },
     {
@@ -900,7 +900,7 @@ export const PARTNERS_DATA: PartnerBrand[] = [
         "location": "New Delhi",
         "brand": null,
         "category": "restaurants-bars",
-        "logoSrc": "/images/partners/restaurants-bars/laaliten.svg",
+        "logoSrc": "/images/partners/restaurants-bars/laaliten.webp",
         "order": 61
     },
     {
@@ -910,7 +910,7 @@ export const PARTNERS_DATA: PartnerBrand[] = [
         "location": "New Delhi",
         "brand": null,
         "category": "restaurants-bars",
-        "logoSrc": "/images/partners/restaurants-bars/70mm-cinema-bar.svg",
+        "logoSrc": "/images/partners/restaurants-bars/70mm-cinema-bar.webp",
         "order": 62
     },
     {
@@ -950,7 +950,7 @@ export const PARTNERS_DATA: PartnerBrand[] = [
         "location": "New Delhi",
         "brand": null,
         "category": "restaurants-bars",
-        "logoSrc": "/images/partners/restaurants-bars/aam-aadmi-ke-pakwaan.svg",
+        "logoSrc": "/images/partners/restaurants-bars/aam-aadmi-ke-pakwaan.webp",
         "order": 66
     },
     {
@@ -1040,7 +1040,7 @@ export const PARTNERS_DATA: PartnerBrand[] = [
         "location": "Gurugram",
         "brand": null,
         "category": "theme-parks",
-        "logoSrc": "/images/partners/theme-parks/yaduvanshi-farms.svg",
+        "logoSrc": "/images/partners/theme-parks/yaduvanshi-farms.webp",
         "order": 7
     },
     {
@@ -1050,7 +1050,7 @@ export const PARTNERS_DATA: PartnerBrand[] = [
         "location": "Gurugram",
         "brand": null,
         "category": "theme-parks",
-        "logoSrc": "/images/partners/theme-parks/vishal-garh-farms.svg",
+        "logoSrc": "/images/partners/theme-parks/vishal-garh-farms.webp",
         "order": 8
     },
     {
@@ -1070,7 +1070,7 @@ export const PARTNERS_DATA: PartnerBrand[] = [
         "location": "Mayur Vihar, New Delhi",
         "brand": null,
         "category": "theme-parks",
-        "logoSrc": "/images/partners/theme-parks/eod-adventure-park.svg",
+        "logoSrc": "/images/partners/theme-parks/eod-adventure-park.webp",
         "order": 10
     },
     {
@@ -1080,7 +1080,7 @@ export const PARTNERS_DATA: PartnerBrand[] = [
         "location": "Pataudi, Gurgaon",
         "brand": null,
         "category": "theme-parks",
-        "logoSrc": "/images/partners/theme-parks/thakran-dani.svg",
+        "logoSrc": "/images/partners/theme-parks/thakran-dani.webp",
         "order": 11
     },
     {
@@ -1090,7 +1090,7 @@ export const PARTNERS_DATA: PartnerBrand[] = [
         "location": "Delhi NCR",
         "brand": null,
         "category": "theme-parks",
-        "logoSrc": "/images/partners/theme-parks/kridha-adventure-village.svg",
+        "logoSrc": "/images/partners/theme-parks/kridha-adventure-village.webp",
         "order": 12
     },
     {
@@ -1100,7 +1100,7 @@ export const PARTNERS_DATA: PartnerBrand[] = [
         "location": "Manesar",
         "brand": null,
         "category": "theme-parks",
-        "logoSrc": "/images/partners/theme-parks/delta-105-manesar.svg",
+        "logoSrc": "/images/partners/theme-parks/delta-105-manesar.webp",
         "order": 13
     },
     {
@@ -1110,7 +1110,7 @@ export const PARTNERS_DATA: PartnerBrand[] = [
         "location": "Venice Mall, Greater Noida",
         "brand": null,
         "category": "theme-parks",
-        "logoSrc": "/images/partners/theme-parks/masti-zone-amusement-center.svg",
+        "logoSrc": "/images/partners/theme-parks/masti-zone-amusement-center.webp",
         "order": 14
     },
     {
@@ -1120,7 +1120,7 @@ export const PARTNERS_DATA: PartnerBrand[] = [
         "location": "Venice Mall, Greater Noida",
         "brand": null,
         "category": "theme-parks",
-        "logoSrc": "/images/partners/theme-parks/snow-masti-venice-mall.svg",
+        "logoSrc": "/images/partners/theme-parks/snow-masti-venice-mall.webp",
         "order": 15
     },
     {
@@ -1130,7 +1130,7 @@ export const PARTNERS_DATA: PartnerBrand[] = [
         "location": "Greater Noida",
         "brand": null,
         "category": "theme-parks",
-        "logoSrc": "/images/partners/theme-parks/omaxe-dreamworld-indoor-theme-park.svg",
+        "logoSrc": "/images/partners/theme-parks/omaxe-dreamworld-indoor-theme-park.webp",
         "order": 16
     },
     {
@@ -1140,7 +1140,7 @@ export const PARTNERS_DATA: PartnerBrand[] = [
         "location": "Trampoline Park, Gurugram",
         "brand": null,
         "category": "theme-parks",
-        "logoSrc": "/images/partners/theme-parks/jumpoline-amusement-centre.svg",
+        "logoSrc": "/images/partners/theme-parks/jumpoline-amusement-centre.webp",
         "order": 17
     },
     {
@@ -1220,7 +1220,7 @@ export const PARTNERS_DATA: PartnerBrand[] = [
         "location": "New Delhi",
         "brand": null,
         "category": "waterparks",
-        "logoSrc": "/images/partners/waterparks/lost-city-new-delhi.svg",
+        "logoSrc": "/images/partners/waterparks/lost-city-new-delhi.webp",
         "order": 8
     },
     {
@@ -1270,7 +1270,7 @@ export const PARTNERS_DATA: PartnerBrand[] = [
         "location": "New Delhi",
         "brand": null,
         "category": "waterparks",
-        "logoSrc": "/images/partners/waterparks/just-chill-water-park.svg",
+        "logoSrc": "/images/partners/waterparks/just-chill-water-park.webp",
         "order": 13
     },
     {
@@ -1280,7 +1280,7 @@ export const PARTNERS_DATA: PartnerBrand[] = [
         "location": "Bahadurgarh",
         "brand": null,
         "category": "waterparks",
-        "logoSrc": "/images/partners/waterparks/fun-town-bahadurgarh.svg",
+        "logoSrc": "/images/partners/waterparks/fun-town-bahadurgarh.webp",
         "order": 14
     }
 ];

@@ -20,30 +20,15 @@
     </filter>
   </defs>
 
-  <!-- Outer 3D Crimson Rim -->
   <circle cx="100" cy="100" r="96" fill="url(#rimGrad)" filter="url(#shadow)"/>
-  
-  <!-- Outer Gold Accent Line -->
   <circle cx="100" cy="100" r="92" fill="none" stroke="url(#goldRing)" stroke-width="2"/>
-
-  <!-- Inner Plate -->
   <circle cx="100" cy="100" r="82" fill="url(#innerPlate)"/>
   <circle cx="100" cy="100" r="80" fill="none" stroke="rgba(170,119,28,0.25)" stroke-width="1.2"/>
-
-  <!-- Inner Luxury Emblem Box -->
   <circle cx="100" cy="74" r="28" fill="#B9770E" opacity="0.95"/>
   <circle cx="100" cy="74" r="26" fill="none" stroke="url(#goldRing)" stroke-width="1.5"/>
   <text x="100" y="82" font-family="'Playfair Display', Georgia, serif" font-size="20" font-weight="bold" fill="#FFFFFF" text-anchor="middle" letter-spacing="1">PBT</text>
-
-  <!-- Brand Name Ribbon / Text -->
   <text x="100" y="122" font-family="'Cinzel', 'Playfair Display', Georgia, serif" font-size="12" font-weight="700" fill="#1C1B1A" text-anchor="middle" letter-spacing="0.5">Punjabi By Taste</text>
-  
-  <!-- Divider -->
   <line x1="60" y1="130" x2="140" y2="130" stroke="#D4AF37" stroke-width="1" opacity="0.7"/>
-
-  <!-- Location Tag -->
   <text x="100" y="145" font-family="system-ui, -apple-system, sans-serif" font-size="9" font-weight="600" fill="#716B64" text-anchor="middle" letter-spacing="0.5">New Delhi</text>
-  
-  <!-- Partner Verified Star -->
   <text x="100" y="162" font-family="system-ui, sans-serif" font-size="8" font-weight="600" fill="#AA771C" text-anchor="middle" letter-spacing="1">★ PARTNER ★</text>
 </svg>
