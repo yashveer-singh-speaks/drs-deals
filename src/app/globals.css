@@ -4491,20 +4491,21 @@ textarea:focus-visible {
   will-change: transform;
 }
 
+.category-marquee-scroll-rtl,
 .category-marquee-scroll-ltr {
-  animation: marqueeLTR 40s linear infinite;
+  animation: marqueeRTL 60s linear infinite;
 }
 
 .category-marquee-viewport:hover .category-marquee-track {
   animation-play-state: paused;
 }
 
-@keyframes marqueeLTR {
+@keyframes marqueeRTL {
   0% {
-    transform: translateX(-50%);
+    transform: translate3d(0, 0, 0);
   }
   100% {
-    transform: translateX(0%);
+    transform: translate3d(-50%, 0, 0);
   }
 }
 

@@ -16,6 +16,13 @@ export default function CategoryMarquee({ partners, categoryTitle, totalCount }:
     // Duplicate list to achieve a seamless, continuous infinite scroll marquee loop
     const marqueeItems = [...partners, ...partners];
 
+    // Constant speed across all category pages:
+    // Each item takes 5 seconds (~40px/second constant velocity), guaranteeing that regardless of whether
+    // a category has 14, 17, 28, or 68 logos, the logos glide at the exact same calm, readable speed,
+    // comfortably slower than the previous rush on Restaurants & Bars.
+    const secondsPerItem = 5;
+    const animationDuration = partners.length * secondsPerItem;
+
     return (
         <section className="category-marquee-section" aria-label={`Previous ${categoryTitle} Brands and Partners`}>
             <div className="container" style={{ marginBottom: '20px' }}>
@@ -37,9 +44,12 @@ export default function CategoryMarquee({ partners, categoryTitle, totalCount }:
                 </div>
             </div>
 
-            {/* Horizontal Moving Logo Strip (Left to Right) */}
+            {/* Horizontal Moving Logo Strip (Right to Left at constant speed) */}
             <div className="category-marquee-viewport">
-                <div className="category-marquee-track category-marquee-scroll-ltr">
+                <div
+                    className="category-marquee-track category-marquee-scroll-rtl"
+                    style={{ animationDuration: `${animationDuration}s` }}
+                >
                     {marqueeItems.map((partner, index) => (
                         <div key={`${partner.id}-${index}`} className="category-marquee-item">
                             <div className="category-marquee-logo-card">
