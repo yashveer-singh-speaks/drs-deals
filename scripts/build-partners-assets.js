@@ -230,6 +230,72 @@ async function convertImageToWebp(srcPath, destPath, webpCopyPath) {
   }
 }
 
+function getKey(item) {
+  return (item.name || '').trim().toLowerCase();
+}
+
+function countCollisions(arr) {
+  let col = 0;
+  for (let i = 0; i < arr.length - 1; i++) {
+    if (getKey(arr[i]) === getKey(arr[i + 1]) || arr[i].logoSrc === arr[i + 1].logoSrc) {
+      col++;
+    }
+  }
+  if (arr.length > 1 && (getKey(arr[0]) === getKey(arr[arr.length - 1]) || arr[0].logoSrc === arr[arr.length - 1].logoSrc)) {
+    col++;
+  }
+  return col;
+}
+
+function disperseCategory(items) {
+  let best = null;
+  let minCollisions = 999;
+
+  for (let attempt = 0; attempt < 500; attempt++) {
+    const groups = {};
+    for (const item of items) {
+      const k = getKey(item);
+      if (!groups[k]) groups[k] = [];
+      groups[k].push(item);
+    }
+
+    for (const k in groups) {
+      groups[k].sort(() => Math.random() - 0.5);
+    }
+
+    const keys = Object.keys(groups).sort((a, b) => {
+      if (groups[b].length !== groups[a].length) return groups[b].length - groups[a].length;
+      return Math.random() - 0.5;
+    });
+
+    const maxFreq = groups[keys[0]].length;
+    const buckets = Array.from({ length: maxFreq }, () => []);
+
+    for (const k of keys) {
+      const groupItems = groups[k];
+      const offset = Math.floor(Math.random() * maxFreq);
+      for (let i = 0; i < groupItems.length; i++) {
+        buckets[(offset + i) % maxFreq].push(groupItems[i]);
+      }
+    }
+
+    for (const b of buckets) {
+      b.sort(() => Math.random() - 0.5);
+    }
+
+    const candidate = buckets.flat();
+    const col = countCollisions(candidate);
+    if (col === 0) {
+      return candidate;
+    }
+    if (col < minCollisions) {
+      minCollisions = col;
+      best = candidate;
+    }
+  }
+  return best || items;
+}
+
 async function main() {
   const allProcessedPartners = [];
   const diningFiles = fs.readdirSync(path.join(LOGOS_NEW, 'Restraunt & Cafe'));
@@ -237,6 +303,7 @@ async function main() {
   for (const [categoryKey, list] of Object.entries(partnersData)) {
     const catFolder = categoryKey;
     const targetDir = path.join(PARTNERS_DIR, catFolder);
+    const categoryPartners = [];
 
     for (let index = 0; index < list.length; index++) {
       const item = list[index];
@@ -313,17 +380,23 @@ async function main() {
         logoPath = `/images/partners/${catFolder}/${destFile}`;
       }
 
-      allProcessedPartners.push({
+      categoryPartners.push({
         id: `${catFolder}-${item.slug}`,
         slug: item.slug,
         name: item.name,
         location: item.location,
         brand: item.brand || null,
         category: categoryKey,
-        logoSrc: logoPath,
-        order: index + 1
+        logoSrc: logoPath
       });
     }
+
+    // Randomize with maximum dispersion: identical brands/logos are spaced far apart
+    const dispersed = disperseCategory(categoryPartners);
+    dispersed.forEach((p, idx) => {
+      p.order = idx + 1;
+      allProcessedPartners.push(p);
+    });
   }
 
   // Generate src/data/partners.ts
