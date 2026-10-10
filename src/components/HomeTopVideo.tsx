@@ -41,10 +41,9 @@ export default function HomeTopVideo() {
                     muted
                     playsInline
                     preload="auto"
-                    poster="/videos/bg-vid-drs.webp"
                     aria-label="DRS Deals Luxury Leisure and Resort Highlights"
                 >
-                    <source src="/videos/bg-vid-drs.mp4" type="video/mp4" />
+                    <source src="/videos/d.mp4" type="video/mp4" />
                     Your browser does not support the video tag.
                 </video>
 
