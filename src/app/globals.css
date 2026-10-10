@@ -4937,3 +4937,711 @@ textarea:focus-visible {
   }
 }
 
+/* =====================================================================
+   INTERACTIVE 3D CORPORATE CLIENT TRAIN SHOWCASE
+   ===================================================================== */
+
+.corporate-train-section {
+  position: relative;
+  padding: clamp(60px, 7vw, 100px) 0;
+  background: linear-gradient(180deg, #FAF8F5 0%, #F5EFEB 50%, #FAF8F5 100%);
+  overflow: hidden;
+  border-top: 1px solid rgba(197, 168, 128, 0.2);
+  border-bottom: 1px solid rgba(197, 168, 128, 0.2);
+}
+
+.train-stage-container {
+  position: relative;
+  width: 100%;
+  border-radius: 24px;
+  overflow: hidden;
+  background: radial-gradient(circle at 50% 15%, #221F1B 0%, #100F0D 60%, #080706 100%);
+  border: 1px solid rgba(197, 168, 128, 0.35);
+  box-shadow: 
+    0 24px 60px rgba(12, 10, 8, 0.22),
+    0 4px 16px rgba(12, 10, 8, 0.12),
+    inset 0 1px 0 rgba(197, 168, 128, 0.3);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 490px;
+}
+
+/* Atmospheric Delhi Metro Sky Backdrop */
+.train-sky-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.train-sky-glow {
+  position: absolute;
+  top: -80px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(197, 168, 128, 0.15) 0%, transparent 70%);
+}
+
+.delhi-skyline-silhouette {
+  position: absolute;
+  bottom: 36px;
+  left: 0;
+  right: 0;
+  height: 90px;
+  opacity: 0.18;
+  background-image: radial-gradient(circle at 10% 80%, rgba(255,255,255,0.4) 1px, transparent 1px),
+                    radial-gradient(circle at 35% 60%, rgba(255,255,255,0.4) 1px, transparent 1px),
+                    radial-gradient(circle at 75% 70%, rgba(255,255,255,0.4) 1px, transparent 1px);
+  background-size: 100px 100px;
+  border-bottom: 1px solid rgba(197, 168, 128, 0.15);
+}
+
+/* Metro Overhead Catenary Cable */
+.train-catenary-line {
+  position: absolute;
+  top: 155px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(197, 168, 128, 0.15) 0%, rgba(197, 168, 128, 0.5) 50%, rgba(197, 168, 128, 0.15) 100%);
+  box-shadow: 0 0 6px rgba(197, 168, 128, 0.3);
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* 3D Popping Corporate Client Logo Podium */
+.client-logo-podium {
+  position: absolute;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 25;
+  pointer-events: none;
+  will-change: transform, opacity;
+  transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.client-logo-podium.podium-active {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0) perspective(1000px) rotateX(0deg) scale(1);
+}
+
+.client-logo-podium.podium-hidden {
+  opacity: 0;
+  transform: translateX(-50%) translateY(40px) perspective(1000px) rotateX(15deg) scale(0.85);
+}
+
+.podium-aura-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 380px;
+  height: 240px;
+  background: radial-gradient(ellipse, rgba(197, 168, 128, 0.28) 0%, rgba(197, 168, 128, 0.05) 55%, transparent 75%);
+  pointer-events: none;
+  z-index: -1;
+  filter: blur(12px);
+}
+
+.podium-card {
+  background: rgba(255, 255, 255, 0.98);
+  border: 2px solid rgba(197, 168, 128, 0.75);
+  border-radius: 20px;
+  padding: 18px 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  min-width: 320px;
+  max-width: 440px;
+  box-shadow: 
+    0 20px 45px rgba(0, 0, 0, 0.35),
+    0 0 35px rgba(197, 168, 128, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  position: relative;
+}
+
+.podium-logo-wrap {
+  width: 150px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #FFFFFF;
+  border-radius: 12px;
+  padding: 6px 14px;
+  box-shadow: 
+    0 2px 8px rgba(0, 0, 0, 0.06),
+    inset 0 0 0 1px rgba(0, 0, 0, 0.08);
+}
+
+.podium-logo-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.podium-info {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.podium-client-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 2px;
+}
+
+.podium-station-tag {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 9999px;
+  background: rgba(197, 168, 128, 0.16);
+  color: #9A7B4F;
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.podium-corp-tag {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 9999px;
+  background: #1C1A18;
+  color: #E2CFB4;
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.podium-company-name {
+  font-family: var(--font-serif);
+  font-size: 1.28rem;
+  font-weight: 700;
+  color: #1C1A18;
+  margin: 0;
+  line-height: 1.25;
+  letter-spacing: 0.01em;
+}
+
+.podium-industry-name {
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: #8C6F42;
+  font-weight: 600;
+}
+
+/* Light Beam connecting Logo to Train Coach below */
+.podium-light-beam {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(180deg, rgba(197, 168, 128, 0.45) 0%, transparent 100%);
+  clip-path: polygon(25% 0%, 75% 0%, 100% 100%, 0% 100%);
+  pointer-events: none;
+}
+
+/* Train Viewport Stage */
+.train-viewport {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  mask-image: linear-gradient(to right, transparent 0%, black 7%, black 93%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 7%, black 93%, transparent 100%);
+}
+
+.train-motion-assembly {
+  display: flex;
+  align-items: flex-end;
+  will-change: transform;
+  position: relative;
+  margin-left: calc(50% - 220px);
+}
+
+.train-car {
+  flex-shrink: 0;
+  width: 440px;
+  height: 168px;
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+}
+
+.train-car-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: bottom;
+  pointer-events: none;
+  user-select: none;
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.45));
+}
+
+.train-live-badge-glow {
+  position: absolute;
+  bottom: 8px;
+  left: 45px;
+  background: rgba(18, 16, 14, 0.9);
+  border: 1px solid #C5A880;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  color: #FAF8F5;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 0 14px rgba(197, 168, 128, 0.4);
+  pointer-events: none;
+  z-index: 10;
+}
+
+.live-badge-pulse {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #22C55E;
+  box-shadow: 0 0 8px #22C55E;
+  animation: pulseLiveGreen 1.6s infinite ease-in-out;
+}
+
+@keyframes pulseLiveGreen {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.75); }
+}
+
+.train-car-coupler {
+  position: absolute;
+  right: -6px;
+  bottom: 12px;
+  width: 12px;
+  height: 6px;
+  background: #333;
+  border-radius: 2px;
+  z-index: 2;
+}
+
+/* Center Station Dock Beam */
+.train-center-dock {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 140px;
+  pointer-events: none;
+  z-index: 12;
+}
+
+.dock-beam-vertical {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(197, 168, 128, 0.75) 0%, rgba(197, 168, 128, 0.15) 80%, transparent 100%);
+}
+
+.dock-beam-glow {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #C5A880;
+  box-shadow: 0 0 16px #C5A880;
+}
+
+/* Concrete Metro Viaduct & Rail Track */
+.train-track-viaduct {
+  width: 100%;
+  height: 38px;
+  background: linear-gradient(180deg, #2D2A26 0%, #171614 60%, #0D0C0B 100%);
+  border-top: 2px solid #5C564E;
+  position: relative;
+  box-shadow: 
+    0 -2px 10px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(197, 168, 128, 0.3);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.track-rail-top {
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #8E8A85 0%, #D4CFCA 50%, #8E8A85 100%);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+}
+
+.track-sleepers-row {
+  width: 100%;
+  height: 8px;
+  background-image: repeating-linear-gradient(
+    90deg,
+    #1D1C1A 0px,
+    #1D1C1A 18px,
+    #423D37 18px,
+    #423D37 26px
+  );
+  opacity: 0.85;
+}
+
+.track-concrete-deck {
+  width: 100%;
+  height: 25px;
+  background: linear-gradient(180deg, #242220 0%, #151412 100%);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Dashboard Controls Bar */
+.train-controls-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 20px;
+  padding: 14px 24px;
+  background: #FFFFFF;
+  border: 1px solid var(--color-stone);
+  border-radius: 16px;
+  box-shadow: var(--shadow-soft);
+}
+
+.train-progress-info {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.train-pulse-status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 10px;
+  border-radius: 9999px;
+  background: rgba(197, 168, 128, 0.12);
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-charcoal);
+}
+
+.status-indicator-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.status-indicator-dot.dot-active {
+  background: #22C55E;
+  box-shadow: 0 0 6px #22C55E;
+}
+
+.status-indicator-dot.dot-paused {
+  background: #EAB308;
+  box-shadow: 0 0 6px #EAB308;
+}
+
+.train-counter-text {
+  font-family: var(--font-sans);
+  font-size: 0.84rem;
+  color: var(--color-charcoal-light);
+}
+
+.train-counter-text strong {
+  color: var(--color-charcoal);
+}
+
+.train-nav-buttons {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.train-nav-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #F5EFEB;
+  border: 1px solid var(--color-stone);
+  color: var(--color-charcoal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.train-nav-btn:hover {
+  background: #1C1A18;
+  color: #C5A880;
+  border-color: #1C1A18;
+  transform: translateY(-1px);
+}
+
+.train-play-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  border-radius: 9999px;
+  background: #1C1A18;
+  border: 1px solid #1C1A18;
+  color: #FAF8F5;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.train-play-btn:hover {
+  background: #C5A880;
+  border-color: #C5A880;
+  color: #1C1A18;
+  transform: translateY(-1px);
+}
+
+.train-play-btn.is-paused {
+  background: #9A7B4F;
+  border-color: #9A7B4F;
+  color: #FFFFFF;
+}
+
+/* Speed Multiplier 1x | 1.5x | 2x */
+.train-speed-selector {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.speed-label {
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-charcoal-light);
+}
+
+.speed-button-group {
+  display: flex;
+  align-items: center;
+  background: #F5EFEB;
+  border-radius: 8px;
+  padding: 3px;
+  border: 1px solid var(--color-stone);
+}
+
+.speed-btn {
+  border: none;
+  background: transparent;
+  padding: 5px 12px;
+  border-radius: 6px;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--color-charcoal);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.speed-btn:hover {
+  color: #9A7B4F;
+}
+
+.speed-btn.active {
+  background: #1C1A18;
+  color: #C5A880;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* Quick Client Selector Pills Track */
+.client-scroller-track {
+  margin-top: 16px;
+  width: 100%;
+  overflow-x: auto;
+  padding-bottom: 6px;
+  scrollbar-width: thin;
+}
+
+.client-scroller-track::-webkit-scrollbar {
+  height: 4px;
+}
+
+.client-scroller-track::-webkit-scrollbar-thumb {
+  background: rgba(197, 168, 128, 0.4);
+  border-radius: 4px;
+}
+
+.client-scroller-inner {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: max-content;
+  padding: 4px 2px;
+}
+
+.client-pill-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 9999px;
+  background: #FFFFFF;
+  border: 1px solid var(--color-stone);
+  font-family: var(--font-sans);
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: var(--color-charcoal);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.client-pill-chip:hover {
+  border-color: #C5A880;
+  transform: translateY(-1px);
+}
+
+.client-pill-chip.active-chip {
+  background: #1C1A18;
+  border-color: #C5A880;
+  color: #FAF8F5;
+  box-shadow: 0 2px 8px rgba(197, 168, 128, 0.3);
+}
+
+.chip-mini-logo {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+  border-radius: 3px;
+}
+
+.train-section-footer {
+  margin-top: 18px;
+  text-align: center;
+}
+
+.train-footer-note {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  color: var(--color-charcoal-light);
+  line-height: 1.5;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.train-footer-note strong {
+  color: var(--color-charcoal);
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1024px) {
+  .train-stage-container {
+    min-height: 440px;
+  }
+  .train-viewport {
+    height: 190px;
+  }
+  .train-car {
+    width: 380px;
+    height: 145px;
+  }
+  .podium-card {
+    min-width: 290px;
+    padding: 16px 20px;
+  }
+  .podium-company-name {
+    font-size: 1.15rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .corporate-train-section {
+    padding: 48px 0;
+  }
+  .train-stage-container {
+    min-height: 400px;
+    border-radius: 16px;
+  }
+  .train-viewport {
+    height: 160px;
+  }
+  .train-car {
+    width: 310px;
+    height: 125px;
+  }
+  .train-live-badge-glow {
+    bottom: 6px;
+    left: 20px;
+    font-size: 0.58rem;
+    padding: 2px 6px;
+  }
+  .client-logo-podium {
+    top: 14px;
+    width: 90%;
+    max-width: 340px;
+  }
+  .podium-card {
+    min-width: auto;
+    width: 100%;
+    padding: 12px 16px;
+    border-radius: 14px;
+    gap: 8px;
+  }
+  .podium-logo-wrap {
+    width: 110px;
+    height: 52px;
+  }
+  .podium-company-name {
+    font-size: 1.05rem;
+  }
+  .podium-industry-name {
+    font-size: 0.68rem;
+  }
+  .train-controls-bar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    padding: 12px 16px;
+  }
+  .train-progress-info,
+  .train-nav-buttons,
+  .train-speed-selector {
+    justify-content: center;
+  }
+}
+

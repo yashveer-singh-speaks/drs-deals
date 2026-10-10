@@ -1,4 +1,5 @@
 import HomeTopVideo from '@/components/HomeTopVideo';
+import CorporateTrainShowcase from '@/components/CorporateTrainShowcase';
 import PartnerLogoSphere from '@/components/PartnerLogoSphere';
 import React from 'react';
 import Link from 'next/link';
@@ -494,6 +495,9 @@ export default function Home() {
                     </div>
                 </div>
             </section>
+
+            {/* INTERACTIVE 3D CORPORATE CLIENT TRAIN SHOWCASE */}
+            <CorporateTrainShowcase />
 
             {/* TRUST GRID */}
             <section className="section-padding bg-white">
