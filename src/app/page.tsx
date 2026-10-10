@@ -1,3 +1,4 @@
+import HomeTopVideo from '@/components/HomeTopVideo';
 import PartnerLogoSphere from '@/components/PartnerLogoSphere';
 import React from 'react';
 import Link from 'next/link';
@@ -24,8 +25,11 @@ export const metadata: Metadata = {
 export default function Home() {
     return (
         <main>
-            {/* HERO SECTION */}
-            <section className="hero">
+            {/* SECTION 1: CINEMATIC LOOPING EXPERIENCE VIDEO */}
+            <HomeTopVideo />
+
+            {/* SECTION 2: HERO SECTION */}
+            <section id="hero-section" className="hero">
                 {/* DESKTOP HERO (Laptops, Desktops & Large Screens >= 1024px) */}
                 <div className="hero-desktop-wrapper">
                     <div className="hero-content">

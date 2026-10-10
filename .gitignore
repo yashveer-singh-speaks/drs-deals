@@ -43,3 +43,4 @@ next-env.d.ts
 *.log
 .turbo
 /videos/
+/bg-vid-drs.mp4
