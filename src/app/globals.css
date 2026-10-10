@@ -5582,3 +5582,281 @@ textarea:focus-visible {
   }
 }
 
+
+/* =========================================================================
+   REWRITTEN CONTINUOUS TRAIN STYLES (Overrides above rules)
+   ========================================================================= */
+
+.corporate-train-section {
+  position: relative;
+  padding: clamp(60px, 7vw, 100px) 0;
+  background: #FAF8F5;
+  overflow: hidden;
+  border-top: 1px solid rgba(197, 168, 128, 0.2);
+  border-bottom: 1px solid rgba(197, 168, 128, 0.2);
+}
+
+.train-stage-container {
+  position: relative;
+  width: 100%;
+  border-radius: 24px;
+  overflow: hidden;
+  background: #FAF8F5;
+  border: 1px solid rgba(197, 168, 128, 0.35);
+  box-shadow: 
+    0 10px 30px rgba(12, 10, 8, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  min-height: 400px;
+}
+
+/* Glowing Logo Card Popup */
+.client-logo-card-container {
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 25;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  will-change: opacity, transform;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.client-logo-card-container.card-visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0) scale(1);
+}
+
+.client-logo-card-container.card-hidden {
+  opacity: 0;
+  transform: translateX(-50%) translateY(30px) scale(0.9);
+}
+
+.client-logo-glow-card {
+  background: rgba(255, 255, 255, 0.98);
+  border: 2px solid #C5A880;
+  border-radius: 16px;
+  padding: 20px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  min-width: 280px;
+  box-shadow: 
+    0 15px 35px rgba(0, 0, 0, 0.15),
+    0 0 40px rgba(197, 168, 128, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.client-logo-image-wrapper {
+  width: 140px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #FFFFFF;
+  border-radius: 8px;
+  padding: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.client-logo-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.client-info-text {
+  text-align: center;
+}
+
+.client-name-bold {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1C1A18;
+  margin: 0 0 4px 0;
+}
+
+.client-industry-text {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #9A7B4F;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0;
+}
+
+/* Connecting Light Beam */
+.card-connecting-beam {
+  width: 3px;
+  height: 60px;
+  background: linear-gradient(180deg, rgba(197, 168, 128, 0.8) 0%, rgba(197, 168, 128, 0) 100%);
+  margin-top: -2px;
+}
+
+/* Continuous Train Track */
+.continuous-train-viewport {
+  width: 100%;
+  height: 180px;
+  position: relative;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.continuous-train-track {
+  display: flex;
+  width: max-content;
+  animation-name: trainScroll;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes trainScroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.train-car-set {
+  display: flex;
+}
+
+.train-middle-car {
+  position: relative;
+  width: 440px;
+  height: 170px;
+  flex-shrink: 0;
+}
+
+.train-middle-car .train-car-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: bottom;
+  filter: drop-shadow(0 10px 15px rgba(0,0,0,0.25));
+}
+
+.train-car-coupler {
+  position: absolute;
+  right: -8px;
+  bottom: 20px;
+  width: 16px;
+  height: 8px;
+  background: #333;
+  border-radius: 2px;
+  z-index: -1;
+}
+
+/* Track Base */
+.train-track-base {
+  width: 100%;
+  height: 25px;
+  background: linear-gradient(180deg, #3A3530 0%, #171614 100%);
+  position: relative;
+  border-top: 3px solid #8E8A85;
+  box-shadow: 0 -4px 15px rgba(0,0,0,0.2);
+}
+
+.track-rail-highlight {
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Sleek Floating Control Pill */
+.train-control-pill-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: -24px;
+  position: relative;
+  z-index: 30;
+}
+
+.train-control-pill {
+  display: flex;
+  align-items: center;
+  background: #1C1A18;
+  border: 1px solid #C5A880;
+  border-radius: 9999px;
+  padding: 6px 8px;
+  gap: 12px;
+  box-shadow: 
+    0 10px 25px rgba(0, 0, 0, 0.3),
+    inset 0 1px 1px rgba(255, 255, 255, 0.1);
+}
+
+.pill-play-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #C5A880;
+  color: #1C1A18;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pill-play-btn:hover {
+  background: #E2CFB4;
+  transform: scale(1.05);
+}
+
+.pill-divider {
+  width: 1px;
+  height: 24px;
+  background: rgba(197, 168, 128, 0.3);
+}
+
+.pill-speed-group {
+  display: flex;
+  gap: 4px;
+  padding-right: 8px;
+}
+
+.pill-speed-btn {
+  background: transparent;
+  border: none;
+  color: rgba(250, 248, 245, 0.6);
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pill-speed-btn:hover {
+  color: #C5A880;
+}
+
+.pill-speed-btn.active {
+  background: rgba(197, 168, 128, 0.15);
+  color: #C5A880;
+}
+
+@media (max-width: 768px) {
+  .train-middle-car {
+    width: 300px;
+    height: 120px;
+  }
+  .continuous-train-viewport {
+    height: 130px;
+  }
+  .client-logo-glow-card {
+    padding: 16px 20px;
+    min-width: 240px;
+  }
+}
