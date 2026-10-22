@@ -14,15 +14,6 @@ interface ReelItem {
 
 const REELS: ReelItem[] = [
     {
-        id: 'reel-1',
-        videoUrl: '/videos/reel-1.mp4',
-        posterUrl: '/videos/reel-1.webp',
-        title: 'High-Rope Zipline & Farm Adventure',
-        location: 'Adventure Day Outing & Picnic Park',
-        tag: '#AdventureActivities #DayOuting',
-        views: '48.2K views',
-    },
-    {
         id: 'reel-2',
         videoUrl: '/videos/reel-2.mp4',
         posterUrl: '/videos/reel-2.webp',
@@ -68,15 +59,6 @@ const REELS: ReelItem[] = [
         views: '39.7K views',
     },
     {
-        id: 'reel-7',
-        videoUrl: '/videos/reel-7.mp4',
-        posterUrl: '/videos/reel-7.webp',
-        title: 'Adrenaline Water Slides & Aqua Splash',
-        location: 'Partner Waterparks & Wave Pools',
-        tag: '#WaterparkFun #AquaSlides',
-        views: '88.3K views',
-    },
-    {
         id: 'reel-8',
         videoUrl: '/videos/reel-8.mp4',
         posterUrl: '/videos/reel-8.webp',
@@ -84,15 +66,6 @@ const REELS: ReelItem[] = [
         location: 'Eco-Farm Tourism & Nature Parks',
         tag: '#FarmTourism #FamilyFun',
         views: '34.6K views',
-    },
-    {
-        id: 'reel-9',
-        videoUrl: '/videos/reel-9.mp4',
-        posterUrl: '/videos/reel-9.webp',
-        title: 'Signature Classical Courtyard & Fountain',
-        location: 'Grand Resort & Banquet Estates',
-        tag: '#RoyalExperience #DRSDeals',
-        views: '59.2K views',
     },
 ];
 

@@ -98,6 +98,7 @@ export default function CorporateTrainShowcase() {
                         <div className="client-logo-glow-card">
                             <div className="client-logo-image-wrapper">
                                 <img
+                                    key={currentClient.id}
                                     src={currentClient.logoUrl}
                                     alt={currentClient.altText}
                                     className="client-logo-img"
