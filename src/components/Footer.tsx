@@ -89,6 +89,7 @@ export default function Footer() {
                             <li><Link href="/refunds">Refund Policy</Link></li>
                             <li><Link href="/terms">Terms of Service</Link></li>
                             <li><Link href="/privacy">Privacy Policy</Link></li>
+                            <li><Link href="/delete-account">Delete Account &amp; Data</Link></li>
                         </ul>
                     </div>
                 </div>
